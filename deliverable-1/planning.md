@@ -47,11 +47,20 @@
  * What is your testing strategy?
 
 #### Q5: What are the user stories that make up the MVP?
-
- * At least 5 user stories concerning the main features of the application - note that this can broken down further
- * You must follow proper user story format (as taught in lecture) ```As a <user of the app>, I want to <do something in the app> in order to <accomplish some goal>```
- * If you have a partner, these must be reviewed and accepted by them
- * The user stories should be written in Github and each one must have clear acceptance criteria.
+ 
+| #  |     User Story     |  Acceptance Criteria |
+|----------|:-------------:|:------:|
+| | |
+| 1 |  As an ethically-, environmentally- and health-conscious consumer, I want to read about Upendo Honey product and its origins (i.e. beekeepers that produce honey and their work conditions, forests where the honey is produced, honey qualities) in order to decide if Upendo Honey product meets my standards in regards to fair trade for me to buy it / continue buying it. | Information about each honey jar with a QR code / alphanumeric code, beekeepers that produced this honey and the forest of the honey origins should be clearly divided into different app subsections and be one-click accessible within the Upendo Honey application.  |
+| | |
+| 2 |  As a person who wants to read about Upendo Honey products without spending too much time on it, I want to be able to access information about a particular honey jar and its origins as quickly and as easily as possible to both get the information and save my time and effort.   |   A user should be able to scan QR code with any QR code scanner and/or enter a alphanumeric code at Upendo Honey application to open an application view with all the information about a particular honey jar and its origins    |
+| | |
+| 3 | As a curious consumer I want to see some new information about the product I consume in order to be entertained. |    UI should be simple and content-oriented to make it easier for a user to see images and read text. |
+| | |
+| 4 | As a person who likes beekeeper stories / forest images / health information / map information I want to share them on my social media in order to discuss them with my social media friends.|    Facebook, Twitter and Instagram sharing should be available for each beekeeper story / forest information / health information / map. |
+| | |
+| 5 | As Upendo Honey content manager I want to be able to add new content and edit content easily via an admin system in order to simplify the process of managing the content. |    User-friendly admin system should be available. |
+| | |
 
 ----
 
