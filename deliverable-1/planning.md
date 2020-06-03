@@ -116,9 +116,10 @@ Describe your team's working culture.
 ----
 ### Highlights
 
+### Highlights Presentation
 Please see a [Team Highlights presentation](https://docs.google.com/presentation/d/1Jh8lE6_ZKflD1rKErKmilVmNwf8e48eSYzeZLCFF-oA/edit?usp=sharing) (open the link, click 'present' and then 'play').
 
-## Decision-making
+### Decision-making
 After our first team meeting, where we discussed Partners proposals to choose a Partner to work with, we had another important discussion ― in Slack ― on decision making. Each member of our team wanted their voice to be heard and their opinion to be considered; no one wanted to “just get a pass” on this project and to be “only coding”, while others lead the project and make decisions. 
 As a result of this discussion we formulated rules of conduct to be followed throughout the project:
 
@@ -131,7 +132,7 @@ For example, after we voted for the ‘second-choice Partner option’, EduShare
 ![polls](img/poll.jpg)
 
 
-## Choosing a Partner 
+### Choosing a Partner 
 1. The first step in the process of choosing a Partner was for each team member to send their projects shortlist specifying their criteria for selecting a project, what is important to them and pros and cons of this project.
 
 2. The second step was a team meeting where everyone could present their shortlists and discuss their criteria. During this meeting some projects were removed from the shortlist (e.g. MedMe Health which required compliance with health regulations and was only a frontend project).
@@ -147,7 +148,7 @@ Please see below examples of our argumentation for adding a project to the short
 ![shortlist-1](img/shortlist_3.jpg)
 
 
-## Re-defining Partner’s Project
+### Re-defining Partner’s Project
 Reading the Upendo Honey proposal, our team thought that the application will be used mostly by Upendo Honey consumers who already like the product and want to learn more about it. But then, the first meeting with the Partner took us all by surprise.
 
 The Partner was looking for a marketing tool which would create “buzz” around Tanzanian honey. The main feature of the Partner’s existing application is showing a route that honey traveled from Tanzanian forest to a consumer’s table. The Partner wanted to make the app frontend less “clunky” and more responsive. Also, they missed an admin system which would ease their interaction with the database.
@@ -169,7 +170,7 @@ We created mockups and user flow map and decided to present our idea to the Part
  ![home-screen](img/home_screen.png)
  
  
-## Product Design
+### Product Design
 After our presentation, the Partner approved the idea of shifting the focus from the map to beekeepers stories, but also raised a concern that they might not have enough high-quality beekeepers portraits to support this idea.
 
 Considering this obstacle, together with the partner we decided to make a more flexible system allowing the Partner to choose and change a landing page for their application per QR-code; a user might be forwarded to a beekeeper portrait, forest image and story, “health” page or a map. This would allow the Partner to do an A/B testing and see which aspect of their product is more engaging and creates more social response.
