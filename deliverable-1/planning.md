@@ -80,15 +80,6 @@ Describe meetings (and other events) you are planning to have.
   
 #### Q8: What artifacts will you use to self-organize?
 
-List/describe the artifacts you will produce in order to organize your team.       
-
- * Artifacts can be To-Do lists, Task boards, schedule(s), meeting minutes, etc.
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * How do you prioritize tasks?
-   * How do tasks get assigned to team members?
-   * How do you determine the status of work from inception to completion?
-
 Communication and organization are key components to our team’s development process. Slack will continue to act as our main platform for general group communication in-between our (at least) bi-weekly Zoom meetings. We will be using our [Trello](https://trello.com/invite/b/IEykzkUB/007cafd0f1c7c4657b9d4864b5bba527/csc301) board to organize and assign tasks to group members. This will help us stay coordinated with one another, so we can always see who is doing what, and to get a bigger picture of what we are working towards. Our tasks will be prioritized by the degree of importance determined by our partners at Upendo Honey, and of course by the timeline set by course deadlines. We will also be prioritizing tasks that have dependencies farther ahead in the task chain. For example, if one group member is assigned a task, but they require a different task assigned to another group member to be completed first, then the earlier task will be assigned a higher priority and have an earlier deadline to avoid running into bottlenecks. In other words, we will try diligently to foresee task dependencies and assign priorities as needed in those situations.
 
 During our planned Zoom meetings, we discuss the topic we prepared in advance, and determine a schedule for our next Zoom meeting. We typically meet and discuss anywhere from 30 minutes to an hour, depending on our assigned tasks for the week. During our Zoom meetings, we determine what tasks need to be completed before the next deadline, and who will be assigned each task. Tasks will be assigned to team members that volunteer to complete the given task and they will be distributed based on each member's strengths. For instance, some team members have more experience working on the backend, and hence, will be assigned specific tasks within the backend framework.
@@ -116,17 +107,7 @@ Describe your team's working culture.
 ----
 ### Highlights
 
-Specify 3 - 5 key decisions and/or insights that came up during your meetings
-and/or collaborative process.
-
- * Short (5 min' read max)
- * Decisions can be related to the product and/or the team process.
-    * Mention which alternatives you were considering.
-    * Present the arguments for each alternative.
-    * Explain why the option you decided on makes the most sense for your team/product/users.
- * Essentially, we want to understand how (and why) you ended up with your current product and process plan.
- * This section is useful for important information regarding your decision making process that may not necessarily fit in other sections. 
-
+Please see a [Team Highlights presentation](https://docs.google.com/presentation/d/1Jh8lE6_ZKflD1rKErKmilVmNwf8e48eSYzeZLCFF-oA/edit?usp=sharing) (open the link, click 'present' and then 'play').
 
 ## Decision-making
 After our first team meeting, where we discussed Partners proposals to choose a Partner to work with, we had another important discussion ― in Slack ― on decision making. Each member of our team wanted their voice to be heard and their opinion to be considered; no one wanted to “just get a pass” on this project and to be “only coding”, while others lead the project and make decisions. 
@@ -138,7 +119,7 @@ As a result of this discussion we formulated rules of conduct to be followed thr
  
 For example, after we voted for the ‘second-choice Partner option’, EduShare project got the majority of votes. Then, after watching EduShare pitch video, our team had another meeting where a few team members said that the pitch video changed their opinion (the project turned out to be less defined than they thought) and they would like to re-vote. As a result of this discussion, a different project was chosen as the second-choice option.
 
-![polls](poll.jpg)
+![polls](img/poll.jpg)
 
 
 ## Choosing a Partner 
@@ -150,11 +131,11 @@ For example, after we voted for the ‘second-choice Partner option’, EduShare
 
 Please see below examples of our argumentation for adding a project to the shortlist.
 
-![shortlist-1](shortlist_1.jpg)
+![shortlist-1](img/shortlist_1.jpg)
 
-![shortlist-1](shortlist_2.jpg)
+![shortlist-1](img/shortlist_2.jpg)
 
-![shortlist-1](shortlist_3.jpg)
+![shortlist-1](img/shortlist_3.jpg)
 
 
 ## Re-defining Partner’s Project
@@ -176,7 +157,7 @@ We created mockups and user flow map and decided to present our idea to the Part
  * If the Partner decides to stick with improving the existing software or developing another map, we would ask to change a Partner
  * If the Partner approves the idea, we would adjust it per the Partner’s requests and continue working with Upendo Honey
  
- ![home-screen](home_screen.png)
+ ![home-screen](img/home_screen.png)
  
  
 ## Product Design
