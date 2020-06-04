@@ -18,7 +18,7 @@
    For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
  * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
  
-For early stage designs built on InVision please see our [mock-up] (https://invis.io/SRXIQCLXJHQ)
+For early stage designs built on InVision please see our [mock-up](https://invis.io/SRXIQCLXJHQ)
 
 #### Q2: Who are your target users?
 
@@ -52,7 +52,7 @@ Our deployment and testing will involve using a mixture of Jest (for testing web
 
 The website will roughly have an input for a code received by a honey consumer that will take them to a customized image introducing tanzanian honey. There will be images for the user to scroll through to take them to a page describing various aspects of honey production in Tanzania. They later are able to discover each aspect in more detail, whichever the user is most interested in. We will use an API that allows users to easily post their interests in whichever subject on their social media accounts. This simplifies the sharing of Upendo Honey’s promotion of honey.
 
-For more information explaining user flow and components please see this [diagram] (https://app.flowmapp.com/share/e3117da4390acbb8c1ea0f13cc42a0d0/userflow/92122/)
+For more information explaining user flow and components please see this [diagram](https://app.flowmapp.com/share/e3117da4390acbb8c1ea0f13cc42a0d0/userflow/92122/)
 
 #### Q5: What are the user stories that make up the MVP?
  
@@ -93,8 +93,10 @@ In our meetings with our partner we discussed the exact specifications of the we
 
 Meeting outcomes involved having specific appearances and templates to produce for our application. We have regular meetings from approximate ~9:30 - 11:00, usually ending early once all agenda items are addressed.
 
-**Meeting Minutes (With Partner):**
-Meeting 1: Understanding Partner Requirements (9:30am, Tuesday May 26th, 2020)
+#####Meeting Minutes (With Partner):
+
+**Meeting 1: Understanding Partner Requirements (9:30am, Tuesday May 26th, 2020)**
+
 Agenda:
 1. Upendo Honey to introduce their product and their vision/ideas for the application, including:
    * Target audience: different types of users and their goals
@@ -126,7 +128,8 @@ Outcomes:
 * Identified areas in which the partner was not clear on their ideas and attempted to fill in the gaps by formalizing questions to have partners answer in Google document prior to the next meeting
 
 
-Meeting 2: Clarifying partner Requirements (9:30, Tuesday June 2nd, 2020)
+**Meeting 2: Clarifying partner Requirements (9:30, Tuesday June 2nd, 2020)**
+
 Agenda: 
 1. Present idea of “Letters from Beekeepers” application to the partner using prepared mock-ups and user flow diagram.
 2. Allow the partner to provide feedback and comments on the proposal
@@ -162,6 +165,7 @@ The status and history of our work from inception to completion will be monitore
 #### Q9: What are the rules regarding how your team works?
 
 **Communication Guidelines:**
+
 Between Team Members: Communication is done primarily on Slack between the team members and Zoom for planned meetings. Multiple channels on the slack allow us for updates on various subjects including:
 * The Business Requirement Document (BRD)
 * Documentation of Code
@@ -174,14 +178,18 @@ With Partners: We will be communicating with our partner via a WhatsApp channel 
 Our process for communicating with our partner is as follows.  Major development changes will be communicated during our weekly meetings through discussion and by using mock-up designs created in InVision, user flow diagrams using FlowMapp and User Stories on Google Docs. At each meeting, we will also be presenting any milestones and issues that have come up according to a pre-planned agenda.  Should there be a need for urgent relay between weekly meetings, we will notify the partner through email or WhatsApp.  Depending on the need, we will link the work we require feedback on (e.g. detailed questions/documents/images on Google Docs or another software).
 
 **Accountability:**
+
 The project manager will be in charge of monitoring the progress of software development, while the scrum master will plan and organize the twice a week meetings.  They will primarily be the roles that assign tasks, monitor progress on Trello and ensure action items are completed within the predetermined deadline.
 
 While accountability is monitored by the roles above, it is enforced by the group as a whole rather than a specific moderator.  If someone does not complete a task or miss a meeting, the first step is communication and checking if something has come up.  If there was a legitimate reason for the oversight (and in our team we choose to trust what each team member says) then we set an alternative deadline or re-delegate the task according to the person’s needs.
 
 **Conflict Resolution:**
-    To deal with a dispute in preferences we have sessions where we have each member discuss their opinion about a particular subject. For example, when deciding partners we would have a series of votes for each potential partner anonymously. This way members can contribute their ideas freely. Afterwards, we would discuss the collectively most preferred ideas in detail and consider modifications or alternatives to an improved solution.
-    To address non-responsive team members we come together to choose a specific topic that is important to the project and ask them what they first think about it. It avoids their ideas from being rejected because there was an idea that came before theirs that others agreed with.
-    To solve discrepancies between conflicting opinions from an idea, we write down specifically where we disagree and work from there. We begin with how the disagreements began and why we thought one way of working was ineffective. This typical resulted in writing careful thoughtful opinions to why an idea was flawed and how to fix it.
+
+To deal with a dispute in preferences we have sessions where we have each member discuss their opinion about a particular subject. For example, when deciding partners we would have a series of votes for each potential partner anonymously. This way members can contribute their ideas freely. Afterwards, we would discuss the collectively most preferred ideas in detail and consider modifications or alternatives to an improved solution.
+
+To address non-responsive team members we come together to choose a specific topic that is important to the project and ask them what they first think about it. It avoids their ideas from being rejected because there was an idea that came before theirs that others agreed with.
+
+To solve discrepancies between conflicting opinions from an idea, we write down specifically where we disagree and work from there. We begin with how the disagreements began and why we thought one way of working was ineffective. This typical resulted in writing careful thoughtful opinions to why an idea was flawed and how to fix it.
 
 ----
 ### Highlights
