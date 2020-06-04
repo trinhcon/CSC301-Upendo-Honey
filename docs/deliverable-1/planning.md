@@ -6,18 +6,27 @@
  
 #### Q1: What are you planning to build?
 
- > Short (1 - 2 min' read)
- * Start with a single sentence, high-level description of the product.
- * Be clear - Describe the problem you are solving in simple terms.
- * Be concrete. For example:
-    * What are you planning to build? Is it a website, mobile app,
-   browser extension, command-line app, etc.?      
-    * When describing the problem/need, give concrete examples of common use cases.
-    * Assume your the reader knows nothing about the problem domain and provide the necessary context. 
- * Focus on *what* your product does, and avoid discussing *how* you're going to implement it.      
-   For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
- * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
- 
+We’re working with a social enterprise from Tanzania that helps beekeepers sell their organic honey to high end consumers primarily in Europe, but also in Australia, and North America. 
+
+They have two types of consumers:
+1. Honey wholesalers who rebrand the honey for their local markets
+2. Other food and beverage businesses who want to add the honey to their products  (e.g. microbreweries who want to add organic honey to their beer)
+
+Their goal is for this product to accomplish the following:
+* Increase the popularity of Tanzanian honey on the global market
+* Increase the perception of Tanzanian honey as a high value commodity (and distinguish it from cheaper, more common non-organic honey originating in Europe or China)
+* Create a conversational ‘talking point’ for customers of Upendo Honey’s  business partners (e.g. retailers, brewhouses) by allowing them to scan the jar or pull up a URL which explains the “cool factor” of this product
+
+To solve this problem, we are building a web application that will allow:
+1. Consumers to look up where their honey comes from, its health benefits, and whom they’re supporting
+2. Consumers to share the content from #1 over social media
+3. Upendo admins to monitor usage across their site to assess how successful it is
+
+Use cases (i.e. how our product will be used)
+* A consumer buys a jar of retail honey that was harvested by Upendo, they are curious about where it comes from, and they scan a QR code on the back of the honey
+* A consumer who has bought a product that has Upendo-harvested honey in it wants to tell their friends about how cool it is, so they share a link to details about that batch with their friends on social media
+* A retail who receives Upendo’s a marketing deck, and wants to know if Upendo’s values align with those of their brand
+
 For early stage designs built on InVision please see our [mock-up](https://invis.io/SRXIQCLXJHQ)
 
 #### Q2: Who are your target users?
@@ -30,6 +39,7 @@ Target users of the application are:
 * Honey Companies and Organizations that want to advertise where their product is stored and inform their customers with interesting stories to entice them into buying their product
 * Honey manufacturers who would like to build awareness of organic honey production to support workforce wages and communities built on the market.
 
+An example persona for a customer of Upendo [here](https://app.flowmapp.com/share/e3117da4390acbb8c1ea0f13cc42a0d0/personas/14239/)
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
     
@@ -49,6 +59,21 @@ React.JS will be used for front-end purposes, supplemented by the ionic framewor
 Django will be used for the main backend framework and it will work in conjunction with PostgreSQL to maintain a database for the website. This was chosen due to the desire for simplicity of use and interface. Django allows backend maintenance workers to work with a simpler interface. PostgreSQL is the most common database language and one which our partner has experience using.
 
 Our deployment and testing will involve using a mixture of Jest (for testing web features), the Ionic framework’s built-in CI/CD pipeline features, Github Actions (for automated testing and deployment) and Heroku (for deploying a host for our website). Our main testing strategy for our (relatively simple) website is to develop unit tests for each web component used on the mobile web app. This ensures that each screen individually works well on a mobile phone. For backend end this will involve unit testing each database transaction and manipulations to objects (particularly string manipulations). In addition, to perform integration testing, we will have mock protocols to simulate front/back ends of the website.
+
+The following is a draft diagram of the architecture.
+High level components - web application:
+* Django backend server, hosted by Heroku
+* Postgres cluster, hosted by Heroku
+
+![Structure](img/sequence_diagram.png)
+
+The following is a depiction of our anticipated development stages.
+High level components - deployment flow:
+* Github - hosts source code
+* Github Actions - perform unit tests and push deployments
+* Heroku Server - hosts staging and production code
+
+![Deployment](img/developer_flow.png)
 
 The website will roughly have an input for a code received by a honey consumer that will take them to a customized image introducing tanzanian honey. There will be images for the user to scroll through to take them to a page describing various aspects of honey production in Tanzania. They later are able to discover each aspect in more detail, whichever the user is most interested in. We will use an API that allows users to easily post their interests in whichever subject on their social media accounts. This simplifies the sharing of Upendo Honey’s promotion of honey.
 
@@ -82,6 +107,26 @@ Describe the different roles on the team and the responsibilities associated wit
 List each team member and:
  * A description of their role(s) and responsibilities including the components they'll work on and non-software related work
  * 3 technical strengths and weaknesses each (e.g. languages, frameworks, libraries, development methodologies, etc.)
+ 
+ 1. Ashwin is a mature student who has worked for many years in the web development industry. He has experience working with business stakeholders to create technical roadmaps, and his technical expertise is in backend systems. He will be serving as the Product Manager to help the partners identify a vision and scope for the product, and he will be working with Natalia on the backend architecture and CI/CD for the project.
+
+Skills: JavaScript, Python, Distributed Systems
+Weaknesses: Aesthetics, product design, CSS
+
+2. Conroy is a third year student at UTSC. He is well-versed in systems programming, Linux/Unix and bash scripting, and enjoys leadership roles. He will be serving as the scrum master for the project where he will be responsible for handling sprints, faciliating meetings and managing backlog tasks.  He will be working on the frontend alongside Linda.
+
+Skills: Java, C, Linux/Unix systems programming
+Weaknesses: Backend frameworks, infrastructure, web communication protocols
+
+3. Linda is also a third year student at UTSC. She enjoys functional programming and product design. She will be responsible for documentation and note taking for the team which means recording meetings on Google Docs and tracking decisions made by the team. She will be responsible for the frontend alongside Conroy.
+
+Skills: Python, UI design, functional programming
+Weaknesses: Backend, testing frameworks, web frameworks
+
+4. Natalia is also a mature student, with many years of experience in both the creative design industry and as a business systems analyst. She will be the project manager where she will responsible for managing deadlines, keeping the development on track and will be coordinating the backend and CI/CD alongside Ashwin.
+
+Skills: project planning, requirements analysis, frontend design
+Weaknesses: backend, CI/CD, git
 
 #### Q7: What operational events will you have as a team?
 
@@ -93,7 +138,7 @@ In our meetings with our partner we discussed the exact specifications of the we
 
 Meeting outcomes involved having specific appearances and templates to produce for our application. We have regular meetings from approximate ~9:30 - 11:00, usually ending early once all agenda items are addressed.
 
-##### Meeting Minutes (With Partner):
+**Meeting Minutes (With Partner):**
 
 **Meeting 1: Understanding Partner Requirements (9:30am, Tuesday May 26th, 2020)**
 
