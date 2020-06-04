@@ -17,34 +17,42 @@
  * Focus on *what* your product does, and avoid discussing *how* you're going to implement it.      
    For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
  * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
-
+ 
+For early stage designs built on InVision please see our [mock-up] (https://invis.io/SRXIQCLXJHQ)
 
 #### Q2: Who are your target users?
 
-  > Short (1 - 2 min' read max)
- * Be specific (e.g. a 'a third-year university student studying Computer Science' and not 'a student')
- * **Feel free (but not obligated) to use personas.         
-   You can create your personas as part of this Markdown file, or add a link to an external site (for example, [Xtensio](https://xtensio.com/user-persona/)).**
+Target users of the application are:
+* Curious purchasers of tanzanian honey from Upendo Honey who bring their product home who may stumble upon a code for the web application
+* Environmentally friendly consumers who are concerned with the production of organic honey produced naturally with minimal human intervention.
+* Logistically curious consumers who would like to understand where and how their retail honey is produced and manufactured into a product.
+* Socially conscious consumers who would like to understand the people or labour force involved with the harvesting of honey, particularly organic honey.
+* Honey Companies and Organizations that want to advertise where their product is stored and inform their customers with interesting stories to entice them into buying their product
+* Honey manufacturers who would like to build awareness of organic honey production to support workforce wages and communities built on the market.
+
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
+    
+We need the product because it provides a specific and targeted solution to the partner’s problem of increasing the value and awareness around Tanzanian honey by appealing to ethically-concerned and curious consumers.  These consumers don’t just care about price and quality, they also want to know where their food comes from and whom they’re supporting.  By relating their purchase of honey to this information through the use of an interactive web-app with portions that can be shared on social media, we are appealing to our target demographic in a way that gets them to learn more about Tanzanian honey and spread the word by virtue of their own interest.  This particular connection, between the honey and the location, presented in a visually-interactive manner  is what aligns with the partners goals for this project of improving the perception of Tanzanian honey, creating a conversational talking point and as a result, increasing its popularity on the market.
 
-> Short (1 - 2 min' read max)
- * We want you to "connect the dots" for us - Why does your product (as described in your answer to Q1) fits the needs of your users (as described in your answer to Q2)?
- * Explain the benefits of your product explicitly & clearly. For example:
-    * Save users time (how much?)
-    * Allow users to discover new information (which information? And, why couldn't they discover it before?)
-    * Provide users with more accurate and/or informative data (what kind of data? Why is it useful to them?)
-    * Does this application exist in another form? If so, how does your differ and provide value to the users?
-    * How does this align with your partner's organization's values/mission/mandate?
+So what makes our product different and what needs does it fulfill? At a farmers market, you can see folks from the farm and ask them questions. When you’re buying something from far away, it’s difficult to do that. Our product will help foster a strong connection between customers of this company and the beekeepers by telling a story about the forest and people that the honey came from.   Other apps, such as this one: [Origin Trail](https://www.foodbev.com/news/interview-origintrail-the-app-that-tells-you-where-your-food-is-from/?__cf_chl_jschl_tk__=58a2638f521c6d9a6e0be63e1828f69b45f20bbb-1590363303-0-AV2gnUz3o1Eg9QBwM9Z1JDD3boGQV9H6Zo-XF3W7MnMxX3x_eRkxJ2rwZHkd8xedPgdiqRdpCEIQpYnCnkRxYQKR0EwLrL618kg49gLZyJaeLGFAAz8oIB-tl8jGlKJAv-oYlnkwjOlkYqFA92koDE_LR14vHVjRuquysSqd4908YiV4rhg1I7us8nsFE99TtfcWXvggfghZzJsAvu1xE4DRb5qQMIgOzY2dzFVOiVg1aNL8bWXTvPBJImRULWMdirkwe-TmCB7w3OMppOUO0GtBWBGcHh1RtU00Wq5UA1iGlZitaJs-FxVKFOpfl_KMjk-pHgFcZBdLWWP_8KeniwAWdUHibUibY9x7sQDIoGIIcFClsREhWIDyZjtDKrAd6A) have the traceability feature we provide, however they do not build the sense of community that our product aims to provide through personalized stories. 
+
+Lastly, it will give socially-conscious consumers and companies a sense of trust in the product, by providing information on where the honey comes from, who benefits from it and the environmental impact.  This allows honey retailers who source from Upendo in particular to market their brand using reliable information.  This app will allow both consumers and companies to find information about Tanzanian honey produced by Upendo in a more convenient, and enjoyable manner - it is a better experience for someone to visualize where the honey comes from interactively, rather than read a big paragraph about it on a website.
+
 
 #### Q4: How will you build it?
 
-> Short (1-2 min' read max)
- * What is the technology stack? Specify any and all languages, frameworks, libraries, PaaS products or tools. 
- * How will you deploy the application?
- * Describe the architecture - what are the high level components or patterns you will use? Diagrams are useful here. 
- * Will you be using third party applications or APIs? If so, what are they?
- * What is your testing strategy?
+The partner desires a website to promote Tanzanian Honey, however their main website is intended to be geared specifically towards mobile users. In addition the website needs to have easier maintenance due to the absence of a designated tech team that will take over the project. With these in mind we will be using the following:
+
+React.JS will be used for front-end purposes, supplemented by the ionic framework key features to work specifically on mobile development. The application will be developed in the standard HTML, CSS and JavaScript languages, communicating with the backend with standard HTTP(S) protocols. By using common industry tools, the project will be maintainable and also improvable by developers, while maintaining support of most modern browsers.
+
+Django will be used for the main backend framework and it will work in conjunction with PostgreSQL to maintain a database for the website. This was chosen due to the desire for simplicity of use and interface. Django allows backend maintenance workers to work with a simpler interface. PostgreSQL is the most common database language and one which our partner has experience using.
+
+Our deployment and testing will involve using a mixture of Jest (for testing web features), the Ionic framework’s built-in CI/CD pipeline features, Github Actions (for automated testing and deployment) and Heroku (for deploying a host for our website). Our main testing strategy for our (relatively simple) website is to develop unit tests for each web component used on the mobile web app. This ensures that each screen individually works well on a mobile phone. For backend end this will involve unit testing each database transaction and manipulations to objects (particularly string manipulations). In addition, to perform integration testing, we will have mock protocols to simulate front/back ends of the website.
+
+The website will roughly have an input for a code received by a honey consumer that will take them to a customized image introducing tanzanian honey. There will be images for the user to scroll through to take them to a page describing various aspects of honey production in Tanzania. They later are able to discover each aspect in more detail, whichever the user is most interested in. We will use an API that allows users to easily post their interests in whichever subject on their social media accounts. This simplifies the sharing of Upendo Honey’s promotion of honey.
+
+For more information explaining user flow and components please see this [diagram] (https://app.flowmapp.com/share/e3117da4390acbb8c1ea0f13cc42a0d0/userflow/92122/)
 
 #### Q5: What are the user stories that make up the MVP?
  
@@ -77,41 +85,103 @@ List each team member and:
 
 #### Q7: What operational events will you have as a team?
 
-Describe meetings (and other events) you are planning to have. 
- * When and where? Recurring or ad hoc? In-person or online?
- * What's the purpose of each meeting?
- * Other events could be coding sessions, code reviews, quick weekly sync meeting online, etc.
- * You must have at least 2 meetings with your project partner (if you have one) before D1 is due. Describe them here:
-   * What did you discuss during the meetings?
-   * What were the outcomes of each meeting?
-   * You must provide meeting minutes.
-   * You must have a regular meeting schedule established by the second meeting.  
+The development team will be meeting twice a week  to discuss ideas, development progress and details over a zoom call. Each scheduled call will change per week depending on the appropriate progress of the project and the needs of our partner Upendo Honey. No in-person meetings will occur throughout the COVID-19 crisis. Each development meeting’s purpose will be to discuss the progression of research and development of application features.  This will occur in the fashion of scrum standups where we each identify what was done, what will be done and any obstacles we are facing. In addition it will be to update any tools or ideas that would solve the partner’s needs in an appropriate fashion.
+
+Meetings with the partner will occur once per week at 9:30 am to accommodate their different time zone needs. Meeting with the partners will only be concerned over the completion of the objectives for the project and appropriate deadlines.  For each meeting our team will prepare an outline of our progress and an agenda for items we want to discuss with the partner.  Please see below the progression of prepared topics in our previous meetings under the “agenda” section.  They can also present any new concerns or needs for the future of the project.
+
+In our meetings with our partner we discussed the exact specifications of the website project, specifically the way the website is presented to mobile users. We thoroughly addressed the 4 main areas in which consumers/users will explore most: environmental sustainability and the Tanzanian Forest, infrastructure of Honey workers, the benefits of organic honey, and the origins of the honey.
+
+Meeting outcomes involved having specific appearances and templates to produce for our application. We have regular meetings from approximate ~9:30 - 11:00, usually ending early once all agenda items are addressed.
+
+**Meeting Minutes (With Partner):**
+Meeting 1: Understanding Partner Requirements (9:30am, Tuesday May 26th, 2020)
+Agenda:
+1. Upendo Honey to introduce their product and their vision/ideas for the application, including:
+   * Target audience: different types of users and their goals
+   * How these users are accomplishing their goals now, and why that’s not good enough
+   * Prioritized ranking of the goals
+2. CSC301 team to introduce team members and their initial understanding of the product
+3. Discuss technology: web-first or mobile-first?
+4. Set goals for the second meeting (proposed date: Tuesday, June 2)
+
+Discussion:
+* Traceability system for all beekeepers
+* Upendo will have a alphanumeric code to input into website
+* The overall goal is to develop awareness for Tanzanian honey to incur a premium on their honey
+* Develop their honey so they stand out to general consumers and to partner business (such as retailers)
+* There is a firebase backend for hosting using a MongoDB database to store the information which needs to be transferred to a SQL database. 
+* Sharing Tanzanian Honey easily using our app for social media purposes.
+* Tracking the user flow and frequency of distinct portions of the website.
+* The website will almost entirely be used by mobile users
+* Beekeeper images are not common for social purposes (they don’t smile in photos) making it harder to have many beekeeper photos that are appealing
+* They have pictures for:
+   * The processing plant
+   * Honey
+   * Tanzanian forest
+* Honey harvesting is a twice annual process, involving different beekeepers each time, which means that labour is very fluid in and out.
+
+Outcomes:
+* Developed a better understanding of Upendo and their operations as a business
+* Learned about how the app is meant to meet their current needs of increasing the added-value of Tanzanian honey
+* Identified areas in which the partner was not clear on their ideas and attempted to fill in the gaps by formalizing questions to have partners answer in Google document prior to the next meeting
+
+
+Meeting 2: Clarifying partner Requirements (9:30, Tuesday June 2nd, 2020)
+Agenda: 
+1. Present idea of “Letters from Beekeepers” application to the partner using prepared mock-ups and user flow diagram.
+2. Allow the partner to provide feedback and comments on the proposal
+3. Identify a set of next steps to prepare deliverable 1 including any changes that need to be made suggested by the partner
+
+Discussion:
+* Explained the proposed idea by framing it as a shift in focus from the map tracing idea, to a focus on the beekeepers who harvested their honey
+* Presented the vision for the modified application using InVisio, then outlined the User Flow diagram with the partner
+* Partner expressed approval of the idea and detailed how they have been thinking for a while on how to express the various benefits of their company and which ones to focus on:
+  * In particular providing income for local people, maintaining an organic pathway (with no pesticides) and preserving the local habitat for wildlife management.
+* Team proposes presenting the three different pathways through a menu, but making it adjustable which of the three sections a customer is first brought to when they enter the code on their honey jar.
+  * To help solve the problem of which topic is the most interesting for customers, to serve as a talking point, suggested to partner to collect analytics on time spent on each section and which sections were most visited
+* Partners approve of the idea
+* User stories as then presented and explained.  Partner and team agrees to allow partner to first comment of each of the three presented components: mock-up, user flow and user stories prior to team finalizing D1
+
+Outcomes:
+* Finalized the idea for D1 with partner approval by including modifications to cover topics that the partner wanted to present
+* Obtained specific feedback from partner through the comments provided on drafted work
+* Clarified the details of the software to the point where we could begin to decide on the technology we wanted to use.
+
+
   
 #### Q8: What artifacts will you use to self-organize?
 
-Communication and organization are key components to our team’s development process. Slack will continue to act as our main platform for general group communication in-between our (at least) bi-weekly Zoom meetings. We will be using our [Trello](https://trello.com/invite/b/IEykzkUB/007cafd0f1c7c4657b9d4864b5bba527/csc301) board to organize and assign tasks to group members. This will help us stay coordinated with one another, so we can always see who is doing what, and to get a bigger picture of what we are working towards. Our tasks will be prioritized by the degree of importance determined by our partners at Upendo Honey, and of course by the timeline set by course deadlines. We will also be prioritizing tasks that have dependencies farther ahead in the task chain. For example, if one group member is assigned a task, but they require a different task assigned to another group member to be completed first, then the earlier task will be assigned a higher priority and have an earlier deadline to avoid running into bottlenecks. In other words, we will try diligently to foresee task dependencies and assign priorities as needed in those situations.
+Communication and organization are key components to our team’s development process. Slack will continue to act as our main platform for group communication in-between our twice a week Zoom meetings.  Meeting minutes will be recorded briefly on Google docs for reference. We will be using our [Trello] (https://trello.com/b/IEykzkUB/csc301) board to organize and assign tasks to group members. Our tasks will be prioritized by the degree of importance determined by our partners at Upendo Honey, and by the timeline set by course deadlines. We will also be prioritizing tasks that have dependencies farther ahead in the task chain. For example, if one group member is assigned a task, but they require a different task assigned to another group member, then the earlier task will be assigned a higher priority.
 
-During our planned Zoom meetings, we discuss the topic we prepared in advance, and determine a schedule for our next Zoom meeting. We typically meet and discuss anywhere from 30 minutes to an hour, depending on our assigned tasks for the week. During our Zoom meetings, we determine what tasks need to be completed before the next deadline, and who will be assigned each task. Tasks will be assigned to team members that volunteer to complete the given task and they will be distributed based on each member's strengths. For instance, some team members have more experience working on the backend, and hence, will be assigned specific tasks within the backend framework.
+During our planned Zoom meetings, we discuss the topic we prepared in advance, and determine a schedule for our next Zoom meeting. We typically meet and discuss anywhere from 30 minutes to an hour. During our Zoom meetings, we determine by the end what tasks need to be completed before the next deadline. Tasks will be assigned to team members that volunteer to complete the given task and they will be distributed based on each member's strengths. For instance, some team members have more experience working on the backend, and hence, will be assigned specific tasks within the backend framework.
 
-The status and history of our work from inception to completion will be monitored throughout our Trello board. Smaller tasks will be assigned in the TODO section to a specific member (or members). After the task is completed, we plan on having a code/QA review before merging the changes into the dev/master branch of the repository. On a higher level, we will be monitoring the progression of our development by meeting the milestones set by the course deliverables and through our meetings with our partners. We will self-evaluate our progress at each deliverable and determine how far along we are relative to what we hope to accomplish by the final product.
+The status and history of our work from inception to completion will be monitored throughout our Trello board. Development portions will be tracked in the IN DEV section while smaller tasks will be assigned in the TODO section to a specific member (or members). Anything extra that needs to be done is recorded in BACKLOG. After the task is completed, it is put in QA/Review and seen by another team member before merging the changes into the dev/master branch of the repository. On a higher level, we will be monitoring the progression of our development by ensuring the tasks in DONE meet the milestones set by the course deliverables and within the deadlines set during our Zoom meetings.
+
 
 
 #### Q9: What are the rules regarding how your team works?
 
-Describe your team's working culture.
+**Communication Guidelines:**
+Between Team Members: Communication is done primarily on Slack between the team members and Zoom for planned meetings. Multiple channels on the slack allow us for updates on various subjects including:
+* The Business Requirement Document (BRD)
+* Documentation of Code
+* Software development lifecycle management
+* Large portions of Upendo Honey’s software (such as their mapping software)
+Outside of Slack, our development team also has a Trello dashboard to keep track of responsibilities and deadlines of the team.  This is what will be used to report on progress. WhatsApp is used for urgent communication on an as-needed basis.  In terms of frequency, the minimum is the twice a week Zoom calls we have pre-planned, in between that Slack is used for any updates, issues, or questions individuals may have as also on an as-needed basis.
 
-**Communications:**
- * What is the expected frequency? What methods/channels are appropriate? 
- * If you have a partner project, what is your process (in detail) for communicating with your partner?
- 
-**Meetings:**
- * How are people held accountable for attending meetings, completing action items? Is there a moderator or process?
- 
+With Partners: We will be communicating with our partner via a WhatsApp channel (as per their request due to lack of internet connectivity). This will be in addition to email to appropriately update them at regular intervals. Email files will be used for transferring important documents.
+
+Our process for communicating with our partner is as follows.  Major development changes will be communicated during our weekly meetings through discussion and by using mock-up designs created in InVision, user flow diagrams using FlowMapp and User Stories on Google Docs. At each meeting, we will also be presenting any milestones and issues that have come up according to a pre-planned agenda.  Should there be a need for urgent relay between weekly meetings, we will notify the partner through email or WhatsApp.  Depending on the need, we will link the work we require feedback on (e.g. detailed questions/documents/images on Google Docs or another software).
+
+**Accountability:**
+The project manager will be in charge of monitoring the progress of software development, while the scrum master will plan and organize the twice a week meetings.  They will primarily be the roles that assign tasks, monitor progress on Trello and ensure action items are completed within the predetermined deadline.
+
+While accountability is monitored by the roles above, it is enforced by the group as a whole rather than a specific moderator.  If someone does not complete a task or miss a meeting, the first step is communication and checking if something has come up.  If there was a legitimate reason for the oversight (and in our team we choose to trust what each team member says) then we set an alternative deadline or re-delegate the task according to the person’s needs.
+
 **Conflict Resolution:**
- * List at least three team scenarios/conflicts you discussed in lecture and how you decided you will resolve them. Indecisions? Non-responsive team members? Any other scenarios you can think of?
-
-
-
+    To deal with a dispute in preferences we have sessions where we have each member discuss their opinion about a particular subject. For example, when deciding partners we would have a series of votes for each potential partner anonymously. This way members can contribute their ideas freely. Afterwards, we would discuss the collectively most preferred ideas in detail and consider modifications or alternatives to an improved solution.
+    To address non-responsive team members we come together to choose a specific topic that is important to the project and ask them what they first think about it. It avoids their ideas from being rejected because there was an idea that came before theirs that others agreed with.
+    To solve discrepancies between conflicting opinions from an idea, we write down specifically where we disagree and work from there. We begin with how the disagreements began and why we thought one way of working was ineffective. This typical resulted in writing careful thoughtful opinions to why an idea was flawed and how to fix it.
 
 ----
 ### Highlights
