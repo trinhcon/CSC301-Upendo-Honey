@@ -93,7 +93,7 @@ In our meetings with our partner we discussed the exact specifications of the we
 
 Meeting outcomes involved having specific appearances and templates to produce for our application. We have regular meetings from approximate ~9:30 - 11:00, usually ending early once all agenda items are addressed.
 
-#####Meeting Minutes (With Partner):
+##### Meeting Minutes (With Partner):
 
 **Meeting 1: Understanding Partner Requirements (9:30am, Tuesday May 26th, 2020)**
 
@@ -154,7 +154,7 @@ Outcomes:
   
 #### Q8: What artifacts will you use to self-organize?
 
-Communication and organization are key components to our team’s development process. Slack will continue to act as our main platform for group communication in-between our twice a week Zoom meetings.  Meeting minutes will be recorded briefly on Google docs for reference. We will be using our [Trello] (https://trello.com/b/IEykzkUB/csc301) board to organize and assign tasks to group members. Our tasks will be prioritized by the degree of importance determined by our partners at Upendo Honey, and by the timeline set by course deadlines. We will also be prioritizing tasks that have dependencies farther ahead in the task chain. For example, if one group member is assigned a task, but they require a different task assigned to another group member, then the earlier task will be assigned a higher priority.
+Communication and organization are key components to our team’s development process. Slack will continue to act as our main platform for group communication in-between our twice a week Zoom meetings.  Meeting minutes will be recorded briefly on Google docs for reference. We will be using our [Trello](https://trello.com/b/IEykzkUB/csc301) board to organize and assign tasks to group members. Our tasks will be prioritized by the degree of importance determined by our partners at Upendo Honey, and by the timeline set by course deadlines. We will also be prioritizing tasks that have dependencies farther ahead in the task chain. For example, if one group member is assigned a task, but they require a different task assigned to another group member, then the earlier task will be assigned a higher priority.
 
 During our planned Zoom meetings, we discuss the topic we prepared in advance, and determine a schedule for our next Zoom meeting. We typically meet and discuss anywhere from 30 minutes to an hour. During our Zoom meetings, we determine by the end what tasks need to be completed before the next deadline. Tasks will be assigned to team members that volunteer to complete the given task and they will be distributed based on each member's strengths. For instance, some team members have more experience working on the backend, and hence, will be assigned specific tasks within the backend framework.
 
