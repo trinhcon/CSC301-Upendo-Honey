@@ -6,6 +6,10 @@
   "repository": "https://github.com/csc301-summer-2020/team-project-3-upendo-honey",
   "addons": [ "heroku-postgresql" ],
   "env": {
+    "DJANGO_ALLOWED_HOSTS": {
+      "description": "hosts allowed to interact with django server",
+      "value": ".herokuapp.com"
+    },
     "DJANGO_DEBUG": {
       "description": "whether django should run in debug mode",
       "value": "0"
