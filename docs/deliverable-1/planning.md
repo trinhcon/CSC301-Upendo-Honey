@@ -107,29 +107,38 @@ For more information explaining user flow and components please see this [diagra
 
 #### Q6: What are the roles & responsibilities on the team?
 
- 1. Ashwin is a mature student who has worked for many years in the web development industry. He has experience working with business stakeholders to create technical roadmaps, and his technical expertise is in backend systems. He will be serving as the Product Manager to help the partners identify a vision and scope for the product, and he will be working with Natalia on the backend architecture and CI/CD for the project.
+![Ashwin](img/Ashwin.jpeg)
 
-Skills: JavaScript, Python, Distributed Systems
+**Ashwin** is a mature student who has worked for many years in the web development industry. He has experience working with business stakeholders to create technical roadmaps, and his technical expertise is in backend systems. He will be serving as the Product Manager to help the partners identify a vision and scope for the product, and he will be working with Natalia on the backend architecture and CI/CD for the project.
 
-Weaknesses: Aesthetics, product design, CSS
+**Skills:** JavaScript, Python, Distributed Systems
 
-2. Conroy is a third year student at UTSC. He is well-versed in systems programming, Linux/Unix and bash scripting, and enjoys leadership roles. He will be serving as the scrum master for the project where he will be responsible for handling sprints, faciliating meetings and managing backlog tasks.  He will be working on the frontend alongside Linda.
+**Weaknesses:** Aesthetics, product design, CSS
 
-Skills: Java, C, Linux/Unix systems programming
+![Conroy](img/Conroy.jpg)
 
-Weaknesses: Backend frameworks, infrastructure, web communication protocols
+**Conroy** is a third year student at UTSC. He is well-versed in systems programming, Linux/Unix and bash scripting, and enjoys leadership roles. He will be serving as the scrum master for the project where he will be responsible for handling sprints, faciliating meetings and managing backlog tasks.  He will be working on the frontend alongside Linda.
 
-3. Linda is also a third year student at UTSC. She enjoys functional programming and product design. She will be responsible for documentation and note taking for the team which means recording meetings on Google Docs and tracking decisions made by the team. She will be responsible for the frontend alongside Conroy.
+**Skills:** Java, C, Linux/Unix systems programming
 
-Skills: Python, UI design, functional programming
+**Weaknesses:** Backend frameworks, infrastructure, web communication protocols
 
-Weaknesses: Backend, testing frameworks, web frameworks
+![Linda](img/Linda.jpg)
 
-4. Natalia is also a mature student, with many years of experience in both the creative design industry and as a business systems analyst. She will be the project manager where she will responsible for managing deadlines, keeping the development on track and will be coordinating the backend and CI/CD alongside Ashwin.
+**Linda** is also a third year student at UTSC. She enjoys functional programming and product design. She will be responsible for documentation and note taking for the team which means recording meetings on Google Docs and tracking decisions made by the team. She will be responsible for the frontend alongside Conroy.
 
-Skills: project planning, requirements analysis, frontend design
+**Skills:** Python, UI design, functional programming
 
-Weaknesses: backend, CI/CD, git
+**Weaknesses:** Backend, testing frameworks, web frameworks
+
+
+![Natalia](img/Natalia.jpg)
+
+**Natalia** is also a mature student, with many years of experience in both the creative design industry and as a business systems analyst. She will be the project manager where she will responsible for managing deadlines, keeping the development on track and will be coordinating the backend and CI/CD alongside Ashwin.
+
+**Skills:** project planning, requirements analysis, frontend design
+
+**Weaknesses:** backend, CI/CD, git
 
 #### Q7: What operational events will you have as a team?
 
