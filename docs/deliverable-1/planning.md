@@ -84,15 +84,21 @@ For more information explaining user flow and components please see this [diagra
 | #  |     User Story     |  Acceptance Criteria |
 |----------|:-------------:|:------:|
 | | |
-| 1 |  As an ethically-, environmentally- and health-conscious consumer, I want to read about Upendo Honey product and its origins (i.e. beekeepers that produce honey and their work conditions, forests where the honey is produced, honey qualities) in order to decide if Upendo Honey product meets my standards in regards to fair trade for me to buy it / continue buying it. | Information about each honey jar with a QR code / alphanumeric code, beekeepers that produced this honey and the forest of the honey origins should be clearly divided into different app subsections and be one-click accessible within the Upendo Honey application.  |
+| 1 |  As an ethically conscious consumer I want to read about the beekeepers producing the Upendo Honey product in order to decide if the Upendo Honey product meets my standards in regards to fair trade for me to buy it / continue buying it. | Information about beekeepers that produced each honey jar and their story should be clearly accessible from the context menu with a QR code / alphanumeric code.  |
 | | |
-| 2 |  As a person who wants to read about Upendo Honey products without spending too much time on it, I want to be able to access information about a particular honey jar and its origins as quickly and as easily as possible to both get the information and save my time and effort.   |   A user should be able to scan QR code with any QR code scanner and/or enter a alphanumeric code at Upendo Honey application to open an application view with all the information about a particular honey jar and its origins    |
+| 2 |  As an environmentally conscious consumer I want to read about the forests where honey is produced and the impact it has on the environment in order to decide if Upendo honey supports sustainability. | Information about the forest of the honey jar origins should be clearly accessible from the context menu with a QR code / alphanumeric code. |
 | | |
-| 3 | As a curious consumer I want to see some new information about the product I consume in order to be entertained. |    UI should be simple and content-oriented to make it easier for a user to see images and read text. |
+| 3 |  As a health-conscious consumer, I want to read about Upendo Honey product and its origins (i.e. beekeepers that produce honey and their work conditions, honey quality, honey process) in order to decide if Upendo Honey product is truly organic and naturally-produced. | Information about the process of honey creation should be  clearly accessible from the context menu with a QR code / alphanumeric code. |
 | | |
-| 4 | As a person who likes beekeeper stories / forest images / health information / map information I want to share them on my social media in order to discuss them with my social media friends.|    Facebook, Twitter and Instagram sharing should be available for each beekeeper story / forest information / health information / map. |
+| 4 |  As a honey retailer I want to know if Upendo’s values and practices align with those of our brand so that I can decide whether I would like to source from Upendo and market this information to our consumers. | Information about each honey jar with a QR code / alphanumeric code, beekeepers, the process of creation, and the forest of origin should be clearly divided into different app subsections and be one-click accessible within the Upendo Honey application. |
 | | |
-| 5 | As Upendo Honey content manager I want to be able to add new content and edit content easily via an admin system in order to simplify the process of managing the content. |    User-friendly admin system should be available. |
+| 5 |  As a person who wants to generally learn about Upendo Honey products without spending too much time on it, I want to be able to access information about a particular honey jar and its origins as quickly and as easily as possible to both get the information and save my time and effort.   |   A user should be able to scan QR code with any QR code scanner and/or enter a alphanumeric code at Upendo Honey application to open an application view with all the information about a particular honey jar and its origins. |
+| | |
+| 6 | As a curious consumer I want to see some new information about the product I consume in order to be entertained. |    UI should be simple and content-oriented to make it easier for a user to see images and read text. |
+| | |
+| 7 | As a person who likes beekeeper stories / forest images / health information / map information I want to share them on my social media in order to discuss them with my social media friends.|    Facebook, Twitter and Instagram sharing should be available for each beekeeper story / forest information / health information / map. |
+| | |
+| 8 | As Upendo Honey content manager I want to be able to add new content and edit content easily via an admin system in order to simplify the process of managing the content. |    User-friendly admin system should be available. |
 | | |
 
 ----
