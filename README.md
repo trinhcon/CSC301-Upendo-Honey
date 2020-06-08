@@ -111,13 +111,13 @@ POSTGRES_DB=upendo
 
 3. If you want some feedback, please tag your team members
 
-4. (pending) Heroku will create a review app once tests have passed. Click on that link to make sure everything works as expected before merging your pull request
+4. Heroku will create a [review app](https://devcenter.heroku.com/articles/github-integration-review-apps) once tests have passed. Click on that link to make sure everything works as expected before merging your pull request
 
-5. (pending) Merging to master will autoamtically trigger the staging server to automatically rebuild with your code changes. Please ping your coworkers on slack or WhatsApp for immediate review.
+5. Merging to master will trigger the staging server to automatically rebuild with your code changes.
 
 *_IMPORTANT_*: Once the application is live, only *one* change should be on the staging server at a given time to minimize risk. If your team mate is testing something, please help them resolve it before merging your stage.
 
-6. (pending) Once you've tested your feature in staging, [Create a new release](https://github.com/csc301-summer-2020/team-project-3-upendo-honey/releases) in Github. This will apply a git tag to the most recent commit in master, which will automatically trigger the production server to rebuild.
+6. Once you've tested your feature in staging, [Create a new release](https://github.com/csc301-summer-2020/team-project-3-upendo-honey/releases) in Github. This will apply a git tag to the most recent commit in master, which will automatically trigger the production server to rebuild.
 
 ### Helpful Make commands for Heroku debugging
 
