@@ -1,0 +1,16 @@
+# source control
+.git
+
+# local files
+.postgres_data
+__pycache__
+env
+
+# documentation
+*.md
+docs
+
+# heroku files
+Procfile
+app.json
+runtime.txt

@@ -1,1 +1,1 @@
-web: gunicorn upendo_web.wsgi --log-file -
+web: gunicorn upendo.wsgi --log-file -

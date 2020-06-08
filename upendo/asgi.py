@@ -1,5 +1,5 @@
 """
-ASGI config for upendo_web project.
+ASGI config for upendo project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'upendo_web.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'upendo.settings')
 
 application = get_asgi_application()
