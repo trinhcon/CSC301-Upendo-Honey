@@ -14,3 +14,7 @@ docs
 Procfile
 app.json
 runtime.txt
+
+# CI/CD
+.circleci
+.github
