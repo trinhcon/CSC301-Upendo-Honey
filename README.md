@@ -88,8 +88,6 @@ DJANGO_SECRET_KEY=foo
 POSTGRES_USER=upendo
 POSTGRES_PASSWORD=upendo
 POSTGRES_DB=upendo
-PGADMIN_DEFAULT_EMAIL=foobar@localhost
-PGADMIN_DEFAULT_PASSWORD=upendo
 ```
 
 6. Connect to postgres and:
