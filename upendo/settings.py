@@ -132,8 +132,9 @@ STATIC_URL = '/static/'
 # Configure Django App for Heroku.
 ON_HEROKU = os.environ.get("DYNO", "") != "" # Assumption: "DYNO" envvar wouldn't be set locally
 if ON_HEROKU:
-    import django_heroku
-    django_heroku.settings(
+    import django_on_heroku
+
+    django_on_heroku.settings(
         locals(),
         allowed_hosts=False,    # use a more restrictive value
         secret_key=False,       # use a different env var name
