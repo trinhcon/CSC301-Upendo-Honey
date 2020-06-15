@@ -1,0 +1,44 @@
+@startuml
+
+entity Batch  {
+  + alphanum_code
+}
+
+entity BatchMember {
+    + batch
+    + beekeeper
+}
+
+entity Forest  {
+  + forest_title
+  + map_url
+  + description
+}
+
+entity Beekeeper  {
+  + name
+  + bio
+  + image_url
+  + letter_text
+  + letter_img_url
+  --
+}
+
+entity BeekeeprTeam  {
+  + team_title
+  + description
+  + image_url
+  --
+}
+
+
+
+Batch -down-|{ BatchMember
+Forest -down-o{ Batch
+Health -down-o{ Batch
+Beekeeper -down-o{ BatchMember
+
+
+Beekeeper -up-o| BeekeeprTeam
+
+@enduml

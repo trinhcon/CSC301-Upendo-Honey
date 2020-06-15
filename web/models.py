@@ -16,11 +16,6 @@ class Batch(CommonModel):
                                null=True,
                                blank=True,
                                help_text="Forest that Batch came from, optional", )
-    map = models.ForeignKey('Map',
-                            on_delete=models.SET_NULL,
-                            null=True,
-                            blank=True,
-                            help_text="Batch map, optional", )
     health = models.ForeignKey('Health',
                                on_delete=models.SET_NULL,
                                null=True,
@@ -46,16 +41,13 @@ class Beekeeper(CommonModel):
     name = models.CharField(max_length=50)
     bio = models.TextField()
     image_url = models.URLField()
+    letter_text = models.TextField()
+    letter_img_url = models.URLField()
     team = models.ForeignKey('BeekeeperTeam',
                              on_delete=models.SET_NULL,
                              null=True,
                              blank=True,
                              default=None, )
-    letter = models.ForeignKey('BeekeeperLetter',
-                               on_delete=models.SET_NULL,
-                               null=True,
-                               blank=True,
-                               default=None, )
 
     def __str__(self):
         return f'Beekeeper: {self.name}'
@@ -67,19 +59,10 @@ class BeekeeperTeam(CommonModel):
     image_url = models.URLField()
 
 
-class BeekeeperLetter(CommonModel):
-    text = models.TextField()
-    image_url = models.URLField()
-
-
-class Map(CommonModel):
+class Forest(CommonModel):
     title = models.CharField(max_length=50)
     map_url = models.URLField(help_text='Google map url')
     description = models.TextField()
-
-
-class Forest(CommonModel):
-    pass
 
 
 class Health(CommonModel):
