@@ -1,7 +1,12 @@
 from django.contrib import admin
 
-from .models import Batch, Beekeeper, Forest
+from web import models
 
-admin.site.register(Batch)
-admin.site.register(Beekeeper)
-admin.site.register(Forest)
+admin.site.register(models.Batch)
+admin.site.register(models.Beekeeper)
+admin.site.register(models.Forest)
+admin.site.register(models.Health)
+admin.site.register(models.Map)
+admin.site.register(models.BatchMember)
+admin.site.register(models.BeekeeperTeam)
+admin.site.register(models.BeekeeperLetter)
