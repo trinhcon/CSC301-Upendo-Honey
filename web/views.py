@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import DetailView
 
-from web.models import Batch
+from web.models import Batch, BatchMember, Beekeeper
 
 
 class BatchDetail(DetailView):
@@ -20,12 +20,25 @@ def batch_detail(request, batch_id):
     return render(request, 'batch_detail.html', context={'batch': batch})
 
 
-def get_batch(request, alphanum_code):
-    batch = get_object_or_404(Batch, alphanum_code=alphanum_code)
-    batchmembers = batch.batchmember_set.all()
+def get_batch_member(request, alphanum_code):
+    batch_member = get_object_or_404(BatchMember, alphanum_code=alphanum_code)
     response = {
-        'forest': batch.forest_id,
-        'health': batch.health_id,
-        'members': [member.beekeeper_id for member in batchmembers]
+        'batch_member': batch_member.id,
+        'forest': batch_member.batch.forest_id,
+        'honey': batch_member.batch.honey_id,
+        'beekeeper': batch_member.beekeeper_id,
+    }
+    return HttpResponse(json.dumps(response, indent=2), content_type="application/json")
+
+
+def get_beekeeper(request, beekeeper_id):
+    beekeeper = get_object_or_404(Beekeeper, pk=beekeeper_id)
+    response = {
+        'name': beekeeper.name,
+        'bio': beekeeper.bio,
+        'image_url': beekeeper.image_url,
+        'letter_text': beekeeper.letter_text,
+        'letter_img_url': beekeeper.letter_img_url,
+
     }
     return HttpResponse(json.dumps(response, indent=2), content_type="application/json")
