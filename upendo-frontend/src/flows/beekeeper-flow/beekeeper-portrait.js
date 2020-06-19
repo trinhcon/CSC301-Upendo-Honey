@@ -1,4 +1,21 @@
-const { render } = require("@testing-library/react")
+import React from 'react';
+
+class BeekeeperContainer extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+      <BeekeeperPortrait beekeeperName={this.props.beekeeperName}
+        imageURL={this.props.imageURL}/>
+      <BeekeeperDescriptionContainer
+        content={this.props.beekeeperDescription}/>
+      </div>
+    );
+  }
+}
 
 class BeekeeperPortrait extends React.Component {
   constructor(props) {
@@ -8,8 +25,8 @@ class BeekeeperPortrait extends React.Component {
   render() {
     return (
       <div>
-        <img src={props.imageURL}/>
-        <h4>{this.props.beekeepername}</h4>
+        <img src={this.props.imageURL}/>
+        <h4>{this.props.beekeeperName}</h4>
       </div>
     );
   }
@@ -34,17 +51,7 @@ class BeekeeperDescriptionContainer extends React.Component {
 }
 
 
-class BeekeeperContainer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
-  render() {
-    return (
-      <BeekeeperPortrait beekeepername={this.props.beekeepername}
-        imageURL={this.props.imageURL}></BeekeeperPortrait>
-      <BeekeeperDescriptionContainer
-        content={this.props.beekeeperDescription}/>
-    );
-  }
-}
+
+
+export default BeekeeperContainer;
