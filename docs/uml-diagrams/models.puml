@@ -1,10 +1,10 @@
 @startuml
 
 entity Batch  {
-  + alphanum_code
 }
 
 entity BatchMember {
+    + alphanum_code
     + batch
     + beekeeper
 }
@@ -13,6 +13,11 @@ entity Forest  {
   + forest_title
   + map_url
   + description
+  + image_url
+  + area
+  + animals
+  + beekeepers_num
+  + plants
 }
 
 entity Beekeeper  {
@@ -24,21 +29,22 @@ entity Beekeeper  {
   --
 }
 
-entity BeekeeprTeam  {
-  + team_title
-  + description
-  + image_url
+entity Honey  {
+  + name
+  + variety
+  + honey_text
+  + jar_img_url
+  + harvest_img_url
+  + harvest_text
+  + health_text
   --
 }
 
 
-
 Batch -down-|{ BatchMember
 Forest -down-o{ Batch
-Health -down-o{ Batch
+Honey -down-o{ Batch
 Beekeeper -down-o{ BatchMember
 
-
-Beekeeper -up-o| BeekeeprTeam
 
 @enduml
