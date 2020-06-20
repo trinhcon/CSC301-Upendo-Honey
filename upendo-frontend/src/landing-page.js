@@ -1,4 +1,5 @@
 import React from 'react';
+import "./landing-page.css";
 
 class LandingPage extends React.Component {
   constructor(props) {
@@ -7,7 +8,7 @@ class LandingPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="landingPage">
         <LandingPageFormBox />
       </div>
     );
@@ -21,12 +22,12 @@ class LandingPageFormBox extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3 id="codeBoxHeader">Trace Your Honey</h3>
+      <div id="landingPageBox">
+        <h2 id="codeBoxHeader">Trace Your Honey ... </h2>
         <p id="codeBoxHeaderSub"> ... right back to the forest</p>
         <LandingPageForm />
         <hr></hr>
-        <p>No Code? No worries! Enter "PUREJOY" to start your adventure.</p>
+        <p id="autoCode">No Code? No worries! Enter "PUREJOY" to start your adventure.</p>
 
       </div>
     );
@@ -54,10 +55,10 @@ class LandingPageForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleCodeSubmission}>
-          <label for="codeSearch"> Enter Code: </label>
+          <label for="codeSearch"> Enter Your Jar's Code: </label>
           <input type="text" value={this.state.code} onChange={this.handleInput}
-            placeholder="Type Your Code Here!" name="codeSearch"/>
-          <input type="submit" value="Submit"/>
+            placeholder="Type Your Code Here!" name="codeSearch" id="inputForm"/>
+          <input type="submit" value="Go" id="submitButton"/>
         </form>
       </div>
     );
