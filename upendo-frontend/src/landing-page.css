@@ -200,6 +200,54 @@
     width: 100%;
     height: 100%;
 
+    font-family: 'Pacifico', cursive;
+    color: black;
+    align-content: flex-start;
+    align-items: center;
+    background-color: rgb(253, 222, 84);
+}
+
+#autoCode {
+    font-family: Oxygen, sans-serif;
+}
+
+#landingPageBox {
+    width: 80vw;
+    height: 50vh;
+    margin: 5vh;
+    padding: 3px;
+    
+    text-align: center;
+
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#submitButton {
+    margin: 15px;
+    padding: 5px;
+
+    font-size: larger;
+    border-radius: 10%;
+    border: 0px solid black;
+    background-color: rgba(252, 252, 252, 1);
+}
+
+#inputForm {
+    margin: 10px;
+    color: black;
+    height: 30px;
+    padding: 4px;
+
+    border: 1px solid black;
+}
+
+/*
+#landingPage {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+
     font-family: 'Oxygen', sans-serif;
     color: white;
     justify-content: center;
