@@ -17,7 +17,6 @@ class App extends React.Component {
               beekeeperName="Picu, Rat's new best friend"
             />
             )}
-
           />
           <Route path = "/" component = {LandingPage} />
         </Switch>
