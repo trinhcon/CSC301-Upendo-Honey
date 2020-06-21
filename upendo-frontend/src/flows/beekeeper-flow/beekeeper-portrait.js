@@ -4,7 +4,7 @@ import "./beekeeper-portrait.css";
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
 
-class BeekeeperContainer extends React.Component {
+class BeekeeperPage extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -66,4 +66,4 @@ class BeekeeperDescriptionContainer extends React.Component {
 
 
 
-export default BeekeeperContainer;
+export default BeekeeperPage;
