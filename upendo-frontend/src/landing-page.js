@@ -80,19 +80,4 @@ class LandingPageForm extends React.Component {
   }
 }
 
-class incorrectCodeMessage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render () {
-    return (
-      <div>
-        <p>"Incorrect Code, Please Try Again."</p>
-      </div>
-    )
-  }
-}
-
-
 export default LandingPage;
