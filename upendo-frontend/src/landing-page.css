@@ -1,4 +1,5 @@
 
+/* Mobile Styles */
 #landingPage {
     position: absolute;
     display: flex;
@@ -19,7 +20,7 @@
 #landingPageBox {
     width: 80vw;
     height: 50vh;
-    margin: 5vh;
+    margin: auto;
     padding: 3px;
     
     text-align: center;
@@ -45,6 +46,8 @@
 
     border: 1px solid black;
 }
+
+/* Desktop Styles */
 
 /*
 #landingPage {
