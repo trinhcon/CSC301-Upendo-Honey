@@ -59,6 +59,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'web', 'templates'),
+            os.path.join(BASE_DIR, 'upendo-frontend/build'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -127,6 +128,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'upendo-frontend/build/static')]
 
 
 # Configure Django App for Heroku.
