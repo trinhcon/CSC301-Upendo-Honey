@@ -145,4 +145,4 @@ cython_debug/
 env/
 
 # postgres data
-.postgres_data
+postgres_data
