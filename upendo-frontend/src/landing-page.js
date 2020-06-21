@@ -58,10 +58,7 @@ class LandingPageForm extends React.Component {
 
   handleInput (e) {
     const input = e.target.value;
-    // Checks for non-empty input
-    if (input) {
-      this.setState({code: input.toUpperCase()});
-    }
+    this.setState({code: input.toUpperCase()});
   }
 
   render() {
