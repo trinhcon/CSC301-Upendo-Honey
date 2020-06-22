@@ -1,6 +1,6 @@
 import React from 'react';
 import "./landing-page.css";
-import retrieveCode from './modules/retrieveCode';
+import { retrieveBatchMember } from './modules/apiCalls';
 import { Redirect } from 'react-router-dom';
 
 class LandingPage extends React.Component {
@@ -11,7 +11,7 @@ class LandingPage extends React.Component {
   render() {
     return (
       <div id="landingPage">
-        <LandingPageFormBox />
+        <LandingPageFormBox getData={this.props.getData}/>
       </div>
     );
   }
@@ -27,10 +27,9 @@ class LandingPageFormBox extends React.Component {
       <div id="landingPageBox">
         <h2 id="codeBoxHeader">Trace Your Honey ... </h2>
         <p id="codeBoxHeaderSub"> ... right back to the forest</p>
-        <LandingPageForm />
+        <LandingPageForm getData={this.props.getData}/>
         <hr></hr>
         <p id="autoCode">No Code? No worries! Enter "PUREJOY" to start your adventure.</p>
-
       </div>
     );
   }
@@ -44,15 +43,21 @@ class LandingPageForm extends React.Component {
     this.handleInput = this.handleInput.bind(this);
   }
 
-  handleCodeSubmission(e) {
+  async handleCodeSubmission(e) {
     e.preventDefault();
-    const correct = retrieveCode(this.state.code);
-    if (correct) {
-      this.setState({redirect: true});
+    const batchMemberData = await retrieveBatchMember(this.state.code);
+    console.log(batchMemberData);
+    // Check if batch member exists (need to refine checking for errors)
+    if (batchMemberData) {
+      const loadData = await this.props.getData(this.state.code, batchMemberData);
+      if (loadData) {
+        this.setState({redirect: true});
+      } else {
+        console.log("error"); // Issues with retrieving data
+      }
     } else {
       this.setState({code: '', displayMessage: true});
     }
-    
   }
 
 
@@ -70,7 +75,7 @@ class LandingPageForm extends React.Component {
           <form onSubmit={this.handleCodeSubmission}>
             <label for="codeSearch"> Enter Your Jar's Code: </label>
             <input type="text" value={this.state.code} onChange={this.handleInput}
-              placeholder={this.state. displayMessage ? "Invalid Code":"Type Your Code Here!"}
+              placeholder={this.state.displayMessage ? "Invalid Code":"Type Your Code Here!"}
               name="codeSearch" id="inputForm"/>
             <input type="submit" value="Go" id="submitButton"/>
           </form>
