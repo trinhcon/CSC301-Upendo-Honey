@@ -5,6 +5,9 @@ class CommonModel(models.Model):
     class Meta:
         abstract = True
 
+class CustomImageField(models.ImageField):
+    def value_to_string(self, obj):
+        return obj.fig.url
 
 class Batch(CommonModel):
     forest = models.ForeignKey('Forest',
@@ -39,7 +42,8 @@ class BatchMember(CommonModel):
 class Beekeeper(CommonModel):
     name = models.CharField(max_length=50)
     bio = models.TextField()
-    image_url = models.URLField()
+    image_url = models.URLField(null=True, blank=True)
+    photo = CustomImageField(upload_to='images/', null=True, blank=True)
     letter_text = models.TextField()
     letter_img_url = models.URLField()
 
