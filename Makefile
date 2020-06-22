@@ -3,16 +3,13 @@
 PROD_APP=upendo
 STAGING_APP=staging-upendo
 
-build-dev:
-	docker-compose build
-
 compose-down: # terminate the docker compose services
 	docker-compose down
 
 compose-up: # run docker containers in dev mode
-	docker-compose up -d
+	docker-compose up --build
 
-dev: compose-up open-pgadmin open-web # build containers and open dev server and pgadmin
+dev: compose-up # build containers and open dev server and pgadmin
 
 logs-dev: # tail docker compose logs
 	docker-compose logs -f
@@ -35,6 +32,10 @@ open-pgadmin: # open pgadmin in browser
 
 pyshell-dev: # run python/django shell in the app container
 	docker-compose exec app python manage.py shell
+
+rebuild-dev:
+	docker-compose build app
+	docker-compose restart app
 
 shell-dev: # run the shell inside the app container
 	docker-compose exec app sh
