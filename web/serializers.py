@@ -23,7 +23,7 @@ class BatchMemberSerializer(serializers.HyperlinkedModelSerializer):
 class BeekeeperSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Beekeeper
-        fields = ['name', 'bio', 'image_url', 'letter_text', 'letter_img_url']
+        fields = ['name', 'bio', 'image_url', 'letter_text', 'letter_img_url', 'photo']
 
 
 class ForestSerializer(serializers.HyperlinkedModelSerializer):

@@ -146,3 +146,6 @@ env/
 
 # postgres data
 postgres_data
+
+# media files
+media/
