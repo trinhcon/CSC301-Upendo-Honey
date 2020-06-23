@@ -44,15 +44,15 @@ class App extends React.Component {
             )}
           />
           <Route path = "/beekeeper-letter" render = {() => (
-              <BeekeeperLetterPage bk = {{letter: Letter, translation: "Dear Customer, Thank you for choosing our honey. In doing so you are helping us financially and also by giving us your feedback helps us and motivates us to work harder and smarter in beekeeping. Thank you and please welcom again."}}
+              <BeekeeperLetterPage bk = {{letter: this.state.beekeeper.letter_img_url, translation: this.state.beekeeper.letter_text}}
               />
             )}
           />
           <Route path = "/beekeeper-message" component = {BeekeeperMessagePage}/>
           <Route path = "/beekeeper" render={() =>   (
-            <BeekeeperPage imageURL= {Leonard}
-              beekeeperDescription="Meet Leonard Mahenge, father of four and beekeeper. Leonard harvests his honey from the Mpanda Line Forest Reserve. At the end of each flowering season, Leonard and his children collect the ready honeycombs from high in the forest canopy. "
-              beekeeperName="Leonard Mahenge"
+            <BeekeeperPage imageURL= {this.state.beekeeper.photo}
+              beekeeperDescription= {this.state.beekeeper.bio}
+              beekeeperName={this.state.beekeeper.name}
             />
             )}
           />
