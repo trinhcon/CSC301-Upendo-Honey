@@ -1,0 +1,27 @@
+.iconButton {
+  width: 30vw;
+  height: 30vw;
+  background-color: blue;
+}
+
+.iconButtonEmpty {
+  width: 30vw;
+  height: 30vw;
+}
+
+#honeyHeader {
+  width: 100vw;
+  height: 20vh;
+}
+
+
+#leftHoneyJar {
+  width: 25vw;
+  height: 30vh;
+}
+
+#honeyJar {
+  width: 50vw;
+  height: 30vh;
+  /**background-image;*/
+}

@@ -12,15 +12,35 @@ class MenuPage extends React.Component{
     render () {
         return (
             <div id="menuPage">
-                <h1>Click Below to Discover More</h1>
-                <iconContainer id="beekeeper"
-                nextPage={this.props.beekeeperFirstPage}/>
-                <iconContainer id="environment"
-                nextPage={this.props.environmentFirstPage}/>
-                <iconContainer id="honey"
-                nextPage={this.props.honeyFirstPage}/>
-                <iconContainer id="tanzania"
-                nextPage={this.props.tanzaniaFirstPage}/>
+                <h1 id="honeyHeader" >Click Below to Discover More</h1>
+                <div id="leftHoneyJar"></div>
+                <div id="honeyJar"></div>
+                <div className="iconButton"></div>
+                <div>
+                    <iconContainer/>
+                    <iconContainer id="beekeeper"
+                        nextPage={this.props.beekeeperFirstPage}
+                        icon={this.props.beeekeeperIcon}
+                    />
+                    <iconContainer/>
+                    <iconContainer id="environment"
+                        nextPage={this.props.environmentFirstPage}
+                        icon={this.props.beeekeeperIcon}
+                    />
+                    <iconContainer/>
+                    <iconContainer id="honey"
+                        nextPage={this.props.honeyFirstPage}
+                        icon={this.props.beeekeeperIcon}
+                    />
+                    <iconContainer/>
+                    <iconContainer id="tanzania"
+                        nextPage={this.props.tanzaniaFirstPage}
+                        icon={this.props.beeekeeperIcon}
+                    />
+                    <iconContainer/>
+                </div>
+
+
                 <FlowFooter footerClass="blackFooter"/>
             </div>
         )
@@ -35,11 +55,20 @@ class iconContainer extends React.Component{
     }
 
     render () {
-        return (
-            <div class="iconButton">
-                <Link to={this.props.nextPage}/>
-            </div>
-        )
+        if (this.props.icon !== "") {
+            return (
+                <div id={this.props.id} className="iconButton">
+                    <Link to={this.props.nextPage}>
+                        <img src={this.props.icon}/>
+                     </Link>
+                </div>
+            );
+        } else {
+            return (
+                <div className="iconButtonEmpty">
+                </div>
+            );
+        }
 
     }
 }
