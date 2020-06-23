@@ -4,13 +4,10 @@ import BeekeeperPage from "./flows/beekeeper-flow/beekeeper-portrait";
 import BeekeeperMessagePage from "./flows/beekeeper-flow/beekeeper-message";
 import BeekeeperLetterPage from "./flows/beekeeper-flow/beekeeper-letter";
 import MenuPage from "./flows/menu";
-<<<<<<< HEAD
 import Leonard from './images/Leonard-Mahenge.jpg';
 import Letter from './images/BK 1 Letter.jpeg';
 import Frame from './images/Frame.svg';
-=======
 import { retrieveBeekeeper } from "./modules/apiCalls";
->>>>>>> 0aa0126c4486e16e7f50e0affc9cdd3841a0784c
 
 // "https://www.petakids.com/wp-content/uploads/2015/11/Cute-Red-Bunny.jpg"
 
