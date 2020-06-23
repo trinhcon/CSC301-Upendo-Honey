@@ -10,18 +10,25 @@ class BeekeeperPage extends React.Component {
   }
 
   render() {
-    return (
-      <div className="beekeeperFlexContainer">
-        <FlowHeader content="This is the Header" headerClass="blueStrip"
-          textStyle="blueStripText"
-        />
-        <BeekeeperPortrait beekeeperName={this.props.beekeeperName}
-          imageURL={this.props.imageURL}/>
-        <BeekeeperDescriptionContainer
-          content={this.props.beekeeperDescription}/>
-        <FlowFooter content="This is the Footer" footerClass="blackFooter"/>
-      </div>
-    );
+    if (this.state.redirectLetter) {
+      return (<Redirect to='/beekeeper-letter'/>);
+    } else {
+      return (
+          <Swipeable onSwipedLeft={this.swipeLeftHandler} className="beekeeperFlexContainer"
+          >
+
+            <FlowHeader content="Meet your Beekeeper" headerClass="blueStrip"
+              textStyle="blueStripText"
+            />
+            <BeekeeperPortrait beekeeperName={this.props.beekeeperName}
+              imageURL={this.props.imageURL}/>
+            <BeekeeperDescriptionContainer
+              content={this.props.beekeeperDescription}/>
+            <FlowFooter content="This is the Footer" footerClass="blackFooter"/>
+            </Swipeable>
+      );
+    }
+
   }
 }
 

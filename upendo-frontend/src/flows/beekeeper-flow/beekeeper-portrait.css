@@ -6,12 +6,12 @@
   width: 100vw;
   height: 100vh;
 
-  --portraitHeight:250px;
-  --portraitWidth:200px;
+  --portraitHeight:400px;
+  --portraitWidth:300px;
 }
 
 .portrait {
-  margin-left: 40%;
+  margin-left: 20%;
 }
 
 .portraitShape {
@@ -37,7 +37,7 @@
   position: relative;
   font-family: Oxygen, sans-serif;
   font-size: 16pt;
-  margin-left: -80px;
+  margin-left: -50px;
   margin-top: -10px;
   color: black;
 
@@ -47,11 +47,12 @@
 .description {
   width: 70%;
   font-size: 12px;
+  font-family: Oxygen, sans-serif;
   border-left-color: #67c2db;
   border-left-width: 8px;
   border-left-style: solid;
   padding-left: 4px;
   margin-left: 10%;
-
   padding-right: 20px;
+
 }

@@ -9,14 +9,27 @@ class BeekeeperLetterPage extends React.Component {
     }
 
     render () {
-        return (
-            <div>
-                <h1>A Little Letter to You...</h1>
+        if (this.state.redirectPortrait) {
+            return (<Redirect to='/beekeeper'/>);
+        } else if (this.state.redirectMessage) {
+            return (<Redirect to='/beekeeper-message'/>);
+        } else {
+            return (
+            <Swipeable onSwipedLeft={this.swipeLeftHandler}
+            onSwipedRight={this.swipeRightHandler}
+            className="letterPage"
+            > 
+                <div id="beekeeperLetterTitle">
+                    <h1 >A Letter from your Beekeeper...</h1>
+                </div>
                 <LetterPhoto letter={this.props.bk.letter}/>
                 <Translation translation={this.props.bk.translation}/>
                 <FlowFooter content="This is the Footer" footerClass="blackFooter"/>
-            </div>
-        )};
+            </Swipeable>
+            );
+        }
+            
+        };
 }
 
 class LetterPhoto extends React.Component {
@@ -26,10 +39,10 @@ class LetterPhoto extends React.Component {
 
     render () {
         return (
-            <div id="letterContainer">
-                <figcaption>...from Your Beekeeper</figcaption>
+            <figure id="letterContainer">
+                <figcaption>...from your beekeeper</figcaption>
                 <img src={this.props.letter}></img>
-            </div>
+            </figure>
         )
     }
 }
