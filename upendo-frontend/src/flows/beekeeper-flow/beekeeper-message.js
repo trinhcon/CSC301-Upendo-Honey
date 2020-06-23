@@ -4,6 +4,9 @@ import "./beekeeper-message.css";
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
 
+import { useSwipeable, Swipeable } from 'react-swipeable';
+import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+
 class BeekeeperMessagePage extends React.Component {
     constructor(props) {
         super(props);
@@ -16,6 +19,10 @@ class BeekeeperMessagePage extends React.Component {
         this.setState({redirectLetter: false, redirectMenu: false})
     }
 
+    swipeRightHandler(eventData) {
+        this.setState({redirectLetter: true, redirectMenu: false})
+    }
+ 
     render () {
         if (this.state.redirectLetter) {
             return (<Redirect to='/beekeeper-letter'/>);
@@ -52,11 +59,11 @@ class MessageForm extends React.Component {
     }
 
     handleEmailInput (e) {
-
+        this.setState({email: e.target.value});
     }
 
     handleMessageInput(e) {
-
+        this.setState({message: e.target.value});
     }
 
     render () {
@@ -99,6 +106,5 @@ class MessageForm extends React.Component {
             </div>
         )
     }
-}
-
+ */
 export default BeekeeperMessagePage;

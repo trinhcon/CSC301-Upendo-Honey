@@ -2,10 +2,24 @@ import React from 'react';
 
 import "./beekeeper-letter.css";
 import FlowFooter from '../../modules/footer';
+import { useSwipeable, Swipeable } from 'react-swipeable';
+import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+
 
 class BeekeeperLetterPage extends React.Component {
     constructor(props) {
         super(props);
+        this.swipeLeftHandler = this.swipeLeftHandler.bind(this);
+        this.swipeRightHandler = this.swipeRightHandler.bind(this);
+        this.state = {redirectPortrait: false, redirectMessage: false};
+    }
+
+    swipeLeftHandler(eventData){
+        this.setState({redirectMessage: true, redirectPortrait: false});
+    }
+
+    swipeRightHandler(eventData){
+        this.setState({redirectMessage: false, redirectPortrait: true});
     }
 
     render () {
@@ -55,7 +69,9 @@ class Translation extends React.Component {
     render () {
         return (
             <div id="frame">
-                <p id="letterTranslation">{this.props.translation}</p>
+                <div id="letterTranslation">
+                    <p >{this.props.translation}</p>
+                </div>
             </div>
         )
     }

@@ -3,10 +3,20 @@ import React from 'react';
 import "./beekeeper-portrait.css";
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
+import { useSwipeable, Swipeable } from 'react-swipeable';
+import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 
 class BeekeeperPage extends React.Component {
   constructor(props) {
     super(props);
+    this.swipeLeftHandler = this.swipeLeftHandler.bind(this);
+    this.state = {redirectLetter: false};
+
+  }
+
+  swipeLeftHandler(eventData) {
+    this.setState({redirectLetter:true});
+    console.log("picu slided");
   }
 
   render() {
