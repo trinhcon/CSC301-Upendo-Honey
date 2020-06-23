@@ -31,6 +31,7 @@ class BeekeeperMessagePage extends React.Component {
         } else {
             return (
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <div id="messagePage">
                     <Swipeable onSwipedLeft={this.swipeLeftHandler}
                         onSwipedRight={this.swipeRightHandler}
@@ -44,6 +45,8 @@ class BeekeeperMessagePage extends React.Component {
                     </Swipeable>
                 </div>
 =======
+=======
+>>>>>>> a7e0709cd5645f3fc7cdd617a5d730ea3bc23ef1
                 <Swipeable onSwipedLeft={this.swipeLeftHandler} className="messagePage"
                     onSwipedRight={this.swipeRightHandler}
                 >
@@ -54,7 +57,10 @@ class BeekeeperMessagePage extends React.Component {
                     <MessageForm />
                     <FlowFooter content="This is the Footer" footerClass='blackFooter'/>
                 </Swipeable>
+<<<<<<< HEAD
 >>>>>>> Touched up mobile designs (flexbox, spacing)
+=======
+>>>>>>> a7e0709cd5645f3fc7cdd617a5d730ea3bc23ef1
             );
         }
     }
@@ -86,7 +92,10 @@ class MessageForm extends React.Component {
             <div id="formBox">
                 <form action="mailto:yornoc789@gmail.com" method="post" enctype="text/plain">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a7e0709cd5645f3fc7cdd617a5d730ea3bc23ef1
                     <label for="email">Provide Email Here:</label>
                     <br/>
                     <input type="text" value={this.state.email}
@@ -110,6 +119,7 @@ class MessageForm extends React.Component {
         return (
             <div id="formBox">
                 <form onSubmit={this.handleFormSubmission}>
+<<<<<<< HEAD
 >>>>>>> Touched up mobile designs (flexbox, spacing)
                     <label for="email">Provide Email Here:</label>
                     <br/>
@@ -134,6 +144,8 @@ class MessageForm extends React.Component {
         return (
             <div id="formBox">
                 <form onSubmit={this.handleFormSubmission}>
+=======
+>>>>>>> a7e0709cd5645f3fc7cdd617a5d730ea3bc23ef1
                     <label for="email">Provide Email Here:</label>
                     <input type="text" value={this.state.email}
                       name="email" id="emailForm"

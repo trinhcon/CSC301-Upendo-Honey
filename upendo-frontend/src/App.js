@@ -6,6 +6,7 @@ import BeekeeperMessagePage from "./flows/beekeeper-flow/beekeeper-message";
 import BeekeeperLetterPage from "./flows/beekeeper-flow/beekeeper-letter";
 import MenuPage from "./flows/menu";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { retrieveBeekeeper } from "./modules/apiCalls";
 =======
 import Leonard from './images/Leonard-Mahenge.jpg';
@@ -14,6 +15,13 @@ import Frame from './images/Frame.svg';
 >>>>>>> Applied significant CSS to frontend form and beekeeper letter and restructred some form code, depending on the desired use
 
 // "https://www.petakids.com/wp-content/uploads/2015/11/Cute-Red-Bunny.jpg"
+=======
+import Leonard from './images/Leonard-Mahenge.jpg';
+import Letter from './images/BK 1 Letter.jpeg';
+import Frame from './images/Frame.svg';
+import { retrieveBeekeeper } from "./modules/apiCalls";
+
+>>>>>>> a7e0709cd5645f3fc7cdd617a5d730ea3bc23ef1
 
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./landing-page.css";
