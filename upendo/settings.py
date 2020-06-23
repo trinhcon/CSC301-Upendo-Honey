@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -132,6 +133,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'upendo-frontend/build/static')]
 
 
+# Media files (uploaded images and maps)
+# https://django-storages.readthedocs.io/en/latest/backends/dropbox.html
+# https://learndjango.com/tutorials/django-file-and-image-uploads-tutorial
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Configure Django App for Heroku.
 ON_HEROKU = os.environ.get("DYNO", "") != "" # Assumption: "DYNO" envvar wouldn't be set locally
 if ON_HEROKU:
@@ -142,3 +149,7 @@ if ON_HEROKU:
         allowed_hosts=False,    # use a more restrictive value
         secret_key=False,       # use a different env var name
     )
+
+    DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+    DROPBOX_OAUTH2_TOKEN = os.environ.get("DROPBOX_OAUTH2_TOKEN", "")
+    DROPBOX_ROOT_PATH = os.environ.get("DROPBOX_ROOT_PATH", "upendo-dev")

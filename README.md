@@ -33,15 +33,13 @@ PGADMIN_DEFAULT_PASSWORD=upendo
 
 The first three variables in the list above should not be modified, but feel free to change around any of the others.
 
-3. Run `make build-dev`. This builds the docker images.
+3. Run `make dev`.
 
-4. *First time only* Run `make dev`. This command runs the folowing (in the background). If you run this afterwards, the postgres volume seems to be remounted (Ashwin cannot figure out why), and you might lose your postgres data.
+This builds the docker images by running `docker-compose up --build`
 
-* Runs `docker-compose up -d` to start the app, the DB, and pgadmin
-* Points your browser to [localhost:5051](http://localhost:5051) to access pgadmin (using the `PGADMIN_DEFAULT_EMAIL` and `PGADMIN_DEFAULT_PASSWORD` you set in `.env.dev`, above)
-* Points your browser to [localhost:8000](http://localhost:8000) to access the web app
+If you prefer the command to be run in daemon mode, you can run `docker-compose up --build -d`.
 
-5. To access the admin interface:
+4. To access the admin interface:
 `make shell-dev` # SSH into the shell of the app container
 `python manage.py createsuperuser` # create a superuser
 `exit` # leave the app container
@@ -49,15 +47,19 @@ The first three variables in the list above should not be modified, but feel fre
 
 * Ashwin has already created a superuser on prod and staging and can give you access on those servers if you need it.
 
-6. Login to the [admin site](http://localhost:8000/admin) and create a few batches, beekeepers and forests
+5. Login to the [admin site](http://localhost:8000/admin) and create a few batches, beekeepers and forests
 
-7. Visit the [index page](http://localhost:8000) and a [batch details page](http://localhost/batches/1)
+6. Visit the [index page](http://localhost:8000) and a [batch details page](http://localhost/batches/1)
 
-8. When  you're finished and want to stop the docker containers, run `make stop`
+7. When  you're finished and want to stop the docker containers, run `make stop`
+
+## Django Models and Migrations
+
+If you're new to Django, please [read about how migrations work](https://docs.djangoproject.com/en/3.0/topics/migrations/).
 
 ### Other helpful Make commands for local development
 
-`make logs-dev` - tails the docker compose logs
+`make rebuild-dev` - rebuild and restart the 'app' container
 `make shell-dev` - run the sh shell in the app container
 `make pyshell-dev` - run the python django shell in the app container
 `make migrations-dev` - makes and applies Django model migrations to the python app container

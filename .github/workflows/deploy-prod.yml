@@ -4,9 +4,9 @@
 name: deploy_prod
 
 on:
-  create:
+  push:
     tags:
-      - v*
+      - 'v*'
 
 jobs:
   deploy_prod:
