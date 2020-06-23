@@ -11,6 +11,5 @@ router.register(r'forests', views.ForestViewSet)
 router.register(r'honey', views.HoneyViewSet)
 
 urlpatterns = [
-    path('', views.index, name='index'),
     path('api/v1/', include(router.urls)),
 ]

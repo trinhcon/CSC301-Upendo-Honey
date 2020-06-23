@@ -7,6 +7,7 @@ export async function retrieveBatchMember(code) {
     const batchMemberResp = await fetch(url + code, options);
     console.log(batchMemberResp);
     console.log(batchMemberResp.status);
+    console.log(url + code);
     if (batchMemberResp.ok) {
         batchMemberData = batchMemberResp.json();
     } 
