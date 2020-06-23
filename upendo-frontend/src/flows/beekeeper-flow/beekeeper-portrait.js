@@ -24,11 +24,18 @@ class BeekeeperPage extends React.Component {
       return (<Redirect to='/beekeeper-letter'/>);
     } else {
       return (
+<<<<<<< HEAD
         <div className="beekeeperFlexContainer">
           <Swipeable onSwipedLeft={this.swipeLeftHandler}
           >
 
             <FlowHeader content="This is the Header" headerClass="blueStrip"
+=======
+          <Swipeable onSwipedLeft={this.swipeLeftHandler} className="beekeeperFlexContainer"
+          >
+
+            <FlowHeader content="Meet your Beekeeper" headerClass="blueStrip"
+>>>>>>> Touched up mobile designs (flexbox, spacing)
               textStyle="blueStripText"
             />
             <BeekeeperPortrait beekeeperName={this.props.beekeeperName}
@@ -37,7 +44,10 @@ class BeekeeperPage extends React.Component {
               content={this.props.beekeeperDescription}/>
             <FlowFooter content="This is the Footer" footerClass="blackFooter"/>
             </Swipeable>
+<<<<<<< HEAD
         </div>
+=======
+>>>>>>> Touched up mobile designs (flexbox, spacing)
       );
     }
 

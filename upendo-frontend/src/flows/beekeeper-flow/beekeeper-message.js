@@ -30,6 +30,7 @@ class BeekeeperMessagePage extends React.Component {
             return (<Redirect to='/menu'/>);
         } else {
             return (
+<<<<<<< HEAD
                 <div id="messagePage">
                     <Swipeable onSwipedLeft={this.swipeLeftHandler}
                         onSwipedRight={this.swipeRightHandler}
@@ -42,6 +43,18 @@ class BeekeeperMessagePage extends React.Component {
                         <FlowFooter content="Footer" footerClass='blackStrip'/>
                     </Swipeable>
                 </div>
+=======
+                <Swipeable onSwipedLeft={this.swipeLeftHandler} className="messagePage"
+                    onSwipedRight={this.swipeRightHandler}
+                >
+                
+                    <FlowHeader content="Send Back a Message!"
+                    headerClass = 'blueStrip'
+                    textStyle='blueStripText'/>
+                    <MessageForm />
+                    <FlowFooter content="This is the Footer" footerClass='blackFooter'/>
+                </Swipeable>
+>>>>>>> Touched up mobile designs (flexbox, spacing)
             );
         }
     }
@@ -72,6 +85,32 @@ class MessageForm extends React.Component {
         return (
             <div id="formBox">
                 <form action="mailto:yornoc789@gmail.com" method="post" enctype="text/plain">
+<<<<<<< HEAD
+=======
+                    <label for="email">Provide Email Here:</label>
+                    <br/>
+                    <input type="text" value={this.state.email}
+                      name="email" id="emailForm"
+                      onChange={this.handleEmailInput}/>
+                      <br/>
+                    <label for="message">Write your Message Here!</label>
+                    <br/>
+                    <textarea value={this.state.message}
+                      name="message" id="messageForm" placeholder="Dear Beekeeper..."
+                      onChange={this.handleMessageInput}/>
+                      <br/>
+                    <input type="submit" value="Send" id="submitButton" />
+                </form>
+            </div>
+        )
+    }
+}
+/**
+ *     render () {
+        return (
+            <div id="formBox">
+                <form onSubmit={this.handleFormSubmission}>
+>>>>>>> Touched up mobile designs (flexbox, spacing)
                     <label for="email">Provide Email Here:</label>
                     <br/>
                     <input type="text" value={this.state.email}

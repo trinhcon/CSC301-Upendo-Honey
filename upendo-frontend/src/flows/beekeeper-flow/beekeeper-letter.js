@@ -29,18 +29,29 @@ class BeekeeperLetterPage extends React.Component {
             return (<Redirect to='/beekeeper-message'/>);
         } else {
             return (
+<<<<<<< HEAD
             <div>
                 <Swipeable onSwipedLeft={this.swipeLeftHandler}
                 onSwipedRight={this.swipeRightHandler}
                 > 
+=======
+            <Swipeable onSwipedLeft={this.swipeLeftHandler}
+            onSwipedRight={this.swipeRightHandler}
+            className="letterPage"
+            > 
+>>>>>>> Touched up mobile designs (flexbox, spacing)
                 <div id="beekeeperLetterTitle">
                     <h1 >A Letter from your Beekeeper...</h1>
                 </div>
                 <LetterPhoto letter={this.props.bk.letter}/>
                 <Translation translation={this.props.bk.translation}/>
                 <FlowFooter content="This is the Footer" footerClass="blackFooter"/>
+<<<<<<< HEAD
                 </Swipeable>
             </div>
+=======
+            </Swipeable>
+>>>>>>> Touched up mobile designs (flexbox, spacing)
             );
         }
             
@@ -54,10 +65,15 @@ class LetterPhoto extends React.Component {
 
     render () {
         return (
+<<<<<<< HEAD
             <div id="letterContainer">
                 <figcaption>To you</figcaption>
+=======
+            <figure id="letterContainer">
+                <figcaption>...from your beekeeper</figcaption>
+>>>>>>> Touched up mobile designs (flexbox, spacing)
                 <img src={this.props.letter}></img>
-            </div>
+            </figure>
         )
     }
 }
