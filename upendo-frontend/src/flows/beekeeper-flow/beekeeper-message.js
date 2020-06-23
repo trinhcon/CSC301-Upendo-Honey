@@ -7,6 +7,13 @@ import FlowFooter from '../../modules/footer';
 class BeekeeperMessagePage extends React.Component {
     constructor(props) {
         super(props);
+        this.swipeLeftHandler = this.swipeLeftHandler.bind(this);
+        this.swipeRightHandler = this.swipeRightHandler.bind(this);
+        this.state = {redirectLetter: false, redirectMenu: false};
+    }
+
+    swipeLeftHandler(eventData) {
+        this.setState({redirectLetter: false, redirectMenu: false})
     }
 
     render () {
