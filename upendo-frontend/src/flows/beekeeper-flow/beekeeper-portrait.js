@@ -3,25 +3,44 @@ import React from 'react';
 import "./beekeeper-portrait.css";
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
+import { useSwipeable, Swipeable } from 'react-swipeable';
+import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 
 class BeekeeperPage extends React.Component {
   constructor(props) {
     super(props);
+    this.swipeLeftHandler = this.swipeLeftHandler.bind(this);
+    this.state = {redirectLetter: false};
+
+  }
+
+  swipeLeftHandler(eventData) {
+    this.setState({redirectLetter:true});
+    console.log("picu slided");
   }
 
   render() {
-    return (
-      <div className="beekeeperFlexContainer">
-        <FlowHeader content="This is the Header" headerClass="blueStrip"
-          textStyle="blueStripText"
-        />
-        <BeekeeperPortrait beekeeperName={this.props.beekeeperName}
-          imageURL={this.props.imageURL}/>
-        <BeekeeperDescriptionContainer
-          content={this.props.beekeeperDescription}/>
-        <FlowFooter content="This is the Footer" footerClass="blackFooter"/>
-      </div>
-    );
+    if (this.state.redirectLetter) {
+      return (<Redirect to='/beekeeper-letter'/>);
+    } else {
+      return (
+        <div className="beekeeperFlexContainer">
+          <Swipeable onSwipedLeft={this.swipeLeftHandler}
+          >
+
+            <FlowHeader content="This is the Header" headerClass="blueStrip"
+              textStyle="blueStripText"
+            />
+            <BeekeeperPortrait beekeeperName={this.props.beekeeperName}
+              imageURL={this.props.imageURL}/>
+            <BeekeeperDescriptionContainer
+              content={this.props.beekeeperDescription}/>
+            <FlowFooter content="This is the Footer" footerClass="blackFooter"/>
+            </Swipeable>
+        </div>
+      );
+    }
+
   }
 }
 
