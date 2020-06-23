@@ -29,9 +29,9 @@ class Batch(CommonModel):
 
 
 class BatchMember(CommonModel):
-    alphanum_code = models.CharField(max_length=15,
-                                     help_text="Alphanumeric Code",
-                                     unique=True)
+    alphanum_code = models.CharField(primary_key=True,
+                                     max_length=15,
+                                     help_text="Alphanumeric Code")
     batch = models.ForeignKey('Batch', on_delete=models.CASCADE)
     beekeeper = models.ForeignKey('Beekeeper', on_delete=models.CASCADE)
 
