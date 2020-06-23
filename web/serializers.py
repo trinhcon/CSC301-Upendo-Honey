@@ -17,7 +17,7 @@ class BatchSerializer(serializers.HyperlinkedModelSerializer):
 class BatchMemberSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = BatchMember
-        fields = ['alphanum_code', 'batch', 'beekeeper']
+        fields = ['alphanum_code', 'batch', 'beekeeper', 'photo', 'external_url']
 
 
 class BeekeeperSerializer(serializers.HyperlinkedModelSerializer):

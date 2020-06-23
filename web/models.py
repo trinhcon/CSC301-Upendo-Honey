@@ -34,6 +34,8 @@ class BatchMember(CommonModel):
                                      help_text="Alphanumeric Code")
     batch = models.ForeignKey('Batch', on_delete=models.CASCADE)
     beekeeper = models.ForeignKey('Beekeeper', on_delete=models.CASCADE)
+    photo = CustomImageField(upload_to='images/', null=True, blank=True)
+    external_url = models.URLField(null=True, blank=True)
 
     def __str__(self):
         return f'BatchMember: alphanum_code {self.alphanum_code}'
