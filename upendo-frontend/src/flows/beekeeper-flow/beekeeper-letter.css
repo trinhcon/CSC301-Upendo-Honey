@@ -1,0 +1,48 @@
+#letterContainer > img {
+  margin-top: 0;
+  margin-left: 10vw;
+  margin-right: 5vw; 
+  border-top: 2vw solid rgb(194, 158, 12);
+  border-bottom: 2vw solid rgb(194, 158, 12);
+  border-left: 2vw solid rgb(148, 211, 226);
+  border-right: 2vw solid rgb(148, 211, 226);
+
+  
+  width: 80vw;
+  height: auto;
+}
+
+#beekeeperLetterTitle {
+  width: 40vw;
+  margin-left: 30vw;
+  margin-right: 30vw;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  font-size: 10px;
+}
+
+div > figcaption {
+  margin-left: 20vw;
+  font-weight: 1000;
+  font-family: 'Pacifico', cursive;
+}
+
+div#frame {
+  margin-left: 5vw;  
+  height: 40vh;
+  width: auto;
+
+  background-image: url('../../images/Frame.svg');
+  background-size:  90vw 40vh;
+
+  background-repeat: no-repeat;
+}
+
+div#frame > div {
+  /** border: 2px solid black; */
+  font-family: 'Pacifico', cursive;
+  transform: translate(80px,50px) rotate(-10deg);
+  
+  width: 55vw;
+  height: auto;
+}
