@@ -44,6 +44,20 @@ class LandingPageForm extends React.Component {
   }
 
   async handleCodeSubmission(e) {
+    /**
+     * Upendo Meeting Presentation code
+     * Below code would fetch normally
+     * 
+     */
+    e.preventDefault();
+    if (this.state.code === 'PUREJOY') {
+      this.setState({redirect: true});
+    } else {
+      this.setState({code: '', displayMessage: true});
+    }
+
+
+    /** Original code
     e.preventDefault();
     const batchMemberData = await retrieveBatchMember(this.state.code);
     console.log(batchMemberData);
@@ -58,6 +72,7 @@ class LandingPageForm extends React.Component {
     } else {
       this.setState({code: '', displayMessage: true});
     }
+    */
   }
 
 
