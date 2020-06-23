@@ -21,7 +21,7 @@ class App extends React.Component {
 
   async getData(code, batchMemberData) {
     // Uses retrieve beekeeper method to make a call to api to get beekeeper
-    const beekeeperData = await retrieveBeekeeper(batchMemberData.beekeeper);
+    const beekeeperData = await retrieveBeekeeper("/api/v1/beekeepers/" + batchMemberData.beekeeper);
     console.log(beekeeperData);
     if (beekeeperData) {
       this.setState({alphacode: code, batchMember: batchMemberData, beekeeper: beekeeperData});
@@ -40,7 +40,7 @@ class App extends React.Component {
               environmentFirstPage="/blah1"
               honeyFirstPage="/blah2"
               tanzaniaFirstPage="/blah3"
-            /> 
+            />
             )}
           />
           <Route path = "/beekeeper-letter" render = {() => (

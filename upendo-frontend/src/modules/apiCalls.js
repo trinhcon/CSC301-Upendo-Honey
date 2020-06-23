@@ -1,6 +1,6 @@
 export async function retrieveBatchMember(code) {
     let batchMemberData = null;
-    const url = "http://127.0.0.1:8000/api/v1/batch-members/";
+    const url = "/api/v1/batch-members/";
     const options = {mode:'cors'};
 
     // Not checking for errors yet
@@ -10,7 +10,7 @@ export async function retrieveBatchMember(code) {
     console.log(url + code);
     if (batchMemberResp.ok) {
         batchMemberData = batchMemberResp.json();
-    } 
+    }
     return batchMemberData;
 }
 
