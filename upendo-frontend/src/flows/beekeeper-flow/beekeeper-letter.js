@@ -3,7 +3,7 @@ import React from 'react';
 import "./beekeeper-letter.css";
 import FlowFooter from '../../modules/footer';
 import { useSwipeable, Swipeable } from 'react-swipeable';
-import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect, useParams} from "react-router-dom";
 
 
 class BeekeeperLetterPage extends React.Component {
@@ -11,7 +11,8 @@ class BeekeeperLetterPage extends React.Component {
         super(props);
         this.swipeLeftHandler = this.swipeLeftHandler.bind(this);
         this.swipeRightHandler = this.swipeRightHandler.bind(this);
-        this.state = {redirectPortrait: false, redirectMessage: false};
+        this.state = {redirectPortrait: false,
+            redirectMessage: false};
     }
 
     swipeLeftHandler(eventData){
@@ -22,11 +23,21 @@ class BeekeeperLetterPage extends React.Component {
         this.setState({redirectMessage: false, redirectPortrait: true});
     }
 
+    componentDidMount() {
+        const { alphaCode } = this.props.match.params;
+        if (typeof alphaCode !== undefined){
+            this.props.setAlphaCode(alphaCode);
+        } else {
+            console.log('DEVLOG: URL Param Matching failed');
+        }
+    }
+
     render () {
+
         if (this.state.redirectPortrait) {
-            return (<Redirect to='/beekeeper'/>);
+            return (<Redirect to={'/' + this.props.getAlphaCode() + '/beekeeper'}/>);
         } else if (this.state.redirectMessage) {
-            return (<Redirect to='/beekeeper-message'/>);
+            return (<Redirect to={'/' + this.props.getAlphaCode() + '/beekeeper-message'}/>);
         } else {
             return (
             <Swipeable onSwipedLeft={this.swipeLeftHandler}

@@ -22,12 +22,21 @@ class BeekeeperMessagePage extends React.Component {
     swipeRightHandler(eventData) {
         this.setState({redirectLetter: true, redirectMenu: false})
     }
- 
+
+    componentDidMount() {
+        const { alphaCode } = this.props.match.params;
+        if (typeof alphaCode !== undefined){
+            this.props.setAlphaCode(alphaCode);
+        } else {
+            console.log('DEVLOG: URL Param Matching failed');
+        }
+    }
+
     render () {
         if (this.state.redirectLetter) {
-            return (<Redirect to='/beekeeper-letter'/>);
+            return (<Redirect to={'/' + this.props.getAlphaCode() + '/beekeeper-letter'}/>);
         } else if (this.state.redirectMenu){
-            return (<Redirect to='/menu'/>);
+            return (<Redirect to={'/' + this.props.getAlphaCode() + '/menu'}/>);
         } else {
             return (
                 <Swipeable onSwipedLeft={this.swipeLeftHandler} className="messagePage"

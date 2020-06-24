@@ -16,9 +16,20 @@ import "./landing-page.css";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {alphacode: '', batchMember: {}, beekeeper: {}};
+    this.state = {alphacode: 'PUREJOY', batchMember: {}, beekeeper: {}};
     this.getData = this.getData.bind(this);
+    this.getAlphaCode = this.getAlphaCode.bind(this);
+    this.setAlphaCode = this.setAlphaCode.bind(this);
   }
+
+  getAlphaCode(){
+    return this.state.alphacode;
+  }
+
+  setAlphaCode(code){
+    this.setState({alphacode: code});
+  }
+
 
   async getData(code, batchMemberData) {
     // Uses retrieve beekeeper method to make a call to api to get beekeeper
@@ -36,8 +47,9 @@ class App extends React.Component {
     return (
       <Router>
         <Switch>
-          <Route path = "/menu" render = {() => (
+          <Route path = "/:alphaCode/menu" render = {(props) => (
             <MenuPage
+              {...props}
               beekeeperFirstPage="/beekeeper"
               beekeeperIcon={BeeIcon}
               environmentFirstPage="/blah1"
@@ -46,25 +58,47 @@ class App extends React.Component {
               honeyIcon={BeeIcon}
               tanzaniaFirstPage="/blah3"
               tanzaniaIcon={BeeIcon}
+              getAlphaCode={this.getAlphaCode}
+              setAlphaCode={this.setAlphaCode}
 
             /> 
             )}
           />
-          <Route path = "/beekeeper-letter" render = {() => (
-              <BeekeeperLetterPage bk = {{letter: this.state.beekeeper.letter_img_url, translation: this.state.beekeeper.letter_text}}
+          <Route path = "/:alphaCode/beekeeper-letter" render = {(props) => (
+              <BeekeeperLetterPage
+                {...props}
+                bk = {{letter: this.state.beekeeper.letter_img_url, translation: this.state.beekeeper.letter_text}}
+                getAlphaCode={this.getAlphaCode}
+                setAlphaCode={this.setAlphaCode}
+
               />
             )}
           />
-          <Route path = "/beekeeper-message" component = {BeekeeperMessagePage}/>
-          <Route path = "/beekeeper" render={() =>   (
-            <BeekeeperPage imageURL= {this.state.beekeeper.photo}
+          <Route path = "/:alphaCode/beekeeper-message"
+            render = {(props) =>
+              <BeekeeperMessagePage
+                {...props}
+                getAlphaCode={this.getAlphaCode}
+                setAlphaCode={this.setAlphaCode}
+                
+              />
+            }
+          />
+          <Route path = "/:alphaCode/beekeeper" render={(props) =>   (
+            <BeekeeperPage
+              {...props}
+              imageURL= {this.state.beekeeper.photo}
               beekeeperDescription= {this.state.beekeeper.bio}
               beekeeperName={this.state.beekeeper.name}
+              getAlphaCode={this.getAlphaCode}
+              setAlphaCode={this.setAlphaCode}
             />
             )}
           />
           <Route path = "/" render = {() => (
             <LandingPage getData={this.getData}
+            getAlphaCode={this.getAlphaCode}
+            setAlphaCode={this.setAlphaCode}
             />
           )}
           />
