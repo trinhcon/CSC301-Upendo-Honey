@@ -25,6 +25,7 @@ admin.site.index_title = "Welcome to Upendo Admin Portal"
 
 urlpatterns = [
     path('', include('web.urls')),
+    #path('', views.index, name = 'index');
     path('', TemplateView.as_view(template_name="index.html")),
     path('admin/', admin.site.urls),
 ]
