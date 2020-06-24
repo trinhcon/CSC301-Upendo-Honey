@@ -1,0 +1,7 @@
+.blackFooter{
+  background-color: black;
+  border-top: 10px solid  rgb(228, 181, 28);
+
+  bottom: 0px;
+  height: 50px
+}

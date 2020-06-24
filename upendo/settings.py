@@ -40,9 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -60,6 +63,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'web', 'templates'),
+            os.path.join(BASE_DIR, 'upendo-frontend/build'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -129,6 +133,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'upendo-frontend/build/static')]
+
 
 # Media files (uploaded images and maps)
 # https://django-storages.readthedocs.io/en/latest/backends/dropbox.html
@@ -150,3 +156,6 @@ if ON_HEROKU:
     DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
     DROPBOX_OAUTH2_TOKEN = os.environ.get("DROPBOX_OAUTH2_TOKEN", "")
     DROPBOX_ROOT_PATH = os.environ.get("DROPBOX_ROOT_PATH", "upendo-dev")
+
+# Configuration for CORS
+CORS_ORIGIN_ALLOW_ALL = True

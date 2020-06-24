@@ -1,0 +1,58 @@
+.beekeeperFlexContainer {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+
+  --portraitHeight:400px;
+  --portraitWidth:300px;
+}
+
+.portrait {
+  margin-left: 20%;
+}
+
+.portraitShape {
+  width: var(--portraitWidth);
+  height: var(--portraitHeight);
+  background-color: white;
+  border-radius: var(--portraitWidth) / var(--portraitHeight) ;
+  overflow: hidden;
+
+  border: 7px solid rgb(228, 181, 28);
+ 
+  transform: skew(0deg, -10deg);
+
+}
+
+.portraitImage {
+  transform: skew(0deg, 10deg);
+  width: var(--portraitWidth);
+  height: var(--portraitHeight);
+}
+
+.portraitCaption {
+  position: relative;
+  font-family: Oxygen, sans-serif;
+  font-size: 16pt;
+  margin-left: -50px;
+  margin-top: -10px;
+  color: black;
+
+  z-index: 2;
+}
+
+.description {
+  width: 70%;
+  font-size: 12px;
+  font-family: Oxygen, sans-serif;
+  border-left-color: #67c2db;
+  border-left-width: 8px;
+  border-left-style: solid;
+  padding-left: 4px;
+  margin-left: 10%;
+  padding-right: 20px;
+
+}
