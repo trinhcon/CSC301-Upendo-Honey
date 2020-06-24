@@ -13,8 +13,8 @@
   .blackFooter{
     /*grid view*/
     grid-area: footer;
-    align-self: stretch;
     border-top: 20px solid  rgb(228, 181, 28);
+    align-self: stretch;
     height: auto;
   }
 }

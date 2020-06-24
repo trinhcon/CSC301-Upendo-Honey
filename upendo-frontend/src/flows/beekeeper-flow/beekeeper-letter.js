@@ -1,9 +1,14 @@
 import React from 'react';
 
 import "./beekeeper-letter.css";
+import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
+import FlowProgressBar from '../../modules/progress-bar';
 import { useSwipeable, Swipeable } from 'react-swipeable';
-import { BrowserRouter as Router, Route, Switch, Redirect, useParams} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import MediaQuery from 'react-responsive';
+import NextArrow from '../../modules/next-arrow';
+
 
 
 class BeekeeperLetterPage extends React.Component {
@@ -45,9 +50,17 @@ class BeekeeperLetterPage extends React.Component {
             onSwipedRight={this.swipeRightHandler}
             className="letterPage"
             > 
-                <div id="beekeeperLetterTitle">
-                    <h1 >A Letter from your Beekeeper...</h1>
-                </div>
+                <MediaQuery minDeviceWidth="600px">
+                    <FlowProgressBar position="two"/>
+                    <FlowHeader content="A Letter from your Beekeeper..." headerClass="blueStrip"
+            textStyle="blueStripText"/>
+                    <NextArrow nextPage="/beekeeper-message"/>
+                </MediaQuery>
+                <MediaQuery maxDeviceWidth="600px">
+                    <div id="beekeeperLetterTitle">
+                        <h2 >A Letter from your Beekeeper...</h2>
+                    </div>
+                </MediaQuery>
                 <LetterPhoto letter={this.props.bk.letter}/>
                 <Translation translation={this.props.bk.translation}/>
                 <FlowFooter content="This is the Footer" footerClass="blackFooter"/>
