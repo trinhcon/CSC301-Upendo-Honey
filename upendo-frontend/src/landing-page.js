@@ -58,18 +58,20 @@ class LandingPageForm extends React.Component {
     */
 
     e.preventDefault();
-    const batchMemberData = await retrieveBatchMember(this.state.code);
-    console.log(batchMemberData);
-    // Check if batch member exists (need to refine checking for errors)
-    if (batchMemberData) {
-      const loadData = await this.props.getData(this.state.code, batchMemberData);
-      if (loadData) {
-        this.setState({redirect: true});
-      } else {
-        console.log("error"); // Issues with retrieving data
+    try {
+      const batchMemberData = await retrieveBatchMember(this.state.code);
+      console.log(batchMemberData);
+      // Check if batch member exists (need to refine checking for errors)
+      if (batchMemberData) {
+        const loadData = await this.props.getData(this.state.code, batchMemberData);
+        if (loadData) {
+          this.setState({redirect: true});
+        }
       }
-    } else {
       this.setState({code: '', displayMessage: true});
+    } catch (error) {
+      this.setState({code:'', displayMessage: true});
+      console.log(error);
     }
   }
 
