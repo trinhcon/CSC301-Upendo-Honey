@@ -1,8 +1,13 @@
 .beekeeperFlexContainer {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: stretch;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "header header header header"
+    "progress description portrait arrow"
+    "progress description portrait arrow"
+    "progress forest forest arrow"
+    "footer footer footer footer";
   width: 100vw;
   height: 100vh;
 
@@ -10,8 +15,12 @@
   --portraitWidth:300px;
 }
 
+.progressBar {
+  align-self: center;
+}
+
 .portrait {
-  margin-left: 20%;
+  grid-area: portrait;
 }
 
 .portraitShape {
@@ -36,7 +45,7 @@
 .portraitCaption {
   position: relative;
   font-family: Oxygen, sans-serif;
-  font-size: 16pt;
+  font-size: 24pt;
   margin-left: -50px;
   margin-top: -10px;
   color: black;
@@ -44,9 +53,13 @@
   z-index: 2;
 }
 
+.descriptionContainer {
+  grid-area: description;
+}
+
 .description {
   width: 70%;
-  font-size: 12px;
+  font-size: 14pt;
   font-family: Oxygen, sans-serif;
   border-left-color: #67c2db;
   border-left-width: 8px;
@@ -55,4 +68,28 @@
   margin-left: 10%;
   padding-right: 20px;
 
+}
+
+@media only screen and (max-width: 800px) {
+
+  .beekeeperFlexContainer {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: stretch;
+    justify-content: space-between;
+
+  }
+
+  .portrait {
+    margin-left: 20%;
+  }
+
+  .portraitCaption {
+    font-size: 16pt;
+  }
+
+  .description {
+    font-size: 12pt;
+
+  }
 }

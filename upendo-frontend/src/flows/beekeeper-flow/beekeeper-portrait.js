@@ -3,8 +3,10 @@ import React from 'react';
 import "./beekeeper-portrait.css";
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
+import FlowProgressBar from '../../modules/progress-bar';
 import { useSwipeable, Swipeable } from 'react-swipeable';
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import MediaQuery from 'react-responsive';
 
 class BeekeeperPage extends React.Component {
   constructor(props) {
@@ -28,6 +30,9 @@ class BeekeeperPage extends React.Component {
           className="beekeeperFlexContainer">
             <FlowHeader content="Meet your Beekeeper" headerClass="blueStrip"
             textStyle="blueStripText"/>
+            <MediaQuery minDeviceWidth="800px">
+              <FlowProgressBar className="progressBar" position="one"></FlowProgressBar>
+            </MediaQuery>
             <BeekeeperPortrait beekeeperName={this.props.beekeeperName}
               imageURL={this.props.imageURL}/>
             <BeekeeperDescriptionContainer
@@ -36,7 +41,6 @@ class BeekeeperPage extends React.Component {
           </Swipeable>
       );
     }
-
   }
 }
 
@@ -66,7 +70,7 @@ class BeekeeperDescriptionContainer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="descriptionContainer">
         <div className="Bee"></div>
         <div className="verticalBar"></div>
         <p className="description"> {this.props.content}</p>

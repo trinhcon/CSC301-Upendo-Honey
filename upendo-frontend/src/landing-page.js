@@ -1,6 +1,6 @@
 import React from 'react';
 import "./landing-page.css";
-import { retrieveBatchMember } from './modules/apiCalls';
+import { retrieveBatchMember } from './modules/api-calls';
 import { Redirect } from 'react-router-dom';
 import Forest from './images/our-forest.JPG';
 import FlowFooter from './modules/footer';
@@ -20,7 +20,7 @@ class LandingPage extends React.Component {
           <div id="right"></div>
         </div>
         <LandingPageFormBox getData={this.props.getData}/>
-        <MediaQuery minDeviceWidth="600px">
+        <MediaQuery minDeviceWidth="800px">
           <FlowFooter content="This is the Content" footerClass="movingBee"/>
         </MediaQuery>
       </div>

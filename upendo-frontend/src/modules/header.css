@@ -20,3 +20,15 @@
   position: absolute;
   bottom: -10%;
 }
+
+@media only screen and (min-width: 800px) {
+  .blueStrip{
+    /*grid view*/
+    grid-area: header;
+    height: 70px;
+  }
+
+  .blueStripText {
+    font-size: 24pt;
+  }
+}

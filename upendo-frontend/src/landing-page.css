@@ -100,12 +100,12 @@
         padding: 10px;
     }
 
-    h2 {
-        font-size: 20px;
+    #codeBoxHeader {
+        font-size: 18pt;
         line-height: 5px;
     }
 
-    p {
-        font-size: 14px;
+    #codeBoxHeaderSub {
+        font-size: 12pt;
     }
 }
