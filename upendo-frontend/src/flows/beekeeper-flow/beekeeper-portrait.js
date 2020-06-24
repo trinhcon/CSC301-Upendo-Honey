@@ -4,7 +4,7 @@ import "./beekeeper-portrait.css";
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
 import FlowProgressBar from '../../modules/progress-bar';
-import NextArrows from '../../modules/next-arrow'
+import NextArrow from '../../modules/next-arrow'
 import { useSwipeable, Swipeable } from 'react-swipeable';
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
@@ -45,7 +45,7 @@ class BeekeeperPage extends React.Component {
             <FlowHeader content="Meet your Beekeeper" headerClass="blueStrip"
             textStyle="blueStripText"/>
             <MediaQuery minDeviceWidth="800px">
-              <FlowProgressBar className="progressBar" position="one"/>
+              <FlowProgressBar position="one"/>
               <NextArrow nextPage="/beekeeper-letter"/>
               <img id="trees" src="" alt=""/>
             </MediaQuery>

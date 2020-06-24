@@ -3,69 +3,82 @@
    --mobileWidth: 600px;
 }
 #menuPage {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        "left left . jar . right right"
+        ". icon1 . jar . icon2 ."
+        ". . icon3 . icon4 . ."
+        "footer footer footer footer footer footer footer";
     height: 100vh;
     width: 100vw;
     background-image: linear-gradient(white, rgb(187, 185, 185));
     font-family: Oxygen, sans-serif;
-    }
+}
 
-    #iconGrid {
-        margin-top: -50%;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        background-color: turquoise;
-        width: 480px;
-        height: 240px;
-        }
-    
-    .iconButton{
-        z-index: 5;
-        width: 120px;
-        height: 120px;
-        background-color: blue;
-        color: white; 
-        }
-    img {
-        width: 90px;
-        height: 90px;
-    }
-    
-    .iconButtonEmpty {
+.honeyHeaderLeft {
+    grid-area: left;
+    background-color: coral;
+}
+
+.honeyHeaderRight {
+    grid-area: right;
+    background-color: coral;
+}
+
+#icon1 {
+    grid-area: icon1;
+}
+
+#icon2 {
+    grid-area: icon2;
+}
+
+#icon3 {
+    grid-area: icon3;
+}
+
+#icon4 {
+    grid-area: icon4;
+}
+
+.iconButton{
+    z-index: 5;
+    width: 120px;
+    height: 120px;
+    background-color: blue;
+    color: white;
+    display: flex;
+
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.iconImage {
+    width: 90px;
+    height: 90px;
+}
+
+.iconButtonEmpty {
     width: 120px;
     height: 120px;
     background-color: purple  ;
     color: white;
-    }
+}
 
-    #honeyHeader {
-    width: 100%;
-    padding: 20px;
-    margin: 0px;
-    height: 20%;
-    background-color: green;
-    }
-    
-    
-    #leftHoneyJar {
-    width: 20%;
-    height: 10%;
-    }
-    
-    #honeyJar {
-    margin-top: -30vh;
-    padding-top: 0;
+#honeyJar {
+    grid-area: jar;
 
-    width: 30vmax;
-    height: 30vmax;
+    margin: 20px;
+    width: 400px;
+    height: 400px;
     /**background-image;*/
-    }
+}
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
 
     /**Mobile Design**/
     #menuPage {
