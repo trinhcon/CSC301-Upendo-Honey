@@ -13,8 +13,9 @@
   .blackFooter{
     /*grid view*/
     grid-area: footer;
-    align-self: end;
-    height: 100px;
+    align-self: stretch;
+    border-top: 20px solid  rgb(228, 181, 28);
+    height: auto;
   }
 }
 

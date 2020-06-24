@@ -1,12 +1,12 @@
 .beekeeperFlexContainer {
   display: grid;
   grid-template-columns: 1fr 2fr 2fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 2fr 1fr;
   grid-template-areas:
     "header header header header"
     "progress description portrait arrow"
     "progress description portrait arrow"
-    "progress forest forest arrow"
+    "progress trees trees arrow"
     "footer footer footer footer";
   width: 100vw;
   height: 100vh;
@@ -17,6 +17,11 @@
 
 .progressBar {
   align-self: center;
+}
+
+.trees {
+  align-self: end;
+  grid-area: trees;
 }
 
 .portrait {
@@ -44,7 +49,7 @@
 
 .portraitCaption {
   position: relative;
-  font-family: Oxygen, sans-serif;
+  font-family: Pacifico, cursive;
   font-size: 24pt;
   margin-left: -50px;
   margin-top: -10px;
