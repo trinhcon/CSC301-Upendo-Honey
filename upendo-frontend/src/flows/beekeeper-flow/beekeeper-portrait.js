@@ -19,10 +19,11 @@ class BeekeeperPage extends React.Component {
     console.log("picu slided");
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const { alphaCode } = this.props.match.params;
     if (typeof alphaCode !== undefined){
         this.props.setAlphaCode(alphaCode);
+        this.props.retrieveAppData();
     } else {
         console.log('DEVLOG: URL Param Matching failed');
     }

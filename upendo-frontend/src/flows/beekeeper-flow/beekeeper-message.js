@@ -23,10 +23,11 @@ class BeekeeperMessagePage extends React.Component {
         this.setState({redirectLetter: true, redirectMenu: false})
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         const { alphaCode } = this.props.match.params;
         if (typeof alphaCode !== undefined){
             this.props.setAlphaCode(alphaCode);
+            this.props.retrieveAppData();
         } else {
             console.log('DEVLOG: URL Param Matching failed');
         }

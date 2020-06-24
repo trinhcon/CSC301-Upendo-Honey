@@ -5,7 +5,7 @@ import BeekeeperPage from "./flows/beekeeper-flow/beekeeper-portrait";
 import BeekeeperMessagePage from "./flows/beekeeper-flow/beekeeper-message";
 import BeekeeperLetterPage from "./flows/beekeeper-flow/beekeeper-letter";
 import MenuPage from "./flows/menu";
-import { retrieveBeekeeper } from "./modules/apiCalls";
+import { retrieveBeekeeper, retrieveBatchMember } from "./modules/apiCalls";
 import Leonard from './images/Leonard-Mahenge.jpg';
 import Letter from './images/BK 1 Letter.jpeg';
 import BeeIcon from './images/bee.svg';
@@ -20,6 +20,7 @@ class App extends React.Component {
     this.getData = this.getData.bind(this);
     this.getAlphaCode = this.getAlphaCode.bind(this);
     this.setAlphaCode = this.setAlphaCode.bind(this);
+    this.retrieveAppData = this.retrieveAppData.bind(this);
   }
 
   getAlphaCode(){
@@ -28,6 +29,38 @@ class App extends React.Component {
 
   setAlphaCode(code){
     this.setState({alphacode: code});
+  }
+
+  async retrieveAppData(){
+    try {
+      const batchMemberData = await retrieveBatchMember(this.state.alphacode);
+      console.log(batchMemberData);
+
+      if (batchMemberData) {
+        const loadData = await this.getData(this.state.code, batchMemberData);
+        if (!loadData && (this.state.alphacode !== "PUREJOY")) {
+          console.log("loadData does not exist, but batchmemberData does, attempting PUREJOY");
+         this.setAlphaCode("PUREJOY");
+         await this.retrieveAppData();
+        } else {
+          console.log("PUREJOY batchMember exists, but not beekeeper data");
+        }
+      } else if (this.state.alphacode !== "PUREJOY") {
+        console.log("batchMemberData does not exist, attempting PUREJOY");
+        this.setAlphaCode("PUREJOY");
+        await this.retrieveAppData(); 
+      } else {
+        console.log("PUREJOY data does not exist");
+      }
+    } catch(error) {
+      console.log(error);
+      if (this.state.alphacode !== "PUREJOY") {
+        console.log("Prev code errored, attempting PUREJOY")
+        this.setAlphaCode("PUREJOY");
+        await this.retrieveAppData();
+      }
+    }
+
   }
 
 
@@ -60,6 +93,7 @@ class App extends React.Component {
               tanzaniaIcon={BeeIcon}
               getAlphaCode={this.getAlphaCode}
               setAlphaCode={this.setAlphaCode}
+              retrieveAppData={this.retrieveAppData}
 
             /> 
             )}
@@ -70,6 +104,7 @@ class App extends React.Component {
                 bk = {{letter: this.state.beekeeper.letter_img_url, translation: this.state.beekeeper.letter_text}}
                 getAlphaCode={this.getAlphaCode}
                 setAlphaCode={this.setAlphaCode}
+                retrieveAppData={this.retrieveAppData}
 
               />
             )}
@@ -80,6 +115,7 @@ class App extends React.Component {
                 {...props}
                 getAlphaCode={this.getAlphaCode}
                 setAlphaCode={this.setAlphaCode}
+                retrieveAppData={this.retrieveAppData}
                 
               />
             }
@@ -92,6 +128,7 @@ class App extends React.Component {
               beekeeperName={this.state.beekeeper.name}
               getAlphaCode={this.getAlphaCode}
               setAlphaCode={this.setAlphaCode}
+              retrieveAppData={this.retrieveAppData}
             />
             )}
           />
