@@ -1,369 +1,58 @@
 
-/* Mobile Styles */
+/*Desktop*/
+
 #landingPage {
-    position: absolute;
     display: flex;
-    width: 100%;
-    height: 100%;
+    flex-flow: column;
+    width: 100vw;
+    height: 100vh;
 
-    font-family: 'Pacifico', cursive;
-    color: black;
-    align-content: flex-start;
-    align-items: center;
-    background-color: rgb(253, 222, 84);
-}
-
-#autoCode {
-    font-family: Oxygen, sans-serif;
-}
-
-#landingPageBox {
-    width: 80vw;
-    height: 50vh;
-    margin: auto;
-    padding: 3px;
-    
-    text-align: center;
-
-    background-color: rgba(0, 0, 0, 0);
-}
-
-#submitButton {
-    margin: 15px;
-    padding: 5px;
-
-    font-size: larger;
-    border-radius: 10%;
-    border: 0px solid black;
-    background-color: rgba(252, 252, 252, 1);
-}
-
-#inputForm {
-    margin: 10px;
-    color: black;
-    height: 30px;
-    padding: 4px;
-
-    border: 1px solid black;
-}
-
-/* Desktop Styles */
-
-/*
-#landingPage {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    height: 100%;
-
-    font-family: 'Pacifico', cursive;
-    color: black;
-    align-content: flex-start;
-    align-items: center;
-    background-color: rgb(253, 222, 84);
-}
-
-#autoCode {
-    font-family: Oxygen, sans-serif;
-}
-
-#landingPageBox {
-    width: 80vw;
-    height: 50vh;
-    margin: 5vh;
-    padding: 3px;
-    
-    text-align: center;
-
-    background-color: rgba(0, 0, 0, 0);
-}
-
-#submitButton {
-    margin: 15px;
-    padding: 5px;
-
-    font-size: larger;
-    border-radius: 10%;
-    border: 0px solid black;
-    background-color: rgba(252, 252, 252, 1);
-}
-
-#inputForm {
-    margin: 10px;
-    color: black;
-    height: 30px;
-    padding: 4px;
-
-    border: 1px solid black;
-}
-
-/*
-#landingPage {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    height: 100%;
-
-    font-family: 'Pacifico', cursive;
-    color: black;
-    align-content: flex-start;
-    align-items: center;
-    background-color: rgb(253, 222, 84);
-}
-
-#autoCode {
-    font-family: Oxygen, sans-serif;
-}
-
-#landingPageBox {
-    width: 80vw;
-    height: 50vh;
-    margin: 5vh;
-    padding: 3px;
-    
-    text-align: center;
-
-    background-color: rgba(0, 0, 0, 0);
-}
-
-#submitButton {
-    margin: 15px;
-    padding: 5px;
-
-    font-size: larger;
-    border-radius: 10%;
-    border: 0px solid black;
-    background-color: rgba(252, 252, 252, 1);
-}
-
-#inputForm {
-    margin: 10px;
-    color: black;
-    height: 30px;
-    padding: 4px;
-
-    border: 1px solid black;
-}
-
-/*
-#landingPage {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    height: 100%;
-
-    font-family: 'Pacifico', cursive;
-    color: black;
-    align-content: flex-start;
-    align-items: center;
-    background-color: rgb(253, 222, 84);
-}
-
-#autoCode {
-    font-family: Oxygen, sans-serif;
-}
-
-#landingPageBox {
-    width: 80vw;
-    height: 50vh;
-    margin: 5vh;
-    padding: 3px;
-    
-    text-align: center;
-
-    background-color: rgba(0, 0, 0, 0);
-}
-
-#submitButton {
-    margin: 15px;
-    padding: 5px;
-
-    font-size: larger;
-    border-radius: 10%;
-    border: 0px solid black;
-    background-color: rgba(252, 252, 252, 1);
-}
-
-#inputForm {
-    margin: 10px;
-    color: black;
-    height: 30px;
-    padding: 4px;
-
-    border: 1px solid black;
-}
-
-/*
-#landingPage {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    height: 100%;
-
-<<<<<<< HEAD
-    font-family: 'Pacifico', cursive;
-    color: black;
-    align-content: flex-start;
-    align-items: center;
-    background-color: rgb(253, 222, 84);
-}
-
-#autoCode {
-    font-family: Oxygen, sans-serif;
-}
-
-#landingPageBox {
-    width: 80vw;
-    height: 50vh;
-    margin: 5vh;
-    padding: 3px;
-    
-    text-align: center;
-
-    background-color: rgba(0, 0, 0, 0);
-}
-
-#submitButton {
-    margin: 15px;
-    padding: 5px;
-
-    font-size: larger;
-    border-radius: 10%;
-    border: 0px solid black;
-    background-color: rgba(252, 252, 252, 1);
-}
-
-#inputForm {
-    margin: 10px;
-    color: black;
-    height: 30px;
-    padding: 4px;
-
-    border: 1px solid black;
-}
-
-/*
-#landingPage {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    height: 100%;
-
-    font-family: 'Pacifico', cursive;
-    color: black;
-    align-content: flex-start;
-    align-items: center;
-    background-color: rgb(253, 222, 84);
-}
-
-#autoCode {
-    font-family: Oxygen, sans-serif;
-}
-
-#landingPageBox {
-    width: 80vw;
-    height: 50vh;
-    margin: 5vh;
-    padding: 3px;
-    
-    text-align: center;
-
-    background-color: rgba(0, 0, 0, 0);
-}
-
-#submitButton {
-    margin: 15px;
-    padding: 5px;
-
-    font-size: larger;
-    border-radius: 10%;
-    border: 0px solid black;
-    background-color: rgba(252, 252, 252, 1);
-}
-
-#inputForm {
-    margin: 10px;
-    color: black;
-    height: 30px;
-    padding: 4px;
-
-    border: 1px solid black;
-}
-
-/*
-#landingPage {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    height: 100%;
-
-    font-family: 'Pacifico', cursive;
-    color: black;
-    align-content: flex-start;
-    align-items: center;
-    background-color: rgb(253, 222, 84);
-}
-
-#autoCode {
-    font-family: Oxygen, sans-serif;
-}
-
-#landingPageBox {
-    width: 80vw;
-    height: 50vh;
-    margin: 5vh;
-    padding: 3px;
-    
-    text-align: center;
-
-    background-color: rgba(0, 0, 0, 0);
-}
-
-#submitButton {
-    margin: 15px;
-    padding: 5px;
-
-    font-size: larger;
-    border-radius: 10%;
-    border: 0px solid black;
-    background-color: rgba(252, 252, 252, 1);
-}
-
-#inputForm {
-    margin: 10px;
-    color: black;
-    height: 30px;
-    padding: 4px;
-
-    border: 1px solid black;
-}
-
-/*
-#landingPage {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    height: 100%;
-
-=======
->>>>>>> a7e0709cd5645f3fc7cdd617a5d730ea3bc23ef1
     font-family: 'Oxygen', sans-serif;
     color: white;
-    justify-content: center;
-    align-items: baseline;
-    background-repeat: no-repeat;
-    background-image: url(https://i1.wp.com/upendoagri.com/wp-content/uploads/2019/12/P1580604-scaled.jpg?resize=1024%2C684);
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: rgb(0, 0, 0);
+}
+
+#imgContainer {
+    position: fixed;
+    top: 0px;
+    height: 70%;
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    overflow: hidden;
+}
+
+#left {
+    flex: 1 2 auto;
+    background-color:rgb(30, 33, 43);
+}
+
+#right {
+    flex: 1 2 auto;
+    background-color: rgb(30, 33, 43);
+}
+
+#background {
+    height: 850px;
+    width: 1050px;
+    border-left: 50px solid rgb(83, 193, 221);
+    border-right: 50px solid rgb(83, 193, 221);
+    z-index: 0;
 }
 
 #landingPageBox {
-    width: 60vw;
-    height: 30vh;
-    margin: 20vh 35vh 0vh 5vh;
+    z-index: 1;
+    width: 30%;
+    height: 40%;
+    margin-top: 10px;
     padding: 10px;
     
     text-align: center;
 
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.7);
     border: 1px solid rgba(220, 221, 222, 0.8);
 
 }
@@ -390,4 +79,33 @@
     border: 0 solid white;
 }
 
-*/
+
+/*Mobile*/
+@media only screen and (max-width: 600px) {
+    #imgContainer {
+        height: 100%;
+    }
+
+    #background {
+        border: 0 solid black;
+    }
+
+    #landingPage {
+        justify-content: center;
+    }
+
+    #landingPageBox {
+        width: 80%;
+        height: 40%;
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 20px;
+        line-height: 5px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}

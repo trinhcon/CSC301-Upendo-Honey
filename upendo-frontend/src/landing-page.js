@@ -2,6 +2,9 @@ import React from 'react';
 import "./landing-page.css";
 import { retrieveBatchMember } from './modules/apiCalls';
 import { Redirect } from 'react-router-dom';
+import Forest from './images/our-forest.JPG';
+import FlowFooter from './modules/footer';
+import MediaQuery from 'react-responsive';
 
 class LandingPage extends React.Component {
   constructor(props) {
@@ -11,10 +14,15 @@ class LandingPage extends React.Component {
   render() {
     return (
       <div id="landingPage">
-        <LandingPageFormBox getData={this.props.getData}
-          getAlphaCode={this.props.getAlphaCode}
-          setAlphaCode={this.props.setAlphaCode}
-        />
+        <div id="imgContainer">
+          <div id="left"></div>
+          <img id="background" src={Forest}/>
+          <div id="right"></div>
+        </div>
+        <LandingPageFormBox getData={this.props.getData}/>
+        <MediaQuery minDeviceWidth="600px">
+          <FlowFooter content="This is the Content" footerClass="movingBee"/>
+        </MediaQuery>
       </div>
     );
   }

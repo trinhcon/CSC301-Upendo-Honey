@@ -7,3 +7,10 @@
 
   align-self: stretch;
 }
+
+.movingBee {
+  background-color: black;
+  border-top: 20px solid  rgb(228, 181, 28);
+  height: 30%;
+  align-self: stretch;
+}
