@@ -8,6 +8,7 @@ import MenuPage from "./flows/menu";
 import { retrieveBeekeeper } from "./modules/apiCalls";
 import Leonard from './images/Leonard-Mahenge.jpg';
 import Letter from './images/BK 1 Letter.jpeg';
+import BeeIcon from './images/bee.svg';
 
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./landing-page.css";
@@ -36,10 +37,16 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route path = "/menu" render = {() => (
-            <MenuPage beekeeperFirstPage="/beekeeper"
+            <MenuPage
+              beekeeperFirstPage="/beekeeper"
+              beekeeperIcon={BeeIcon}
               environmentFirstPage="/blah1"
+              environmentIcon={BeeIcon}
               honeyFirstPage="/blah2"
+              honeyIcon={BeeIcon}
               tanzaniaFirstPage="/blah3"
+              tanzaniaIcon={BeeIcon}
+
             /> 
             )}
           />
