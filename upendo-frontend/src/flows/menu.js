@@ -4,6 +4,7 @@ import './menu.css';
 import FlowFooter from '../modules/footer';
 import { Link } from 'react-router-dom';
 import HoneyJar from '../images/honeyjar.png';
+import MediaQuery from 'react-responsive';
 
 class MenuPage extends React.Component{
     constructor(props) {
@@ -13,9 +14,38 @@ class MenuPage extends React.Component{
     render () {
         return (
             <div id="menuPage">
+                <MediaQuery minDeviceWidth="1000px">
+                    <img id="honeyJar" src={HoneyJar} />
+                    <div className="honeyHeaderLeft">
+                        <img src="" alt=""/>
+                    </div>
+                    <div className="honeyHeaderRight">
+                        <img src="" alt=""/>
+                    </div>
+                    <IconContainer button={true} 
+                        nextPage={this.props.beekeeperFirstPage}
+                        icon={this.props.beekeeperIcon}
+                        id="icon1"
+                    />
+                    <IconContainer button={true} 
+                        nextPage={this.props.beekeeperFirstPage}
+                        icon={this.props.beekeeperIcon}
+                        id="icon2"
+                    />
+                    <IconContainer button={true} 
+                        nextPage={this.props.beekeeperFirstPage}
+                        icon={this.props.beekeeperIcon}
+                        id="icon3"
+                    />
+                    <IconContainer button={true} 
+                        nextPage={this.props.beekeeperFirstPage}
+                        icon={this.props.beekeeperIcon}
+                        id="icon4"
+                    />
+                </MediaQuery>
+                <MediaQuery maxDeviceWidth="1000px" >
                 <h1 id="honeyHeader" >Click Below to Discover More</h1>
                 <img id="honeyJar" src={HoneyJar} />
-
                 <div id="iconGrid">
                     <IconContainer button={false} />
                     <IconContainer button={true} 
@@ -39,6 +69,7 @@ class MenuPage extends React.Component{
                     />
                     <IconContainer button={false} />
                 </div>
+                </MediaQuery>
                 <FlowFooter content="This is the Footer" footerClass='blackFooter'/>
             </div>
         )
@@ -55,9 +86,9 @@ class IconContainer extends React.Component{
     render() {
         if (this.props.button) {
             return (
-                <div className="iconButton">
+                <div className="iconButton" id={this.props.id}>
                      <Link to={this.props.nextPage}>
-                        <img src={this.props.icon} alt=""/>
+                        <img className="iconImage" src={this.props.icon} alt=""/>
                      </Link>
 
                 </div>
@@ -72,51 +103,4 @@ class IconContainer extends React.Component{
     }
 
 }
-
-/**               if (this.props.className === "iconButton") {
-            return (
-                <div>
-                    <p>hello</p>
-
-                </div>
-            );
-        } else {
-            return (
-                <div >
-                    <p>bye</p>
-                </div>
-            );
- * 
- * 
- * 
- *              
- * 
- *                 
- * 
- * <iconContainer button={false} />
-                    <iconContainer button={true}
-                        id="beekeeper"
-                        nextPage={this.props.beekeeperFirstPage}
-                        icon={this.props.beeekeeperIcon}
-                    />
-                    <iconContainer button={false} />
-                    <iconContainer button={true}
-                        id="environment"
-                        nextPage={this.props.environmentFirstPage}
-                        icon={this.props.beeekeeperIcon}
-                    />
-                    <iconContainer button={false} />
-                    <iconContainer button={true}
-                        id="honey"
-                        nextPage={this.props.honeyFirstPage}
-                        icon={this.props.beeekeeperIcon}
-                    />
-                    <iconContainer button={false} />
-                    <iconContainer button={true}
-                        id="tanzania"
-                        nextPage={this.props.tanzaniaFirstPage}
-                        icon={this.props.beeekeeperIcon}
-                    />
-                    <iconContainer button={false} />
- */
 export default MenuPage;
