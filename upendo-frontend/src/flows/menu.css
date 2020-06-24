@@ -5,10 +5,12 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: red;
+  background-image: linear-gradient(white, rgb(187, 185, 185));
+  font-family: Oxygen, sans-serif;
 }
 
 #iconGrid {
+  margin-top: -50%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -40,6 +42,8 @@ img {
 
 #honeyHeader {
   width: 100%;
+  padding: 20px;
+  margin: 0px;
   height: 20%;
   background-color: green;
 }
@@ -51,11 +55,11 @@ img {
 }
 
 #honeyJar {
-  margin-top: -50px;
+  margin-top: -30px;
   padding-top: 0;
 
-  width: 200px;
-  height: 200px;
+  width: 30vmax;
+  height: 30vmax;
   /**background-image;*/
 }
 

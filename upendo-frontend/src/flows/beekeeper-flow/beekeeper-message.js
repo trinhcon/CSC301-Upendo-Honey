@@ -16,7 +16,7 @@ class BeekeeperMessagePage extends React.Component {
     }
 
     swipeLeftHandler(eventData) {
-        this.setState({redirectLetter: false, redirectMenu: false})
+        this.setState({redirectLetter: false, redirectMenu: true})
     }
 
     swipeRightHandler(eventData) {
