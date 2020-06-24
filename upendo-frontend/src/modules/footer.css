@@ -6,6 +6,16 @@
   height: 50px;
 
   align-self: stretch;
+
+}
+
+@media only screen and (min-width: 800px) {
+  .blackFooter{
+    /*grid view*/
+    grid-area: footer;
+    align-self: end;
+    height: 100px;
+  }
 }
 
 .movingBee {
