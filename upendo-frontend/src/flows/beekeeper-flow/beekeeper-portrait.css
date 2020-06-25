@@ -19,8 +19,11 @@
   align-self: center;
 }
 
-.trees {
+#trees {
   grid-area: trees;
+  height: 200px;
+  width: 500px;
+  align-self: end;
 }
 
 .portrait {

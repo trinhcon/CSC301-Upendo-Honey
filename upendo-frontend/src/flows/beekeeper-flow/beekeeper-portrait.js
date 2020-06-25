@@ -8,6 +8,7 @@ import { useSwipeable, Swipeable } from 'react-swipeable';
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
 import NextArrow from '../../modules/next-arrow';
+import Trees from '../../images/forest.svg'
 
 class BeekeeperPage extends React.Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class BeekeeperPage extends React.Component {
             <MediaQuery minDeviceWidth="800px">
               <FlowProgressBar position="one"/>
               <NextArrow nextPage="/beekeeper-letter"/>
-              <img id="trees" src="" alt="Some trees"/>
+                <img id="trees" src={Trees} alt="Some trees"/>
             </MediaQuery>
             <BeekeeperPortrait beekeeperName={this.props.beekeeperName}
               imageURL={this.props.imageURL}/>
