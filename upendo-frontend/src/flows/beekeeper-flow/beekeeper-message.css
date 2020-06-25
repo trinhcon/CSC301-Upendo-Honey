@@ -6,11 +6,17 @@
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
-  font-family: Oxygen, sans-serif;
+  font-family: 'Nunito', sans-serif;
+}
+
+#descriptionText {
+  font-family: 'Nunito', sans-serif;
+  position: absolute;
+  margin: 10px;
+  top: 7%;
 }
 
 label {
-  font-family: Oxygen, sans-serif;
   margin: 10px;
 }
 
@@ -22,7 +28,6 @@ label {
 
 #emailForm, #nameForm {
   margin: 5px;
-  font-family: Oxygen, sans-serif;
 }
 
 
@@ -38,13 +43,13 @@ label {
   height: 80%;
   box-sizing: border-box;
   word-wrap: break-word;
-  font-family: Oxygen, sans-serif;
 }
 
 #sendButton {
   margin: 15px;
   padding: 5px;
-
+  font-family: 'Nunito', sans-serif;
+  
   font-size: larger;
   border: 1px solid rgba(220, 221, 222, 0.8);
   border-radius: 10%;
@@ -75,8 +80,14 @@ label {
     "progress form form form form arrow"
     "progress form form form form arrow"
     "footer footer footer footer footer footer";
+  }
 
-    font-family: Oxygen, sans-serif;
+  #descriptionText {
+    font-family: 'Nunito', sans-serif;
+    position: absolute;
+    margin: 10px;
+    font-size: 18pt;
+    top: 10%;
   }
 
   #formBox {

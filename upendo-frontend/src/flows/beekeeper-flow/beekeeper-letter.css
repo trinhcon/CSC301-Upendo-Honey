@@ -3,6 +3,12 @@
   height: 100vh;
   width: 100vw;
   display: grid;
+  font-family: 'Indie Flower', cursive;
+  /* font-family: 'Bree Serif', serif;
+
+    font-family: 'Indie Flower', cursive;
+
+    font-family: 'Nunito', sans-serif;*/
 
   grid-template-columns: 1fr 2fr 2fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -28,7 +34,6 @@
 
 
 .caption {
-  font-family: Oxygen;
   grid-area: caption;
   align-self: center;
 
@@ -51,7 +56,7 @@
   margin-left: 30vw;
   margin-right: 30vw;
   text-align: center;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Bree Serif', serif;
   font-size: 10pt;
 }
 
@@ -59,7 +64,7 @@ figure > figcaption {
   position: relative;
   margin-left: 5vw;
   font-size: 20pt;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Bree Serif', serif;
   z-index: 2;
 }
 
@@ -72,7 +77,6 @@ div#frame {
 
 #letterTranslation {
   /** border: 2px solid black; */
-  font-family: 'Pacifico', cursive;
   transform: translate(20%,20%);
   width: 300px;
   height: auto;
@@ -140,7 +144,6 @@ div#frame {
     position: relative;
     margin-left: 5vw;
     font-size: 20pt;
-    font-family: 'Pacifico', cursive;
     z-index: 2;
   }
   
@@ -159,10 +162,9 @@ div#frame {
 
   #letterTranslation {
     /** border: 2px solid black; */
-    font-family: 'Pacifico', cursive;
-    
+    padding: 10px;
     width: 250px;
     height: 200px;
-    font-size: 12pt;
+    font-size: 10pt;
   }
 }

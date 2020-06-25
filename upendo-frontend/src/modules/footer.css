@@ -79,12 +79,14 @@
     color:white;
     margin: 30px;
     padding-left: 200px;
-    font-family: Oxygen, sans-serif;
+    font-family: 'Bree Serif', serif;
     align-self: start;
   }
   
   #logoText {
     color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14pt;
   }
   
   .moreInfo {

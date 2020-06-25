@@ -38,9 +38,10 @@ class BeekeeperMessagePage extends React.Component {
                     onSwipedRight={this.swipeRightHandler}
                 >
                 
-                    <FlowHeader content="Send Back a Message!"
+                    <FlowHeader content="Send a Message to Your Beekeeper!"
                     headerClass = 'blueStrip'
-                    textStyle='blueStripText'/>
+                    textStyle='blueStripTextSmall'/>
+                    <h5 id="descriptionText"> Let us know how to get back to you!</h5> 
                     <MediaQuery minDeviceWidth="600px">
                         <FlowProgressBar position="three"/>
                         <NextArrow nextPage="/menu"/>
@@ -86,7 +87,7 @@ class MessageForm extends React.Component {
                 <form onSubmit={this.handleFormSubmission} className="contactForm">
                     <div id="details">
                         <div>
-                            <label for="email">Provide Email Here:</label>
+                            <label for="email">Email:</label>
                             <br/>
                             <input type="text" value={this.state.email}
                             name="email" id="emailForm"
@@ -95,7 +96,7 @@ class MessageForm extends React.Component {
                         </div>
                     
                         <div>
-                            <label for="name">Provide Your Name Here:</label>
+                            <label for="name">Name:</label>
                             <br/>
                             <input type="text" value={this.state.name}
                             name="name" id="nameForm"
@@ -103,7 +104,7 @@ class MessageForm extends React.Component {
                             <br/>
                         </div>
                     </div>
-                    <label for="message">Write your Message Here!</label>
+                    <label for="message">Let them know what you think of the honey!</label>
                     <br/>
                     <textarea value={this.state.message}
                       name="message" id="messageForm" placeholder="Dear Beekeeper..."

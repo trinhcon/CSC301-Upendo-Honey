@@ -7,7 +7,7 @@
     width: 100vw;
     height: 100vh;
 
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito', sans-serif;
     color: white;
     justify-content: space-between;
     align-items: center;
@@ -23,6 +23,10 @@
     flex-flow: row;
     width: 100%;
     overflow: hidden;
+}
+
+#codeBoxHeader {
+    font-family: 'Nunito', sans-serif;
 }
 
 #left {

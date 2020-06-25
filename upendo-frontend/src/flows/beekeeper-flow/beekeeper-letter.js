@@ -41,7 +41,7 @@ class BeekeeperLetterPage extends React.Component {
             > 
                 <MediaQuery minDeviceWidth="600px">
                     <FlowProgressBar position="two"/>
-                    <FlowHeader content="A Letter from your Beekeeper..." headerClass="blueStrip"
+                    <FlowHeader content="A Little Letter to You..." headerClass="blueStrip"
             textStyle="blueStripText"/>
                     <NextArrow nextPage="/beekeeper-message"/>
                     <div className="feather">
@@ -57,7 +57,7 @@ class BeekeeperLetterPage extends React.Component {
                     <div id="beekeeperLetterTitle">
                         <div className="scroll">
                         </div>
-                        <h2 >A Letter from your Beekeeper...</h2>
+                        <h2 >A Little Letter to You...</h2>
                         <div className="feather">
                         </div>
                     </div>

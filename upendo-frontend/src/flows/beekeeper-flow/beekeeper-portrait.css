@@ -10,6 +10,7 @@
     "footer footer footer footer";
   width: 100vw;
   height: 100vh;
+  font-family: 'Nunito', sans-serif;
 
   --portraitHeight:400px;
   --portraitWidth:300px;
@@ -51,8 +52,8 @@
 
 .portraitCaption {
   position: relative;
-  font-family: Pacifico, cursive;
-  font-size: 24pt;
+  font-family: 'Indie Flower', cursive;
+  font-size: 30pt;
   margin-left: -50px;
   margin-top: -10px;
   color: black;
@@ -96,7 +97,7 @@
   }
 
   .description {
-    font-size: 12pt;
+    font-size: 10pt;
 
   }
 }
