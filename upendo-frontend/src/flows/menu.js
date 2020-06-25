@@ -44,7 +44,7 @@ class MenuPage extends React.Component{
                     />
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth="1000px" >
-                <h1 id="honeyHeader" >Click Below to Discover More</h1>
+                <h1 id="honeyHeader" >Click Below to Discover More!</h1>
                 <img id="honeyJar" src={HoneyJar} />
                 <div id="iconGrid">
                     <IconContainer button={false} />
@@ -70,7 +70,8 @@ class MenuPage extends React.Component{
                     <IconContainer button={false} />
                 </div>
                 </MediaQuery>
-                <FlowFooter content="This is the Footer" footerClass='blackFooter'/>
+                <FlowFooter content="This is the Footer" footerClass='blackFooter'
+                isMenu={true} retailerLink="" retailerLink=""/>
             </div>
         )
  

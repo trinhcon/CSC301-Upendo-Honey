@@ -16,9 +16,19 @@
     border-top: 20px solid  rgb(228, 181, 28);
     align-self: stretch;
     height: auto;
+
+    display: flex;
+    justify-content: space-between;
   }
 }
 
+.pureJoy {
+
+}
+
+.moreInfo {
+  
+}
 .movingBee {
   background-color: black;
   border-top: 20px solid  rgb(228, 181, 28);

@@ -5,7 +5,7 @@ import BeekeeperPage from "./flows/beekeeper-flow/beekeeper-portrait";
 import BeekeeperMessagePage from "./flows/beekeeper-flow/beekeeper-message";
 import BeekeeperLetterPage from "./flows/beekeeper-flow/beekeeper-letter";
 import MenuPage from "./flows/menu";
-import { retrieveBeekeeper } from "./modules/apiCalls";
+import { retrieveBeekeeper } from "./modules/api-calls";
 import Leonard from './images/Leonard-Mahenge.jpg';
 import Letter from './images/BK 1 Letter.jpeg';
 import BeeIcon from './images/bee.svg';
@@ -51,15 +51,15 @@ class App extends React.Component {
             )}
           />
           <Route path = "/beekeeper-letter" render = {() => (
-              <BeekeeperLetterPage bk = {{letter: this.state.beekeeper.letter_img_url, translation: this.state.beekeeper.letter_text}}
+              <BeekeeperLetterPage bk = {{letter: Letter, translation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut orci lacus. Mauris ipsum metus, facilisis id sem maximus, ultricies dictum orci. Nullam sit amet molestie ante. Nunc rhoncus purus leo, eget vulputate quam blandit id. Proin varius diam lectus."}}
               />
             )}
           />
           <Route path = "/beekeeper-message" component = {BeekeeperMessagePage}/>
           <Route path = "/beekeeper" render={() =>   (
-            <BeekeeperPage imageURL= {this.state.beekeeper.photo}
-              beekeeperDescription= {this.state.beekeeper.bio}
-              beekeeperName={this.state.beekeeper.name}
+            <BeekeeperPage imageURL={Leonard}
+              beekeeperDescription= "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed vehicula nisl, a molestie lorem. Vestibulum non elementum odio, eget convallis mi. Sed id maximus orci. Praesent eget varius nisi. "
+              beekeeperName= "Leonard"
             />
             )}
           />
