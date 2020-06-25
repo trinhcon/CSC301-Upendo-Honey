@@ -1,9 +1,4 @@
 
-#messageForm {
-  width: 90vw;
-  height: 50vh;
-  color: blue;
-}
 
 .messagePage {
   height: 100vh;
@@ -11,7 +6,6 @@
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
-
   font-family: Oxygen, sans-serif;
 }
 
@@ -19,20 +13,29 @@ label {
   font-family: Oxygen, sans-serif;
   margin: 10px;
 }
-#formBox {
-  padding: 10px;
-  height: 80%;
+
+
+
+#details{
+  display: flex;
 }
 
-#emailForm {
-  margin: 10px;
+#emailForm, #nameForm {
+  margin: 5px;
   font-family: Oxygen, sans-serif;
 }
+
+
+
+.contactForm {
+  height: 100%;
+}
+
 #messageForm {
   margin: 10px;
   color: rgb(51, 36, 59);
-  width: 90vw;
-  height: 50vh;
+  width: 90%;
+  height: 80%;
   box-sizing: border-box;
   word-wrap: break-word;
   font-family: Oxygen, sans-serif;
@@ -41,4 +44,51 @@ label {
 #submitButton {
   box-shadow: -1px 1px 2px 1px rgb(65, 64, 64);
   align-self: center;
+  color: black;
+}
+
+@media only screen and (min-width: 600px) {
+
+  .messagePage {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "header header header header header header"
+    "progress form form form form arrow"
+    "progress form form form form arrow"
+    "progress form form form form arrow"
+    "progress form form form form arrow"
+    "footer footer footer footer footer footer";
+
+    font-family: Oxygen, sans-serif;
+  }
+
+  #formBox {
+    grid-area: form;
+  }
+
+  #messageForm {
+    height:60%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #details {
+    flex-flow: row wrap;
+    width: 100%;
+  }
+
+  #formBox {
+    padding: 10px;
+    height: 80%;
+  }
+
+  #messageForm {
+    height: 60%;
+  }
+
 }
