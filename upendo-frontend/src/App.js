@@ -32,22 +32,29 @@ class App extends React.Component {
     return this.state.alphacode;
   }
 
-  setAlphaCode(code){
-    this.setState({alphacode: code});
+  async setAlphaCode(code){
+    console.log("Setting Alpha code");
+    console.log(code);
+    await this.setState({alphacode: code});
+    console.log(this.state);
+    console.log("done");
   }
 
   async retrieveAppData(){
+    console.log("retrieving app data");
+    console.log(this.state);
     try {
       const batchMemberData = await retrieveBatchMember(this.state.alphacode);
       console.log(batchMemberData);
+      console.log(this.state);
 
       if (batchMemberData) {
-        const loadData = await this.getData(this.state.code, batchMemberData);
+        const loadData = await this.getData(this.state.alphacode, batchMemberData);
         if (!loadData && (this.state.alphacode !== "PUREJOY")) {
-          console.log("loadData does not exist, but batchmemberData does, attempting PUREJOY");
          this.setAlphaCode("PUREJOY");
          await this.retrieveAppData();
         } else {
+          console.log(this.state);
           console.log("PUREJOY batchMember exists, but not beekeeper data");
         }
         if (loadData) {
@@ -88,16 +95,16 @@ class App extends React.Component {
     return (
       <Router>
         <Switch>
-          <Route path = "/:alphaCode/menu" render = {(props) => (
+          <Route path = "/app/:alphaCode/menu" render = {(props) => (
             <MenuPage
               {...props}
-              beekeeperFirstPage="/beekeeper"
+              beekeeperFirstPage={"/app/" + this.getAlphaCode() + "/beekeeper"}
               beekeeperIcon={BeeIcon}
-              environmentFirstPage="/blah1"
+              environmentFirstPage="/app/blah1"
               environmentIcon={BeeIcon}
-              honeyFirstPage="/blah2"
+              honeyFirstPage="/app/blah2"
               honeyIcon={BeeIcon}
-              tanzaniaFirstPage="/blah3"
+              tanzaniaFirstPage="/app/blah3"
               tanzaniaIcon={BeeIcon}
               getAlphaCode={this.getAlphaCode}
               setAlphaCode={this.setAlphaCode}
@@ -107,7 +114,7 @@ class App extends React.Component {
             /> 
             )}
           />
-          <Route path = "/:alphaCode/beekeeper-letter" render = {(props) => (
+          <Route path = "/app/:alphaCode/beekeeper-letter" render = {(props) => (
               <BeekeeperLetterPage
                 {...props}
                 bk = {{letter: this.state.beekeeper.letter_img_url, translation: this.state.beekeeper.letter_text}}
@@ -119,7 +126,7 @@ class App extends React.Component {
               />
             )}
           />
-          <Route path = "/:alphaCode/beekeeper-message"
+          <Route path = "/app/:alphaCode/beekeeper-message"
             render = {(props) =>
               <BeekeeperMessagePage
                 {...props}
@@ -131,7 +138,7 @@ class App extends React.Component {
               />
             }
           />
-          <Route path = "/:alphaCode/beekeeper" render={(props) =>   (
+          <Route path = "/app/:alphaCode/beekeeper" render={(props) =>   (
             <BeekeeperPage
               {...props}
               imageURL= {this.state.beekeeper.photo}

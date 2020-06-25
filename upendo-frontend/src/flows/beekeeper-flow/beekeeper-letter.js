@@ -26,8 +26,8 @@ class BeekeeperLetterPage extends React.Component {
     async componentDidMount() {
         const { alphaCode } = this.props.match.params;
         if ((typeof alphaCode !== undefined) && !this.props.getDataStatus()){
-            this.props.setAlphaCode(alphaCode);
-            this.props.retrieveAppData();
+            await this.props.setAlphaCode(alphaCode);
+            await this.props.retrieveAppData();
         } else {
             console.log('DEVLOG: URL Param Matching failed');
         }
@@ -36,9 +36,9 @@ class BeekeeperLetterPage extends React.Component {
     render () {
 
         if (this.state.redirectPortrait) {
-            return (<Redirect to={'/' + this.props.getAlphaCode() + '/beekeeper'}/>);
+            return (<Redirect to={'/app/' + this.props.getAlphaCode() + '/beekeeper'}/>);
         } else if (this.state.redirectMessage) {
-            return (<Redirect to={'/' + this.props.getAlphaCode() + '/beekeeper-message'}/>);
+            return (<Redirect to={'/app/' + this.props.getAlphaCode() + '/beekeeper-message'}/>);
         } else {
             return (
             <Swipeable onSwipedLeft={this.swipeLeftHandler}

@@ -12,8 +12,8 @@ class LandingPage extends React.Component {
     return (
       <div id="landingPage">
         <LandingPageFormBox getData={this.props.getData}
-          getAlphaCode={this.getAlphaCode}
-          setAlphaCode={this.setAlphaCode}
+          getAlphaCode={this.props.getAlphaCode}
+          setAlphaCode={this.props.setAlphaCode}
         />
       </div>
     );
@@ -31,8 +31,8 @@ class LandingPageFormBox extends React.Component {
         <h2 id="codeBoxHeader">Trace Your Honey ... </h2>
         <p id="codeBoxHeaderSub"> ... right back to the forest</p>
         <LandingPageForm getData={this.props.getData}
-          getAlphaCode={this.getAlphaCode}
-          setAlphaCode={this.setAlphaCode}
+          getAlphaCode={this.props.getAlphaCode}
+          setAlphaCode={this.props.setAlphaCode}
         />
         <hr></hr>
         <p id="autoCode">No Code? No worries! Enter "PUREJOY" to start your adventure.</p>
@@ -72,7 +72,7 @@ class LandingPageForm extends React.Component {
         const loadData = await this.props.getData(this.state.code, batchMemberData);
         if (loadData) {
           this.setState({redirect: true});
-          this.setAlphaCode(this.state.code);
+          this.props.setAlphaCode(this.state.code);
         }
       }
       this.setState({code: '', displayMessage: true});
@@ -90,7 +90,7 @@ class LandingPageForm extends React.Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to={'/' + this.getAlphaCode() + '/beekeeper'}/> // Pass in information about order of slides
+      return <Redirect to={'/app/' + this.props.getAlphaCode() + '/beekeeper'}/> // Pass in information about order of slides
     } else {
       return (
         <div>
