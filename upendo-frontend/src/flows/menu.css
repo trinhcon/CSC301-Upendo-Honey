@@ -7,7 +7,7 @@
     grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-areas:
-        "left left . jar . right right"
+        "left left left jar right right right"
         ". icon1 . jar . icon2 ."
         ". . icon3 . icon4 . ."
         "footer footer footer footer footer footer footer";
@@ -19,13 +19,21 @@
 
 .honeyHeaderLeft {
     grid-area: left;
-    background-color: coral;
+    background-image: url("../images/header-left.png");
+    background-position-y: -50px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
 
 .honeyHeaderRight {
     grid-area: right;
-    background-color: coral;
+    background-image: url("../images/header-right.png");
+    background-position-y: -50px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
 
 #icon1 {
     grid-area: icon1;
@@ -43,12 +51,10 @@
     grid-area: icon4;
 }
 
-.iconButton{
+.navContainer {
     z-index: 5;
     width: 120px;
     height: 120px;
-    background-color: blue;
-    color: white;
     display: flex;
 
     justify-self: center;
@@ -57,16 +63,10 @@
     align-content: center;
 }
 
-.iconImage {
-    width: 90px;
-    height: 90px;
-}
-
 .iconButtonEmpty {
     width: 120px;
     height: 120px;
-    background-color: purple  ;
-    color: white;
+    opacity: 0;
 }
 
 #honeyJar {
@@ -97,38 +97,32 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    background-color: turquoise;
     width: 270px;
     height: 270px;
     }
 
 
-    .iconButton{
-    z-index: 5;
-    width: 90px;
-    height: 90px;
-    background-color: blue;
-    color: white; 
-    }
-
-    img {
-    width: 90px;
-    height: 90px;
+    .navContainer{
+        z-index: 5;
+        width: 90px;
+        height: 90px;
+        margin: 0px;
     }
 
     .iconButtonEmpty {
     width: 90px;
     height: 90px;
-    background-color: purple  ;
-    color: white;
+    opacity: 0px;
     }
 
     #honeyHeader {
     width: 100%;
-    padding: 20px;
+    height: 25%;
+    padding: 5px;
+    text-align: center;
     margin: 0px;
-    height: 20%;
-    background-color: green;
+    background: url('../images/dripping-honey.png') no-repeat center;
+    background-size: cover;
     }
 
 

@@ -5,13 +5,17 @@
     background-image: linear-gradient(white, rgb(207, 203, 203));
     border: 3px solid rgb(194, 158, 12);
     border-radius: 50%;
+
+    text-align: center;
 }
 
 .navImage {
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 50%;
-    height: 100%;
-    width: 100%;
+    position: relative;
+    top: 5%;
+    height: 90%;
+    width: 90%;
 }
 
 .navContainer:hover {

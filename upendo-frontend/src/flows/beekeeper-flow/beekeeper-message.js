@@ -119,7 +119,7 @@ class MessageForm extends React.Component {
                       name="message" id="messageForm" placeholder="Dear Beekeeper..."
                       onChange={this.handleMessageInput}/>
                       <br/>
-                    <input type="submit" value="Send" id="submitButton" />
+                    <input type="submit" value="Send" id="sendButton" />
                 </form>
             </div>
         )
