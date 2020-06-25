@@ -13,7 +13,7 @@
     width: 100px;
     border-radius: 50%;
 
-    border: 5px solid rgb(148, 211, 226);
+    border: 10px solid rgb(148, 211, 226);
 }
 
 .verticalLine {
@@ -21,13 +21,14 @@
     width: 100px;
     position: relative;
     align-self: flex-start;
-    left: 50%;
-    border-left: 5px solid rgb(148, 211, 226);
+    left: 48%;
+    border-left: 10px solid rgb(148, 211, 226);
 }
 
 #appears {
     position: relative;
     z-index: 1;
+    transform: rotate(-90deg);
 }
 
 #invisible {

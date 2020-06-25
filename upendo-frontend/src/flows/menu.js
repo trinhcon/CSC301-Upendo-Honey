@@ -5,6 +5,7 @@ import FlowFooter from '../modules/footer';
 import { Link } from 'react-router-dom';
 import HoneyJar from '../images/honeyjar.png';
 import MediaQuery from 'react-responsive';
+import Logo from '../images/upendo-logo.jpg';
 
 class MenuPage extends React.Component{
     constructor(props) {
@@ -82,7 +83,7 @@ class MenuPage extends React.Component{
                 </div>
                 </MediaQuery>
                 <FlowFooter content="This is the Footer" footerClass='blackFooter'
-                isMenu={true} retailerLink="" retailerLink=""/>
+                isMenu={true} retailerLink="http://upendoagri.com/" retailerLogo={Logo}/>
             </div>
         )
  

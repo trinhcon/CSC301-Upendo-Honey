@@ -22,16 +22,73 @@
   }
 }
 
-.pureJoy {
+.navigationIcons {
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row;
+}
 
+.pureJoy {
+  margin: 20px;
+  height: 90px;
+  width: 90px;
+  background-color: rgb(222, 226, 228);
+  text-align: center;
+  box-shadow: 0px 0px 5px 1px white;
+  align-self: end;
+}
+
+#pureJoyImage {
+  object-fit: cover;
+}
+
+#menuText {
+  color:white;
+  margin: 30px;
+  padding-left: 200px;
+  font-family: Oxygen, sans-serif;
+  align-self: start;
+}
+
+#logoText {
+  color: white;
 }
 
 .moreInfo {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  padding: 10px;
+
+  height: 80px;
+  align-self: end;
+  border-radius: 25px;
+  background-color: rgba(219, 213, 213, 0.5);
   
 }
+
+#logo {
+  margin: 20px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+#logo:hover {
+  transform: scale(1.2, 1.2);
+}
+
 .movingBee {
   background-color: black;
   border-top: 20px solid  rgb(228, 181, 28);
   height: 30%;
   align-self: stretch;
+  text-align: center;
+}
+
+#movingBeeImage {
+  width: 1242px;
+  height: 100%;
+  position: relative;
+  object-fit: cover;
 }

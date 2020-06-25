@@ -1,6 +1,5 @@
 import React from 'react';
 import "./header.css";
-import FlowFooter from './footer';
 
 class FlowHeader extends React.Component {
   constructor(props) {
