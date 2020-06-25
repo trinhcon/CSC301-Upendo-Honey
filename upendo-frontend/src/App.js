@@ -10,6 +10,7 @@ import Leonard from './images/Leonard-Mahenge.jpg';
 import Letter from './images/BK 1 Letter.jpeg';
 
 import BeeIcon from './images/bee.svg';
+import Logo from '../images/upendo-logo.jpg';
 
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./landing-page.css";
@@ -101,6 +102,8 @@ class App extends React.Component {
             <MenuPage
               {...props}
               beekeeperFirstPage={"/app/" + this.getAlphaCode() + "/beekeeper"}
+              upendoIcon={Logo}
+              upenoURL={"http://upendoagri.com/"} // HARDCODED
               beekeeperIcon={BeeIcon}
               environmentFirstPage="/app/blah1"
               environmentIcon={BeeIcon}
@@ -150,7 +153,7 @@ class App extends React.Component {
               setAlphaCode={this.setAlphaCode}
               retrieveAppData={this.retrieveAppData}
               getDataStatus={this.getDataStatus}
-            />
+              />
             )}
           />
           <Route path = "/" render = {() => (

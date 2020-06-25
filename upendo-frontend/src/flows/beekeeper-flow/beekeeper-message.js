@@ -1,4 +1,5 @@
 import React from 'react';
+import emailjs from 'emailjs-com';
 
 import "./beekeeper-message.css";
 import FlowHeader from '../../modules/header';
@@ -68,7 +69,7 @@ class BeekeeperMessagePage extends React.Component {
 class MessageForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {email: '', message: '', name: ''};
+        this.state = {email: '', message: '', name: '', serviceID: 'sendgrid', templateID: 'test', userID: 'user_cTGmCITtt4QvUtVoNpigA'};
         this.handleFormSubmission = this.handleFormSubmission.bind(this);
         this.handleEmailInput = this.handleEmailInput.bind(this);
         this.handleMessageInput = this.handleMessageInput.bind(this);
@@ -76,7 +77,17 @@ class MessageForm extends React.Component {
     }
 
     handleFormSubmission (e) {
-
+        e.preventDefault();
+        emailjs.sendForm(this.state.serviceID, this.state.templateID, e.target, this.state.userID)
+        .then((result) => {
+            console.log(result.text);
+            if (result.text === 'OK') {
+                this.setState({message: "Success! Those buzzing bees will deliver your message!"});
+            }
+        }, (error) => {
+            console.log(error.text);
+            this.setState({name: error.text})
+        });
     }
 
     handleNameInput (e) {
