@@ -8,7 +8,7 @@ import { useSwipeable, Swipeable } from 'react-swipeable';
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
 import NextArrow from '../../modules/next-arrow';
-import Bee from "../../images/bee.svg";
+import Feather from "../../images/feather.svg";
 
 
 
@@ -56,21 +56,21 @@ class BeekeeperLetterPage extends React.Component {
                     <FlowHeader content="A Letter from your Beekeeper..." headerClass="blueStrip"
             textStyle="blueStripText"/>
                     <NextArrow nextPage="/beekeeper-message"/>
-                    <div className="honeyDipper">
-                        <img src={Bee} alt="Bee"/>
+                    <div className="feather">
+                        <img src={Feather} alt="feather"/>
                     </div>
 
                     <caption className="caption">
-                        caption
+                        An original letter, written in Swahili...
                     </caption>
 
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth="600px">
                     <div id="beekeeperLetterTitle">
-                        <div className="bee">
+                        <div className="scroll">
                         </div>
                         <h2 >A Letter from your Beekeeper...</h2>
-                        <div className="bee">
+                        <div className="feather">
                         </div>
                     </div>
 

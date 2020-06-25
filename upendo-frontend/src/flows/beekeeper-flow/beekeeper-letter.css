@@ -4,42 +4,46 @@
   width: 100vw;
   display: grid;
 
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas:
     "header header header header"
     "progress letter translation arrow"
-    "progress letter translation arrow"
-    "progress caption honeydipper arrow"
+    "progress caption feather arrow"
+    "progress . feather arrow"
     "footer footer footer footer";
 }
 
 #letterContainer > img {
   margin-top: 10px;
-  border-top: 1vw solid rgb(194, 158, 12);
-  border-bottom: 1vw solid rgb(194, 158, 12);
-  border-left: 1vw solid rgb(148, 211, 226);
-  border-right: 1vw solid rgb(148, 211, 226);
+  border-top: 5px solid rgb(194, 158, 12);
+  border-bottom: 5px solid rgb(194, 158, 12);
+  border-left: 5px solid rgb(148, 211, 226);
+  border-right: 5px solid rgb(148, 211, 226);
 
-  width: 500px; 
-  height: 333px;
+  width: 400px; 
+  height: 200px;
   grid-area: letter;
 }
 
+
 .caption {
+  font-family: Oxygen;
   grid-area: caption;
-}
-
-.honeyDipper {
-  grid-area: honeydipper;
+  align-self: center;
 
 }
 
-.honeyDipper > img {
-  margin-left: 50px;
-  margin-top: -350px;
-  width: 100px;
-  height: 100x;
+.feather {
+  grid-area: feather;
+  justify-self: end;
+
+}
+
+.feather > img {
+  margin: 10px;
+  width: 200px;
+  height: 200x;
 }
 
 #beekeeperLetterTitle {
@@ -87,15 +91,19 @@ div#frame {
 
   #letterContainer {
     margin-top: 0 ;
+    width: 300px; 
+    height: 150px;
+    margin-bottom: 0px;
   }
   
   #letterContainer > img {
     margin-top: 0;
     align-self: center;
-    width: 300px;
-    height: 150px;
+    width: 290px;
+    height: 140px;
     position: relative;
   }
+  
   
   #beekeeperLetterTitle {
     display: flex;
@@ -112,10 +120,18 @@ div#frame {
     color: black;
   }
   
-  .bee {
-    width: 50px;
-    height: 50px;
-    background: url('../../images/bee.svg');
+  .scroll {
+    width: 60px;
+    height: 60px;
+    background: url('../../images/scroll.svg');
+    background-size:  50px, 50px;
+    background-repeat: no-repeat;
+  }
+
+  .feather {
+    width: 60px;
+    height: 60px;
+    background: url('../../images/feather.svg');
     background-size:  50px, 50px;
     background-repeat: no-repeat;
   }
