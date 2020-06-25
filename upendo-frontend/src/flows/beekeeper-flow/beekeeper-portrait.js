@@ -21,7 +21,9 @@ class BeekeeperPage extends React.Component {
 
   async componentDidMount() {
     const { alphaCode } = this.props.match.params;
-    if (typeof alphaCode !== undefined){
+    if ((typeof alphaCode !== undefined) && ! this.props.getDataStatus()){
+        console.log("AlphaCode is:");
+        console.log(alphaCode);
         this.props.setAlphaCode(alphaCode);
         this.props.retrieveAppData();
     } else {

@@ -11,7 +11,10 @@ class LandingPage extends React.Component {
   render() {
     return (
       <div id="landingPage">
-        <LandingPageFormBox getData={this.props.getData}/>
+        <LandingPageFormBox getData={this.props.getData}
+          getAlphaCode={this.getAlphaCode}
+          setAlphaCode={this.setAlphaCode}
+        />
       </div>
     );
   }
@@ -27,7 +30,10 @@ class LandingPageFormBox extends React.Component {
       <div id="landingPageBox">
         <h2 id="codeBoxHeader">Trace Your Honey ... </h2>
         <p id="codeBoxHeaderSub"> ... right back to the forest</p>
-        <LandingPageForm getData={this.props.getData}/>
+        <LandingPageForm getData={this.props.getData}
+          getAlphaCode={this.getAlphaCode}
+          setAlphaCode={this.setAlphaCode}
+        />
         <hr></hr>
         <p id="autoCode">No Code? No worries! Enter "PUREJOY" to start your adventure.</p>
       </div>
@@ -66,6 +72,7 @@ class LandingPageForm extends React.Component {
         const loadData = await this.props.getData(this.state.code, batchMemberData);
         if (loadData) {
           this.setState({redirect: true});
+          this.setAlphaCode(this.state.code);
         }
       }
       this.setState({code: '', displayMessage: true});
@@ -83,7 +90,7 @@ class LandingPageForm extends React.Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to='/beekeeper'/> // Pass in information about order of slides
+      return <Redirect to={'/' + this.getAlphaCode() + '/beekeeper'}/> // Pass in information about order of slides
     } else {
       return (
         <div>

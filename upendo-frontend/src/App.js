@@ -16,11 +16,16 @@ import "./landing-page.css";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {alphacode: 'PUREJOY', batchMember: {}, beekeeper: {}};
+    this.state = {alphacode: 'PUREJOY', batchMember: {}, beekeeper: {}, dataStatus: false};
     this.getData = this.getData.bind(this);
     this.getAlphaCode = this.getAlphaCode.bind(this);
     this.setAlphaCode = this.setAlphaCode.bind(this);
+    this.getDataStatus = this.getDataStatus.bind(this);
     this.retrieveAppData = this.retrieveAppData.bind(this);
+  }
+
+  getDataStatus(){
+    return this.state.dataStatus;
   }
 
   getAlphaCode(){
@@ -45,6 +50,9 @@ class App extends React.Component {
         } else {
           console.log("PUREJOY batchMember exists, but not beekeeper data");
         }
+        if (loadData) {
+          this.setState({dataStatus: true});
+        }
       } else if (this.state.alphacode !== "PUREJOY") {
         console.log("batchMemberData does not exist, attempting PUREJOY");
         this.setAlphaCode("PUREJOY");
@@ -55,7 +63,7 @@ class App extends React.Component {
     } catch(error) {
       console.log(error);
       if (this.state.alphacode !== "PUREJOY") {
-        console.log("Prev code errored, attempting PUREJOY")
+        console.log("ERROR THROWN during batchMemberData, attempting PUREJOY")
         this.setAlphaCode("PUREJOY");
         await this.retrieveAppData();
       }
@@ -94,6 +102,7 @@ class App extends React.Component {
               getAlphaCode={this.getAlphaCode}
               setAlphaCode={this.setAlphaCode}
               retrieveAppData={this.retrieveAppData}
+              getDataStatus={this.getDataStatus}
 
             /> 
             )}
@@ -105,6 +114,7 @@ class App extends React.Component {
                 getAlphaCode={this.getAlphaCode}
                 setAlphaCode={this.setAlphaCode}
                 retrieveAppData={this.retrieveAppData}
+                getDataStatus={this.getDataStatus}
 
               />
             )}
@@ -116,6 +126,7 @@ class App extends React.Component {
                 getAlphaCode={this.getAlphaCode}
                 setAlphaCode={this.setAlphaCode}
                 retrieveAppData={this.retrieveAppData}
+                getDataStatus={this.getDataStatus}
                 
               />
             }
@@ -129,6 +140,7 @@ class App extends React.Component {
               getAlphaCode={this.getAlphaCode}
               setAlphaCode={this.setAlphaCode}
               retrieveAppData={this.retrieveAppData}
+              getDataStatus={this.getDataStatus}
             />
             )}
           />
@@ -136,6 +148,7 @@ class App extends React.Component {
             <LandingPage getData={this.getData}
             getAlphaCode={this.getAlphaCode}
             setAlphaCode={this.setAlphaCode}
+            getDataStatus={this.getDataStatus}
             />
           )}
           />

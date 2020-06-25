@@ -25,7 +25,7 @@ class BeekeeperMessagePage extends React.Component {
 
     async componentDidMount() {
         const { alphaCode } = this.props.match.params;
-        if (typeof alphaCode !== undefined){
+        if ((typeof alphaCode !== undefined) && !this.props.getDataStatus()){
             this.props.setAlphaCode(alphaCode);
             this.props.retrieveAppData();
         } else {
