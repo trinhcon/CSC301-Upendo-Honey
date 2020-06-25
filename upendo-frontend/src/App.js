@@ -9,6 +9,7 @@ import { retrieveBeekeeper } from "./modules/api-calls";
 import Leonard from './images/Leonard-Mahenge.jpg';
 import Letter from './images/BK 1 Letter.jpeg';
 import BeeIcon from './images/bee.svg';
+import Logo from '../images/upendo-logo.jpg';
 
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./landing-page.css";
@@ -38,6 +39,8 @@ class App extends React.Component {
         <Switch>
           <Route path = "/menu" render = {() => (
             <MenuPage
+              upendoIcon={Logo}
+              upenoURL={"http://upendoagri.com/"} // HARDCODED
               beekeeperFirstPage="/beekeeper"
               beekeeperIcon={BeeIcon}
               environmentFirstPage="/blah1"
@@ -51,15 +54,15 @@ class App extends React.Component {
             )}
           />
           <Route path = "/beekeeper-letter" render = {() => (
-              <BeekeeperLetterPage bk = {{letter: Letter, translation: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut orci lacus. Mauris ipsum metus, facilisis id sem maximus, ultricies dictum orci. Nullam sit amet molestie ante. Nunc rhoncus purus leo, eget vulputate quam blandit id. Proin varius diam lectus."}}
+              <BeekeeperLetterPage bk = {{letter: this.state.beekeeper.letter_img_url, translation: this.state.beekeeper.letter_text}}
               />
             )}
           />
           <Route path = "/beekeeper-message" component = {BeekeeperMessagePage}/>
           <Route path = "/beekeeper" render={() =>   (
-            <BeekeeperPage imageURL={Leonard}
-              beekeeperDescription= "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed vehicula nisl, a molestie lorem. Vestibulum non elementum odio, eget convallis mi. Sed id maximus orci. Praesent eget varius nisi. "
-              beekeeperName= "Leonard"
+            <BeekeeperPage imageURL={this.state.beekeeper.image_url}
+              beekeeperDescription={this.state.beekeeper.bio}
+              beekeeperName={this.state.beekeeper.name}
             />
             )}
           />

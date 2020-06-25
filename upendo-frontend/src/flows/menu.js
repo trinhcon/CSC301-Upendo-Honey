@@ -4,7 +4,6 @@ import './menu.css';
 import FlowFooter from '../modules/footer';
 import HoneyJar from '../images/honeyjar.png';
 import MediaQuery from 'react-responsive';
-import Logo from '../images/upendo-logo.jpg';
 import NavigationIcon from '../modules/navigation-icons.js';
 import Left from '../images/header-left.png'
 
@@ -69,7 +68,7 @@ class MenuPage extends React.Component{
                 </div>
                 </MediaQuery>
                 <FlowFooter content="This is the Footer" footerClass='blackFooter'
-                isMenu={true} retailerLink="http://upendoagri.com/" retailerLogo={Logo}/>
+                isMenu={true} retailerLink={this.props.upendoURL} retailerLogo={this.props.upendoIcon}/>
             </div>
         )
  
