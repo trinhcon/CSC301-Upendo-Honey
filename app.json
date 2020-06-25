@@ -2,23 +2,16 @@
 {
   "name": "Upendo Web",
   "description": "Visualizes information on Upendo's batches",
-  "image": "heroku/python",
   "repository": "https://github.com/csc301-summer-2020/team-project-3-upendo-honey",
   "addons": [ "heroku-postgresql" ],
-  "env": {
-    "DJANGO_ALLOWED_HOSTS": {
-      "description": "hosts allowed to interact with django server",
-      "value": ".herokuapp.com"
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
     },
-    "DJANGO_DEBUG": {
-      "description": "whether django should run in debug mode",
-      "value": "0"
-    },
-    "DJANGO_SECRET_KEY": {
-      "description": "The secret key for the Django application.",
-      "generator": "secret"
+    {
+      "url": "heroku/python"
     }
-  },
+  ],
   "environments": {
     "test": {
       "scripts": {

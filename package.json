@@ -1,0 +1,13 @@
+{
+  "name": "team-project-3-upendo-honey",
+  "version": "1.0.0",
+  "description": "Placeholder file to allow Heroku's Node.js buildpack to install and build react app",
+  "scripts": {
+    "postinstall": "cd upendo-frontend && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csc301-summer-2020/team-project-3-upendo-honey.git"
+  },
+  "homepage": "https://github.com/csc301-summer-2020/team-project-3-upendo-honey#readme"
+}
