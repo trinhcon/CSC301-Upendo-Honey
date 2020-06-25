@@ -19,9 +19,21 @@ class BeekeeperPage extends React.Component {
     console.log("picu slided");
   }
 
+  async componentDidMount() {
+    const { alphaCode } = this.props.match.params;
+    if ((typeof alphaCode !== undefined) && ! this.props.getDataStatus()){
+        console.log("AlphaCode is:");
+        console.log(alphaCode);
+        await this.props.setAlphaCode(alphaCode);
+        await this.props.retrieveAppData();
+    } else {
+        console.log('DEVLOG: URL Param Matching failed');
+    }
+  }
+
   render() {
     if (this.state.redirectLetter) {
-      return (<Redirect to='/beekeeper-letter'/>);
+      return (<Redirect to={'/app/' + this.props.getAlphaCode() + '/beekeeper-letter'}/>);
     } else {
       return (
           <Swipeable onSwipedLeft={this.swipeLeftHandler}
