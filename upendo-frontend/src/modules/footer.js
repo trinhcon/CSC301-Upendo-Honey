@@ -1,6 +1,8 @@
 import React from 'react';
 import "./footer.css";
 import MediaQuery from 'react-responsive';
+import NavigationIcon from './navigation-icons.js';
+import MovingBee from '../images/moving-bee.png';
 
 class FlowFooter extends React.Component {
   constructor(props) {
@@ -25,7 +27,9 @@ class FlowFooter extends React.Component {
       )
     } else if (this.props.footerClass === "movingBee"){
       return (
-        <footer className={this.props.footerClass}/>
+        <footer className={this.props.footerClass}>
+          <img id="movingBeeImage" src={MovingBee} alt="Moving Bee"/>
+        </footer>
       )
     } else {
       return (
@@ -45,9 +49,9 @@ class NavigationIcons extends React.Component {
   render() {
     return (
       <div className="navigationIcons">
-        <img src='' alt='forestFlowIcon'/>
-        <img src='' alt='honeyFlowIcon' />
-        <img src='' alt='cO2FlowIcon' />
+        <NavigationIcon icon="tanzania"/>
+        <NavigationIcon icon="environment"/>
+        <NavigationIcon icon="honey"/>
       </div>
     )
   }
@@ -57,8 +61,8 @@ class ExtraInformationContainer extends React.Component {
   render () {
     return (
       <div className="moreInfo">
-        <p id="logoText">Click the Logo to Learn More!</p>
-        <a link={this.props.retailerLink}>
+        <p id="logoText">Want more information? </p>
+        <a href={this.props.retailerLink}>
           <img id="logo" src={this.props.retailerLogo}/>
         </a>
       </div>
@@ -70,7 +74,8 @@ class PureJoy extends React.Component {
   render () {
     return (
       <div className="pureJoy">
-        <img src='' alt='Pure Joy Icon'/>
+        <img src='https://static.wixstatic.com/media/5bc36c_ed0309d34e004b2eafe5da6d018bc4c7~mv2.png/v1/fill/w_77,h_88,al_c,q_85,usm_0.66_1.00_0.01/Transparent%20Logo.webp'
+        alt='Pure Joy Icon' id="pureJoyImage"/>
       </div>
 
     )
