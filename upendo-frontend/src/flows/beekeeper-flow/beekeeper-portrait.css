@@ -20,7 +20,6 @@
 }
 
 .trees {
-  align-self: end;
   grid-area: trees;
 }
 

@@ -5,7 +5,7 @@ import BeekeeperPage from "./flows/beekeeper-flow/beekeeper-portrait";
 import BeekeeperMessagePage from "./flows/beekeeper-flow/beekeeper-message";
 import BeekeeperLetterPage from "./flows/beekeeper-flow/beekeeper-letter";
 import MenuPage from "./flows/menu";
-import { retrieveBeekeeper, retrieveBatchMember } from "./modules/apiCalls";
+import { retrieveBeekeeper } from "./modules/api-calls";
 import Leonard from './images/Leonard-Mahenge.jpg';
 import Letter from './images/BK 1 Letter.jpeg';
 

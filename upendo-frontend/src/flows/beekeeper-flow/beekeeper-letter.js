@@ -55,6 +55,7 @@ class BeekeeperLetterPage extends React.Component {
                     <FlowHeader content="A Letter from your Beekeeper..." headerClass="blueStrip"
             textStyle="blueStripText"/>
                     <NextArrow nextPage="/beekeeper-message"/>
+
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth="600px">
                     <div id="beekeeperLetterTitle">
