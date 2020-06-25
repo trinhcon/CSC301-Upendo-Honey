@@ -2,10 +2,11 @@ import React from 'react';
 
 import './menu.css';
 import FlowFooter from '../modules/footer';
-import { Link } from 'react-router-dom';
 import HoneyJar from '../images/honeyjar.png';
 import MediaQuery from 'react-responsive';
 import Logo from '../images/upendo-logo.jpg';
+import NavigationIcon from '../modules/navigation-icons.js';
+import Left from '../images/header-left.png'
 
 class MenuPage extends React.Component{
     constructor(props) {
@@ -17,30 +18,26 @@ class MenuPage extends React.Component{
             <div id="menuPage">
                 <MediaQuery minDeviceWidth="1000px">
                     <img id="honeyJar" src={HoneyJar} />
-                    <div className="honeyHeaderLeft">
-                        <img src="" alt=""/>
-                    </div>
-                    <div className="honeyHeaderRight">
-                        <img src="" alt=""/>
-                    </div>
+                    <div className="honeyHeaderLeft"/>
+                    <div className="honeyHeaderRight"/>
                     <IconContainer button={true} 
                         nextPage={this.props.beekeeperFirstPage}
-                        icon={this.props.beekeeperIcon}
+                        icon="environment"
                         id="icon1"
                     />
                     <IconContainer button={true} 
                         nextPage={this.props.beekeeperFirstPage}
-                        icon={this.props.beekeeperIcon}
+                        icon="tanzania"
                         id="icon2"
                     />
                     <IconContainer button={true} 
                         nextPage={this.props.beekeeperFirstPage}
-                        icon={this.props.beekeeperIcon}
+                        icon="beekeeper"
                         id="icon3"
                     />
                     <IconContainer button={true} 
                         nextPage={this.props.beekeeperFirstPage}
-                        icon={this.props.beekeeperIcon}
+                        icon="honey"
                         id="icon4"
                     />
                 </MediaQuery>
@@ -51,22 +48,22 @@ class MenuPage extends React.Component{
                     <IconContainer button={false} />
                     <IconContainer button={true} 
                         nextPage={this.props.beekeeperFirstPage}
-                        icon={this.props.beekeeperIcon}
+                        icon="beekeeper"
                     />
                     <IconContainer button={false} />
                     <IconContainer button={true} 
                         nextPage={this.props.environmentFirstPage}
-                        icon={this.props.environmentIcon}
+                        icon="environment"
                     />
                     <IconContainer button={false} />
                     <IconContainer button={true} 
                         nextPage={this.props.honeyFirstPage}
-                        icon={this.props.honeyIcon}
+                        icon="honey"
                     />
                     <IconContainer button={false} />
                     <IconContainer button={true} 
                         nextPage={this.props.tanzaniaFirstPage}
-                        icon={this.props.tanzaniaIcon}
+                        icon="tanzania"
                     />
                     <IconContainer button={false} />
                 </div>
@@ -88,12 +85,10 @@ class IconContainer extends React.Component{
     render() {
         if (this.props.button) {
             return (
-                <div className="iconButton" id={this.props.id}>
-                     <Link to={this.props.nextPage}>
-                        <img className="iconImage" src={this.props.icon} alt=""/>
-                     </Link>
-
-                </div>
+                <NavigationIcon className="iconButton"
+                icon={this.props.icon}
+                nextPage={this.props.nextPage} 
+                id={this.props.id}/>
             );
         } else {
             return (

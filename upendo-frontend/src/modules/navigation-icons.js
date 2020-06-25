@@ -4,17 +4,26 @@ import Map from "../images/map.png";
 import CO2 from "../images/CO2.png";
 import Beekeeper from "../images/Beekeeper.png"
 import Honey from "../images/honey.png";
+import { Link } from 'react-router-dom';
 
 class NavigationIcon extends React.Component {
     render () {
         if (this.props.icon === "tanzania") {
-            return (<NavIconContainer iconSrc={Map}/>);
+            return (<NavIconContainer iconSrc={Map}
+                id={this.props.id}
+                nextPage={this.props.nextPage}/> );
         } else if (this.props.icon === "environment") {
-            return (<NavIconContainer iconSrc={CO2}/>);
+            return (<NavIconContainer iconSrc={CO2}
+                id={this.props.id}
+                nextPage={this.props.nextPage}/>);
         } else if (this.props.icon === "beekeeper") {
-            return (<NavIconContainer iconSrc={Beekeeper}/>);
+            return (<NavIconContainer iconSrc={Beekeeper}
+                id={this.props.id}
+                nextPage={this.props.nextPage}/>);
         } else {
-            return (<NavIconContainer iconSrc={Honey}/>);
+            return (<NavIconContainer iconSrc={Honey}
+                id={this.props.id}
+                nextPage={this.props.nextPage}/>);
         }
     }
 }
@@ -22,8 +31,10 @@ class NavigationIcon extends React.Component {
 class NavIconContainer extends React.Component {
     render () {
         return (
-            <div className = "navContainer">
-                <img className="navImage" src={this.props.iconSrc}/>
+            <div className = "navContainer" id={this.props.id}>
+                <Link to={this.props.nextPage}>
+                  <img className="navImage" src={this.props.iconSrc}/>
+                </Link>
             </div>
         )
     }

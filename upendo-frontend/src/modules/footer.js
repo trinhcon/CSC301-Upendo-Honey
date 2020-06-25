@@ -15,7 +15,7 @@ class FlowFooter extends React.Component {
   render() {
     if (this.props.isMenu) {
       return (
-        <footer className={this.props.footerClass}>
+        <footer className={this.props.footerClass + " menuFooter"}>
         <MediaQuery minDeviceWidth="800px">
           <PureJoy/>
           <h1 id="menuText">Click Above to Discover More!</h1>
