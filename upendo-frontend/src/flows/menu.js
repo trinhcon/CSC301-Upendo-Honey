@@ -53,7 +53,7 @@ class MenuPage extends React.Component{
                     />
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth="1000px" >
-                <h1 id="honeyHeader" >Click Below to Discover More!</h1>
+                <h1 id="honeyHeader" >Click Below to Discover More...</h1>
                 <img id="honeyJar" src={HoneyJar} />
                 <div id="iconGrid">
                     <IconContainer button={false} />

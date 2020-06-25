@@ -1,7 +1,7 @@
 .blueStrip {
   background-color:#67c2db;
   z-index: 1;
-  font-family: Oxygen, sans-serif;
+  font-family: 'Bree Serif', serif;
   font-size: 18pt;
   color: white;
   align-self: stretch;
@@ -21,6 +21,14 @@
   bottom: -10%;
 }
 
+.blueStripTextSmall{
+  margin: 0px;
+  padding-left: 10px;
+  position: absolute;
+  bottom: -10%;
+  font-size: 16pt;
+}
+
 @media only screen and (min-width: 800px) {
   .blueStrip{
     /*grid view*/
@@ -31,4 +39,9 @@
   .blueStripText {
     font-size: 24pt;
   }
+
+  .blueStripTextSmall{
+    font-size: 24pt;
+  }
+
 }
