@@ -8,6 +8,10 @@ import MenuPage from "./flows/menu";
 import { retrieveBeekeeper } from "./modules/apiCalls";
 import Leonard from './images/Leonard-Mahenge.jpg';
 import Letter from './images/BK 1 Letter.jpeg';
+<<<<<<< HEAD
+=======
+import BeeIcon from './images/bee.svg';
+>>>>>>> frontend-setup
 
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./landing-page.css";
@@ -21,7 +25,11 @@ class App extends React.Component {
 
   async getData(code, batchMemberData) {
     // Uses retrieve beekeeper method to make a call to api to get beekeeper
+<<<<<<< HEAD
     const beekeeperData = await retrieveBeekeeper("/api/v1/beekeepers/" + batchMemberData.beekeeper);
+=======
+    const beekeeperData = await retrieveBeekeeper(batchMemberData.beekeeper);
+>>>>>>> frontend-setup
     console.log(beekeeperData);
     if (beekeeperData) {
       this.setState({alphacode: code, batchMember: batchMemberData, beekeeper: beekeeperData});
@@ -36,11 +44,25 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route path = "/menu" render = {() => (
+<<<<<<< HEAD
             <MenuPage beekeeperFirstPage="/beekeeper"
               environmentFirstPage="/blah1"
               honeyFirstPage="/blah2"
               tanzaniaFirstPage="/blah3"
             />
+=======
+            <MenuPage
+              beekeeperFirstPage="/beekeeper"
+              beekeeperIcon={BeeIcon}
+              environmentFirstPage="/blah1"
+              environmentIcon={BeeIcon}
+              honeyFirstPage="/blah2"
+              honeyIcon={BeeIcon}
+              tanzaniaFirstPage="/blah3"
+              tanzaniaIcon={BeeIcon}
+
+            /> 
+>>>>>>> frontend-setup
             )}
           />
           <Route path = "/beekeeper-letter" render = {() => (
@@ -67,4 +89,8 @@ class App extends React.Component {
   }
 }
 
+<<<<<<< HEAD
 export default App;
+=======
+export default App;
+>>>>>>> frontend-setup

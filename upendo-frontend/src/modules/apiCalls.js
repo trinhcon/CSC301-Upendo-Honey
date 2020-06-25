@@ -1,6 +1,10 @@
 export async function retrieveBatchMember(code) {
     let batchMemberData = null;
+<<<<<<< HEAD
     const url = "/api/v1/batch-members/";
+=======
+    const url = "http://127.0.0.1:8000/api/v1/batch-members/";
+>>>>>>> frontend-setup
     const options = {mode:'cors'};
 
     // Not checking for errors yet
@@ -10,7 +14,11 @@ export async function retrieveBatchMember(code) {
     console.log(url + code);
     if (batchMemberResp.ok) {
         batchMemberData = batchMemberResp.json();
+<<<<<<< HEAD
     }
+=======
+    } 
+>>>>>>> frontend-setup
     return batchMemberData;
 }
 
@@ -27,4 +35,8 @@ export async function retrieveBeekeeper(beekeeperUrl) {
         beekeeperData = beekeeperResp.json();
     }
     return beekeeperData;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> frontend-setup

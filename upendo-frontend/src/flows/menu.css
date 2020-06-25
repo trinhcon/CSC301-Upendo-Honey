@@ -1,0 +1,62 @@
+#menuPage {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: red;
+}
+
+#iconGrid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  background-color: turquoise;
+  width: 270px;
+  height: 270px;
+}
+
+
+.iconButton{
+  z-index: 5;
+  width: 90px;
+  height: 90px;
+  background-color: blue;
+  color: white; 
+}
+
+img {
+  width: 90px;
+  height: 90px;
+}
+
+.iconButtonEmpty {
+  width: 90px;
+  height: 90px;
+  background-color: purple  ;
+  color: white;
+}
+
+#honeyHeader {
+  width: 100%;
+  height: 20%;
+  background-color: green;
+}
+
+
+#leftHoneyJar {
+  width: 20%;
+  height: 10%;
+}
+
+#honeyJar {
+  margin-top: -50px;
+  padding-top: 0;
+
+  width: 200px;
+  height: 200px;
+  /**background-image;*/
+}
+
+

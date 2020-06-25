@@ -9,7 +9,11 @@
 /coverage
 
 # production
+<<<<<<< HEAD
 #/build
+=======
+/build
+>>>>>>> frontend-setup
 
 # misc
 .DS_Store
