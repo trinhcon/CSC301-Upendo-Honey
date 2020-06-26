@@ -62,24 +62,24 @@ class MenuPage extends React.Component{
                     />
                     <IconContainer button={false} />
                     <IconContainer button={true} 
-                        nextPage={this.props.environmentFirstPage}
+                        nextPage={this.props.beekeeperFirstPage}
                         icon="environment"
                     />
                     <IconContainer button={false} />
                     <IconContainer button={true} 
-                        nextPage={this.props.honeyFirstPage}
+                        nextPage={this.props.beekeeperFirstPage}
                         icon="honey"
                     />
                     <IconContainer button={false} />
                     <IconContainer button={true} 
-                        nextPage={this.props.tanzaniaFirstPage}
+                        nextPage={this.props.beekeeperFirstPage}
                         icon="tanzania"
                     />
                     <IconContainer button={false} />
                 </div>
                 </MediaQuery>
                 <FlowFooter content="This is the Footer" footerClass='blackFooter'
-                isMenu={true} retailerLink={this.props.upendoURL} retailerLogo={this.props.upendoIcon}/>
+                isMenu={true} retailerLink={this.props.retailerURL} retailerLogo={this.props.retailerIcon}/>
             </div>
         )
  

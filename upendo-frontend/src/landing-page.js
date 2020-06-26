@@ -19,7 +19,9 @@ class LandingPage extends React.Component {
           <img id="background" src={Forest}/>
           <div id="right"></div>
         </div>
-        <LandingPageFormBox getData={this.props.getData}/>
+        <LandingPageFormBox getData={this.props.getData} 
+        setAlphaCode={this.props.setAlphaCode}
+        getAlphaCode={this.props.getAlphaCode}/>
         <MediaQuery minDeviceWidth="800px">
           <FlowFooter content="This is the Content" footerClass="movingBee"/>
         </MediaQuery>
@@ -79,13 +81,13 @@ class LandingPageForm extends React.Component {
       if (batchMemberData) {
         const loadData = await this.props.getData(this.state.code, batchMemberData);
         if (loadData) {
-          this.setState({redirect: true});
-          this.props.setAlphaCode(this.state.code);
+          await this.setState({redirect: true});
+          await this.props.setAlphaCode(this.state.code);
         }
       }
-      this.setState({code: '', displayMessage: true});
+      await this.setState({code: '', displayMessage: true});
     } catch (error) {
-      this.setState({code:'', displayMessage: true});
+      await this.setState({code:'', displayMessage: true});
       console.log(error);
     }
   }
@@ -98,7 +100,7 @@ class LandingPageForm extends React.Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to={'/app/' + this.props.getAlphaCode() + '/beekeeper'}/> // Pass in information about order of slides
+      return <Redirect to={'/app/' + this.props.getAlphaCode() + '/menu'}/> // Pass in information about order of slides
     } else {
       return (
         <div>

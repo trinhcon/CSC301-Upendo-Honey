@@ -5,12 +5,11 @@ import BeekeeperPage from "./flows/beekeeper-flow/beekeeper-portrait";
 import BeekeeperMessagePage from "./flows/beekeeper-flow/beekeeper-message";
 import BeekeeperLetterPage from "./flows/beekeeper-flow/beekeeper-letter";
 import MenuPage from "./flows/menu";
-import { retrieveBeekeeper } from "./modules/api-calls";
+import { retrieveBeekeeper, retrieveBatchMember} from "./modules/api-calls";
 import Leonard from './images/Leonard-Mahenge.jpg';
 import Letter from './images/BK 1 Letter.jpeg';
 
 import BeeIcon from './images/bee.svg';
-import Logo from '../images/upendo-logo.jpg';
 
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./landing-page.css";
@@ -53,18 +52,18 @@ class App extends React.Component {
       if (batchMemberData) {
         const loadData = await this.getData(this.state.alphacode, batchMemberData);
         if (!loadData && (this.state.alphacode !== "PUREJOY")) {
-         this.setAlphaCode("PUREJOY");
+         await this.setAlphaCode("PUREJOY");
          await this.retrieveAppData();
         } else {
           console.log(this.state);
           console.log("PUREJOY batchMember exists, but not beekeeper data");
         }
         if (loadData) {
-          this.setState({dataStatus: true});
+          await this.setState({dataStatus: true});
         }
       } else if (this.state.alphacode !== "PUREJOY") {
         console.log("batchMemberData does not exist, attempting PUREJOY");
-        this.setAlphaCode("PUREJOY");
+        await this.setAlphaCode("PUREJOY");
         await this.retrieveAppData(); 
       } else {
         console.log("PUREJOY data does not exist");
@@ -73,7 +72,7 @@ class App extends React.Component {
       console.log(error);
       if (this.state.alphacode !== "PUREJOY") {
         console.log("ERROR THROWN during batchMemberData, attempting PUREJOY")
-        this.setAlphaCode("PUREJOY");
+        await this.setAlphaCode("PUREJOY");
         await this.retrieveAppData();
       }
     }
@@ -102,15 +101,11 @@ class App extends React.Component {
             <MenuPage
               {...props}
               beekeeperFirstPage={"/app/" + this.getAlphaCode() + "/beekeeper"}
-              upendoIcon={Logo}
-              upenoURL={"http://upendoagri.com/"} // HARDCODED
-              beekeeperIcon={BeeIcon}
               environmentFirstPage="/app/blah1"
-              environmentIcon={BeeIcon}
               honeyFirstPage="/app/blah2"
-              honeyIcon={BeeIcon}
               tanzaniaFirstPage="/app/blah3"
-              tanzaniaIcon={BeeIcon}
+              retailerURL={this.state.batchMember.external_url}
+              retailerIcon={this.state.batchMember.photo}
               getAlphaCode={this.getAlphaCode}
               setAlphaCode={this.setAlphaCode}
               retrieveAppData={this.retrieveAppData}

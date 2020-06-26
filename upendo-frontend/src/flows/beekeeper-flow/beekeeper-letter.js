@@ -55,7 +55,7 @@ class BeekeeperLetterPage extends React.Component {
                     <FlowProgressBar position="two"/>
                     <FlowHeader content="A Little Letter to You..." headerClass="blueStrip"
             textStyle="blueStripText"/>
-                    <NextArrow nextPage="/beekeeper-message"/>
+                    <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/beekeeper-message'}/>
                     <div className="feather">
                         <img src={Feather} alt="feather"/>
                     </div>

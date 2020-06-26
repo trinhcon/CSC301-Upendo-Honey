@@ -46,7 +46,7 @@ class BeekeeperPage extends React.Component {
             textStyle="blueStripText"/>
             <MediaQuery minDeviceWidth="800px">
               <FlowProgressBar position="one"/>
-              <NextArrow nextPage="/beekeeper-letter"/>
+              <NextArrow nextPage={'/app/' + this.props.getAlphaCode() +'/beekeeper-letter'}/>
                 <img id="trees" src={Trees} alt="Some trees"/>
             </MediaQuery>
             <BeekeeperPortrait beekeeperName={this.props.beekeeperName}

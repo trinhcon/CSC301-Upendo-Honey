@@ -55,7 +55,7 @@ class BeekeeperMessagePage extends React.Component {
                     <h5 id="descriptionText"> Let us know how to get back to you!</h5> 
                     <MediaQuery minDeviceWidth="600px">
                         <FlowProgressBar position="three"/>
-                        <NextArrow nextPage="/menu"/>
+                        <NextArrow nextPage={"/app/"+ this.props.getAlphaCode()+"/menu"}/>
 
                     </MediaQuery>
                     <MessageForm />
