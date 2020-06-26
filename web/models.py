@@ -34,7 +34,7 @@ class BatchMember(CommonModel):
                                      help_text="Alphanumeric Code")
     batch = models.ForeignKey('Batch', on_delete=models.CASCADE)
     beekeeper = models.ForeignKey('Beekeeper', on_delete=models.CASCADE)
-    photo = CustomImageField(upload_to='images/', null=True, blank=True)
+    logo = CustomImageField(upload_to='images/', null=True, blank=True)
     external_url = models.URLField(null=True, blank=True)
 
     def __str__(self):
@@ -44,10 +44,9 @@ class BatchMember(CommonModel):
 class Beekeeper(CommonModel):
     name = models.CharField(max_length=50)
     bio = models.TextField()
-    image_url = models.URLField(null=True, blank=True)
     photo = CustomImageField(upload_to='images/', null=True, blank=True)
     letter_text = models.TextField()
-    letter_img_url = models.URLField()
+    letter_photo = CustomImageField(upload_to='images/', null=True, blank=True)
 
     def __str__(self):
         return f'Beekeeper: {self.name}'
@@ -55,9 +54,9 @@ class Beekeeper(CommonModel):
 
 class Forest(CommonModel):
     title = models.CharField(max_length=50)
-    map_url = models.URLField(help_text='Google map url')
+    map_kml = models.FileField(upload_to='maps/', null=True, blank=True)
     description = models.TextField()
-    image_url = models.URLField(help_text='Forest image url')
+    photo = CustomImageField(upload_to='images/', null=True, blank=True)
     area = models.CharField(max_length=50, help_text="Forest area")
     animals = models.CharField(max_length=50, help_text="Forest animals")
     beekeeper_count = models.IntegerField(help_text="Number of beekeepers")
@@ -70,8 +69,8 @@ class Forest(CommonModel):
 class Honey(CommonModel):
     name = models.CharField(max_length=50)
     variety = models.CharField(max_length=50)
-    jar_img_url = models.URLField(help_text='Forest image url')
-    harvest_img_url = models.URLField(help_text='Forest image url')
+    jar_photo = CustomImageField(upload_to='images/', null=True, blank=True)
+    harvest_photo = CustomImageField(upload_to='images/', null=True, blank=True)
     honey_description = models.TextField(help_text='Honey description')
     harvest_description = models.TextField(help_text='Harvest description')
     health_description = models.TextField(help_text='Health description')
