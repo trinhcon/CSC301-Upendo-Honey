@@ -17,6 +17,7 @@ import "./landing-page.css";
 class App extends React.Component {
   constructor(props) {
     super(props);
+    console.log("A new change")
     this.state = {alphacode: 'PUREJOY', batchMember: {}, beekeeper: {}, dataStatus: false};
     this.getData = this.getData.bind(this);
     this.getAlphaCode = this.getAlphaCode.bind(this);
