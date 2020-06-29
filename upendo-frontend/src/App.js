@@ -13,6 +13,11 @@ import BeeIcon from './images/bee.svg';
 
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./landing-page.css";
+import TanzaniaMapPage from './flows/tanzania-flow/tanzania-map';
+import TanzaniaForestPage from './flows/tanzania-flow/tanzania-forest';
+import HoneyTypePage from './flows/honey-flow/honey-type';
+import HoneyHarvestPage from './flows/honey-flow/honey-harvest';
+import HoneyHealthPage from './flows/honey-flow/honey-health';
 
 class App extends React.Component {
   constructor(props) {
@@ -98,12 +103,11 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route path = "/app/:alphaCode/menu" render = {(props) => (
-
             <MenuPage
               {...props}
               beekeeperFirstPage={"/app/" + this.getAlphaCode() + "/beekeeper"}
-              environmentFirstPage="/app/blah1"
-              honeyFirstPage="/app/blah2"
+              environmentFirstPage="/app/blah1" /** Just need to change these to link to new pages */
+              honeyFirstPage="/app/blah2"       /** when you are ready */
               tanzaniaFirstPage="/app/blah3"
               retailerURL={this.state.batchMember.external_url}
               retailerIcon={this.state.batchMember.photo}
@@ -115,6 +119,64 @@ class App extends React.Component {
             /> 
             )}
           />
+        
+          <Route path= "/app/:alphacode/tanzania-map"render = {(props) => (
+              <TanzaniaMapPage /** At the moment this page is static (same for alphacodes) */
+                {...props}
+                getAlphaCode={this.getAlphaCode}
+                setAlphaCode={this.setAlphaCode}
+                retrieveAppData={this.retrieveAppData}
+                getDataStatus={this.getDataStatus}
+              />
+            )}
+          />
+
+          <Route path= "/app/:alphacode/tanzania-forest" render = {(props) => (
+              <TanzaniaForestPage /** At the moment this page is static (same for alphacodes) */
+                {...props}
+                getAlphaCode={this.getAlphaCode}
+                setAlphaCode={this.setAlphaCode}
+                retrieveAppData={this.retrieveAppData}
+                getDataStatus={this.getDataStatus}
+              />
+            )}
+          />
+
+          <Route path= "/app/:alphacode/honey-type" render = {(props) => (
+              <HoneyTypePage  /** At the moment this page is static (same for alphacodes) */
+                {...props}
+                getAlphaCode={this.getAlphaCode}
+                setAlphaCode={this.setAlphaCode}
+                retrieveAppData={this.retrieveAppData}
+                getDataStatus={this.getDataStatus}
+              />
+            )}
+          />
+
+          <Route path= "/app/:alphacode/honey-harvest" render = {(props) => (
+              <HoneyHarvestPage /** At the moment this page is static (same for alphacodes) */
+                {...props}
+                getAlphaCode={this.getAlphaCode}
+                setAlphaCode={this.setAlphaCode}
+                retrieveAppData={this.retrieveAppData}
+                getDataStatus={this.getDataStatus}
+              />
+            )}
+          />
+
+          <Route path= "/app/:alphacode/honey-health" render = {(props) => (
+              <HoneyHealthPage /** At the moment this page is static (same for alphacodes) */
+                {...props}
+                getAlphaCode={this.getAlphaCode}
+                setAlphaCode={this.setAlphaCode}
+                retrieveAppData={this.retrieveAppData}
+                getDataStatus={this.getDataStatus}
+              />
+            )}
+          />
+
+          
+
           <Route path = "/app/:alphaCode/beekeeper-letter" render = {(props) => (
               <BeekeeperLetterPage
                 {...props}
