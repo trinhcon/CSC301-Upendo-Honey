@@ -110,7 +110,7 @@ class App extends React.Component {
               honeyFirstPage="/app/blah2"       /** when you are ready */
               tanzaniaFirstPage="/app/blah3"
               retailerURL={this.state.batchMember.external_url}
-              retailerIcon={this.state.batchMember.photo}
+              retailerIcon={this.state.batchMember.logo}
               getAlphaCode={this.getAlphaCode}
               setAlphaCode={this.setAlphaCode}
               retrieveAppData={this.retrieveAppData}
@@ -180,7 +180,7 @@ class App extends React.Component {
           <Route path = "/app/:alphaCode/beekeeper-letter" render = {(props) => (
               <BeekeeperLetterPage
                 {...props}
-                bk = {{letter: this.state.beekeeper.letter_img_url, translation: this.state.beekeeper.letter_text}}
+                bk = {{letter: this.state.beekeeper.letter_photo, translation: this.state.beekeeper.letter_text}}
                 getAlphaCode={this.getAlphaCode}
                 setAlphaCode={this.setAlphaCode}
                 retrieveAppData={this.retrieveAppData}
