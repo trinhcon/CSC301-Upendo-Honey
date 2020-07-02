@@ -4,11 +4,6 @@
   width: 100vw;
   display: grid;
   font-family: 'Indie Flower', cursive;
-  /* font-family: 'Bree Serif', serif;
-
-    font-family: 'Indie Flower', cursive;
-
-    font-family: 'Nunito', sans-serif;*/
 
   grid-template-columns: 1fr 2fr 2fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
