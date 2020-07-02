@@ -48,8 +48,8 @@
 #background {
     height: 850px;
     width: 1050px;
-    border-left: 50px solid rgba(63, 34, 9, 0.651);
-    border-right: 50px solid rgb(63, 34, 9, 0.651);
+    border-left: 50px solid rgb(97, 77, 14);
+    border-right: 50px solid rgb(97, 77, 14);
     z-index: 0;
 }
 

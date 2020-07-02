@@ -1,13 +1,13 @@
 .beekeeperFlexContainer {
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 2fr 2fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 2fr 1fr;
   grid-template-areas:
-    "header header header header"
-    "progress description portrait arrow"
-    "progress description portrait arrow"
-    "progress trees trees arrow"
-    "footer footer footer footer";
+    "header header header header header"
+    ". progress trees portrait arrow"
+    ". progress description portrait arrow"
+    ". progress description . arrow"
+    "footer footer footer footer footer";
   width: 100vw;
   height: 100vh;
   font-family: 'Nunito', sans-serif;
@@ -22,8 +22,8 @@
 
 #trees {
   grid-area: trees;
-  height: 200px;
-  width: 500px;
+  height: 100px;
+  width: 300px;
   align-self: end;
 }
 
@@ -63,19 +63,19 @@
 
 .descriptionContainer {
   grid-area: description;
+  background-image: url(../../images/beekeeper-frame.png);
+  background-repeat: no-repeat;
+  background-size: 400px 350px;
 }
 
 .description {
-  width: 70%;
+  width: 300px;
   font-size: 14pt;
   font-family: Oxygen, sans-serif;
-  border-left-color: #67c2db;
-  border-left-width: 8px;
-  border-left-style: solid;
   padding-left: 4px;
   margin-left: 10%;
   padding-right: 20px;
-
+  margin-top: 50px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -96,8 +96,14 @@
     font-size: 16pt;
   }
 
+  .descriptionContainer {
+    background-image: none;
+  }
   .description {
     font-size: 10pt;
-
+    margin-top: 0px;
+    border-left-color: rgb(106, 74, 182);
+    border-left-width: 8px;
+    border-left-style: solid;
   }
 }
