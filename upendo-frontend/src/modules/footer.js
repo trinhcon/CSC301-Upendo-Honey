@@ -2,7 +2,7 @@ import React from 'react';
 import "./footer.css";
 import MediaQuery from 'react-responsive';
 import NavigationIcon from './navigation-icons.js';
-import MovingBee from '../images/moving-bee.png';
+import MovingBee from '../images/pattern.png';
 
 class FlowFooter extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class FlowFooter extends React.Component {
     } else if (this.props.footerClass === "movingBee"){
       return (
         <footer className={this.props.footerClass}>
-          <img id="movingBeeImage" src={MovingBee} alt="Moving Bee"/>
+
         </footer>
       )
     } else {

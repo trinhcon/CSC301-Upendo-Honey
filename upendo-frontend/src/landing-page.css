@@ -30,27 +30,33 @@
 }
 
 #left {
-    flex: 1 2 auto;
+    flex: 1 1 auto;
     background-color:rgb(30, 33, 43);
+    background-image: url('./images/pattern.png');
+    background-position: -100px -50px;
+    opacity: 0.6;
 }
 
 #right {
-    flex: 1 2 auto;
+    flex: 1 1 auto;
     background-color: rgb(30, 33, 43);
+    background-image: url('./images/pattern.png');
+    background-position: -300px -50px;
+    opacity: 0.6;
 }
 
 #background {
     height: 850px;
     width: 1050px;
-    border-left: 50px solid rgb(83, 193, 221);
-    border-right: 50px solid rgb(83, 193, 221);
+    border-left: 50px solid rgba(63, 34, 9, 0.651);
+    border-right: 50px solid rgb(63, 34, 9, 0.651);
     z-index: 0;
 }
 
 #landingPageBox {
     z-index: 1;
-    width: 30%;
-    height: 40%;
+    width: 500px;
+    height: 300px;
     margin-top: 10px;
     padding: 10px;
     
@@ -96,6 +102,9 @@
 
     #background {
         border: 0 solid black;
+        position: relative;
+        top: -40px;
+        left: -300px;
     }
 
     #landingPage {
@@ -106,6 +115,8 @@
         width: 80%;
         height: 40%;
         padding: 10px;
+        position: relative;
+        top: 100px;
     }
 
     #codeBoxHeader {
