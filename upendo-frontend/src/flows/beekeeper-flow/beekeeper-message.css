@@ -32,7 +32,7 @@ label {
 }
 
 #messageBox {
-  height: 50%;
+  height: 40%;
   width: 90%;
   display: flex;
   flex-flow: column;
@@ -43,6 +43,8 @@ label {
   background-position: 0px 0px;
   background-size: 100% 100%;
   background-color: rgb(252, 245, 239);
+
+  margin: 10px;
 }
 
 #detailsBox{
@@ -68,7 +70,7 @@ label {
 .contactForm {
   display: flex;
   flex-flow: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
@@ -157,7 +159,7 @@ label {
 
 
   #detailsBox {
-    width: 60%;
+    width: 70%;
   }
 
   #inputDetailsBox {

@@ -52,7 +52,7 @@ class BeekeeperLetterPage extends React.Component {
             className="letterPage"
             > 
                 <MediaQuery minDeviceWidth="600px">
-                    <FlowProgressBar position="two"/>
+                    <FlowProgressBar position="two" flow="beekeeperProgress"/>
                     <FlowHeader content="A Little Letter to You..." headerClass="blueStrip"
             textStyle="blueStripText"/>
                     <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/beekeeper-message'}/>

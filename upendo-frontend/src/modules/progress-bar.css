@@ -14,7 +14,6 @@
     height: 100px;
     width: 100px;
     border-radius: 50%;
-
     border: 10px solid rgb(184, 152, 9);
 }
 
@@ -24,15 +23,38 @@
     position: relative;
     align-self: center;
     border-left: 10px solid rgb(184, 152, 9);
-    
 }
 
-#appears {
+.beekeeperProgress {
+    content: url('../images/Beekeeper.png');
+}
+
+.tanzaniaProgress {
+    content: url('../images/map.png');
+}
+
+.environmentProgress{
+    content: url('../images/CO2.png');
+}
+
+.honeyProgress {
+    content: url('../images/honey.png');
+}
+
+.appears {
     position: relative;
     z-index: 1;
-    transform: rotate(-90deg);
+   
+    object-fit: contain;
+    border-radius: 50%;
+    position: relative;
+    top: 5%;
+    left: 5%;
+    height: 90%;
+    width: 90%;
+
 }
 
-#invisible {
+.invisible {
     opacity: 0;
 }

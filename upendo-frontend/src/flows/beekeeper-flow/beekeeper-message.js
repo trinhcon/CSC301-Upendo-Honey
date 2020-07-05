@@ -53,7 +53,7 @@ class BeekeeperMessagePage extends React.Component {
                     headerClass = 'blueStrip'
                     textStyle='blueStripTextSmall'/>
                     <MediaQuery minDeviceWidth="600px">
-                        <FlowProgressBar position="three"/>
+                        <FlowProgressBar position="three" flow="beekeeperProgress"/>
                         <NextArrow nextPage={"/app/"+ this.props.getAlphaCode()+"/menu"}/>
 
                     </MediaQuery>
@@ -111,7 +111,6 @@ class MessageForm extends React.Component {
                         name="message" id="messageForm" placeholder="Dear Beekeeper..."
                         onChange={this.handleMessageInput}/>
                         </label>
-                        <br/>
                     <label id="detailsBox"> 
                         <span className="inputLabel">Let us know how to get back to you!</span>
                         <div id="inputDetailsBox">
