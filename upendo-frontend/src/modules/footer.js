@@ -49,9 +49,9 @@ class NavigationIcons extends React.Component {
   render() {
     return (
       <div className="navigationIcons">
-        <NavigationIcon icon="tanzania"/>
-        <NavigationIcon icon="environment"/>
-        <NavigationIcon icon="honey"/>
+        <NavigationIcon icon="tanzania" iconClass="footer"/>
+        <NavigationIcon icon="environment" iconClass="footer"/>
+        <NavigationIcon icon="honey" iconClass="footer"/>
       </div>
     )
   }

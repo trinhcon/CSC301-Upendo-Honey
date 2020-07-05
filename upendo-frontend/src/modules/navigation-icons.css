@@ -1,13 +1,13 @@
 .navContainer {
     margin: 10px;
-    height: 70px;
-    width: 70px;
     background-image: linear-gradient(white, rgb(207, 203, 203));
     border: 3px solid rgb(194, 158, 12);
     border-radius: 50%;
 
     text-align: center;
+    z-index: 2;
 }
+
 
 .navImage {
     object-fit: contain;
@@ -20,4 +20,30 @@
 
 .navContainer:hover {
     transform: scale(1.2, 1.2);
+}
+
+.footer {
+    height: 90px;
+    width: 90px;
+}
+
+.menu {
+    z-index: 5;
+    width: 120px;
+    height: 120px;
+    display: flex;
+
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    align-content: center;
+}
+
+@media only screen and (max-width: 1000px) {
+    .menu{
+        z-index: 5;
+        width: 90px;
+        height: 90px;
+        margin: 0px;
+    }
 }

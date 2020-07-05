@@ -20,11 +20,11 @@
 
 .verticalLine {
     height: 100px;
-    width: 100px;
+    width: 0px;
     position: relative;
-    align-self: flex-start;
-    left: 48%;
+    align-self: center;
     border-left: 10px solid rgb(184, 152, 9);
+    
 }
 
 #appears {

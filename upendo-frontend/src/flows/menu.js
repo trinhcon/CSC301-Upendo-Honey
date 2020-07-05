@@ -98,7 +98,8 @@ class IconContainer extends React.Component{
                 <NavigationIcon className="iconButton"
                 icon={this.props.icon}
                 nextPage={this.props.nextPage} 
-                id={this.props.id}/>
+                id={this.props.id}
+                iconClass="menu"/>
             );
         } else {
             return (
