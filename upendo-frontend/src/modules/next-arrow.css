@@ -1,15 +1,23 @@
 .arrowContainer {
     background-image: linear-gradient(to-right, white, rgb(36, 35, 35));
-    grid-area: arrow;
-    align-self: stretch;
-    justify-self: end;
+    align-self: center;
 }
 
 .arrowImg {
-    height: 100%;
-    width: 200px;
+    height: 80%;
+    width: 150px;
 }
 
 .arrowImg:hover {
     transform: scale(1.1, 1.1);
+}
+
+.left {
+    grid-area: leftArrow;
+    justify-self: start;
+}
+
+.right {
+    grid-area: rightArrow;
+    justify-self: end;
 }

@@ -4,9 +4,9 @@
   grid-template-rows: 1fr 2fr 2fr 4fr 1fr;
   grid-template-areas:
     "header header header header header"
-    ". progress trees portrait arrow"
-    ". progress description portrait arrow"
-    ". progress description . arrow"
+    "leftArrow progress trees portrait rightArrow"
+    "leftArrow progress description portrait rightArrow"
+    "leftArrow progress description . rightArrow"
     "footer footer footer footer footer";
   width: 100vw;
   height: 100vh;

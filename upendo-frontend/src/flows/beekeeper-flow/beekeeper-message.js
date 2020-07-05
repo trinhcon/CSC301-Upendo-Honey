@@ -54,7 +54,8 @@ class BeekeeperMessagePage extends React.Component {
                     textStyle='blueStripTextSmall'/>
                     <MediaQuery minDeviceWidth="600px">
                         <FlowProgressBar position="three" flow="beekeeperProgress"/>
-                        <NextArrow nextPage={"/app/"+ this.props.getAlphaCode()+"/menu"}/>
+                        <NextArrow nextPage={"/app/"+ this.props.getAlphaCode()+"/menu"} direction="right"/>
+                        <NextArrow nextPage={"/app/" + this.props.getAlphaCode() + "/beekeeper-letter"} direction="left"/>
 
                     </MediaQuery>
                     <MessageForm />
