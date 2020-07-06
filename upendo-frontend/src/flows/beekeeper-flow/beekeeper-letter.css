@@ -6,7 +6,7 @@
   font-family: 'Indie Flower', cursive;
 
   grid-template-columns: 1fr 2fr 2fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 2fr 1fr 1fr;
   grid-template-areas:
     "header header header header"
     "leftArrow letter translation rightArrow"

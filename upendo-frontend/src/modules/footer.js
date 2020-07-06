@@ -21,7 +21,6 @@ class FlowFooter extends React.Component {
     } else if (this.props.footerClass === "movingBee"){
       return (
         <footer className={this.props.footerClass}>
-
         </footer>
       )
     } else {
