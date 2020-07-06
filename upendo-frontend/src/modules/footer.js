@@ -33,10 +33,7 @@ class FlowFooter extends React.Component {
       )
     } else {
       return (
-        <footer className={this.props.footerClass}>
-          <MediaQuery minDeviceWidth="800px">
-            <NavigationIcons/>
-          </MediaQuery>            
+        <footer className={this.props.footerClass}>   
         </footer>
         
       );
