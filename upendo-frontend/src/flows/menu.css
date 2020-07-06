@@ -1,12 +1,12 @@
 
 #menuPage {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr 1fr;
     grid-template-areas:
-        "left left left jar right right right"
-        ". icon1 . jar . icon2 ."
-        ". . icon3 . icon4 . ."
+        "header header header header header header header"
+        ".icon1 . icon2 . logo ."
+        ". .icon3 . icon4 . ."
         "footer footer footer footer footer footer footer";
     height: 100vh;
     width: 100vw;
@@ -14,6 +14,7 @@
     font-family: Oxygen, sans-serif;
 }
 
+/*
 .honeyHeaderLeft {
     grid-area: left;
     background-image: url("../images/header-left.png");
@@ -30,6 +31,42 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+*/
+
+.moreInfo {
+    grid-area: logo;
+
+    display: flex;
+    position: relative;
+    z-index: 2;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+  
+    height: 80px;
+    align-self: center;
+    border-radius: 25px;
+    background-color: rgba(143, 142, 142, 0.8);
+    
+  }
+  
+  #logoText {
+    margin: 5px;
+    color: white;
+    font-size: 12pt;
+  }
+  
+  #logo {
+    margin: 20px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+  }
+  
+  #logo:hover {
+    transform: scale(1.2, 1.2);
+  }
 
 
 #icon1 {
@@ -78,7 +115,6 @@
     }
 
     #iconGrid {
-    margin-top: -50%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -92,6 +128,7 @@
     opacity: 0px;
     }
 
+    /*
     #honeyHeader {
         width: 100%;
         height: 25%;
@@ -103,7 +140,7 @@
         color: white;
     }
 
-
+    
     #leftHoneyJar {
     width: 20%;
     height: 10%;
@@ -115,7 +152,7 @@
 
     width: 30vmax;
     height: 30vmax;
-    /**background-image;*/
-    }
+    }    */
+
 }
 

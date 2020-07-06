@@ -14,8 +14,37 @@
   
 }
 
+.greenStripMenu {
+  background-color:rgb(41, 131, 14);
+  z-index: 1;
+  font-family: 'Bree Serif', serif;
+  font-size: 18pt;
+  color: white;
+  align-self: stretch;
+  position: relative;
+  
+  margin: 0;
+  padding: 0;
+  height: 70px;
+  border-bottom: 15px solid rgb(231, 217, 12);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
 .blueStripText{
   margin: 0px;
+  padding-left: 10px;
+  position: absolute;
+  bottom: -10%;
+}
+
+.menuText{
+  font-family: nunito, sans-serif;
+  font-weight: bold;
+  font-size: 16pt;
+  font-variant: small-caps;
+  margin: 10px;
   padding-left: 10px;
   position: absolute;
   bottom: -10%;
@@ -34,6 +63,15 @@
     /*grid view*/
     grid-area: header;
     height: 70px;
+  }
+
+  .greenStripMenu {
+    grid-area: header;
+    height: 90px;
+  }
+
+  .menuText {
+    font-size: 36pt;
   }
 
   .blueStripText {

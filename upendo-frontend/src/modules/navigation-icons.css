@@ -29,8 +29,8 @@
 
 .menu {
     z-index: 5;
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     display: flex;
 
     justify-self: center;

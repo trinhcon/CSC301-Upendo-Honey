@@ -2,10 +2,13 @@ import React from 'react';
 
 import './menu.css';
 import FlowFooter from '../modules/footer';
+import FlowHeader from '../modules/header';
 import HoneyJar from '../images/honeyjar.png';
 import MediaQuery from 'react-responsive';
 import NavigationIcon from '../modules/navigation-icons.js';
 import Left from '../images/header-left.png'
+
+/*CHANGE APP.JS TO PASS IN RETAILER INFORMATION*/
 
 class MenuPage extends React.Component{
     constructor(props) {
@@ -26,10 +29,14 @@ class MenuPage extends React.Component{
     render () {
         return (
             <div id="menuPage">
+                <FlowHeader
+                headerClass="greenStripMenu"
+                textStyle="menuText"
+                content="Click an Icon to Discover More!"/>
                 <MediaQuery minDeviceWidth="1000px">
-                    <img id="honeyJar" src={HoneyJar} />
+                    {/*<img id="honeyJar" src={HoneyJar} />
                     <div className="honeyHeaderLeft"/>
-                    <div className="honeyHeaderRight"/>
+        <div className="honeyHeaderRight"/>*/ }
                     <IconContainer button={true} 
                         nextPage={this.props.beekeeperFirstPage}
                         icon="environment"
@@ -52,8 +59,8 @@ class MenuPage extends React.Component{
                     />
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth="1000px" >
-                <h1 id="honeyHeader" >Click Below to Discover More...</h1>
-                <img id="honeyJar" src={HoneyJar} />
+                {/*<h1 id="honeyHeader" >Click Below to Discover More...</h1>*/}
+                {/*<img id="honeyJar" src={HoneyJar} />*/}
                 <div id="iconGrid">
                     <IconContainer button={false} />
                     <IconContainer button={true} 
@@ -78,6 +85,9 @@ class MenuPage extends React.Component{
                     <IconContainer button={false} />
                 </div>
                 </MediaQuery>
+                <ExtraInformationContainer
+                retailerLink={this.props.retailerLink}
+                retailerLogo={this.props.retailerLogo}/>
                 <FlowFooter content="This is the Footer" footerClass='blackFooter'
                 isMenu={true} retailerLink={this.props.retailerURL} retailerLogo={this.props.retailerIcon}/>
             </div>
@@ -111,4 +121,17 @@ class IconContainer extends React.Component{
     }
 
 }
+
+class ExtraInformationContainer extends React.Component {
+    render () {
+      return (
+        <div className="moreInfo">
+          <p id="logoText">Want more information? </p>
+          <a href={this.props.retailerLink}>
+            <img id="logo" src={this.props.retailerLogo}/>
+          </a>
+        </div>
+      )
+    }
+  }
 export default MenuPage;

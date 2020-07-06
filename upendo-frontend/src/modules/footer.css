@@ -26,35 +26,7 @@
   height: 100px;
 }
 
-.moreInfo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5px;
-  padding: 3px;
 
-  height: 60px;
-  align-self: end;
-  border-radius: 25px;
-  background-color: rgba(219, 213, 213, 0.5);
-  
-}
-
-#logoText {
-  margin: 5px;
-  color: white;
-}
-
-#logo {
-  margin: 20px;
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-}
-
-#logo:hover {
-  transform: scale(1.2, 1.2);
-}
 
 @media only screen and (min-width: 800px) {
   .blackFooter{
@@ -98,36 +70,6 @@
     padding-left: 200px;
     font-family: 'Bree Serif', serif;
     align-self: start;
-  }
-  
-  #logoText {
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    font-size: 14pt;
-  }
-  
-  .moreInfo {
-    display: flex;
-    align-items: center;
-    margin: 20px;
-    padding: 10px;
-  
-    height: 80px;
-    align-self: end;
-    border-radius: 25px;
-    background-color: rgba(219, 213, 213, 0.5);
-    
-  }
-  
-  #logo {
-    margin: 20px;
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-  }
-  
-  #logo:hover {
-    transform: scale(1.2, 1.2);
   }
   
   .movingBee {

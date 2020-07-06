@@ -16,14 +16,7 @@ class FlowFooter extends React.Component {
     if (this.props.isMenu) {
       return (
         <footer className={this.props.footerClass + " menuFooter"}>
-        <MediaQuery minDeviceWidth="800px">
-          <PureJoy/>
-          <h1 id="menuText">Click Above to Discover More!</h1>
-        </MediaQuery>
-        <ExtraInformationContainer
-        retailerLink={this.props.retailerLink}
-        retailerLogo={this.props.retailerLogo}/>
-      </footer>
+        </footer>
       )
     } else if (this.props.footerClass === "movingBee"){
       return (
@@ -48,19 +41,6 @@ class NavigationIcons extends React.Component {
         <NavigationIcon icon="tanzania" iconClass="footer"/>
         <NavigationIcon icon="environment" iconClass="footer"/>
         <NavigationIcon icon="honey" iconClass="footer"/>
-      </div>
-    )
-  }
-}
-
-class ExtraInformationContainer extends React.Component {
-  render () {
-    return (
-      <div className="moreInfo">
-        <p id="logoText">Want more information? </p>
-        <a href={this.props.retailerLink}>
-          <img id="logo" src={this.props.retailerLogo}/>
-        </a>
       </div>
     )
   }

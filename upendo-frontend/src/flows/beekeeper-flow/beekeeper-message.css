@@ -118,11 +118,9 @@ label {
     display: grid;
     
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 3fr 3fr 2fr 2fr 1fr;
+    grid-template-rows: 1fr 3fr 1fr 1fr;
     grid-template-areas:
     "header header header header header header"
-    "leftArrow form form form form rightArrow"
-    "leftArrow form form form form rightArrow"
     "leftArrow form form form form rightArrow"
     "leftArrow . progress progress . rightArrow"
     "footer footer footer footer footer footer";
