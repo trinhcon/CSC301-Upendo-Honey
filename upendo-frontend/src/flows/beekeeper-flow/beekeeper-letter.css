@@ -5,45 +5,52 @@
   display: grid;
   font-family: 'Indie Flower', cursive;
 
-  grid-template-columns: 1fr 1fr 2fr 2fr 1fr;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas:
-    "header header header header header"
-    "leftArrow progress letter translation rightArrow"
-    "leftArrow progress caption feather rightArrow"
-    "leftArrow progress . feather rightArrow"
-    "footer footer footer footer footer";
+    "header header header header"
+    "leftArrow letter translation rightArrow"
+    "leftArrow letter translation rightArrow"
+    "leftArrow progress progress rightArrow"
+    "footer footer footer footer";
 }
 
-#letterContainer > img {
-  margin-top: 10px;
-  border-top: 5px solid rgb(194, 158, 12);
+#letterContainer {
+  grid-area: letter;
+  justify-self: center;
+  align-self: center;
+}
+
+#letterFrame {
+  background-color: black;
+  position: relative;
+  height: 333px;
+  width: 500px;
+  text-align: center;
+}
+
+#letterFrame::after {
+  content: "";
+  background-image: url('../../images/letter-frame.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+
+}
+
+#letterFrame > img {
+  /*border-top: 5px solid rgb(194, 158, 12);
   border-bottom: 5px solid rgb(194, 158, 12);
   border-left: 5px solid rgb(148, 211, 226);
-  border-right: 5px solid rgb(148, 211, 226);
-
-  width: 400px; 
-  height: 200px;
-  grid-area: letter;
-}
-
-
-.caption {
-  grid-area: caption;
-  align-self: center;
-
-}
-
-.feather {
-  grid-area: feather;
-  justify-self: end;
-
-}
-
-.feather > img {
-  margin: 10px;
-  width: 200px;
-  height: 200x;
+  border-right: 5px solid rgb(148, 211, 226);*/
+  position: relative;
+  top: 5%;
+  width: 90%;
+  height: 90%;
 }
 
 #beekeeperLetterTitle {
@@ -63,19 +70,23 @@ figure > figcaption {
   z-index: 2;
 }
 
-div#frame {  
-  background-image: url('../../images/frame-desktop.png');
-  background-repeat: no-repeat;
-  background-size: 400px 300px;
-  grid-area: translation;
-}
-
 #letterTranslation {
   /** border: 2px solid black; */
-  transform: translate(20%,20%);
-  width: 300px;
+  grid-area: translation;
+  align-self: center;
+  justify-self: center;
+
+
+  width: 100%;
+  margin-top: 10%;
+  padding: 5px;
+  padding-left: 20%;
+  padding-right: 20%;
   height: auto;
-  font-size: 12pt;
+  font-size: 16pt;
+  border-top: 5px solid rgb(97, 57, 30);
+  border-bottom: 5px solid rgb(97, 57, 30);
+  background-color: rgb(223, 211, 204);
 }
 
 @media only screen and (max-width: 600px) {
@@ -90,76 +101,44 @@ div#frame {
 
   #letterContainer {
     margin-top: 0 ;
-    width: 300px; 
-    height: 150px;
     margin-bottom: 0px;
+
+    padding-top: 10%;
+  }
+
+  #letterFrame {
+    background-color: black;
+    position: relative;
+    height: 200px;
+    width: 300px;
+    text-align: center;
   }
   
-  #letterContainer > img {
-    margin-top: 0;
+  #letterFrame > img {
     align-self: center;
-    width: 290px;
-    height: 140px;
+    width: 90%;
+    height: 90%;
     position: relative;
   }
-  
-  
-  #beekeeperLetterTitle {
-    display: flex;
-    margin: 10px;
-    width: 100%;
-    height: 70px;
-    padding-top: 0px;
-    text-align: center;
-    font-family: 'Pacifico', cursive;
-    font-size: small;
-  }
 
-  #beekeeperLetterTitle > h2 {
-    color: black;
-  }
-  
-  .scroll {
-    width: 60px;
-    height: 60px;
-    background: url('../../images/scroll.svg');
-    background-size:  50px, 50px;
-    background-repeat: no-repeat;
-  }
-
-  .feather {
-    width: 60px;
-    height: 60px;
-    background: url('../../images/feather.svg');
-    background-size:  50px, 50px;
-    background-repeat: no-repeat;
-  }
-  
   figure > figcaption {
     position: relative;
     margin-left: 5vw;
     font-size: 20pt;
     z-index: 2;
   }
-  
-  div#frame {
-    margin-left: 5vw;  
-    height: 45vh;
-    width: auto;
-  
-    background-image: url('../../images/frame-desktop.png');
-    background-size:  90vw 45vh;
-  
-    background-repeat: no-repeat;
-
-    transform: translate(0,0) rotate(-10deg);
-  }
 
   #letterTranslation {
     /** border: 2px solid black; */
     padding: 10px;
-    width: 250px;
-    height: 200px;
-    font-size: 10pt;
+    padding-top: 0;
+    padding-bottom: 20%;
+
+    width: 90%;
+    height: auto;
+    font-size: 14pt;
+
+    border: none;
+    background-color: white;
   }
 }

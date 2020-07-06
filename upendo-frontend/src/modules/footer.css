@@ -62,7 +62,8 @@
     grid-area: footer;
     border-top: 20px solid  rgb(228, 181, 28);
     align-self: stretch;
-    height: 100px;
+    min-height: 100px;
+    height: auto;
 
     display: flex;
     justify-content: center;
