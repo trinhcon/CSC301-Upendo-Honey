@@ -57,7 +57,7 @@ class Forest(CommonModel):
     map_kml = models.FileField(upload_to='maps/', null=True, blank=True)
     description = models.TextField()
     photo = CustomImageField(upload_to='images/', null=True, blank=True)
-    area = models.CharField(max_length=50, help_text="Forest area")
+    area = models.IntegerField(help_text="Forest area")
     animals = models.CharField(max_length=50, help_text="Forest animals")
     beekeeper_count = models.IntegerField(help_text="Number of beekeepers")
     plants = models.CharField(max_length=50, help_text="Forest plants")
