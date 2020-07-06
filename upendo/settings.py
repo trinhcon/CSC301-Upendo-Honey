@@ -142,6 +142,14 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'upendo-frontend/build/static')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
+# REST Framework
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ]
+}
+
 # Configure Django App for Heroku.
 ON_HEROKU = os.environ.get("DYNO", "") != "" # Assumption: "DYNO" envvar wouldn't be set locally
 if ON_HEROKU:
