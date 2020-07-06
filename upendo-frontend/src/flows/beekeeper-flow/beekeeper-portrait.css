@@ -1,13 +1,13 @@
 .beekeeperFlexContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr 2fr 1fr;
-  grid-template-rows: 1fr 2fr 2fr 4fr 1fr;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-rows: 1fr 2fr 4fr 2fr 1fr;
   grid-template-areas:
-    "header header header header header"
-    "leftArrow progress trees portrait rightArrow"
-    "leftArrow progress description portrait rightArrow"
-    "leftArrow progress description . rightArrow"
-    "footer footer footer footer footer";
+    "header header header header"
+    "leftArrow description portrait rightArrow"
+    "leftArrow description portrait rightArrow"
+    "leftArrow progress progress rightArrow"
+    "footer footer footer footer";
   width: 100vw;
   height: 100vh;
   font-family: 'Nunito', sans-serif;
@@ -32,6 +32,7 @@
 }
 
 .portraitShape {
+  margin: 10px;
   width: var(--portraitWidth);
   height: var(--portraitHeight);
   background-color: white;
@@ -55,7 +56,7 @@
   font-family: 'Indie Flower', cursive;
   font-size: 30pt;
   margin-left: -50px;
-  margin-top: -10px;
+  margin-top: -30px;
   color: black;
 
   z-index: 2;
@@ -66,6 +67,7 @@
   background-image: url(../../images/beekeeper-frame.png);
   background-repeat: no-repeat;
   background-size: 400px 350px;
+  margin: 10px;
 }
 
 .description {

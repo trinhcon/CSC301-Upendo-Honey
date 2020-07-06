@@ -121,10 +121,10 @@ label {
     grid-template-rows: 1fr 3fr 3fr 2fr 2fr 1fr;
     grid-template-areas:
     "header header header header header header"
-    "leftArrow progress form form . rightArrow"
-    "leftArrow progress form form . rightArrow"
-    "leftArrow progress form form . rightArrow"
-    "leftArrow progress form form . rightArrow"
+    "leftArrow . form form . rightArrow"
+    "leftArrow . form form . rightArrow"
+    "leftArrow . form form . rightArrow"
+    "leftArrow . progress progress . rightArrow"
     "footer footer footer footer footer footer";
   }
 

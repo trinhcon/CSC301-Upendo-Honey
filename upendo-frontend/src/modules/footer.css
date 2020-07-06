@@ -65,11 +65,12 @@
     height: auto;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .navigationIcons {
     display: flex;
+    width: 100%;
     justify-content: space-evenly;
     flex-flow: row;
   }

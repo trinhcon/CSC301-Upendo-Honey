@@ -34,7 +34,7 @@ class BeekeeperPage extends React.Component {
         console.log('DEVLOG: URL Param Matching failed');
     }
   }
-
+  //<img id="trees" src={Trees} alt="Some trees"/>
   render() {
     if (this.state.redirectLetter) {
       return (<Redirect to={'/app/' + this.props.getAlphaCode() + '/beekeeper-letter'}/>);
@@ -48,7 +48,7 @@ class BeekeeperPage extends React.Component {
               <FlowProgressBar position="one" flow="beekeeperProgress"/>
               <NextArrow nextPage={'/app/' + this.props.getAlphaCode() +'/beekeeper-letter'} direction="right"/>
               <NextArrow nextPage={'/app/' + this.props.getAlphaCode() +'/menu'} direction="left"/>
-              <img id="trees" src={Trees} alt="Some trees"/>
+              
             </MediaQuery>
             <BeekeeperPortrait beekeeperName={this.props.beekeeperName}
               imageURL={this.props.imageURL}/>

@@ -1,7 +1,7 @@
 .blueProgressBar {
     grid-area: progress;
     display: flex;
-    flex-flow: column;
+    flex-flow: row;
     align-items: center;
     justify-self: center;
     align-self: center;
@@ -18,11 +18,11 @@
 }
 
 .verticalLine {
-    height: 100px;
-    width: 0px;
+    height: 0px;
+    width: 100px;
     position: relative;
     align-self: center;
-    border-left: 10px solid rgb(184, 152, 9);
+    border-top: 10px solid rgb(184, 152, 9);
 }
 
 .beekeeperProgress {

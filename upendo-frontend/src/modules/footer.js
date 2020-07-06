@@ -36,7 +36,6 @@ class FlowFooter extends React.Component {
         <footer className={this.props.footerClass}>
           <MediaQuery minDeviceWidth="800px">
             <NavigationIcons/>
-            <PureJoy/>
           </MediaQuery>            
         </footer>
         
