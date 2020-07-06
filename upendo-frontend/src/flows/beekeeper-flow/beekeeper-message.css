@@ -121,9 +121,9 @@ label {
     grid-template-rows: 1fr 3fr 3fr 2fr 2fr 1fr;
     grid-template-areas:
     "header header header header header header"
-    "leftArrow . form form . rightArrow"
-    "leftArrow . form form . rightArrow"
-    "leftArrow . form form . rightArrow"
+    "leftArrow form form form form rightArrow"
+    "leftArrow form form form form rightArrow"
+    "leftArrow form form form form rightArrow"
     "leftArrow . progress progress . rightArrow"
     "footer footer footer footer footer footer";
   }
@@ -138,14 +138,22 @@ label {
 
   #formBox {
     grid-area: form;
-    justify-self: center;
     height: 100%;
-    width: 100%;
   }
+
+  .contactForm {
+    flex-flow: row;
+  }
+
+  #messageBox {
+    height: 80%;
+    justify-content: center;
+  }
+
 
   #messageForm {
     margin: 20px;
-    height:100%;
+    height: 90%;
     font-size: 14px;
   }
 
@@ -160,12 +168,19 @@ label {
 
   #detailsBox {
     width: 70%;
+    height: 90%;
+    justify-content: center;
   }
 
   #inputDetailsBox {
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
     justify-content: center;
+    align-items: center;
     width: 80%;
+
+    border-top: 5px solid gold;
+    padding-top: 40px;
+
   }
 }

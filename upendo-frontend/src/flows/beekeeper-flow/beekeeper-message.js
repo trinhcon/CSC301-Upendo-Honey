@@ -132,8 +132,8 @@ class MessageForm extends React.Component {
                             <br/>
                         </div>
                         </div>
+                        <input type="submit" value="Send!" id="sendButton" />
                     </label> 
-                    <input type="submit" value="Send!" id="sendButton" />
                 </form>
             </div>
         )
