@@ -8,19 +8,23 @@ import { useSwipeable, Swipeable } from 'react-swipeable';
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
 import NextArrow from '../../modules/next-arrow';
-import Trees from '../../images/forest.svg'
 
 class BeekeeperPage extends React.Component {
   constructor(props) {
     super(props);
     this.swipeLeftHandler = this.swipeLeftHandler.bind(this);
-    this.state = {redirectLetter: false};
+    this.swipeRightHandler = this.swipeRightHandler.bind(this);
+    this.state = {redirectLetter: false, redirectMenu: false};
 
   }
 
   swipeLeftHandler(eventData) {
-    this.setState({redirectLetter:true});
+    this.setState({redirectLetter:true, redirectMenu: false});
     console.log("picu slided");
+  }
+
+  swipeRightHandler(eventData) {
+    this.setState({redirectLetter: false, redirectMenu: true})
   }
 
   async componentDidMount() {
@@ -34,16 +38,18 @@ class BeekeeperPage extends React.Component {
         console.log('DEVLOG: URL Param Matching failed');
     }
   }
-  //<img id="trees" src={Trees} alt="Some trees"/>
   render() {
     if (this.state.redirectLetter) {
       return (<Redirect to={'/app/' + this.props.getAlphaCode() + '/beekeeper-letter'}/>);
+    } else if (this.state.redirectMenu) {
+      return (<Redirect to={'/app/' + this.props.getAlphaCode() + '/menu'}/>);
     } else {
       return (
           <Swipeable onSwipedLeft={this.swipeLeftHandler}
+          onSwipedRight={this.swipeRightHandler}
           className="beekeeperFlexContainer">
-            <FlowHeader content="Meet your Beekeeper" headerClass="blueStrip"
-            textStyle="blueStripText"/>
+            <FlowHeader content="Meet your Beekeeper" headerClass="greenStrip"
+            textStyle="greenStripText"/>
             <MediaQuery minDeviceWidth="800px">
               <FlowProgressBar position="one" flow="beekeeperProgress"/>
               <NextArrow nextPage={'/app/' + this.props.getAlphaCode() +'/beekeeper-letter'} direction="right"/>
@@ -54,7 +60,7 @@ class BeekeeperPage extends React.Component {
               imageURL={this.props.imageURL}/>
             <BeekeeperDescriptionContainer
               content={this.props.beekeeperDescription}/>
-            <FlowFooter content="This is the Footer" footerClass="blackFooter"/>
+            <FlowFooter content="This is the Footer" footerClass="patternedFooter"/>
           </Swipeable>
       );
     }

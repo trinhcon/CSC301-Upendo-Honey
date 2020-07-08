@@ -1,4 +1,5 @@
-.blackFooter{
+/*Mobile*/
+.patternedFooter{
   background-color: black;
   border-top: 10px solid  rgb(228, 181, 28);
   height: 50px;
@@ -9,7 +10,7 @@
 
 }
 
-.blackFooter::after {
+.patternedFooter::after {
   content: "";
   background-image: url(../images/pattern.png);
   background-repeat: repeat;
@@ -29,9 +30,9 @@
 }
 
 
-
+/*Desktop*/
 @media only screen and (min-width: 800px) {
-  .blackFooter{
+  .patternedFooter{
     /*grid view*/
     grid-area: footer;
     border-top: 20px solid  rgb(228, 181, 28);
@@ -43,6 +44,7 @@
     justify-content: center;
   }
 
+  /* Previous Unneeded designs
   .navigationIcons {
     display: flex;
     width: 100%;
@@ -65,6 +67,7 @@
   #pureJoyImage {
     object-fit: cover;
   }
+  */
   
   #menuText {
     color:white;
@@ -78,7 +81,7 @@
     height: 100px;
   }
   
-  .movingBee {
+  .blackFooter {
     background-color: black;
     border-top: 20px solid  rgb(228, 181, 28);
     height: 30%;

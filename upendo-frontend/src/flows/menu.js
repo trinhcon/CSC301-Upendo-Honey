@@ -3,10 +3,8 @@ import React from 'react';
 import './menu.css';
 import FlowFooter from '../modules/footer';
 import FlowHeader from '../modules/header';
-import HoneyJar from '../images/honeyjar.png';
 import MediaQuery from 'react-responsive';
 import NavigationIcon from '../modules/navigation-icons.js';
-import Left from '../images/header-left.png'
 
 /*CHANGE APP.JS TO PASS IN RETAILER INFORMATION*/
 
@@ -34,9 +32,6 @@ class MenuPage extends React.Component{
                 textStyle="menuText"
                 content="Click an Icon to Discover More!"/>
                 <MediaQuery minDeviceWidth="1000px">
-                    {/*<img id="honeyJar" src={HoneyJar} />
-                    <div className="honeyHeaderLeft"/>
-        <div className="honeyHeaderRight"/>*/ }
                     <IconContainer button={true} 
                         nextPage={this.props.beekeeperFirstPage}
                         icon="environment"
@@ -59,8 +54,6 @@ class MenuPage extends React.Component{
                     />
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth="1000px" >
-                {/*<h1 id="honeyHeader" >Click Below to Discover More...</h1>*/}
-                {/*<img id="honeyJar" src={HoneyJar} />*/}
                 <div id="iconGrid">
                     <IconContainer button={false} />
                     <IconContainer button={true} 
@@ -88,7 +81,7 @@ class MenuPage extends React.Component{
                 <ExtraInformationContainer
                 retailerLink={this.props.retailerLink}
                 retailerLogo={this.props.retailerLogo}/>
-                <FlowFooter content="This is the Footer" footerClass='blackFooter'
+                <FlowFooter content="This is the Footer" footerClass='patternedFooter'
                 isMenu={true} retailerLink={this.props.retailerURL} retailerLogo={this.props.retailerIcon}/>
             </div>
         )

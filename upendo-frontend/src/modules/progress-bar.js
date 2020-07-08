@@ -8,15 +8,15 @@ class FlowProgressBar extends React.Component {
     }
     render() {
         return (
-            <div className="blueProgressBar"> 
+            <div className="goldProgressBar"> 
                 <div className="circle" id="first">
                     <div className={(this.props.position == "one" ? "appears" : "invisible") + " " + this.props.flow}/>
                 </div>
-                <div className="verticalLine"></div>
+                <div className="horizontalLine"></div>
                 <div className="circle" id="second">
                     <div className={(this.props.position == "two" ? "appears" : "invisible") + " " + this.props.flow}/>
                 </div>
-                <div className="verticalLine"></div>
+                <div className="horizontalLine"></div>
                 <div className="circle" id="third">
                     <div className={(this.props.position == "three" ? "appears" : "invisible") + " " + this.props.flow}/>
                 </div>

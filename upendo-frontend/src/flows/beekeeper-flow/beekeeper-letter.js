@@ -8,8 +8,6 @@ import { useSwipeable, Swipeable } from 'react-swipeable';
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
 import NextArrow from '../../modules/next-arrow';
-import Feather from "../../images/feather.svg";
-
 
 
 class BeekeeperLetterPage extends React.Component {
@@ -51,8 +49,8 @@ class BeekeeperLetterPage extends React.Component {
             onSwipedRight={this.swipeRightHandler}
             className="letterPage"
             > 
-                <FlowHeader content="A Little Letter to You..." headerClass="blueStrip"
-            textStyle="blueStripText"/>
+                <FlowHeader content="A Little Letter to You..." headerClass="greenStrip"
+            textStyle="greenStripText"/>
                 <MediaQuery minDeviceWidth="600px">
                     <FlowProgressBar position="two" flow="beekeeperProgress"/>
                     <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/beekeeper-message'} direction="right"/>
@@ -61,7 +59,7 @@ class BeekeeperLetterPage extends React.Component {
                 </MediaQuery>
                 <LetterPhoto letter={this.props.bk.letter}/>
                 <Translation translation={this.props.bk.translation}/>
-                <FlowFooter content="This is the Footer" footerClass="blackFooter"/>
+                <FlowFooter content="This is the Footer" footerClass="patternedFooter"/>
             </Swipeable>
             );
         }

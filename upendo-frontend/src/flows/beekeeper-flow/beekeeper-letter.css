@@ -1,4 +1,4 @@
-
+/* Desktop Page */
 .letterPage {
   height: 100vh;
   width: 100vw;
@@ -89,6 +89,7 @@ figure > figcaption {
   background-color: rgb(223, 211, 204);
 }
 
+/* Mobile Page */
 @media only screen and (max-width: 600px) {
   .letterPage {
     display: flex;

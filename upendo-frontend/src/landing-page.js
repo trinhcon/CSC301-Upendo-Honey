@@ -23,7 +23,7 @@ class LandingPage extends React.Component {
         setAlphaCode={this.props.setAlphaCode}
         getAlphaCode={this.props.getAlphaCode}/>
         <MediaQuery minDeviceWidth="800px">
-          <FlowFooter content="This is the Content" footerClass="movingBee"/>
+          <FlowFooter content="This is the Content" footerClass="landingFooter"/>
         </MediaQuery>
       </div>
     );

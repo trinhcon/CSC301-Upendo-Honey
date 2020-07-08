@@ -8,7 +8,6 @@ import FlowProgressBar from '../../modules/progress-bar';
 
 import { useSwipeable, Swipeable } from 'react-swipeable';
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
-import Bee from "../../images/bee.svg";
 import MediaQuery from 'react-responsive';
 import NextArrow from '../../modules/next-arrow';
 
@@ -50,8 +49,8 @@ class BeekeeperMessagePage extends React.Component {
                 >
                 
                     <FlowHeader content="Send a Message to Your Beekeeper!"
-                    headerClass = 'blueStrip'
-                    textStyle='blueStripTextSmall'/>
+                    headerClass = 'greenStrip'
+                    textStyle='greenStripTextSmall'/>
                     <MediaQuery minDeviceWidth="600px">
                         <FlowProgressBar position="three" flow="beekeeperProgress"/>
                         <NextArrow nextPage={"/app/"+ this.props.getAlphaCode()+"/menu"} direction="right"/>
@@ -59,7 +58,7 @@ class BeekeeperMessagePage extends React.Component {
 
                     </MediaQuery>
                     <MessageForm />
-                    <FlowFooter content="This is the Footer" footerClass='blackFooter'/>
+                    <FlowFooter content="This is the Footer" footerClass='patternedFooter'/>
                 </Swipeable>
             );
         }

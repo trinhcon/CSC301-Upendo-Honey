@@ -1,4 +1,4 @@
-.blueProgressBar {
+.goldProgressBar {
     grid-area: progress;
     display: flex;
     flex-flow: row;
@@ -17,7 +17,7 @@
     border: 10px solid rgb(184, 152, 9);
 }
 
-.verticalLine {
+.horizontalLine {
     height: 0px;
     width: 100px;
     position: relative;

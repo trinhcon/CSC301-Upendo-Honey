@@ -1,3 +1,4 @@
+/* Desktop */
 .navContainer {
     margin: 10px;
     background-image: linear-gradient(white, rgb(207, 203, 203));
@@ -22,10 +23,12 @@
     transform: scale(1.2, 1.2);
 }
 
+/* Previous Navigation Styles 
 .footer {
     height: 90px;
     width: 90px;
 }
+*/
 
 .menu {
     z-index: 5;
@@ -39,6 +42,7 @@
     align-content: center;
 }
 
+/* Mobile */
 @media only screen and (max-width: 1000px) {
     .menu{
         z-index: 5;

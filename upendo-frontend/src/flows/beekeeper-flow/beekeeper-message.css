@@ -1,4 +1,4 @@
-
+/* Mobile */
 
 .messagePage {
   height: 100vh;
@@ -112,6 +112,8 @@ label {
 #sendButton:hover {
   transform: scale(1.1, 1.2);
 }
+
+/* Desktop */
 
 @media only screen and (min-width: 600px) {
 

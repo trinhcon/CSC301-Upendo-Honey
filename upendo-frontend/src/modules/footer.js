@@ -18,9 +18,9 @@ class FlowFooter extends React.Component {
         <footer className={this.props.footerClass + " menuFooter"}>
         </footer>
       )
-    } else if (this.props.footerClass === "movingBee"){
+    } else if (this.props.footerClass === "landingFooter"){
       return (
-        <footer className={this.props.footerClass}>
+        <footer className="blackFooter">
         </footer>
       )
     } else {
@@ -32,7 +32,7 @@ class FlowFooter extends React.Component {
     }
   }
 }
-
+/* Previous Navigation Component
 class NavigationIcons extends React.Component {
   render() {
     return (
@@ -44,7 +44,9 @@ class NavigationIcons extends React.Component {
     )
   }
 }
+*/
 
+/* Previous Pure Joy component
 class PureJoy extends React.Component {
   render () {
     return (
@@ -56,5 +58,6 @@ class PureJoy extends React.Component {
     )
   }
 }
+*/
 
 export default FlowFooter;
