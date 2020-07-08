@@ -82,7 +82,7 @@ class MenuPage extends React.Component{
                 retailerLink={this.props.retailerLink}
                 retailerLogo={this.props.retailerLogo}/>
                 <FlowFooter content="This is the Footer" footerClass='patternedFooter'
-                isMenu={true} retailerLink={this.props.retailerURL} retailerLogo={this.props.retailerIcon}/>
+                isMenu={true}/>
             </div>
         )
  
