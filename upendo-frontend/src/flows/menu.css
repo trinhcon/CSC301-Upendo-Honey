@@ -5,7 +5,7 @@
     grid-template-rows: 1fr 2fr 2fr auto;
     grid-template-areas:
         "header header header header header header header"
-        ".icon1 . icon2 . logo ."
+        ".icon1 . icon2 . logo logo"
         ". .icon3 . icon4 . ."
         "footer footer footer footer footer footer footer";
     height: 100vh;
@@ -44,7 +44,8 @@
     margin: 5px;
     padding: 5px;
   
-    height: 80px;
+    height: auto;
+    width: 70%;
     align-self: center;
     border-radius: 25px;
     background-color: rgba(143, 142, 142, 0.8);
@@ -54,13 +55,13 @@
   #logoText {
     margin: 5px;
     color: white;
-    font-size: 12pt;
+    font-size: 14pt;
   }
   
   #logo {
     margin: 20px;
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
   }
   
@@ -128,6 +129,9 @@
     opacity: 0px;
     }
 
+    .moreInfo {
+        width: 80%;
+    }
     /*
     #honeyHeader {
         width: 100%;

@@ -12,7 +12,7 @@
   font-family: 'Nunito', sans-serif;
 
   --portraitHeight:400px;
-  --portraitWidth:300px;
+  --portraitWidth:400px;
 }
 
 .progressBar {
@@ -39,13 +39,10 @@
   overflow: hidden;
 
   border: 7px solid rgb(228, 181, 28);
- 
-  transform: skew(0deg, -10deg);
 
 }
 
 .portraitImage {
-  transform: skew(0deg, 10deg);
   width: var(--portraitWidth);
   height: var(--portraitHeight);
 }
@@ -87,21 +84,26 @@
     align-items: stretch;
     justify-content: space-between;
 
+    --portraitHeight:300px;
+    --portraitWidth:300px;
+
   }
 
   .portrait {
-    margin-left: 20%;
+    margin-left: 15%;
+    margin-bottom: 10%;
   }
 
   .portraitCaption {
     font-size: 16pt;
+    margin-left: 5%;
   }
 
   .descriptionContainer {
     background-image: none;
   }
   .description {
-    font-size: 10pt;
+    font-size: 12pt;
     margin-top: 0px;
     border-left-color: rgb(106, 74, 182);
     border-left-width: 8px;
