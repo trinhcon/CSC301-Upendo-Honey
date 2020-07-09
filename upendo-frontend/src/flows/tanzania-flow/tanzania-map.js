@@ -63,4 +63,39 @@ class TanzaniaMapPage extends React.Component {
   }
 }
 
+/*
+class TanzaniaMap extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      center: {
+        lat: 59.95, /** Tanzania Coordinates */
+        lng: 30.33
+      },
+      zoom:11       /** Map Zoom */
+    }
+  }
+
+  render() {
+    {/** NOTE Map MUST have a container with an explicit size in CSS *}
+    return (
+      <div id="tanzaniaForestMapContainer"> 
+        <GoogleMapReact
+          bootstrapURLKeys={{key: "AIzaSyAnxs16mCrI1dNW-I1ErjEPonHRROke9Fk"}}
+          defaultCenter={this.state.center}
+          defaultZoom={this.state.zoom}
+        >
+          <div id="forestOutline"
+            lat={59.955413}   /** Forest Outline's Corner *
+            lng={30.337844}
+          />
+        </GoogleMapReact>
+      </div>
+    );
+  }
+}
+
+
+
+*/
 export default TanzaniaMapPage;
