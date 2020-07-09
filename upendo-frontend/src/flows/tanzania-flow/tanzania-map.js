@@ -69,10 +69,10 @@ class TanzaniaMap extends React.Component {
     super(props);
     this.state = {
       center: {
-        lat: 59.95, /** Tanzania Coordinates */
+        lat: 59.95, /** Tanzania Coordinates *
         lng: 30.33
       },
-      zoom:11       /** Map Zoom */
+      zoom:11       /** Map Zoom *
     }
   }
 
