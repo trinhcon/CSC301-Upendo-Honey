@@ -30,28 +30,35 @@
 }
 
 #left {
-    flex: 1 2 auto;
-    background-color:rgb(30, 33, 43);
+    flex: 1 1 auto;
+    background-color:#FCFFF3;
+    background-image: url('./images/pattern.png');
+    background-position: -100px -50px;
+    opacity: 1;
 }
 
 #right {
-    flex: 1 2 auto;
-    background-color: rgb(30, 33, 43);
+    flex: 1 1 auto;
+    background-color: #FCFFF3;
+    background-image: url('./images/pattern.png');
+    background-position: -300px -50px;
+    opacity: 1;
 }
 
 #background {
     height: 850px;
     width: 1050px;
-    border-left: 50px solid rgb(83, 193, 221);
-    border-right: 50px solid rgb(83, 193, 221);
+    border-left: 25px solid rgb(192, 150, 11);
+    border-right: 25px solid rgb(192, 150, 11);
     z-index: 0;
 }
 
 #landingPageBox {
     z-index: 1;
-    width: 30%;
-    height: 40%;
+    width: 500px;
+    height: 350px;
     margin-top: 10px;
+    margin-top: 10%;
     padding: 10px;
     
     text-align: center;
@@ -87,6 +94,14 @@
     border: 0 solid white;
 }
 
+#codeBoxHeaderSub {
+    font-size: 16pt;
+}
+
+#autoCode {
+    font-size: 14pt;
+}
+
 
 /*Mobile*/
 @media only screen and (max-width: 600px) {
@@ -96,6 +111,9 @@
 
     #background {
         border: 0 solid black;
+        position: relative;
+        top: -40px;
+        left: -300px;
     }
 
     #landingPage {
@@ -106,6 +124,8 @@
         width: 80%;
         height: 40%;
         padding: 10px;
+        position: relative;
+        top: 100px;
     }
 
     #codeBoxHeader {
@@ -116,4 +136,9 @@
     #codeBoxHeaderSub {
         font-size: 12pt;
     }
+
+    #autoCode {
+        font-size: 12pt;
+    }
+    
 }

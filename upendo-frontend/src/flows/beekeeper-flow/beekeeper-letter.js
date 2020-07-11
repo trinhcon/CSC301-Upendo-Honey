@@ -8,8 +8,6 @@ import { useSwipeable, Swipeable } from 'react-swipeable';
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
 import NextArrow from '../../modules/next-arrow';
-import Feather from "../../images/feather.svg";
-
 
 
 class BeekeeperLetterPage extends React.Component {
@@ -51,33 +49,17 @@ class BeekeeperLetterPage extends React.Component {
             onSwipedRight={this.swipeRightHandler}
             className="letterPage"
             > 
+                <FlowHeader content="A Little Letter to You..." headerClass="greenStrip"
+            textStyle="greenStripText"/>
                 <MediaQuery minDeviceWidth="600px">
-                    <FlowProgressBar position="two"/>
-                    <FlowHeader content="A Little Letter to You..." headerClass="blueStrip"
-            textStyle="blueStripText"/>
-                    <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/beekeeper-message'}/>
-                    <div className="feather">
-                        <img src={Feather} alt="feather"/>
-                    </div>
-
-                    <caption className="caption">
-                        An original letter, written in Swahili...
-                    </caption>
-
-                </MediaQuery>
-                <MediaQuery maxDeviceWidth="600px">
-                    <div id="beekeeperLetterTitle">
-                        <div className="scroll">
-                        </div>
-                        <h2 >A Little Letter to You...</h2>
-                        <div className="feather">
-                        </div>
-                    </div>
+                    <FlowProgressBar position="two" flow="beekeeperProgress"/>
+                    <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/beekeeper-message'} direction="right"/>
+                    <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/beekeeper'} direction="left"/>
 
                 </MediaQuery>
                 <LetterPhoto letter={this.props.bk.letter}/>
                 <Translation translation={this.props.bk.translation}/>
-                <FlowFooter content="This is the Footer" footerClass="blackFooter"/>
+                <FlowFooter content="This is the Footer" footerClass="patternedFooter"/>
             </Swipeable>
             );
         }
@@ -94,7 +76,9 @@ class LetterPhoto extends React.Component {
         return (
             <figure id="letterContainer">
                 <figcaption>...from your beekeeper</figcaption>
-                <img src={this.props.letter}></img>
+                <div id="letterFrame">
+                    <img src={this.props.letter}></img>
+                </div>
             </figure>
         )
     }
@@ -107,10 +91,8 @@ class Translation extends React.Component {
 
     render () {
         return (
-            <div id="frame">
-                <div id="letterTranslation">
-                    <p >{this.props.translation}</p>
-                </div>
+            <div id="letterTranslation">
+                <p >{this.props.translation}</p>
             </div>
         )
     }

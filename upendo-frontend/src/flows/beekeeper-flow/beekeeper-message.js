@@ -8,7 +8,6 @@ import FlowProgressBar from '../../modules/progress-bar';
 
 import { useSwipeable, Swipeable } from 'react-swipeable';
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
-import Bee from "../../images/bee.svg";
 import MediaQuery from 'react-responsive';
 import NextArrow from '../../modules/next-arrow';
 
@@ -50,16 +49,16 @@ class BeekeeperMessagePage extends React.Component {
                 >
                 
                     <FlowHeader content="Send a Message to Your Beekeeper!"
-                    headerClass = 'blueStrip'
-                    textStyle='blueStripTextSmall'/>
-                    <h5 id="descriptionText"> Let us know how to get back to you!</h5> 
+                    headerClass = 'greenStrip'
+                    textStyle='greenStripTextSmall'/>
                     <MediaQuery minDeviceWidth="600px">
-                        <FlowProgressBar position="three"/>
-                        <NextArrow nextPage={"/app/"+ this.props.getAlphaCode()+"/menu"}/>
+                        <FlowProgressBar position="three" flow="beekeeperProgress"/>
+                        <NextArrow nextPage={"/app/"+ this.props.getAlphaCode()+"/menu"} direction="right"/>
+                        <NextArrow nextPage={"/app/" + this.props.getAlphaCode() + "/beekeeper-letter"} direction="left"/>
 
                     </MediaQuery>
                     <MessageForm />
-                    <FlowFooter content="This is the Footer" footerClass='blackFooter'/>
+                    <FlowFooter content="This is the Footer" footerClass='patternedFooter'/>
                 </Swipeable>
             );
         }
@@ -106,32 +105,34 @@ class MessageForm extends React.Component {
         return (
             <div id="formBox">
                 <form onSubmit={this.handleFormSubmission} className="contactForm">
-                    <div id="details">
-                        <div>
+                    <label id="messageBox">
+                        <span className="inputLabel" id="messageLabel">Let them know what you think of the honey!</span>
+                        <textarea value={this.state.message}
+                        name="message" id="messageForm" placeholder="Dear Beekeeper..."
+                        onChange={this.handleMessageInput}/>
+                        </label>
+                    <label id="detailsBox"> 
+                        <span className="inputLabel">Let us know how to get back to you!</span>
+                        <div id="inputDetailsBox">
+                        <div id="emailBox">
                             <label for="email">Email:</label>
                             <br/>
                             <input type="text" value={this.state.email}
-                            name="email" id="emailForm"
+                            name="email" id="emailForm" placeholder="Your Name"
                             onChange={this.handleEmailInput}/>
                             <br/>
                         </div>
-                    
-                        <div>
+                        <div id="nameBox">
                             <label for="name">Name:</label>
                             <br/>
                             <input type="text" value={this.state.name}
-                            name="name" id="nameForm"
+                            name="name" id="nameForm" placeholder="Your Email"
                             onChange={this.handleNameInput}/>
                             <br/>
                         </div>
-                    </div>
-                    <label for="message">Let them know what you think of the honey!</label>
-                    <br/>
-                    <textarea value={this.state.message}
-                      name="message" id="messageForm" placeholder="Dear Beekeeper..."
-                      onChange={this.handleMessageInput}/>
-                      <br/>
-                    <input type="submit" value="Send" id="sendButton" />
+                        </div>
+                        <input type="submit" value="Send!" id="sendButton" />
+                    </label> 
                 </form>
             </div>
         )

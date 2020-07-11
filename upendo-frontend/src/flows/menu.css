@@ -1,35 +1,54 @@
-
+/* Desktop */
 #menuPage {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr auto;
     grid-template-areas:
-        "left left left jar right right right"
-        ". icon1 . jar . icon2 ."
-        ". . icon3 . icon4 . ."
+        "header header header header header header header"
+        ".icon1 . icon2 . logo logo"
+        ". .icon3 . icon4 . ."
         "footer footer footer footer footer footer footer";
     height: 100vh;
     width: 100vw;
-    background-image: linear-gradient(white, rgb(187, 185, 185));
+    background-color: #FCFFF3;
     font-family: Oxygen, sans-serif;
 }
 
-.honeyHeaderLeft {
-    grid-area: left;
-    background-image: url("../images/header-left.png");
-    background-position-y: -50px;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+.moreInfo {
+    grid-area: logo;
 
-
-.honeyHeaderRight {
-    grid-area: right;
-    background-image: url("../images/header-right.png");
-    background-position-y: -50px;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+    display: flex;
+    position: relative;
+    z-index: 2;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    padding: 10px;
+  
+    height: auto;
+    width: 70%;
+    align-self: center;
+    border-radius: 25px;
+    background-color: rgba(143, 142, 142, 0.8);
+    
+  }
+  
+  #logoText {
+    margin: 5px;
+    color: white;
+    font-size: 14pt;
+  }
+  
+  #logo {
+    margin: 20px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+  }
+  
+  #logo:hover {
+    transform: scale(1.2, 1.2);
+  }
 
 
 #icon1 {
@@ -48,18 +67,6 @@
     grid-area: icon4;
 }
 
-.navContainer {
-    z-index: 5;
-    width: 120px;
-    height: 120px;
-    display: flex;
-
-    justify-self: center;
-    align-self: center;
-    justify-content: center;
-    align-content: center;
-}
-
 .iconButtonEmpty {
     width: 120px;
     height: 120px;
@@ -75,6 +82,7 @@
     /**background-image;*/
 }
 
+/*Mobile*/
 @media only screen and (max-width: 1000px) {
 
     /**Mobile Design**/
@@ -85,25 +93,16 @@
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background-image: linear-gradient(white, rgb(187, 185, 185));
+    background-color: #FCFFF3;
     font-family: Oxygen, sans-serif;
     }
 
     #iconGrid {
-    margin-top: -50%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     width: 270px;
     height: 270px;
-    }
-
-
-    .navContainer{
-        z-index: 5;
-        width: 90px;
-        height: 90px;
-        margin: 0px;
     }
 
     .iconButtonEmpty {
@@ -112,30 +111,9 @@
     opacity: 0px;
     }
 
-    #honeyHeader {
-        width: 100%;
-        height: 25%;
-        padding: 5px;
-        text-align: center;
-        margin: 0px;
-        background: url('../images/dripping-honey.png') no-repeat center;
-        background-size: cover;
-        color: white;
+    .moreInfo {
+        width: 80%;
     }
 
-
-    #leftHoneyJar {
-    width: 20%;
-    height: 10%;
-    }
-
-    #honeyJar {
-    margin-top: -30px;
-    padding-top: 0;
-
-    width: 30vmax;
-    height: 30vmax;
-    /**background-image;*/
-    }
 }
 

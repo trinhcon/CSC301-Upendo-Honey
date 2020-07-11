@@ -2,7 +2,7 @@ import React from 'react';
 import "./footer.css";
 import MediaQuery from 'react-responsive';
 import NavigationIcon from './navigation-icons.js';
-import MovingBee from '../images/moving-bee.png';
+import MovingBee from '../images/pattern.png';
 
 class FlowFooter extends React.Component {
   constructor(props) {
@@ -16,60 +16,37 @@ class FlowFooter extends React.Component {
     if (this.props.isMenu) {
       return (
         <footer className={this.props.footerClass + " menuFooter"}>
-        <MediaQuery minDeviceWidth="800px">
-          <PureJoy/>
-          <h1 id="menuText">Click Above to Discover More!</h1>
-        </MediaQuery>
-        <ExtraInformationContainer
-        retailerLink={this.props.retailerLink}
-        retailerLogo={this.props.retailerLogo}/>
-      </footer>
+        </footer>
       )
-    } else if (this.props.footerClass === "movingBee"){
+    } else if (this.props.footerClass === "landingFooter"){
       return (
-        <footer className={this.props.footerClass}>
-          <img id="movingBeeImage" src={MovingBee} alt="Moving Bee"/>
+        <footer className="blackFooter">
         </footer>
       )
     } else {
       return (
-        <footer className={this.props.footerClass}>
-          <MediaQuery minDeviceWidth="800px">
-            <NavigationIcons/>
-            <PureJoy/>
-          </MediaQuery>
+        <footer className={this.props.footerClass}>   
         </footer>
         
       );
     }
   }
 }
-
+/* Previous Navigation Component
 class NavigationIcons extends React.Component {
   render() {
     return (
       <div className="navigationIcons">
-        <NavigationIcon icon="tanzania"/>
-        <NavigationIcon icon="environment"/>
-        <NavigationIcon icon="honey"/>
+        <NavigationIcon icon="tanzania" iconClass="footer"/>
+        <NavigationIcon icon="environment" iconClass="footer"/>
+        <NavigationIcon icon="honey" iconClass="footer"/>
       </div>
     )
   }
 }
+*/
 
-class ExtraInformationContainer extends React.Component {
-  render () {
-    return (
-      <div className="moreInfo">
-        <p id="logoText">Want more information? </p>
-        <a href={this.props.retailerLink}>
-          <img id="logo" src={this.props.retailerLogo}/>
-        </a>
-      </div>
-    )
-  }
-}
-
+/* Previous Pure Joy component
 class PureJoy extends React.Component {
   render () {
     return (
@@ -81,5 +58,6 @@ class PureJoy extends React.Component {
     )
   }
 }
+*/
 
 export default FlowFooter;

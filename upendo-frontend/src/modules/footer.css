@@ -1,62 +1,53 @@
-.blackFooter{
+/*Mobile*/
+.patternedFooter{
   background-color: black;
   border-top: 10px solid  rgb(228, 181, 28);
-
-  bottom: 0px;
   height: 50px;
 
   align-self: stretch;
+  position: relative;
+  bottom: 0;
 
+}
+
+.patternedFooter::after {
+  content: "";
+  background-image: url(../images/pattern.png);
+  background-repeat: repeat;
+  background-position: 500px -75px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  opacity: 0.5;
 }
 
 .menuFooter {
-  height: 100px;
+  height: 50px;
 }
 
-.moreInfo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5px;
-  padding: 3px;
 
-  height: 60px;
-  align-self: end;
-  border-radius: 25px;
-  background-color: rgba(219, 213, 213, 0.5);
-  
-}
-
-#logoText {
-  margin: 5px;
-  color: white;
-}
-
-#logo {
-  margin: 20px;
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-}
-
-#logo:hover {
-  transform: scale(1.2, 1.2);
-}
-
+/*Desktop*/
 @media only screen and (min-width: 800px) {
-  .blackFooter{
+  .patternedFooter{
     /*grid view*/
     grid-area: footer;
     border-top: 20px solid  rgb(228, 181, 28);
     align-self: stretch;
+    min-height: 100px;
     height: auto;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
+  /* Previous Unneeded designs
   .navigationIcons {
     display: flex;
+    width: 100%;
     justify-content: space-evenly;
     flex-flow: row;
   }
@@ -65,6 +56,8 @@
     margin: 20px;
     height: 90px;
     width: 90px;
+    position: relative;
+    z-index: 1;
     background-color: rgb(222, 226, 228);
     text-align: center;
     box-shadow: 0px 0px 5px 1px white;
@@ -74,6 +67,7 @@
   #pureJoyImage {
     object-fit: cover;
   }
+  */
   
   #menuText {
     color:white;
@@ -82,50 +76,26 @@
     font-family: 'Bree Serif', serif;
     align-self: start;
   }
-  
-  #logoText {
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    font-size: 14pt;
+
+  .menuFooter {
+    height: 100px;
   }
   
-  .moreInfo {
-    display: flex;
-    align-items: center;
-    margin: 20px;
-    padding: 10px;
-  
-    height: 80px;
-    align-self: end;
-    border-radius: 25px;
-    background-color: rgba(219, 213, 213, 0.5);
-    
-  }
-  
-  #logo {
-    margin: 20px;
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-  }
-  
-  #logo:hover {
-    transform: scale(1.2, 1.2);
-  }
-  
-  .movingBee {
+  .blackFooter {
     background-color: black;
     border-top: 20px solid  rgb(228, 181, 28);
     height: 30%;
     align-self: stretch;
-    text-align: center;
+    background-size: 90%;
+    background-position: 0px -200px;
   }
   
+  /*
   #movingBeeImage {
-    width: 1242px;
+    width: 100%;
     height: 100%;
-    position: relative;
     object-fit: cover;
   }
+  */
 }
 

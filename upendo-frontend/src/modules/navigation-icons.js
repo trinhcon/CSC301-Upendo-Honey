@@ -11,19 +11,23 @@ class NavigationIcon extends React.Component {
         if (this.props.icon === "tanzania") {
             return (<NavIconContainer iconSrc={Map}
                 id={this.props.id}
-                nextPage={this.props.nextPage}/> );
+                nextPage={this.props.nextPage}
+                style={this.props.iconClass}/> );
         } else if (this.props.icon === "environment") {
             return (<NavIconContainer iconSrc={CO2}
                 id={this.props.id}
-                nextPage={this.props.nextPage}/>);
+                nextPage={this.props.nextPage}
+                style={this.props.iconClass}/>);
         } else if (this.props.icon === "beekeeper") {
             return (<NavIconContainer iconSrc={Beekeeper}
                 id={this.props.id}
-                nextPage={this.props.nextPage}/>);
+                nextPage={this.props.nextPage}
+                style={this.props.iconClass}/>);
         } else {
             return (<NavIconContainer iconSrc={Honey}
                 id={this.props.id}
-                nextPage={this.props.nextPage}/>);
+                nextPage={this.props.nextPage}
+                style={this.props.iconClass}/>);
         }
     }
 }
@@ -31,9 +35,9 @@ class NavigationIcon extends React.Component {
 class NavIconContainer extends React.Component {
     render () {
         return (
-            <div className = "navContainer" id={this.props.id}>
+            <div className={"navContainer " + this.props.style} id={this.props.id}>
                 <Link to={this.props.nextPage}>
-                  <img className="navImage" src={this.props.iconSrc}/>
+                  <img className={"navImage"} src={this.props.iconSrc}/>
                 </Link>
             </div>
         )

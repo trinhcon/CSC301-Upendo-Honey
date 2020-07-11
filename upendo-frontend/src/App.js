@@ -9,8 +9,6 @@ import { retrieveBeekeeper, retrieveBatchMember} from "./modules/api-calls";
 import Leonard from './images/Leonard-Mahenge.jpg';
 import Letter from './images/BK 1 Letter.jpeg';
 
-import BeeIcon from './images/bee.svg';
-
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./landing-page.css";
 import TanzaniaMapPage from './flows/tanzania-flow/tanzania-map';
@@ -109,8 +107,8 @@ class App extends React.Component {
               environmentFirstPage="/app/blah1" /** Just need to change these to link to new pages */
               honeyFirstPage="/app/blah2"       /** when you are ready */
               tanzaniaFirstPage="/app/blah3"
-              retailerURL={this.state.batchMember.external_url}
-              retailerIcon={this.state.batchMember.photo}
+              retailerLink={this.state.batchMember.external_url}
+              retailerLogo={this.state.batchMember.logo}
               getAlphaCode={this.getAlphaCode}
               setAlphaCode={this.setAlphaCode}
               retrieveAppData={this.retrieveAppData}
@@ -180,7 +178,7 @@ class App extends React.Component {
           <Route path = "/app/:alphaCode/beekeeper-letter" render = {(props) => (
               <BeekeeperLetterPage
                 {...props}
-                bk = {{letter: this.state.beekeeper.letter_img_url, translation: this.state.beekeeper.letter_text}}
+                bk = {{letter: this.state.beekeeper.letter_photo, translation: this.state.beekeeper.letter_text}}
                 getAlphaCode={this.getAlphaCode}
                 setAlphaCode={this.setAlphaCode}
                 retrieveAppData={this.retrieveAppData}

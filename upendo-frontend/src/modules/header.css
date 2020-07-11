@@ -1,5 +1,6 @@
-.blueStrip {
-  background-color:#67c2db;
+/* Mobile */
+.greenStrip {
+  background-color:rgb(41, 131, 14);
   z-index: 1;
   font-family: 'Bree Serif', serif;
   font-size: 18pt;
@@ -10,18 +11,47 @@
   margin: 0;
   padding: 0;
   height: 60px;
-  border-bottom: 15px solid rgb(233, 213, 35);
+  border-bottom: 15px solid rgb(231, 217, 12);
   
 }
 
-.blueStripText{
+.greenStripMenu {
+  background-color:rgb(41, 131, 14);
+  z-index: 1;
+  font-family: 'Bree Serif', serif;
+  font-size: 18pt;
+  color: white;
+  align-self: stretch;
+  position: relative;
+  
+  margin: 0;
+  padding: 0;
+  height: 70px;
+  border-bottom: 15px solid rgb(231, 217, 12);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.greenStripText{
   margin: 0px;
   padding-left: 10px;
   position: absolute;
   bottom: -10%;
 }
 
-.blueStripTextSmall{
+.menuText{
+  font-family: nunito, sans-serif;
+  font-weight: bold;
+  font-size: 16pt;
+  font-variant: small-caps;
+  margin: 10px;
+  padding-left: 10px;
+  position: absolute;
+  bottom: -10%;
+}
+
+.greenStripTextSmall{
   margin: 0px;
   padding-left: 10px;
   position: absolute;
@@ -29,18 +59,29 @@
   font-size: 16pt;
 }
 
+/* Desktop */
+
 @media only screen and (min-width: 800px) {
-  .blueStrip{
+  .greenStrip{
     /*grid view*/
     grid-area: header;
     height: 70px;
   }
 
-  .blueStripText {
+  .greenStripMenu {
+    grid-area: header;
+    height: 90px;
+  }
+
+  .menuText {
+    font-size: 36pt;
+  }
+
+  .greenStripText {
     font-size: 24pt;
   }
 
-  .blueStripTextSmall{
+  .greenStripTextSmall{
     font-size: 24pt;
   }
 

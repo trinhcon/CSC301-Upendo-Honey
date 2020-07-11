@@ -1,8 +1,10 @@
-.blueProgressBar {
+.goldProgressBar {
     grid-area: progress;
     display: flex;
-    flex-flow: column;
+    flex-flow: row;
     align-items: center;
+    justify-self: center;
+    align-self: center;
     padding: 10px;
     margin: 0;
 }
@@ -12,25 +14,47 @@
     height: 100px;
     width: 100px;
     border-radius: 50%;
-
-    border: 10px solid rgb(148, 211, 226);
+    border: 10px solid rgb(184, 152, 9);
 }
 
-.verticalLine {
-    height: 100px;
+.horizontalLine {
+    height: 0px;
     width: 100px;
     position: relative;
-    align-self: flex-start;
-    left: 48%;
-    border-left: 10px solid rgb(148, 211, 226);
+    align-self: center;
+    border-top: 10px solid rgb(184, 152, 9);
 }
 
-#appears {
+.beekeeperProgress {
+    content: url('../images/Beekeeper.png');
+}
+
+.tanzaniaProgress {
+    content: url('../images/map.png');
+}
+
+.environmentProgress{
+    content: url('../images/CO2.png');
+}
+
+.honeyProgress {
+    content: url('../images/honey.png');
+}
+
+.appears {
     position: relative;
     z-index: 1;
-    transform: rotate(-90deg);
+   
+    object-fit: contain;
+    border-radius: 50%;
+    position: relative;
+    top: 5%;
+    left: 5%;
+    height: 90%;
+    width: 90%;
+
 }
 
-#invisible {
+.invisible {
     opacity: 0;
 }
