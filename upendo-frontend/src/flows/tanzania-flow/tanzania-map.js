@@ -7,6 +7,10 @@ import {Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
 import NextArrow from '../../modules/next-arrow';
 
+import Outline from '../../scripts/mpanda_outline.kml';
+import Beekeeper from '../../images/Beekeeper.png';
+
+
 class TanzaniaMapPage extends React.Component {
   constructor(props) {
     super(props);
@@ -44,7 +48,7 @@ class TanzaniaMapPage extends React.Component {
         onSwipedRight={this.swipeRightHandler}
         className="mapPage"
         >
-        {/** Google Map API */}
+        <TanzaniaMap> </TanzaniaMap>
 
           <MediaQuery minDeviceWidth={"600px"}>
             <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/tanzania-forest'}/>
@@ -63,39 +67,83 @@ class TanzaniaMapPage extends React.Component {
   }
 }
 
-/*
+
 class TanzaniaMap extends React.Component {
   constructor(props) {
     super(props);
+    this.getGoogleMap = this.getGoogleMap.bind(this);
+    //this.kmlApiHandler = this.kmlApiHandler.bind(this);
     this.state = {
       center: {
-        lat: 59.95, /** Tanzania Coordinates *
-        lng: 30.33
+        lat: -5.530581224999935,     /** Tanzania Coordinates */
+        lng: 31.674771946000078
       },
-      zoom:11       /** Map Zoom *
+      zoom:8 ,               /** Map Zoom */
+      map: null,
+      kml: null,
+      style: {
+        width: '400px',
+        height: '400px',
+      }
     }
+    this.src = '../../scripts/mpanda_outline.kml';
+    this.map = <div id="map"/>;
+
   }
 
+  getGoogleMap() {
+    if (!this.googleMapsPromise) {
+      this.googleMapsPromise = new Promise((resolve) => {
+        window.resolveGoogleMapsPromise = () => {
+          resolve(window.google);
+
+          delete window.resolveGoogleMapsPromise;
+        }
+
+        const script = document.createElement("script");
+        const API = "AIzaSyAnxs16mCrI1dNW-I1ErjEPonHRROke9Fk";
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${API}&callback=resolveGoogleMapsPromise`;
+        script.async = true;
+
+        document.body.appendChild(script);
+      })
+    }
+    return this.googleMapsPromise;
+  }
+
+  componentWillMount() {
+    this.getGoogleMap();
+  }
+
+  componentDidMount() {
+    this.getGoogleMap().then((google) => {
+      console.log("Google:", google);
+      console.log(this.state);
+      var map = new google.maps.Map(document.getElementById("map"), {
+        center: this.state.center,
+        zoom: this.state.zoom,
+      });
+      
+      /** KML file MUST be available publicly to google, local files do not work */
+      var kml = new google.maps.KmlLayer("https://a.uguu.se/LBfGWbiu1V22_mpanda_outline.kml", {
+        suppressInfoWindows: true,
+        preserveViewport: false,
+        map: map
+      });
+      this.setState({map: map, kml: kml});
+    });
+  }
+
+
   render() {
-    {/** NOTE Map MUST have a container with an explicit size in CSS *}
+    {/** NOTE Map MUST have a container with an explicit size in CSS */}
     return (
       <div id="tanzaniaForestMapContainer"> 
-        <GoogleMapReact
-          bootstrapURLKeys={{key: "AIzaSyAnxs16mCrI1dNW-I1ErjEPonHRROke9Fk"}}
-          defaultCenter={this.state.center}
-          defaultZoom={this.state.zoom}
-        >
-          <div id="forestOutline"
-            lat={59.955413}   /** Forest Outline's Corner *
-            lng={30.337844}
-          />
-        </GoogleMapReact>
+      
+        <div id="map" style={this.state.style /** CANNOT REMOVE Google API Requirement */}/>
       </div>
     );
   }
 }
 
-
-
-*/
 export default TanzaniaMapPage;
