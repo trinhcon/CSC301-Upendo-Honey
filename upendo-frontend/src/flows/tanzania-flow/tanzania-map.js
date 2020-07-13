@@ -6,9 +6,7 @@ import {Swipeable} from 'react-swipeable';
 import {Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
 import NextArrow from '../../modules/next-arrow';
-import { GoogleMap, LoadScript, KmlLayer, } from '@react-google-maps/api';
 
-import Outline2 from '../../scripts/KML_Samples.kml'
 import Outline from '../../scripts/mpanda_outline.kml';
 import Beekeeper from '../../images/Beekeeper.png';
 
