@@ -121,6 +121,8 @@ POSTGRES_DB=upendo
 
 6. Once you've tested your feature in staging, [Create a new release](https://github.com/csc301-summer-2020/team-project-3-upendo-honey/releases) in Github. This will apply a git tag to the most recent commit in master, which will automatically trigger the production server to rebuild.
 
+For more details, please see the [Deployment and Github Workflow Documentation](docs/deliverable-2/deployment-github-workflow.md)
+
 ### Helpful Make commands for Heroku debugging
 
 `make logs-prod` - tails the Heroku production logs
