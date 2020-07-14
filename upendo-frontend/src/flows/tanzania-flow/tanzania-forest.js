@@ -36,9 +36,9 @@ class TanzaniaForestPage extends React.Component {
 
   render() {
     if (this.state.redirectMenu) {
-      return (<Redirect to={'/app/' + this.props.getAlphaCode() + '/tanzania-map'}/>);
-    } else if (this.state.redirectForest){
       return (<Redirect to={'/app/' + this.props.getAlphaCode() + '/menu'}/>);
+    } else if (this.state.redirectMap){
+      return (<Redirect to={'/app/' + this.props.getAlphaCode() + '/tanzania-map'}/>);
     } else {
       return (
         <Swipeable onSwipedLeft={this.swipeLeftHandler}

@@ -4,16 +4,54 @@
 
 ## Description 
  * Provide a high-level description of your application and it's value from an end-user's perspective
+
+ The overall application is a promotion app mobile web app. The user is supposed to receive
+ an alphanumeric code from the label of a retail product made from our partner's honey. The
+ product would also have a URL that takes the user to our website. From the landing page of
+ our website the user can enter the alphanumeric code printed on the retail product's label.
+ Entering the code will take them to a menu of customized flows of websites slides. Each
+ code is related to a batch of honey made from beekeepers; one of which who is written their
+ own letter to the customer. The customer will be able to choose between a variety of topics
+ to explore further in each flow. After they are finished reading they can read a different
+ topic by selecting another one from the main menu.
+
  * What is the problem you're trying to solve?
+
+ The objective of the application is to promote tazanian honey and raise awareness to allow
+ the partners to have premium on their sales. They want to publicize unique features of
+ their honey and their manufacturing process; particularly how closely they work with their
+ beekeepers to produce honey in wild environments.
+
  * Is there any context required to understand **why** the application solves this problem?
+
+ There is no special context required to understand why the application solves this problem.
+ The project is straight forward and openly advertise information about Upendo Honey's
+ produce.
 
 ## Key Features
  * Described the key features in the application that the user can access
+
+ The key features involve entering a code in the landing page, being able to select the
+ flow for their preferred topic from the meny page and be able to slide back and forth
+ between slides in their selected flow. The entire app is designed to be exploratory
+ depending on the user's preferences. The user will be able to see whichever flwo they
+ choose 
+
  * Provide a breakdown or detail for each feature that is most appropriate for your application
+ 
+ Additional interactive features include:
+  * Submitting a form to send an email back to the beekeeper
+  * Being able to access any point in the application through a valid URL. This means that a URL or QR code (with the URL inside)
+    can be used to share specific portions of the application.
+  * Mobile users can slide their phones screens, while desktop users can use buttons instead. (Responsive Web Deisgn)
+
  * This section will be used to assess the value of the features built
 
 ## Instructions
  * Clear instructions for how to use the application from the end-user's perspective
+
+
+
  * How do you access it? Are accounts pre-created or does a user register? Where do you start? etc. 
  * Provide clear steps for using each feature described above
  * This section is critical to testing your application and must be done carefully and thoughtfully
