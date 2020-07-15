@@ -125,7 +125,7 @@ Meeting Minutes:
     communications, links and pictures could be easily found by finding the localized
     conversation on the ticket.
 
-  ![Image of Trello Board](https://github.com/csc301-summer-2020/team-project-3-upendo-honey/tree/master/docs/deliverable-2/trello.png)
+  ![Image of Trello Board](/docs/deliverable-2/trello.png)
 
   3. Communication with partner through BRD and WhatsApp group chat
     We created a business requirements document (BRD) with our partner to specify what
@@ -164,20 +164,60 @@ Slack Channel division between slack
  simplifying development because when frontend and backend development
  connected through a REST API, it was not always clear which end of development
  was causing issues. This would recur a few times where one of the team's half
- would be blocked by another. 
+ would be blocked by another.
 
- 2. 
+ 2. Channel division for topics on slack. Our team did not use separate private
+ channels for different topics on slack. This resulted in all of our conversation
+ occuring mostly in threads or in the form of comments of other responses. By
+ mixing all of our conversation into a single channel, it became more difficult
+ to properly discuss each topic in depth because it could get lost in the chat.
+ Although Slack has a search feature, it would make finding details that we
+ discussed more difficult. In addition to remember all the necessary links and
+ and tools we'd have to also search the details up through the slack. This was
+ particularly inefficient when we had long messages for minutes or extended
+ conversations.
+
+ 3. Development in large changes. An early issue we had in developing the
+ frontend was implementing a large series of changes in a single pull request
+ to master. This raised some concerns with integration testing to ensure that
+ the code worked together. Although the code did work with minor changes, time
+ was invested in tracing and debugging large amounts of code. In general smaller
+ commits and increments are better changes.
+ Visit:
+ https://github.com/csc301-summer-2020/team-project-3-upendo-honey/pull/22
+ for more details
 
 
 #### Q3. Planned changes
 
 List any **process-related** (i.e. team organization and how you work) changes you are planning to make (if there are any)
-We can add more slack channels
-To present to the partner not with respect to deadlines but development
 
 
  * Ordered from most to least important.
  * Explain why you are making a change.
+
+ Our team will be adding slack channels to our development process. We'll separate
+ development channels for code specific discussions from the documentation channel
+ involving conversations with our partner and documentation details required for
+ both deliverables and the final handoff to the partner. This change will help
+ us organize and separate any issues on our project.
+ 
+ Our has team has decided to continue development but under the guidelines
+ of what is best for development rather than deliverable deadlines. When the
+ partner began to make changes to the design, and hence removed some progress,
+ this made it considerably more difficult to adhere to course deadlines. To be
+ more focused on delivering the best possible application for Upendo Honey
+ we have decided to focus the rest of development by milestones that best
+ fit development rather than deadlines.
+
+ We will be adding our partners to our trello board so they can keep track of 
+ the progres with respect to each individual detail. We are making this change
+ so they can keep up with our pace of development and prioritize which tasks
+ they deem most important. This is particularly important because our partner
+ requested a redesign of the overall application which dramatically increased
+ workload. This fact is further exacerbated by the fact that 40% of our team
+ decided to drop the course, leaving their responsibilities to the remaining
+ three members
 
 
 ## Product - Review
@@ -189,4 +229,33 @@ To present to the partner not with respect to deadlines but development
  * Were there change requests?
  * What did you learn from the demo from either a process or product perspective?
  * *This section will be marked very leniently so keep it brief and just make sure the points are addressed*
+
+ Our demonstration was prepared using a staging server that is part of our
+ continous delpoyment and continuous integration pipeline. This was the most
+ optimal method because it lets our partner view our tested and integrated
+ project in its latest version. The staging server database does not change
+ as different iterations of frontend code are applied to the frontend.
+ We managed to demo the landing page, the menu page, the beekeeper flow and
+ the honey flow. The beekeeper flow consists of a potrait and letter from
+ a beekeeper who contributed to the consumer's batch as well as an email
+ form that allows the user to email back to the owner. The honey flow consists
+ of teaching the purchaser details about their honey, how that honey is
+ harvested and health benefits of honey usage.
+
+ Our partner did accept our features, this is likely because we present to our
+ partner every week based on new features that were implemented from the week
+ prior. This means we can received up to date feedback from our partner and
+ we can discuss more thoroughly details that they meant rather than details
+ that they said. Because of these recurring "demos" we embededded in our 
+ process, we increased the likelihood that the our project features would be
+ accepted by our partner. Despite this, there were indeed minor changes
+ requested such as sizing or adding labels to certain sections.
+
+ Because we had recurring demonstrations we learned lessons much earlier than
+ the D2 deadline. We learned that partners may want aspects to be slightly
+ different than what they initially planned. Furthermore, When implementing a
+ website, elements may be difficult to size and place precisely in terms of
+ CSS styling and HTML element organization. We also learned that keeping a
+ timeline of feature development can be very helpful for future review.
+
 
