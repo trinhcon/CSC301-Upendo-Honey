@@ -66,12 +66,12 @@
     .honeyContent {
         grid-area: content;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 2fr 1fr;
         grid-template-areas:
-            "text text"
-            "honey1 honey2"
-            "list list";
+            "text text text button"
+            "honey1 honey1 honey2 honey2"
+            "list list list list";
 
         grid-gap: 10px;
         width: 100%;
@@ -99,6 +99,26 @@
         text-align: center;
     }
 
+    #switchTextHealth{
+        grid-area: button;
+        background-color:white;
+        font-size: 12pt;
+        font-family: nunito, sans-serif;
+
+        height: 60px;
+        width: 120px;
+
+        border: 5px solid rgb(41, 131, 14);
+        border-radius: 10px;
+
+        align-self: center;
+        justify-self: center;
+    }
+
+    #switchTextHealth:hover {
+        box-shadow: 0px 0px 5px 1px gray;
+    }
+
     .listContainer {
       grid-area: list;
       font-size: 16pt;
@@ -120,11 +140,7 @@
         width: 40%;
     }
 
-    #healthPart1:hover {
-        transform: scale(1.1, 1.1);
-    }
-
-    #healthPart3:hover {
-        transform: scale(1.1, 1.1);
+    #healthPart3 {
+        font-size: 12pt;
     }
 }

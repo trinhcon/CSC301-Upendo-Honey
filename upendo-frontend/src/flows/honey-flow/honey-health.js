@@ -110,10 +110,8 @@ class HoneyHealthPage extends React.Component {
 
 class HoneyContent extends React.Component {
   render() {
-    const part1 = <TextPart partId="healthPart1" description={this.props.healthDescription.slice(0, 1)}
-      clickHandler={this.props.isDesktop ? this.props.clickHandler : null}/>;
-    const part3 = <TextPart partId="healthPart3" description={this.props.healthDescription.slice(1, 2)}
-      clickHandler={this.props.isDesktop ? this.props.clickHandler : null}/>;
+    const part1 = <TextPart partId="healthPart1" description={this.props.healthDescription.slice(0, 1)}/>;
+    const part3 = <TextPart partId="healthPart3" description={this.props.healthDescription.slice(1, 2)}/>;
     const bulletPoints = <BulletPoints bulletPoints={this.props.bulletPoints} addHeader={!this.props.isDesktop}/>;
 
     if (this.props.isDesktop) {
@@ -122,6 +120,8 @@ class HoneyContent extends React.Component {
           <img id="honey1" className="honeyHealthImage" src={this.props.honeyPhoto1}/>
           <img id="honey2" className="honeyHealthImage" src={this.props.honeyPhoto2}/>
           {this.props.part === "1" ? part1 : part3}
+          <button id="switchTextHealth" onClick={this.props.clickHandler}>
+            {this.props.part === "1" ? "Click for more info..." : "Go Back"}</button>
           {bulletPoints}
         </div>
       )
@@ -159,7 +159,7 @@ class BulletPoints extends React.Component {
 class TextPart extends React.Component {
   render () {
     return (
-      <div id={this.props.partId} className="textPart" onClick={this.props.clickHandler}>
+      <div id={this.props.partId} className="textPart">
         <p>{this.props.description}</p>
       </div>
     )
