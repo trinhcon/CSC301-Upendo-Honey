@@ -8,6 +8,7 @@ import {Swipeable } from 'react-swipeable';
 import { Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
 import NextArrow from '../../modules/next-arrow';
+import RecipeBook from '../../images/recipe-book.png';
 
 class HoneyTypePage extends React.Component {
   constructor(props) {
@@ -46,46 +47,33 @@ class HoneyTypePage extends React.Component {
         onSwipedRight={this.swipeRightHandler}
         className="honeyTypePage"
         >
-          <FlowHeader content="Your new favourite honey"
-            headerClass="greenHeader"
-            textStyle="whiteBree"
+          <FlowHeader content="Your New Favourite Honey"
+            headerClass="greenStrip"
+            textStyle="greenStripText"
           />
 
-          <p className="honeyTypeComment">
-            {this.props.honeyTypeComment}
-          </p>
+          <div id="honeyCommentContainer">
+            <p id="honeyTypeComment">
+              {this.props.varietyMessage}
+            </p>
+          </div>
 
-          {/**  Linda
-            You probably will want to structure Desktop vs.
-            Mobile differently for this one, so I'll stop
-            structuring too much here
-          */}
-          <img src={""} /** ADD ICON */ className="realHoneyJar"/> 
+          <img src={this.props.jarPhoto} id="realHoneyJar"/> 
+          <div id="honeyDescriptionContainer">
+            <p id="honeyTypeDescription"> {this.props.honeyDescription} </p>
+          </div>
 
           <HoneyRecipe
-            recipeIcon={""} /** ADD ICON */
             recipeText="Need some sweet ideas? Click on the recipe book for inspiration!"
+            recipeIcon={RecipeBook}
           />
-
-          <FlowFooter content=""
-            footerClass="greenFooter"
-          />
-
-
-
           <MediaQuery minDeviceWidth={"600px"}>
-            <FlowProgressBar position="one"
-              icon="honeyJar" /** Need to take in parameter, edit FlowProgressBar */
-            />
-            <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/honey-harvest'}/>
+            <FlowProgressBar position="one" flow="honeyProgress"/>
+            <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/honey-harvest'} direction="right"/>
+            <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/menu'} direction="left"/>
           </MediaQuery>
+          <FlowFooter content="" footerClass="patternedFooter"/>
 
-          <MediaQuery maxDeviceWidth={"600px"}>
-            <p> place holder {/** If Media Query is empty, raises error */} </p> 
-
-
-
-          </MediaQuery>
         </Swipeable>
       );
     }
@@ -98,10 +86,12 @@ class HoneyRecipe extends React.Component {
   render() {
     return (
       <div className="recipe">
-        <img src={this.props.recipeIcon}
-          className="recipeIcon"
-          alt="recipe icon"
-        />
+        <a href="http://recipe.upendoagri.com">
+          <img src={this.props.recipeIcon}
+            className="recipeIcon"
+            alt="recipe icon"
+          />
+        </a>
         <p className="recipeDescription">
           {this.props.recipeText} 
         </p>

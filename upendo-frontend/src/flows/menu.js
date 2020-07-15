@@ -33,12 +33,12 @@ class MenuPage extends React.Component{
                 content="Click an Icon to Discover More!"/>
                 <MediaQuery minDeviceWidth="1000px">
                     <IconContainer button={true} 
-                        nextPage={this.props.beekeeperFirstPage}
+                        nextPage={this.props.environmentFirstPage}
                         icon="environment"
                         id="icon1"
                     />
                     <IconContainer button={true} 
-                        nextPage={this.props.beekeeperFirstPage}
+                        nextPage={this.props.tanzaniaFirstPage}
                         icon="tanzania"
                         id="icon2"
                     />
@@ -48,7 +48,7 @@ class MenuPage extends React.Component{
                         id="icon3"
                     />
                     <IconContainer button={true} 
-                        nextPage={this.props.beekeeperFirstPage}
+                        nextPage={this.props.honeyFirstPage}
                         icon="honey"
                         id="icon4"
                     />
@@ -62,17 +62,17 @@ class MenuPage extends React.Component{
                     />
                     <IconContainer button={false} />
                     <IconContainer button={true} 
-                        nextPage={this.props.beekeeperFirstPage}
+                        nextPage={this.props.environmentFirstPage}
                         icon="environment"
                     />
                     <IconContainer button={false} />
                     <IconContainer button={true} 
-                        nextPage={this.props.beekeeperFirstPage}
+                        nextPage={this.props.honeyFirstPage}
                         icon="honey"
                     />
                     <IconContainer button={false} />
                     <IconContainer button={true} 
-                        nextPage={this.props.beekeeperFirstPage}
+                        nextPage={this.props.tanzaniaFirstPage}
                         icon="tanzania"
                     />
                     <IconContainer button={false} />

@@ -14,15 +14,38 @@ class HoneyHealthPage extends React.Component {
     super(props);
     this.swipeLeftHandler = this.swipeLeftHandler.bind(this);
     this.swipeRightHandler = this.swipeRightHandler.bind(this);
-    this.state = {redirectMenu: false, redirectHarvest: false}
+    this.clickHandler = this.clickHandler.bind(this);
+    this.state = {redirectMenu: false, redirectHarvest: false, part: "1"}
   }
 
   swipeLeftHandler() {
-    this.setState({redirectMenu: true, redirectHarvest: false});
+    if (this.state.part === "1") {
+      console.log("On Two");
+      this.setState({part: "2"});
+    } else if (this.state.part === "2") {
+      console.log("On Three")
+      this.setState({part: "3"});
+    } else {
+      this.setState({redirectMenu: true, redirectHarvest: false});
+    }
   }
 
   swipeRightHandler() {
-    this.setState({redirectMenu: false, redirectHarvest: true});
+    if (this.state.part === "1") {
+      this.setState({redirectMenu: false, redirectHarvest: true});
+    } else if (this.state.part === "2") {
+      this.setState({part: "1"});
+    } else {
+      this.setState({part: "2"});
+    }
+  }
+
+  clickHandler() {
+    if (this.state.part === "1") {
+      this.setState({part: "2"});
+    } else {
+      this.setState({part: "1"});
+    }
   }
 
   async componentDidMount() {
@@ -33,7 +56,7 @@ class HoneyHealthPage extends React.Component {
     } else {
         console.log('Data Already Retrieved');
     }
-}
+  }
 
   render() {
     if (this.state.redirectMenu) {
@@ -48,50 +71,98 @@ class HoneyHealthPage extends React.Component {
         >
           <FlowHeader
             content="Heavenly Healthy Honey"
-            headerClass="greenHeader"
-            textStyle="whiteBree"
-          />
-
-          {/** Again I won't structure too much because you may change a lot*/}
-
-          <img
-            src={""} /** Insert image here */
-            className="healthPhoto"
-          />
-
-
-          {/** For CSS  LOOKUP (google):  "css list-style-image"
-            To help with making the bullet points bees
-          */} 
-          <ul className="healthFactsList">
-            <li className="healthFact"> High in antioxidants</li>
-            <li className="healthFact"> Antibacterial and antifungal</li>
-            <li className="healthFact"> Disinfect wounds</li>
-            <li className="healthFact"> A potent probiotic</li>
-            <li className="healthFact"> Soothes a sore throat</li>
-          </ul>
-
-          <FlowFooter
-            content=""
-            footerClass="greenFooter"
+            headerClass="greenStrip"
+            textStyle="greenStripText"
           />
 
           <MediaQuery minDeviceWidth={"600px"}>
-            <FlowProgressBar position="three"
-              icon="honeyJar" /** Need to take in parameter, edit FlowProgressBar */
+            <HoneyContent
+              healthDescription={this.props.healthDescription}
+              bulletPoints={this.props.bulletPoints}
+              honeyPhoto1={this.props.honeyPhoto1}
+              honeyPhoto2={this.props.honeyPhoto2}
+              part={this.state.part}
+              clickHandler={this.clickHandler}
+              isDesktop={true}
             />
 
-            <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/menu'}/>
+            <FlowProgressBar position="three" flow="honeyProgress"/>
+            <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/menu'} direction="right"/>
+            <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/honey-harvest'} direction="left"/>
           </MediaQuery>
           <MediaQuery maxDeviceWidth={"600px"}>
-            <p> place holder {/** If Media Query is empty, raises error */} </p> 
-
-
+            <HoneyContent
+              healthDescription={this.props.healthDescription}
+              bulletPoints={this.props.bulletPoints}
+              honeyPhoto1={this.props.honeyPhoto1}
+              honeyPhoto2={this.props.honeyPhoto2}
+              clickHandler={this.clickHandler}
+              part={this.state.part}
+              isDesktop={false}
+            />
           </MediaQuery>
+          <FlowFooter content="" footerClass="patternedFooter"/>
         </Swipeable>
       );
     }
+  }
+}
 
+class HoneyContent extends React.Component {
+  render() {
+    const part1 = <TextPart partId="healthPart1" description={this.props.healthDescription.slice(0, 1)}
+      clickHandler={this.props.isDesktop ? this.props.clickHandler : null}/>;
+    const part3 = <TextPart partId="healthPart3" description={this.props.healthDescription.slice(1, 2)}
+      clickHandler={this.props.isDesktop ? this.props.clickHandler : null}/>;
+    const bulletPoints = <BulletPoints bulletPoints={this.props.bulletPoints} addHeader={!this.props.isDesktop}/>;
+
+    if (this.props.isDesktop) {
+      return (
+        <div className="honeyContent">
+          <img id="honey1" className="honeyHealthImage" src={this.props.honeyPhoto1}/>
+          <img id="honey2" className="honeyHealthImage" src={this.props.honeyPhoto2}/>
+          {this.props.part === "1" ? part1 : part3}
+          {bulletPoints}
+        </div>
+      )
+    } else {
+      return (
+        <div className="honeyContent">
+          <img id="honey1" className="honeyHealthImage" src={this.props.honeyPhoto1}/>
+          {this.props.part === "1" && part1}
+          {this.props.part === "2" && bulletPoints}
+          {this.props.part === "3" && part3}
+        </div>
+      )
+    }
+  }
+}
+
+class BulletPoints extends React.Component {
+  
+  render() {
+    return (
+      <div className="listContainer">
+        {this.props.addHeader && <span>Health Benefits Include:</span>}
+        <ul className="healthFactsList">
+          <li className="healthFact"> {this.props.bulletPoints.slice(0, 1)}</li>
+          <li className="healthFact"> {this.props.bulletPoints.slice(1, 2)}</li>
+          <li className="healthFact"> {this.props.bulletPoints.slice(2, 3)}</li>
+          <li className="healthFact"> {this.props.bulletPoints.slice(3, 4)}</li>
+          <li className="healthFact"> {this.props.bulletPoints.slice(4, 5)}</li>
+        </ul>
+      </div>
+    )
+  }
+}
+
+class TextPart extends React.Component {
+  render () {
+    return (
+      <div id={this.props.partId} className="textPart" onClick={this.props.clickHandler}>
+        <p>{this.props.description}</p>
+      </div>
+    )
   }
 }
 
