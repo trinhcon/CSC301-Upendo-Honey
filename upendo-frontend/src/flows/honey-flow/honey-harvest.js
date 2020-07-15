@@ -107,9 +107,9 @@ class HoneyHarvestPage extends React.Component {
 class HarvestContent extends React.Component {
 
   render() {
-    const part1 = <TextPart partId="part1" description={this.props.harvestDescription.slice(0, 1)}/>;
-    const part2 = <TextPart partId="part2" description={this.props.harvestDescription.slice(1, 2)}/>;
-    const part3 = <TextPart partId="part3" description={this.props.harvestDescription.slice(2, 3)}/>;
+    const part1 = <TextPart partId="part1" description={this.props.harvestDescription.slice(0, 1)} isDesktop={this.props.isDesktop}/>;
+    const part2 = <TextPart partId="part2" description={this.props.harvestDescription.slice(1, 2)} isDesktop={this.props.isDesktop}/>;
+    const part3 = <TextPart partId="part3" description={this.props.harvestDescription.slice(2, 3)} isDesktop={this.props.isDesktop}/>;
 
     if (this.props.isDesktop) {
       return (
@@ -144,6 +144,7 @@ class TextPart extends React.Component {
     return (
       <div id={this.props.partId} className="textPart">
         <p>{this.props.description}</p>
+        {!this.props.isDesktop && <p className="textPartInstructions">Swipe Me!</p>}
       </div>
     )
   }
