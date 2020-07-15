@@ -110,9 +110,9 @@ class HoneyHealthPage extends React.Component {
 
 class HoneyContent extends React.Component {
   render() {
-    const part1 = <TextPart partId="healthPart1" description={this.props.healthDescription.slice(0, 1)}/>;
-    const part3 = <TextPart partId="healthPart3" description={this.props.healthDescription.slice(1, 2)}/>;
-    const bulletPoints = <BulletPoints bulletPoints={this.props.bulletPoints} addHeader={!this.props.isDesktop}/>;
+    const part1 = <TextPart partId="healthPart1" description={this.props.healthDescription.slice(0, 1)} isDesktop={this.props.isDesktop}/>;
+    const part3 = <TextPart partId="healthPart3" description={this.props.healthDescription.slice(1, 2)} isDesktop={this.props.isDesktop}/>;
+    const bulletPoints = <BulletPoints bulletPoints={this.props.bulletPoints} isDesktop={this.props.isDesktop}/>;
 
     if (this.props.isDesktop) {
       return (
@@ -143,7 +143,7 @@ class BulletPoints extends React.Component {
   render() {
     return (
       <div className="listContainer">
-        {this.props.addHeader && <span>Health Benefits Include:</span>}
+        {!this.props.isDesktop && <span>Health Benefits Include:</span>}
         <ul className="healthFactsList">
           <li className="healthFact"> {this.props.bulletPoints.slice(0, 1)}</li>
           <li className="healthFact"> {this.props.bulletPoints.slice(1, 2)}</li>
@@ -151,6 +151,7 @@ class BulletPoints extends React.Component {
           <li className="healthFact"> {this.props.bulletPoints.slice(3, 4)}</li>
           <li className="healthFact"> {this.props.bulletPoints.slice(4, 5)}</li>
         </ul>
+        {!this.props.isDesktop && <p className="textPartInstructions">Swipe Me!</p>}
       </div>
     )
   }
@@ -161,6 +162,7 @@ class TextPart extends React.Component {
     return (
       <div id={this.props.partId} className="textPart">
         <p>{this.props.description}</p>
+        {!this.props.isDesktop && <p className="textPartInstructions">Swipe Me!</p>}
       </div>
     )
   }

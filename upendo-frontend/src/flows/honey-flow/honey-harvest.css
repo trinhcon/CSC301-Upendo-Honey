@@ -68,6 +68,11 @@
         width: 90px;
         height: 90px;
     }
+
+    .textPartInstructions {
+        font-size: 12pt;
+        background-image: linear-gradient(to right, white, rgb(175, 174, 174), white)
+    }
 }
 
 /**Desktop**/

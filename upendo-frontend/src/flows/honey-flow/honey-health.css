@@ -44,6 +44,12 @@
 
         border: 5px solid rgb(228, 181, 28);
     }
+
+    .textPartInstructions {
+        font-size: 12pt;
+        background-image: linear-gradient(to right, white, rgb(175, 174, 174), white);
+        text-align: center;
+    }
 }
 
 /**Desktop**/
@@ -143,4 +149,5 @@
     #healthPart3 {
         font-size: 12pt;
     }
+
 }
