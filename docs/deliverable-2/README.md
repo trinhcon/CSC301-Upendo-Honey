@@ -49,12 +49,60 @@
 
 ## Instructions
  * Clear instructions for how to use the application from the end-user's perspective
-
-
-
  * How do you access it? Are accounts pre-created or does a user register? Where do you start? etc. 
  * Provide clear steps for using each feature described above
  * This section is critical to testing your application and must be done carefully and thoughtfully
+
+ Go to "https://upendo.herokuapp.com/".
+ From here you can enter any code that you've received from the label of a product
+ made by Upendo's Honey. If you do not have a code you can use the standard "PUREJOY"
+ code that is noted in the landing page's description. Once your code is entered,
+ you will be taken to a menu page that let's you choose between a variety of topics
+ to learn more about Upendo Honey products. These flows are customized for each
+ code. Currently, only the beekeeper and honey flow work properly. A user can
+ select either of those icons to progress thhrough these flows and learn more about
+ the company's beekeepers or facts about honey. To progress through the flows the
+ user will need to use the side arrows on desktop, or use slide left and/or right
+ on a mobile phone. This is the general use of the application.
+ 
+ Some slides will have additional features other than visual data. For instance the
+ beekeeper flow contains an email form which uses EmailJS. The user can enter their
+ name, email and a message that they would like to send to their beekeeper. After
+ clicking the send button, a description will replace their message to let them
+ know if the message was sent properly or not. The user can then continue on to
+ other slides.
+
+ Each **Page** in a flow can be accessed directly by a user through a URL. This means
+ that if a user wants to share a particular page of the flow customized by the code,
+ they can simply share the URL. Thus URL can also be embedded in a QR code and
+ will present the exact same information that would be displayed by the sharing user.
+
+ To be clear: There is NO need for a user to have done any registration or have done
+ anything prior to use. Any user can use the "PUREJOY" basic code and any user can
+ also user a code found on the label of one of Upendo Honey's products.
+
+ This summarizes all of the current user features implemented in full for D2.
+ Much of the user experienced is selected by the administrator who chooses what
+ is presented on a slide to the user. There is an entire administrative interface
+ to input data into the database, as well as new flow data for other alphanumeric
+ codes so that the partner can customize the experience of the user based
+ entirely on the codes provided by them. Most of the **user's** features are
+ visual because the is a **promotional application** meaning while there are
+ some interactive features, the application is meant to have information flow
+ mostly in one direction: towards the user.
+
+ To properly assess the development we would also like to briefly mention the
+ the administrative interface because this is where most of the work is
+ implemented. If you think of a tv commercial, most of the work is done by
+ the people behind the scenes, not necessarily the "end-user". With that
+ justification we will explain the administrative interface too. We can
+ customize the text in each of the flows using properties that are changed
+ in the backend administrative database interface. This includes uploading
+ any images and text messages of the partner's choosing. Much of our work
+ was in allowing the partner to have this flexibility in making each flow
+ for each beekeeper or batch of honey.
+
+
  
  ## Development requirements
  * If a developer were to set this up on their machine or a remote server, what are the technical requirements (e.g. OS, libraries, etc.)?
@@ -77,4 +125,16 @@ Describe your Git / GitHub workflow. Essentially, we want to understand how your
  * What type of license will you apply to your codebase?
  * What affect does it have on the development and use of your codebase?
  * Why did you or your partner make this choice?
+
+ We will be applying the **GNU General Public License v3.0** to the project repository
+ This decision had absolutely no effect on the development and use of our codebase.
+ The choice of license had no effect whatsoever on development. This is because it
+ is irrelevant to the development team how a third party uses the code.
+
+ Our partner was the one who made this choice. They chose GNU GPL v3.0 because it
+ was simply a standard licence used by many open source software repositories and
+ Upendo heony had no particular need to conceal its codebase. They decided that
+ simply following many other developers in using this commong licence was the best
+ choice for them.
+ 
 
