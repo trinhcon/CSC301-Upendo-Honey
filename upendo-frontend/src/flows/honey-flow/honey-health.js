@@ -121,7 +121,7 @@ class HoneyContent extends React.Component {
           <img id="honey2" className="honeyHealthImage" src={this.props.honeyPhoto2}/>
           {this.props.part === "1" ? part1 : part3}
           <button id="switchTextHealth" onClick={this.props.clickHandler}>
-            {this.props.part === "1" ? "Click for more info..." : "Go Back"}</button>
+            {this.props.part === "1" ? "Click for more info" : "Go Back"}</button>
           {bulletPoints}
         </div>
       )
