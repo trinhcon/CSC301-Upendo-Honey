@@ -1,0 +1,48 @@
+/* Mobile */
+@media only screen and (max-width: 600px) {
+    .forestPage {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        width: 100vw;
+        height: 100vh;
+
+        font-family: nunito, sans-serif;
+    }
+
+    .forestImage {
+        align-self: center;
+        width: 300px;
+        height: 250px;
+        margin: 10px;
+        border: 5px solid rgb(228, 181, 28);
+    }
+
+    .forestFact {
+        margin: 5px 5%;
+        display: flex;
+        align-items: center;
+    }
+
+    .forestFactIcon {
+        width: 50px;
+        height: 60px;
+
+        margin: 7px;
+    }
+
+    #animalIcon {
+        width: 50px;
+        height: 40px;
+    }
+
+    .forestFactText {
+        margin: 0px 7px;
+    }
+
+
+    .forestFactHeader {
+        font-weight: bold;
+    }
+
+}
