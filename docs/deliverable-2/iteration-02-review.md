@@ -136,7 +136,6 @@ Meeting Minutes:
     of our final (or pending) decisions grouped into a single document. The document
     contains various details such as a database schema, application mockups and links
     to possible tools we would use for the project.
-
     A copy of the BRD is also placed in our documentation repository, please check the
     artifact for more details and references
 
@@ -154,6 +153,20 @@ Slack Channel division between slack
  * Ordered from most to least important.
  * Explain why (i.e. give a supporting argument) you consider a decision to be unsuccessful
  * Feel free to refer/link to process artifact(s).
+
+ 1. Communication issues due to the separation of backend and frontend tasks.
+ Our team divided the tasks between frontend and backend which resulted in
+ tumultuous development early on in the project. Many issues and concerns were
+ raised as different team members were not experienced in tool used by other
+ members. As a result, preparation for development had a very high learning
+ curve which resulted in a few weeks required to establish a stable set of
+ tooling and basic code infrastructure. This decision is unsuccessful in
+ simplifying development because when frontend and backend development
+ connected through a REST API, it was not always clear which end of development
+ was causing issues. This would recur a few times where one of the team's half
+ would be blocked by another. 
+
+ 2. 
 
 
 #### Q3. Planned changes
