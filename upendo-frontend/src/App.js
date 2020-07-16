@@ -21,7 +21,7 @@ class App extends React.Component {
     super(props);
     console.log("A new change")
     this.state = {alphacode: 'PUREJOY', batchMember: {}, beekeeper: {}, honey: {}, forest: {}, dataStatus: false};
-    this.testFrontEnd = true; /* True retrieves data locally instead of from backend*/
+    this.testFrontEnd = false; /* True retrieves data locally instead of from backend*/
     this.getData = this.getData.bind(this);
     this.getAlphaCode = this.getAlphaCode.bind(this);
     this.setAlphaCode = this.setAlphaCode.bind(this);
@@ -116,7 +116,7 @@ class App extends React.Component {
               beekeeperFirstPage={"/app/" + this.getAlphaCode() + "/beekeeper"}
               environmentFirstPage="/app/blah1"
               honeyFirstPage={"/app/" + this.getAlphaCode() + "/honey-type"}
-              tanzaniaFirstPage="/app/blah3"
+              tanzaniaFirstPage="/app/tanzania-map"
               retailerLink={this.state.batchMember.external_url}
               retailerLogo={this.state.batchMember.logo}
               getAlphaCode={this.getAlphaCode}
@@ -135,6 +135,8 @@ class App extends React.Component {
                 setAlphaCode={this.setAlphaCode}
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
+
+                headerName = {this.testFrontEnd ? Forest.forestName : this.state.forest.title}
               />
             )}
           />
