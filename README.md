@@ -131,6 +131,12 @@ For more details, please see the [Deployment and Github Workflow Documentation](
 `make logs-prod` - tails the Heroku production logs
 `make logs-staging` - tails the Heroku staging logs
 
+### Data Model
+
+![Data Model](docs/uml-diagrams/models.png)
+
+For details on the model definition, see the Django [models.py](./web/models.py) file
+
 ### Danger Zone
 
 *Danger Zone* - You should not need to use these:
