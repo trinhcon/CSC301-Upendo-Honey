@@ -1,31 +1,35 @@
 @startuml
 
 entity Batch  {
+    + forest_id
+    + honey_id
 }
 
 entity BatchMember {
     + alphanum_code
-    + batch
-    + beekeeper
+    + batch_id
+    + beekeeper_id
+    + logo
+    + external_url
 }
 
 entity Forest  {
-  + forest_title
-  + map_url
+  + title
+  + map_kml
   + description
-  + image_url
+  + photo
   + area
   + animals
-  + beekeepers_num
+  + beekeepers_count
   + plants
 }
 
 entity Beekeeper  {
   + name
   + bio
-  + image_url
+  + photo
   + letter_text
-  + letter_img_url
+  + letter_photo
   --
 }
 
@@ -33,10 +37,11 @@ entity Honey  {
   + name
   + variety
   + honey_text
-  + jar_img_url
-  + harvest_img_url
-  + harvest_text
-  + health_text
+  + jar_photo
+  + harvest_photo
+  + honey_description
+  + harvest_description
+  + health_description
   --
 }
 
