@@ -2,6 +2,7 @@ import React from 'react';
 
 import "./tanzania-map.css";
 import FlowHeader from '../../modules/header';
+import FlowFooter from '../../modules/footer';
 import {Swipeable} from 'react-swipeable';
 import {Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
@@ -48,18 +49,25 @@ class TanzaniaMapPage extends React.Component {
         onSwipedRight={this.swipeRightHandler}
         className="mapPage"
         >
-        <TanzaniaMap> </TanzaniaMap>
+          <FlowHeader
+            content={this.props.headerName}
+            headerClass="greenStrip"
+            textStyle="greenStripText"
+          /> 
+          <div id="mapTextContainer">
+            <h3 id="mapDescription">This is where your honey is from!</h3>
+            <p id="mapInstructions">Click around to explore...</p>
+          </div>
+          <TanzaniaMap></TanzaniaMap>
 
           <MediaQuery minDeviceWidth={"600px"}>
-            <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/tanzania-forest'}/>
-
-            
+            <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/tanzania-forest'} direction="right"/>
+            <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/menu'} direction="left"/>
           </MediaQuery>
-          <MediaQuery maxDeviceWidth={"600px"}>
-          <p> place holder {/** If Media Query is empty, raises error */} </p> 
-
-          
-          </MediaQuery>
+          <FlowFooter
+            content=""
+            footerClass="patternedFooter"
+          />
         </Swipeable>
       );
     }
@@ -82,8 +90,8 @@ class TanzaniaMap extends React.Component {
       map: null,
       kml: null,
       style: {
-        width: '400px',
-        height: '400px',
+        width: '300px',
+        height: '300px',
       }
     }
     this.src = '../../scripts/mpanda_outline.kml';
@@ -139,7 +147,6 @@ class TanzaniaMap extends React.Component {
     {/** NOTE Map MUST have a container with an explicit size in CSS */}
     return (
       <div id="tanzaniaForestMapContainer"> 
-      
         <div id="map" style={this.state.style /** CANNOT REMOVE Google API Requirement */}/>
       </div>
     );
