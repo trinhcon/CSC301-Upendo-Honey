@@ -44,5 +44,78 @@
     .forestFactHeader {
         font-weight: bold;
     }
+}
+    
+/*Desktop*/
+@media only screen and (min-width: 600px) {
+    .forestPage {
+        display: grid;
+        grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+            "header header header header header"
+            "leftArrow area forest animals rightArrow"
+            "leftArrow plants forest beekeepers rightArrow"
+            "footer footer footer footer footer";
+        width: 100vw;
+        height: 100vh;
+        font-family: nunito, sans-serif;
+        grid-gap: 20px;
+        row-gap: 100px;
+    }
 
+    .forestImage {
+        grid-area: forest;
+        width: 480px;
+        height: 400px;
+        margin: 10px;
+        border: 5px solid rgb(228, 181, 28);
+    }
+
+    .forestFact {
+        margin: 5px 5%;
+        display: flex;
+        align-items: center;
+    }
+
+    #areaIconContainer {
+        grid-area: area;
+    }
+
+    #animalIconContainer {
+        grid-area: animals;
+    }
+
+    #plantIconContainer {
+        grid-area: plants
+    }
+
+    #beekeeperIconContainer {
+        grid-area: beekeepers;
+    }
+
+    .forestFactIcon {
+        width: 90px;
+        height: 90px;
+
+        margin: 7px;
+    }
+
+    #animalIcon {
+        width: 90px;
+        height: 72px;
+    }
+
+    #areaIcon {
+        width: 72px;
+        height: 90px;
+    }
+    .forestFactText {
+        margin: 5px;
+        font-size: 16pt;
+    }
+
+    .forestFactHeader {
+        font-weight: bold;
+    }
 }

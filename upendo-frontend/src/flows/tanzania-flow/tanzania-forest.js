@@ -70,16 +70,22 @@ class TanzaniaForestPage extends React.Component {
             factType="animalIcon"
             factHeader={"Animals: "}
             factText={this.props.animals}/>
-          <ForestFact forestFactIcon={BeekeeperIcon} /** ADD ICON */
-            factType="beekeeperIcon"
-            factHeader={"Beekeepers: "}
-            factText={this.props.bkCount}/>
+          <MediaQuery maxDeviceWidth={"600px"}>
+            <ForestFact forestFactIcon={BeekeeperIcon} /** ADD ICON */
+              factType="beekeeperIcon"
+              factHeader={"Beekeepers: "}
+              factText={this.props.bkCount}/>
+          </MediaQuery>
           <ForestFact forestFactIcon={FlowerIcon} /** ADD ICON */
             factType="plantIcon"
             factHeader={"Flowering Plants: "}
             factText={this.props.plants}/>
           
           <MediaQuery minDeviceWidth={"600px"}>
+            <ForestFact forestFactIcon={BeekeeperIcon} /** ADD ICON */
+              factType="beekeeperIcon"
+              factHeader={"Beekeepers: "}
+              factText={this.props.bkCount + " beekeepers hard at work"}/>
             <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/menu'} direction="right"/>
             <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/tanzania-map'} direction="left"/>
           </MediaQuery>
@@ -98,7 +104,7 @@ class ForestFact extends React.Component {
 
   render() {
     return (
-      <div className="forestFact">
+      <div className="forestFact" id={this.props.factType + "Container"}>
         <img className="forestFactIcon" alt={this.props.factHeader} src={this.props.forestFactIcon} id={this.props.factType}/>
         <p className="forestFactText">
           <span className="forestFactHeader">{this.props.factHeader}</span>
