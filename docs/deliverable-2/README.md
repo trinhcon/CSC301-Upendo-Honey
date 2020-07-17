@@ -120,11 +120,17 @@
  flows. The other flows take these keys to return the information specific
  to the alphanumeric code that was previously entered in the landing page.
 
- You can go to: https://upendo.herokuapp.com//api/v1/batch-members/PUREJOY/
+ You can go to: https://upendo.herokuapp.com/api/v1/batch-members/PUREJOY/
  for an example of what would be returned. If you are logged in as an
  administrator, you could make changes. Otherwise, you are unable to make
  changes if your are not authenticated.
 
+ If you want to access our latest version, please simply prepend "staging-"
+ before "upendo.herokapp.com". Meaning:
+ https://staging-upendo.herokuapp.com/
+
+ would be the website to visit. It has all of the different aforementioned
+ paths such as the api, BUT it connects to a different database.
 
  
  ## Development requirements
