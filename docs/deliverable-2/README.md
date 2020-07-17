@@ -102,6 +102,29 @@
  was in allowing the partner to have this flexibility in making each flow
  for each beekeeper or batch of honey.
 
+ You can access the backend at: https://upendo.herokuapp.com/admin/
+ Where you can login with the credentials provided to you on slack.
+ From there you will see a screen where to can add or modify database
+ table instances. This means that you can directly control what the user
+ sees. After modifying or creatinga flow here, you can go to the original
+ app landing page and enter the code of the flow you modified/created.
+ This will take you to the new/updated flow that you just configured using
+ our backend interface.
+
+ You can see how the information is accessed from backend through the user
+ interface from frontend by viewing the apis we've implemented. To do this,
+ simply go to: https://upendo.herokuapp.com/api/v1/ and select the REST api
+ that you want to view directly. The information provided is indeed public
+ so you will be able to see the data displayed on the frontend website, here
+ instead. The batchmember api translates the code into a key for each of the
+ flows. The other flows take these keys to return the information specific
+ to the alphanumeric code that was previously entered in the landing page.
+
+ You can go to: https://upendo.herokuapp.com//api/v1/batch-members/PUREJOY/
+ for an example of what would be returned. If you are logged in as an
+ administrator, you could make changes. Otherwise, you are unable to make
+ changes if your are not authenticated.
+
 
  
  ## Development requirements
