@@ -116,7 +116,7 @@ class App extends React.Component {
               beekeeperFirstPage={"/app/" + this.getAlphaCode() + "/beekeeper"}
               environmentFirstPage="/app/blah1"
               honeyFirstPage={"/app/" + this.getAlphaCode() + "/honey-type"}
-              tanzaniaFirstPage="/app/blah3"
+              tanzaniaFirstPage={"/app/" + this.getAlphaCode() + "/tanzania-map"}
               retailerLink={this.state.batchMember.external_url}
               retailerLogo={this.state.batchMember.logo}
               getAlphaCode={this.getAlphaCode}
@@ -135,6 +135,8 @@ class App extends React.Component {
                 setAlphaCode={this.setAlphaCode}
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
+
+                headerName = {this.testFrontEnd ? Forest.forestName : this.state.forest.title}
               />
             )}
           />
