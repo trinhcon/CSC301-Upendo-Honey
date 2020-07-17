@@ -8,6 +8,12 @@ import {Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
 import NextArrow from '../../modules/next-arrow';
 
+// Icons for the page
+import MapIcon from '../../images/map.png';
+import ElephantIcon from '../../images/elephant.png';
+import BeekeeperIcon from '../../images/Beekeeper.png';
+import FlowerIcon from '../../images/flower.png';
+
 class TanzaniaForestPage extends React.Component {
   constructor(props) {
     super(props);
@@ -46,74 +52,47 @@ class TanzaniaForestPage extends React.Component {
         className="forestPage"
         >
           <FlowHeader
-            content="Mpanda Line Forest Reserve"
-            headerClass="greenHeader"
-            textStyle="whiteBree"
+            content={this.props.headerName}
+            headerClass="greenStrip"
+            textStyle="greenStripText"
           />
 
-          <img src={this.props.forestImage}
+          <img src={this.props.forestPhoto}
             className="forestImage"
             alt="Forest in Tanzania"
           />
-
+          
+          <ForestFact forestFactIcon={MapIcon}
+            factType="areaIcon"
+            factHeader={"Total Area: "}
+            factText={this.props.area+"ha"}/>
+          <ForestFact forestFactIcon={ElephantIcon} /** ADD ICON */
+            factType="animalIcon"
+            factHeader={"Animals: "}
+            factText={this.props.animals}/>
+          <MediaQuery maxDeviceWidth={"600px"}>
+            <ForestFact forestFactIcon={BeekeeperIcon} /** ADD ICON */
+              factType="beekeeperIcon"
+              factHeader={"Beekeepers: "}
+              factText={this.props.bkCount}/>
+          </MediaQuery>
+          <ForestFact forestFactIcon={FlowerIcon} /** ADD ICON */
+            factType="plantIcon"
+            factHeader={"Flowering Plants: "}
+            factText={this.props.plants}/>
+          
+          <MediaQuery minDeviceWidth={"600px"}>
+            <ForestFact forestFactIcon={BeekeeperIcon} /** ADD ICON */
+              factType="beekeeperIcon"
+              factHeader={"Beekeepers: "}
+              factText={this.props.bkCount + " beekeepers hard at work"}/>
+            <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/menu'} direction="right"/>
+            <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/tanzania-map'} direction="left"/>
+          </MediaQuery>
           <FlowFooter
             content=""
-            footerClass="greenFooter"
+            footerClass="patternedFooter"
           />
-
-
-          <MediaQuery minDeviceWidth={"600px"}>
-            {/** you probably have to use ids to correctly
-              position the Forest Facts differently on Desktop
-             */}
-
-
-            <ForestFact forestFactIcon={""} /** ADD ICON */
-              factHeader={"Total Area:"}
-              factText={"720,000ha"}/>
-            <ForestFact forestFactIcon={""} /** ADD ICON */
-              factHeader={"Animals:"}
-              factText={"Elephants, Chimpanzees, Toucan"}/>
-            <ForestFact forestFactIcon={""} /** ADD ICON */
-              factHeader={"Beekeepers:"}
-              factText={"520"}/>
-            <ForestFact forestFactIcon={""} /** ADD ICON */
-              factHeader={"Flowering Plants:"}
-              factText={"Mnonda, Acacia, Daisies"}/>
-            <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/menu'}/>
-          </MediaQuery>
-
-          <MediaQuery maxDeviceWidth={"600px"}>
-             {/**
-                Feel Free to not use a list and just copy from above instead
-                but I feel a list is more useful and you can just style it
-                slightly differently (resize on mobile)
-              */}
-            <ul className="forestFactList">
-              <li>
-                <ForestFact forestFactIcon={""} /** ADD ICON */
-                  factHeader={"Total Area:"}
-                  factText={"720,000ha"}/>
-              </li>
-              <li>
-                <ForestFact forestFactIcon={""} /** ADD ICON */
-                  factHeader={"Animals:"}
-                  factText={"Elephants, Chimpanzees, Toucan"}/>
-              </li>
-              <li>
-                <ForestFact forestFactIcon={""} /** ADD ICON */
-                  factHeader={"Beekeepers:"}
-                  factText={"520"}/>
-              </li>
-              <li>
-                <ForestFact forestFactIcon={""} /** ADD ICON */
-                  factHeader={"Flowering Plants:"}
-                  factText={"Mnonda, Acacia, Daisies"}/>
-              </li>
-
-            </ul>
-          </MediaQuery>
-
         </Swipeable>
       );
     }
@@ -125,11 +104,8 @@ class ForestFact extends React.Component {
 
   render() {
     return (
-      <div className="forestFact">
-        <img src={this.forestFactIcon}
-          class="forestFactIcon"
-          alt={this.props.factHeader}
-        />
+      <div className="forestFact" id={this.props.factType + "Container"}>
+        <img className="forestFactIcon" alt={this.props.factHeader} src={this.props.forestFactIcon} id={this.props.factType}/>
         <p className="forestFactText">
           <span className="forestFactHeader">{this.props.factHeader}</span>
           {this.props.factText}

@@ -101,8 +101,7 @@ figure > figcaption {
   }
 
   #letterContainer {
-    margin-top: 0 ;
-    margin-bottom: 0px;
+    margin: 10px;
 
     padding-top: 10%;
   }
@@ -132,14 +131,21 @@ figure > figcaption {
   #letterTranslation {
     /** border: 2px solid black; */
     padding: 10px;
-    padding-top: 0;
-    padding-bottom: 20%;
+    margin-bottom: 50px;
+    margin-top: 0;
 
     width: 90%;
     height: auto;
     font-size: 14pt;
 
-    border: none;
-    background-color: white;
+    text-align: center;
   }
+
+  @media only screen and (max-height: 700px) {
+    #letterTranslation {
+      font-size: 12pt;
+      margin-bottom: 0;
+    }
+  }
+
 }

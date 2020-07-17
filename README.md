@@ -1,5 +1,9 @@
 # Upendo Web
 
+A summary of the development requirements are described [here](./docs/deliverable-2/development-requirements.md), as required for the D2 deliverable.
+
+For detailed requirements on setting up your local development environment and deploying to staging and production, see below.
+
 ## Initial Setup
 
 1. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install) and run `heroku login` inside the project root
@@ -67,7 +71,7 @@ If you're new to Django, please [read about how migrations work](https://docs.dj
 
 ## Running the application and developing locally (without Docker)
 
-*caveat: Ashwin took a first stab at what he think would work. Ashwin has not tried this yet. If you want to go this route, that's fine, but please update the readme if you find that it does not work (and delete this caveat once you've tried it out).*
+*caveat: Please only use this flow if you're having trouble with Docker on your machine. Ashwin has tried this out, but has not put a lot of time into it as he was focussing on the Docker flow. Please update the readme if you find that it does not work.*
 
 _WARNING_: Please double and triple check your code works as expected on the staging server if you go this route, as your environment might not align with Heroku's.
 
@@ -104,7 +108,6 @@ POSTGRES_DB=upendo
 
 8. When you're done and you want to exit the virtual environment, run `deactivate`
 
-
 ## Deployment
 
 1. Create a pull request from your feature branch to the master branch
@@ -121,10 +124,18 @@ POSTGRES_DB=upendo
 
 6. Once you've tested your feature in staging, [Create a new release](https://github.com/csc301-summer-2020/team-project-3-upendo-honey/releases) in Github. This will apply a git tag to the most recent commit in master, which will automatically trigger the production server to rebuild.
 
+For more details, please see the [Deployment and Github Workflow Documentation](docs/deliverable-2/deployment-github-workflow.md)
+
 ### Helpful Make commands for Heroku debugging
 
 `make logs-prod` - tails the Heroku production logs
 `make logs-staging` - tails the Heroku staging logs
+
+### Data Model
+
+![Data Model](docs/uml-diagrams/models.png)
+
+For details on the model definition, see the Django [models.py](./web/models.py) file
 
 ### Danger Zone
 

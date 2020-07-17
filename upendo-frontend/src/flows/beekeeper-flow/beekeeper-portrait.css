@@ -111,4 +111,10 @@
     border-left-width: 8px;
     border-left-style: solid;
   }
+
+  @media only screen and (max-height: 700px) {
+    .description {
+      font-size: 10pt;
+    }
+  }
 }
