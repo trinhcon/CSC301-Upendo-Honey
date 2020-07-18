@@ -179,8 +179,8 @@ artifact for more details and references.
 
  ![Slack Channels](/docs/deliverable-2/artifacts/slack_channels.PNG);
  
- 2. Our has team has decided to continue development but under the guidelines
- of what is best for development rather than deliverable deadlines.
+ 2. **Our has team has decided to continue development but under the guidelines
+ of what is best for development rather than deliverable deadlines.**
  
   When the
  partner began to make changes to the design, and hence removed some progress,
@@ -203,8 +203,8 @@ artifact for more details and references.
   any lapse on communication. This similar to how we do not want features to
   be partially finished: we also don't want them partially documented.
 
- 3. We will be adding our partners to our trello board so they can keep track of 
- the progress with respect to each individual detail.
+ 3. **We will be adding our partners to our trello board so they can keep track of 
+ the progress with respect to each individual detail.**
  
  We are making this change
  so they can keep up with our pace of development and prioritize which tasks
