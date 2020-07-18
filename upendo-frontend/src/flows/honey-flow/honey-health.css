@@ -85,8 +85,8 @@
     }
 
     .honeyHealthImage {
-        width: 400px;
-        height: 300px;
+        width: 320px;
+        height: 200px;
 
         border: 5px solid rgb(228, 181, 28);
         justify-self: center;
@@ -103,6 +103,7 @@
     .textPart {
         grid-area: text;
         text-align: center;
+        font-size: 12px;
     }
 
     #switchTextHealth{
@@ -146,8 +147,16 @@
         width: 40%;
     }
 
+    #healthPart1 {
+        font-size: 16pt;
+    }
+
     #healthPart3 {
-        font-size: 12pt;
+        font-size: 1em;
+    }
+
+    .goldProgressBar {
+        margin-top:-30px
     }
 
 }
