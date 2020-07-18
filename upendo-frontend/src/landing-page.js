@@ -6,17 +6,19 @@ import Forest from './images/our-forest.JPG';
 import FlowFooter from './modules/footer';
 import MediaQuery from 'react-responsive';
 
+/**
+ * Landing Page that exists at the root of the website. Serves
+ * as the main entry point of users to enter codes. Codes are found from
+ * Upendo Honey Products. "PUREJOY" is the default code
+ */
 class LandingPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
       <div id="landingPage">
         <div id="imgContainer">
           <div id="left"></div>
-          <img id="background" src={Forest}/>
+          <img id="background" src={Forest} alt="Forest background "/>
           <div id="right"></div>
         </div>
         <LandingPageFormBox getData={this.props.getData} 
@@ -30,10 +32,11 @@ class LandingPage extends React.Component {
   }
 }
 
+/**
+ * Box that contains the input form for the alphanumeric code. Also contains
+ * message that "PUREJOY" is available to those without a code
+ */
 class LandingPageFormBox extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
@@ -51,6 +54,11 @@ class LandingPageFormBox extends React.Component {
   }
 }
 
+
+/**
+ * Input form that receives the alphanumeric code from users. An invalid code
+ * will reject the user.
+ */
 class LandingPageForm extends React.Component {
   constructor(props) {
     super(props);
@@ -59,19 +67,7 @@ class LandingPageForm extends React.Component {
     this.handleInput = this.handleInput.bind(this);
   }
 
-  async handleCodeSubmission(e) {
-    /**
-     * Upendo Meeting Presentation code
-     * Below code would fetch normally
-     * 
-     
-    e.preventDefault();
-    if (this.state.code === 'PUREJOY') {
-      this.setState({redirect: true});
-    } else {
-      this.setState({code: '', displayMessage: true});
-    }
-    */
+  async handleCodeSubmission(e) { /** Triggers access to backend using entered code */
 
     e.preventDefault();
     try {
@@ -81,10 +77,12 @@ class LandingPageForm extends React.Component {
       if (batchMemberData) {
         const loadData = await this.props.getData(this.state.code, batchMemberData);
         if (loadData) {
+          /** If Code was succesful Load information into state and redirect*/
           await this.setState({redirect: true});
           await this.props.setAlphaCode(this.state.code);
         }
       }
+      /** On Failure, print invalid code in text box */
       await this.setState({code: '', displayMessage: true});
     } catch (error) {
       await this.setState({code:'', displayMessage: true});

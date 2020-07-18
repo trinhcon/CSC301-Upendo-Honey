@@ -9,9 +9,6 @@ import NavigationIcon from '../modules/navigation-icons.js';
 /*CHANGE APP.JS TO PASS IN RETAILER INFORMATION*/
 
 class MenuPage extends React.Component{
-    constructor(props) {
-        super(props);
-    }
     async componentDidMount() {
         const { alphaCode } = this.props.match.params;
         if ((typeof alphaCode !== undefined) && ! this.props.getDataStatus()){
@@ -90,10 +87,11 @@ class MenuPage extends React.Component{
 
 }
 
+/**
+ * Serves as the container for the icons that will serve as buttons to
+ * press in order to progress into that particular subject's flow
+ */
 class IconContainer extends React.Component{
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         if (this.props.button) {
@@ -115,13 +113,16 @@ class IconContainer extends React.Component{
 
 }
 
+/**
+ * External Link to Upendo Honey Website of their choice
+ */
 class ExtraInformationContainer extends React.Component {
     render () {
       return (
         <div className="moreInfo">
           <p id="logoText">Want more information? </p>
           <a href={this.props.retailerLink}>
-            <img id="logo" src={this.props.retailerLogo}/>
+            <img id="logo" src={this.props.retailerLogo} alt="Upendo Honey"/>
           </a>
         </div>
       )

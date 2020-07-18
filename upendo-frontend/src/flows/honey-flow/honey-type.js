@@ -26,7 +26,7 @@ class HoneyTypePage extends React.Component {
     this.setState({redirectMenu: true, redirectHarvest: false});
   }
 
-  async componentDidMount() {
+  async componentDidMount() { /** If arrived through URL, fetch resources */
     const { alphaCode } = this.props.match.params;
     if ((typeof alphaCode !== undefined) && !this.props.getDataStatus()){
         await this.props.setAlphaCode(alphaCode);
@@ -58,7 +58,7 @@ class HoneyTypePage extends React.Component {
             </p>
           </div>
 
-          <img src={this.props.jarPhoto} id="realHoneyJar"/> 
+          <img src={this.props.jarPhoto} id="realHoneyJar" alt="Honey Jar"/> 
           <div id="honeyDescriptionContainer">
             <p id="honeyTypeDescription"> {this.props.honeyDescription} </p>
           </div>
@@ -81,6 +81,10 @@ class HoneyTypePage extends React.Component {
   }
 }
 
+/**
+ * Link Box for adventurous Users that would like to learn more about Honey
+ * Recipes or about other their use in products.
+ */
 class HoneyRecipe extends React.Component {
   
   render() {

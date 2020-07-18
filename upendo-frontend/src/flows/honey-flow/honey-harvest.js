@@ -20,7 +20,7 @@ class HoneyHarvestPage extends React.Component {
       part: "1"}
   }
 
-  swipeLeftHandler() {
+  swipeLeftHandler() { /** This Page contains slides to go through on mobile, increments */
     if (this.state.part === "1") {
       console.log("On Two");
       this.setState({part: "2"});
@@ -32,7 +32,7 @@ class HoneyHarvestPage extends React.Component {
     }
   }
 
-  swipeRightHandler() {
+  swipeRightHandler() { /** This Page contains slides to go through on mobile, decrements */
     if (this.state.part === "1") {
       this.setState({redirectHoneyType: true, redirectHealth: false});
     } else if (this.state.part === "2") {
@@ -42,7 +42,7 @@ class HoneyHarvestPage extends React.Component {
     }
   }
 
-  async componentDidMount() {
+  async componentDidMount() { /** If arrived through URL, fetch resources */
     const { alphaCode } = this.props.match.params;
     if ((typeof alphaCode !== undefined) && !this.props.getDataStatus()){
         await this.props.setAlphaCode(alphaCode);
@@ -104,6 +104,11 @@ class HoneyHarvestPage extends React.Component {
   }
 }
 
+/**
+ * Harvest content contains an explanation on the harvesting practices used
+ * by Upendo Honey in organic Honey harvesting. This Component changes dramatically
+ * in response the screen size.
+ */
 class HarvestContent extends React.Component {
 
   render() {
@@ -114,8 +119,8 @@ class HarvestContent extends React.Component {
     if (this.props.isDesktop) {
       return (
         <div className="harvestContent">
-          <img id="harvest1" className="honeyHarvestImage" src={this.props.harvestPhoto1}/>
-          <img id="harvest2" className="honeyHarvestImage" src={this.props.harvestPhoto2}/>
+          <img id="harvest1" className="honeyHarvestImage" src={this.props.harvestPhoto1} alt="Beekeeper on a branch about to harvest honey"/>
+          <img id="harvest2" className="honeyHarvestImage" src={this.props.harvestPhoto2} alt="Beekeeper walking through Tanzanian Forest"/>
           {part1}
           {part2}
           {part3}
@@ -139,6 +144,9 @@ class HarvestContent extends React.Component {
   }
 }
 
+/**
+ * Text box or snippet describing a honey or Upendo Honey fact
+ */
 class TextPart extends React.Component {
   render () {
     return (
@@ -150,6 +158,9 @@ class TextPart extends React.Component {
   }
 }
 
+/**
+ * Certifications that Upendo Honey has achieved
+ */
 class MedalledImage extends React.Component {
   render () {
     return (

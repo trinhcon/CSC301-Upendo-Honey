@@ -8,8 +8,6 @@ import {Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
 import NextArrow from '../../modules/next-arrow';
 
-import Outline from '../../scripts/mpanda_outline.kml';
-import Beekeeper from '../../images/Beekeeper.png';
 
 
 class TanzaniaMapPage extends React.Component {
@@ -144,10 +142,9 @@ class TanzaniaMap extends React.Component {
 
 
   render() {
-    {/** NOTE Map MUST have a container with an explicit size in CSS */}
     return (
       <div id="tanzaniaForestMapContainer"> 
-        <div id="map" style={this.state.style /** CANNOT REMOVE Google API Requirement */}/>
+        <div id="map" style={this.state.style /** CANNOT REMOVE SIZE STYLING Google API Requirement */}/>
       </div>
     );
   }

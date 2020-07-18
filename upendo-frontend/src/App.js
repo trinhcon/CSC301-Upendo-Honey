@@ -6,7 +6,7 @@ import BeekeeperMessagePage from "./flows/beekeeper-flow/beekeeper-message";
 import BeekeeperLetterPage from "./flows/beekeeper-flow/beekeeper-letter";
 import MenuPage from "./flows/menu";
 import { retrieveBeekeeper, retrieveBatchMember, retrieveBatch, retrieveForest, retrieveHoney} from "./modules/api-calls";
-import { Beekeeper, Honey, Health, Harvest, Forest, CarbonInformation} from "./content";
+import { Beekeeper, Honey, Health, Harvest, Forest /*, CarbonInformation*/} from "./content";
 
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./landing-page.css";
@@ -21,7 +21,7 @@ class App extends React.Component {
     super(props);
     console.log("A new change")
     this.state = {alphacode: 'PUREJOY', batchMember: {}, beekeeper: {}, honey: {}, forest: {}, dataStatus: false};
-    this.testFrontEnd = true; /* True retrieves data locally instead of from backend*/
+    this.testFrontEnd = false; /* True retrieves data locally instead of from backend*/
     this.getData = this.getData.bind(this);
     this.getAlphaCode = this.getAlphaCode.bind(this);
     this.setAlphaCode = this.setAlphaCode.bind(this);
@@ -45,6 +45,14 @@ class App extends React.Component {
     console.log("done");
   }
 
+  /**
+   * This function fetches data from backend REST apis using the alphanumeric
+   * code that is required for a user to progress through the promotional App
+   * Information that is pulled using that code is then passed down to child
+   * components, each of which represents a separate section or flow of the
+   * App. Information is only fetched once per visit. (Re-entering the
+   * URL constitutes another visit)
+   */
   async retrieveAppData(){
     console.log("retrieving app data");
     console.log(this.state);
@@ -83,7 +91,12 @@ class App extends React.Component {
 
   }
 
-
+  /**
+   * This function populates each state in the App.JS Component using the
+   * information retrieved from the backend.
+   * @param {*} code; Code that the user inputs into the URL or input bar
+   * @param {*} batchMemberData; MemberData that is fetched from backend server  
+   */
   async getData(code, batchMemberData) {
     // Retrieves all the required data from the backend
     const batchData = await retrieveBatch("/api/v1/batches/" + batchMemberData.batch + '/');
@@ -108,6 +121,16 @@ class App extends React.Component {
 
   render() {
     return (
+      /**
+       * Each Route Below symbolizes another page in the overal promotional
+       * application, each prop that is passed down is either
+       * fetched or is static data. Each possesses ":alphacode" which is
+       * the alphanumeric code entered by the user that is used to distinguish
+       * the content that is presented to the users
+       * 
+       * Functions to modify App Component state are also passed down.
+       * 
+       */
       <Router>
         <Switch>
           <Route path = "/app/:alphaCode/menu" render = {(props) => (

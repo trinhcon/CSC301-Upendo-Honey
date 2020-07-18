@@ -37,7 +37,7 @@ class NavIconContainer extends React.Component {
         return (
             <div className={"navContainer " + this.props.style} id={this.props.id}>
                 <Link to={this.props.nextPage}>
-                  <img className={"navImage"} src={this.props.iconSrc}/>
+                  <img className={"navImage"} src={this.props.iconSrc} alt="Navigation Icon"/>
                 </Link>
             </div>
         )

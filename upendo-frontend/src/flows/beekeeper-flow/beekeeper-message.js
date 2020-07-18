@@ -6,8 +6,8 @@ import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
 import FlowProgressBar from '../../modules/progress-bar';
 
-import { useSwipeable, Swipeable } from 'react-swipeable';
-import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import { Swipeable } from 'react-swipeable';
+import { Redirect } from "react-router-dom";
 import MediaQuery from 'react-responsive';
 import NextArrow from '../../modules/next-arrow';
 
@@ -27,7 +27,7 @@ class BeekeeperMessagePage extends React.Component {
         this.setState({redirectLetter: true, redirectMenu: false})
     }
 
-    async componentDidMount() {
+    async componentDidMount() { /** If arrived through URL, fetch resources */
         const { alphaCode } = this.props.match.params;
         if ((typeof alphaCode !== undefined) && !this.props.getDataStatus()){
             await this.props.setAlphaCode(alphaCode);
@@ -65,9 +65,14 @@ class BeekeeperMessagePage extends React.Component {
     }
 }
 
+/**
+ * The Form which contains the message email that allows for the user to 
+ * send their personaliized message back to Upendo Honey
+ */
 class MessageForm extends React.Component {
     constructor(props) {
         super(props);
+        /** State necessary to send the email, all properties of EmailJS */
         this.state = {email: '', message: '', name: '', serviceID: 'sendgrid', templateID: 'test', userID: 'user_cTGmCITtt4QvUtVoNpigA'};
         this.handleFormSubmission = this.handleFormSubmission.bind(this);
         this.handleEmailInput = this.handleEmailInput.bind(this);
@@ -75,7 +80,7 @@ class MessageForm extends React.Component {
         this.handleNameInput = this.handleNameInput.bind(this);
     }
 
-    handleFormSubmission (e) {
+    handleFormSubmission (e) { /** Email JS form interaction handler on submission */
         e.preventDefault();
         emailjs.sendForm(this.state.serviceID, this.state.templateID, e.target, this.state.userID)
         .then((result) => {
@@ -101,7 +106,7 @@ class MessageForm extends React.Component {
         this.setState({message: e.target.value});
     }
 
-    render () {
+    render () { /** Email JS Form */
         return (
             <div id="formBox">
                 <form onSubmit={this.handleFormSubmission} className="contactForm">

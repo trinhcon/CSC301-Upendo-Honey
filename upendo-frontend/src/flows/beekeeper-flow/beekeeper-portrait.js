@@ -4,8 +4,8 @@ import "./beekeeper-portrait.css";
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
 import FlowProgressBar from '../../modules/progress-bar';
-import { useSwipeable, Swipeable } from 'react-swipeable';
-import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import { Swipeable } from 'react-swipeable';
+import { Redirect } from "react-router-dom";
 import MediaQuery from 'react-responsive';
 import NextArrow from '../../modules/next-arrow';
 
@@ -27,7 +27,7 @@ class BeekeeperPage extends React.Component {
     this.setState({redirectLetter: false, redirectMenu: true})
   }
 
-  async componentDidMount() {
+  async componentDidMount() { /** If arrived through URL, fetch resources */
     const { alphaCode } = this.props.match.params;
     if ((typeof alphaCode !== undefined) && ! this.props.getDataStatus()){
         console.log("AlphaCode is:");
@@ -56,7 +56,8 @@ class BeekeeperPage extends React.Component {
               <NextArrow nextPage={'/app/' + this.props.getAlphaCode() +'/menu'} direction="left"/>
               
             </MediaQuery>
-            <BeekeeperPortrait beekeeperName={this.props.beekeeperName}
+            
+            <BeekeeperPortrait beekeeperName={this.props.beekeeperName} /** Beekeeper Information */
               imageURL={this.props.imageURL}/>
             <BeekeeperDescriptionContainer
               content={this.props.beekeeperDescription}/>
@@ -67,16 +68,16 @@ class BeekeeperPage extends React.Component {
   }
 }
 
+/**
+ * Just a portrait of the beekeeper along with a message about the beekeeper
+ */
 class BeekeeperPortrait extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
       <div className="portrait">
         <div className="portraitShape" >
-          <img className="portraitImage" src={this.props.imageURL}/>
+          <img className="portraitImage" src={this.props.imageURL} alt="Beekeeper Portrait"/>
         </div>
        <figcaption className="portraitCaption">
         {this.props.beekeeperName}
@@ -86,10 +87,11 @@ class BeekeeperPortrait extends React.Component {
   }
 }
 
+/**
+ * Description of the beekeeper written by Upendo to describe what their
+ * life is like
+ */
 class BeekeeperDescriptionContainer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
