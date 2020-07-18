@@ -1,17 +1,5 @@
  ## Deployment and Github Workflow
 
-### Requirements:
-
-```
-Describe your Git / GitHub workflow. Essentially, we want to understand how your team members shares a codebase, avoid conflicts and deploys the application.
-
- * Be concise, yet precise. For example, "we use pull-requests" is not a precise statement since it leaves too many open questions - Pull-requests from where to where? Who reviews the pull-requests? Who is responsible for merging them? etc.
- * If applicable, specify any naming conventions or standards you decide to adopt.
- * Describe your overall deployment process from writing code to viewing a live applicatioon
- * What deployment tool(s) are you using and how
- * Don't forget to **briefly explain why** you chose this workflow or particular aspects of it!
- ```
-
  ### How Do We Deploy?
 
  An overview of the deployment workflow was provided in the [main README](../../README.md).
@@ -100,7 +88,7 @@ Describe your Git / GitHub workflow. Essentially, we want to understand how your
 
 ### How We can Improve
 
-* We believe this worfklow achieves a balance between speed and stability (e.g. master branch + Git tags), and via security and usability (e.g. storing API keys securely + one-click production deployments).
+* We believe this workflow achieves a balance between speed and stability (e.g. master branch + Git tags), and via security and usability (e.g. storing API keys securely + one-click production deployments).
 * We've also accomplished this without using any paid functionality
 * The main downside of this flow is that to leverage the functionality without paying any fees, we had to use three different tools (Heroku, CircleCI, Github Actions)
 * If we had a larger budget, we could centralize functionality in a single service to make it easier for new developers to onboard
