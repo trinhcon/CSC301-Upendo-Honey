@@ -160,7 +160,7 @@ class BulletPoints extends React.Component {
 class TextPart extends React.Component {
   render () {
     return (
-      <div id={this.props.partId} className="textPart">
+      <div id={this.props.partId} className="textPartHealth">
         <p>{this.props.description}</p>
         {!this.props.isDesktop && <p className="textPartInstructions">Swipe Me!</p>}
       </div>

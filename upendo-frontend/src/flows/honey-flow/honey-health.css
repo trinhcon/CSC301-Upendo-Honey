@@ -100,10 +100,9 @@
         grid-area: honey2;
     }
 
-    .textPart {
+    .textPartHealth {
         grid-area: text;
         text-align: center;
-        font-size: 12px;
     }
 
     #switchTextHealth{
@@ -145,6 +144,7 @@
 
     .healthFact {
         width: 40%;
+        font-size: 14px;
     }
 
     #healthPart1 {
