@@ -1,18 +1,13 @@
 import React from 'react';
 import "./footer.css";
-import MediaQuery from 'react-responsive';
-import NavigationIcon from './navigation-icons.js';
-import MovingBee from '../images/pattern.png';
 
 class FlowFooter extends React.Component {
-  constructor(props) {
-    super(props);
     /* props.content content of the footer, can be empty string */
     /* props.footerClass is the class to style the footer */
     /*  */
-  }
 
   render() {
+    /** Render Footer with specified style */
     if (this.props.isMenu) {
       return (
         <footer className={this.props.footerClass + " menuFooter"}>

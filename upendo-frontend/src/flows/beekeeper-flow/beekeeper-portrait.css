@@ -12,8 +12,8 @@
   height: 100vh;
   font-family: 'Nunito', sans-serif;
 
-  --portraitHeight:400px;
-  --portraitWidth:400px;
+  --portraitHeight:300px;
+  --portraitWidth:300px;
 }
 
 .progressBar {
@@ -29,6 +29,7 @@
 
 .portrait {
   grid-area: portrait;
+  padding: 20px;
 }
 
 .portraitShape {
@@ -63,13 +64,13 @@
   grid-area: description;
   background-image: url(../../images/beekeeper-frame.png);
   background-repeat: no-repeat;
-  background-size: 400px 350px;
+  background-size: 400px 300px;
   margin: 10px;
 }
 
 .description {
   width: 300px;
-  font-size: 14pt;
+  font-size: 12pt;
   font-family: Oxygen, sans-serif;
   padding-left: 4px;
   margin-left: 10%;

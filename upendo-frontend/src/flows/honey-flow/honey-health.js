@@ -48,7 +48,7 @@ class HoneyHealthPage extends React.Component {
     }
   }
 
-  async componentDidMount() {
+  async componentDidMount() { /** If arrived through URL, fetch resources */
     const { alphaCode } = this.props.match.params;
     if ((typeof alphaCode !== undefined) && !this.props.getDataStatus()){
         await this.props.setAlphaCode(alphaCode);
@@ -108,6 +108,10 @@ class HoneyHealthPage extends React.Component {
   }
 }
 
+/**
+ * Body Section of the page, contains pictures and information about
+ * Honey
+ */
 class HoneyContent extends React.Component {
   render() {
     const part1 = <TextPart partId="healthPart1" description={this.props.healthDescription.slice(0, 1)} isDesktop={this.props.isDesktop}/>;
@@ -117,8 +121,8 @@ class HoneyContent extends React.Component {
     if (this.props.isDesktop) {
       return (
         <div className="honeyContent">
-          <img id="honey1" className="honeyHealthImage" src={this.props.honeyPhoto1}/>
-          <img id="honey2" className="honeyHealthImage" src={this.props.honeyPhoto2}/>
+          <img id="honey1" className="honeyHealthImage" src={this.props.honeyPhoto1} alt="Honey Comb Close-up"/>
+          <img id="honey2" className="honeyHealthImage" src={this.props.honeyPhoto2} alt="Honey Comb held towards sun"/>
           {this.props.part === "1" ? part1 : part3}
           <button id="switchTextHealth" onClick={this.props.clickHandler}>
             {this.props.part === "1" ? "Click for more info" : "Go Back"}</button>
@@ -128,7 +132,7 @@ class HoneyContent extends React.Component {
     } else {
       return (
         <div className="honeyContent">
-          <img id="honey1" className="honeyHealthImage" src={this.props.honeyPhoto1}/>
+          <img id="honey1" className="honeyHealthImage" src={this.props.honeyPhoto1} alt="Honey Comb Close-up"/>
           {this.props.part === "1" && part1}
           {this.props.part === "2" && bulletPoints}
           {this.props.part === "3" && part3}
@@ -138,6 +142,9 @@ class HoneyContent extends React.Component {
   }
 }
 
+/**
+ * List of Honey Facts
+ */
 class BulletPoints extends React.Component {
   
   render() {
@@ -160,7 +167,7 @@ class BulletPoints extends React.Component {
 class TextPart extends React.Component {
   render () {
     return (
-      <div id={this.props.partId} className="textPart">
+      <div id={this.props.partId} className="textPartHealth">
         <p>{this.props.description}</p>
         {!this.props.isDesktop && <p className="textPartInstructions">Swipe Me!</p>}
       </div>

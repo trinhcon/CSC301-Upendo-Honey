@@ -19,12 +19,13 @@
   grid-area: letter;
   justify-self: center;
   align-self: center;
+  margin-top: -30px;
 }
 
 #letterFrame {
   background-color: black;
   position: relative;
-  height: 333px;
+  height: 270px;
   width: 500px;
   text-align: center;
 }
@@ -83,7 +84,7 @@ figure > figcaption {
   padding-left: 20%;
   padding-right: 20%;
   height: auto;
-  font-size: 16pt;
+  font-size: 12pt;
   border-top: 5px solid rgb(97, 57, 30);
   border-bottom: 5px solid rgb(97, 57, 30);
   background-color: rgb(223, 211, 204);

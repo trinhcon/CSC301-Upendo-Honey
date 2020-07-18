@@ -4,12 +4,16 @@ import "./beekeeper-letter.css";
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
 import FlowProgressBar from '../../modules/progress-bar';
-import { useSwipeable, Swipeable } from 'react-swipeable';
-import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import { Swipeable } from 'react-swipeable';
+import { Redirect } from "react-router-dom";
 import MediaQuery from 'react-responsive';
 import NextArrow from '../../modules/next-arrow';
 
 
+/**
+ * Beekeeper Flow passed Beekeeper Picture, Letter Picture,
+ * Beekeeper Description and Translation Description
+ */
 class BeekeeperLetterPage extends React.Component {
     constructor(props) {
         super(props);
@@ -19,15 +23,15 @@ class BeekeeperLetterPage extends React.Component {
             redirectMessage: false};
     }
 
-    swipeLeftHandler(eventData){
+    swipeLeftHandler(eventData){ /** Redirect to the Next Page */
         this.setState({redirectMessage: true, redirectPortrait: false});
     }
 
-    swipeRightHandler(eventData){
+    swipeRightHandler(eventData){ /** Redirect to the Menu */
         this.setState({redirectMessage: false, redirectPortrait: true});
     }
 
-    async componentDidMount() {
+    async componentDidMount() { /** If arrived through URL, fetch resources */
         const { alphaCode } = this.props.match.params;
         if ((typeof alphaCode !== undefined) && !this.props.getDataStatus()){
             await this.props.setAlphaCode(alphaCode);
@@ -67,27 +71,29 @@ class BeekeeperLetterPage extends React.Component {
     };
 }
 
+/**
+ * Photo written by the beekeeper placed in a div container and 
+ * surrounded by borders
+ */
 class LetterPhoto extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render () {
         return (
             <figure id="letterContainer">
                 <figcaption>...from your beekeeper</figcaption>
                 <div id="letterFrame">
-                    <img src={this.props.letter}></img>
+                    <img src={this.props.letter} alt="Beekeeper Letter"></img>
                 </div>
             </figure>
         )
     }
 }
 
+/**
+ * Translated description of the beekeeper letter encapsulated in
+ * it's on section
+ */
 class Translation extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render () {
         return (

@@ -106,7 +106,7 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        font-size: 16pt;
+        font-size: 12pt;
         border-top: 5px solid rgb(228, 181, 28);
         border-bottom: 5px solid rgb(228, 181, 28);
     }
@@ -126,7 +126,7 @@
         grid-area: description;
         padding: 20px;
         text-align: center;
-        font-size: 16pt;
+        font-size: 12pt;
 
         /*background-image: linear-gradient(rgba(175, 175, 175, 0.3), rgba(255, 255, 255, 0.3));*/
     }
