@@ -29,6 +29,7 @@
 
 .portrait {
   grid-area: portrait;
+  padding: 20px;
 }
 
 .portraitShape {

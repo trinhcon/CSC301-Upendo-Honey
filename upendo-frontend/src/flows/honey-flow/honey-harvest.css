@@ -98,8 +98,8 @@
         grid-template-columns: 1fr 1fr 1fr ;
         grid-template-rows: 1fr 1fr;
         grid-template-areas:
-            "harvest1 part1 medalBar"
-            "part2 harvest2 part3";
+            "harvest1 part1 harvest2"
+            "part2 medalBar part3";
 
         grid-gap: 20px;
         width: 100%;
@@ -123,8 +123,9 @@
 
     #part1 {
         grid-area: part1;
-        text-align: right;
+        text-align: center;
         border-right: 7px solid rgb(41, 131, 14);
+        border-left: 7px solid rgb(41, 131, 14);
         align-self: center;
         height: auto;
     }
@@ -140,17 +141,15 @@
     #part3 {
         grid-area: part3;
         text-align: center;
-        justify-self: center;
         width: 80%;
     }
 
     .textPartHarvest {
         padding: 10px;
-        font-size: 1em;
+        font-size: 14px;
     }
 
     .medalsBar {
-        align-self: end;
         justify-self: end;
         display: flex;
         flex-flow: row;
