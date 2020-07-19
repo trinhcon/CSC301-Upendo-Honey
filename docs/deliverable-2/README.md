@@ -459,4 +459,5 @@ For details on the frontend requirements, see [package.json](../../upendo-fronte
  good practice to do so too. They quite literally said there was not much
  other reason.
  
+ The Licence can be found at: https://github.com/csc301-summer-2020/team-project-3-upendo-honey/LICENSE.md
 
