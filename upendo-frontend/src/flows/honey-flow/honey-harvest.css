@@ -30,7 +30,7 @@
         border: 5px solid rgb(228, 181, 28);
     }
 
-    .textPart {
+    .textPartHarvest {
         padding: 10px;
         text-align: center;
 
@@ -140,8 +140,10 @@
     
     #part3 {
         grid-area: part3;
-        text-align: center;
-        width: 80%;
+        text-align: right;
+        align-self: center;
+        border-right: 7px solid rgb(41, 131, 14);
+        height: auto;
     }
 
     .textPartHarvest {

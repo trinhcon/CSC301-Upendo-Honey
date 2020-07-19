@@ -16,7 +16,7 @@ For detailed requirements on setting up your local development environment and d
 
 ## Running the application and developing locally (with Docker, recommended)
 
-Docker is used to create a consistent development environment. At the time of timing, docker is not used in the deployment process.
+Docker is used to create a consistent development environment. At the time of writing, docker is not used in the deployment process.
 
 1. [Install docker](https://docs.docker.com/engine/install/)
 
@@ -71,7 +71,7 @@ If you're new to Django, please [read about how migrations work](https://docs.dj
 
 ## Running the application and developing locally (without Docker)
 
-*caveat: Please only use this flow if you're having trouble with Docker on your machine. Ashwin has tried this out, but has not put a lot of time into it as he was focussing on the Docker flow. Please update the readme if you find that it does not work.*
+*Caveat: Please only use this flow if you're having trouble with Docker on your machine. Ashwin has tried this out, but has not put a lot of time into it as he was focusing on the Docker flow. Please update the readme if you find that it does not work.*
 
 _WARNING_: Please double and triple check your code works as expected on the staging server if you go this route, as your environment might not align with Heroku's.
 
