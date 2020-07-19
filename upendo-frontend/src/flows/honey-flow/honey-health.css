@@ -45,6 +45,22 @@
         border: 5px solid rgb(228, 181, 28);
     }
 
+    .listContainer {
+        width: 100%;
+        padding: 10px;
+        border-top: 10px solid rgb(41, 131, 14);
+        border-bottom: 10px solid rgb(41, 131, 14);
+
+    }
+
+    .textPartHealth {
+        padding: 10px;
+        text-align: center;
+
+        border-top: 10px solid rgb(41, 131, 14);
+        border-bottom: 10px solid rgb(41, 131, 14);
+    }
+
     .textPartInstructions {
         font-size: 12pt;
         background-image: linear-gradient(to right, white, rgb(175, 174, 174), white);
