@@ -139,7 +139,7 @@ class App extends React.Component {
               beekeeperFirstPage={"/app/" + this.getAlphaCode() + "/beekeeper"}
               environmentFirstPage={"/app/" + this.getAlphaCode() + "/menu"}
               honeyFirstPage={"/app/" + this.getAlphaCode() + "/honey-type"}
-              tanzaniaFirstPage={"/app/" + this.getAlphaCode() + "/menu"}
+              tanzaniaFirstPage={"/app/" + this.getAlphaCode() + "/tanzania-map"}
               retailerLink={this.state.batchMember.external_url}
               retailerLogo={this.state.batchMember.logo}
               getAlphaCode={this.getAlphaCode}
@@ -159,7 +159,17 @@ class App extends React.Component {
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
 
-                headerName = {this.testFrontEnd ? Forest.forestName : this.state.forest.title}
+                headerName={this.testFrontEnd ? Forest.forestName : this.state.forest.title}
+                mapConfig={{
+                  center: {
+                    lat: -5.530581224999935,     /** Tanzania Coordinates */
+                    lng: 31.674771946000078
+                  },
+                  zoom: 8,
+                  mapTypeId: 'satellite',
+                }}
+
+                mapKML={this.state.forest.map_kml}
               />
             )}
           />

@@ -1,6 +1,7 @@
 .arrowContainer {
     background-image: linear-gradient(to-right, white, rgb(36, 35, 35));
     align-self: center;
+    height: 300px;
 }
 
 .arrowImg {

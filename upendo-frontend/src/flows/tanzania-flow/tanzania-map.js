@@ -56,7 +56,11 @@ class TanzaniaMapPage extends React.Component {
             <h3 id="mapDescription">This is where your honey is from!</h3>
             <p id="mapInstructions">Click around to explore...</p>
           </div>
-          <TanzaniaMap></TanzaniaMap>
+          <TanzaniaMap
+            mapConfig={this.props.mapConfig}
+            mapKML={this.props.mapKML}
+            >
+          </TanzaniaMap>
 
           <MediaQuery minDeviceWidth={"600px"}>
             <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/tanzania-forest'} direction="right"/>
@@ -78,25 +82,10 @@ class TanzaniaMap extends React.Component {
   constructor(props) {
     super(props);
     this.getGoogleMap = this.getGoogleMap.bind(this);
-    //this.kmlApiHandler = this.kmlApiHandler.bind(this);
-    this.state = {
-      center: {
-        lat: -5.530581224999935,     /** Tanzania Coordinates */
-        lng: 31.674771946000078
-      },
-      zoom:8 ,               /** Map Zoom */
-      map: null,
-      kml: null,
-      style: {
-        width: '300px',
-        height: '300px',
-      }
-    }
-    this.src = '../../scripts/mpanda_outline.kml';
-    this.map = <div id="map"/>;
-
+    this.state = {map: null, kml: null};
   }
 
+  /** Google map is either made or retrieved */
   getGoogleMap() {
     if (!this.googleMapsPromise) {
       this.googleMapsPromise = new Promise((resolve) => {
@@ -117,25 +106,24 @@ class TanzaniaMap extends React.Component {
     return this.googleMapsPromise;
   }
 
+  /** Triggers function which imports the API and returns the Promise */
   componentWillMount() {
     this.getGoogleMap();
   }
 
+  /** If mounting, create the google map from the api*/
   componentDidMount() {
     this.getGoogleMap().then((google) => {
-      console.log("Google:", google);
-      console.log(this.state);
-      var map = new google.maps.Map(document.getElementById("map"), {
-        center: this.state.center,
-        zoom: this.state.zoom,
-      });
+      var map = new google.maps.Map(document.getElementById("map"), this.props.mapConfig);
       
       /** KML file MUST be available publicly to google, local files do not work */
-      var kml = new google.maps.KmlLayer("https://a.uguu.se/LBfGWbiu1V22_mpanda_outline.kml", {
+      var kml = new google.maps.KmlLayer(this.props.mapKML , {
         suppressInfoWindows: true,
         preserveViewport: false,
         map: map
       });
+
+      /** Saves map & kml if neccessary for future manipulations */
       this.setState({map: map, kml: kml});
     });
   }
@@ -144,7 +132,7 @@ class TanzaniaMap extends React.Component {
   render() {
     return (
       <div id="tanzaniaForestMapContainer"> 
-        <div id="map" style={this.state.style /** CANNOT REMOVE SIZE STYLING Google API Requirement */}/>
+        <div id="map"/>
       </div>
     );
   }
