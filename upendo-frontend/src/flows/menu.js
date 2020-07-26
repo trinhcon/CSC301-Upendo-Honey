@@ -1,14 +1,23 @@
 import React from 'react';
-
 import './menu.css';
+
+// Import Modules
 import FlowFooter from '../modules/footer';
 import FlowHeader from '../modules/header';
-import MediaQuery from 'react-responsive';
 import NavigationIcon from '../modules/navigation-icons.js';
 
-/*CHANGE APP.JS TO PASS IN RETAILER INFORMATION*/
+// React librairies
+import MediaQuery from 'react-responsive';
 
+/** Menu page is the navigation main page after
+ * entering in a code.  Has four different icons that
+ * link to the different informative flows.
+ */
 class MenuPage extends React.Component{
+    /** Contains two different formats for mobile and desktop
+     * Mobile is laid out using a 3x3 grid
+     * Desktop is laid out using CSS Grid */
+
     async componentDidMount() {
         const { alphaCode } = this.props.match.params;
         if ((typeof alphaCode !== undefined) && ! this.props.getDataStatus()){
@@ -28,7 +37,7 @@ class MenuPage extends React.Component{
                 headerClass="greenStripMenu"
                 textStyle="menuText"
                 content="Click an Icon to Discover More!"/>
-                <MediaQuery minDeviceWidth="1000px">
+                <MediaQuery minDeviceWidth="600px">
                     <IconContainer button={true} 
                         nextPage={this.props.environmentFirstPage}
                         icon="environment"
@@ -50,7 +59,7 @@ class MenuPage extends React.Component{
                         id="icon4"
                     />
                 </MediaQuery>
-                <MediaQuery maxDeviceWidth="1000px" >
+                <MediaQuery maxDeviceWidth="600px" >
                 <div id="iconGrid">
                     <IconContainer button={false} />
                     <IconContainer button={true} 
@@ -78,8 +87,7 @@ class MenuPage extends React.Component{
                 <ExtraInformationContainer
                 retailerLink={this.props.retailerLink}
                 retailerLogo={this.props.retailerLogo}/>
-                <FlowFooter content="This is the Footer" footerClass='patternedFooter'
-                isMenu={true}/>
+                <FlowFooter footerClass='patternedFooter'/>
             </div>
         )
  
@@ -88,7 +96,7 @@ class MenuPage extends React.Component{
 }
 
 /**
- * Serves as the container for the icons that will serve as buttons to
+ * Serves as the container for the icons which are buttons to
  * press in order to progress into that particular subject's flow
  */
 class IconContainer extends React.Component{
@@ -105,7 +113,6 @@ class IconContainer extends React.Component{
         } else {
             return (
                 <div className="iconButtonEmpty">
-                    <p>bye</p>
                 </div>
             );
         }

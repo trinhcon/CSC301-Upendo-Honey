@@ -13,6 +13,7 @@
     transform: scale(1.1, 1.1);
 }
 
+/* aligns differently based on left and right */
 .left {
     grid-area: leftArrow;
     justify-self: start;

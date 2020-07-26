@@ -1,12 +1,10 @@
-/* Desktop */
+/* Both */
 .navContainer {
     margin: 10px;
     background-image: linear-gradient(white, rgb(207, 203, 203));
     border: 3px solid rgb(194, 158, 12);
     border-radius: 50%;
-
     text-align: center;
-    z-index: 2;
 }
 
 
@@ -19,21 +17,7 @@
     width: 90%;
 }
 
-.navContainer:hover {
-    transform: scale(1.2, 1.2);
-}
-
-/* Previous Navigation Styles 
-.footer {
-    height: 90px;
-    width: 90px;
-}
-*/
-
 .menu {
-    z-index: 5;
-    width: 180px;
-    height: 180px;
     display: flex;
 
     justify-self: center;
@@ -43,11 +27,22 @@
 }
 
 /* Mobile */
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 600px) {
     .menu{
-        z-index: 5;
-        width: 90px;
-        height: 90px;
-        margin: 0px;
+      width: 90px;
+      height: 90px;
+      margin: 0px;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width: 600px) {
+    .navContainer:hover {
+        transform: scale(1.2, 1.2);
+    }
+    
+    .menu {
+        width: 180px;
+        height: 180px;
     }
 }

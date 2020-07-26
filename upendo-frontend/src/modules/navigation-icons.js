@@ -1,12 +1,18 @@
 import React from 'react';
 import "./navigation-icons.css";
+
+// Loads the images
 import Map from "../images/map.png";
 import CO2 from "../images/CO2.png";
 import Beekeeper from "../images/Beekeeper.png"
 import Honey from "../images/honey.png";
+// For linking to the next page
 import { Link } from 'react-router-dom';
 
+/** Navigation icon class for the menu page
+ * Chooses one of several predetermined icons **/
 class NavigationIcon extends React.Component {
+    /**Chooses the icon source based on the flow name provided*/
     render () {
         if (this.props.icon === "tanzania") {
             return (<NavIconContainer iconSrc={Map}
@@ -32,7 +38,10 @@ class NavigationIcon extends React.Component {
     }
 }
 
+// General navigation icon container class
 class NavIconContainer extends React.Component {
+    /* this.props.style determines a specific sizing or border style other than default*/
+    /* this.props.id allows styling of a specific icon*/
     render () {
         return (
             <div className={"navContainer " + this.props.style} id={this.props.id}>

@@ -1,3 +1,22 @@
+/* Both */
+#tanzaniaForestMapContainer {
+  border: 3px solid green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#map {
+  width: 99%;
+  height: 98%;
+  border: 5px solid rgb(228, 181, 28);
+}
+
+#mapInstructions {
+  align-self: center;
+}
+
 /*Mobile*/
 @media only screen and (max-width: 600px) {
   .mapPage {
@@ -20,31 +39,12 @@
     align-self: center;
   }
   
-  #mapInstructions {
-    align-self: center;
-  }
   #tanzaniaForestMapContainer {
     width: 95%;
     height: 50%;
-    border: 3px solid rgb(228, 181, 28);
     align-self: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   
-  
-  
-  #outline {
-    height:50px;
-    width:50px;
-  }
-  
-  #map {
-    width: 97%;
-    height: 97%;
-    border: 5px solid green;
-  }
 }
 
 /*Desktop*/
@@ -79,10 +79,6 @@
     align-self: center;
     border-bottom: 5px solid green;
   }
-  
-  #mapInstructions {
-    align-self: center;
-  }
 
   #tanzaniaForestMapContainer {
     grid-area: map;
@@ -90,23 +86,7 @@
     align-self: center;
     width: 90%;
     height: 90%;
-    border: 3px solid rgb(228, 181, 28);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  
-  
-  #outline {
-    height:50px;
-    width:50px;
-  }
-  
-  #map {
-    width: 99%;
-    height: 98%;
-    border: 5px solid green;
+    
   }
 }
 

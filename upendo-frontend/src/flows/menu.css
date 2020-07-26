@@ -1,19 +1,4 @@
-/* Desktop */
-#menuPage {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 2fr 2fr auto;
-    grid-template-areas:
-        "header header header header header header header"
-        ".icon1 . icon2 . logo logo"
-        ". .icon3 . icon4 . ."
-        "footer footer footer footer footer footer footer";
-    height: 100vh;
-    width: 100vw;
-    background-color: #FCFFF3;
-    font-family: Oxygen, sans-serif;
-}
-
+/*Both, external logo styling*/
 .moreInfo {
     grid-area: logo;
 
@@ -29,86 +14,85 @@
     width: 70%;
     align-self: center;
     border-radius: 25px;
-    background-color: rgba(143, 142, 142, 0.8);
-    
-  }
+    background-color: rgba(143, 142, 142, 0.8);    
+}
   
-  #logoText {
+#logoText {
     margin: 5px;
     color: white;
     font-size: 14pt;
-  }
-  
-  #logo {
+}
+
+#logo {
     margin: 20px;
     height: 80px;
     width: 80px;
     border-radius: 50%;
-  }
+}
   
-  #logo:hover {
+/* Desktop */
+@media only screen and (min-width: 600px) {
+    #menuPage {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 2fr 2fr auto;
+        grid-template-areas:
+            "header header header header header header header"
+            ".icon1 . icon2 . logo logo"
+            ". .icon3 . icon4 . ."
+            "footer footer footer footer footer footer footer";
+        height: 100vh;
+        width: 100vw;
+        background-color: #FCFFF3;
+        font-family: Oxygen, sans-serif;
+    }
+
+    #logo:hover {
     transform: scale(1.2, 1.2);
-  }
+    }
 
+    #icon1 {
+        grid-area: icon1;
+    }
 
-#icon1 {
-    grid-area: icon1;
-}
+    #icon2 {
+        grid-area: icon2;
+    }
 
-#icon2 {
-    grid-area: icon2;
-}
+    #icon3 {
+        grid-area: icon3;
+    }
 
-#icon3 {
-    grid-area: icon3;
-}
-
-#icon4 {
-    grid-area: icon4;
-}
-
-.iconButtonEmpty {
-    width: 120px;
-    height: 120px;
-    opacity: 0;
-}
-
-#honeyJar {
-    grid-area: jar;
-
-    margin: 20px;
-    width: 400px;
-    height: 400px;
-    /**background-image;*/
+    #icon4 {
+        grid-area: icon4;
+    }
 }
 
 /*Mobile*/
-@media only screen and (max-width: 1000px) {
-
-    /**Mobile Design**/
+@media only screen and (max-width: 600px) {
     #menuPage {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: #FCFFF3;
-    font-family: Oxygen, sans-serif;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        background-color: #FCFFF3;
+        font-family: Oxygen, sans-serif;
     }
 
     #iconGrid {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    width: 270px;
-    height: 270px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        width: 270px;
+        height: 270px;
     }
 
     .iconButtonEmpty {
-    width: 90px;
-    height: 90px;
-    opacity: 0px;
+        width: 90px;
+        height: 90px;
+        opacity: 0;
     }
 
     .moreInfo {

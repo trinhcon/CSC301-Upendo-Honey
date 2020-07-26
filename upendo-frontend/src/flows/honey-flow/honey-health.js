@@ -1,54 +1,73 @@
 import React from 'react';
-
 import "./honey-health.css";
+
+// Modules
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
 import FlowProgressBar from '../../modules/progress-bar';
+import NextArrow from '../../modules/next-arrow';
+
+// React librairies
 import {Swipeable } from 'react-swipeable';
 import { Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
-import NextArrow from '../../modules/next-arrow';
 
+/**
+ * This page contains health information about the honey.
+ * Information about the health of honey and associated images
+ * passed in hardcoded from the Content.js file.
+ */
 class HoneyHealthPage extends React.Component {
   constructor(props) {
     super(props);
     this.swipeLeftHandler = this.swipeLeftHandler.bind(this);
     this.swipeRightHandler = this.swipeRightHandler.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
-    this.state = {redirectMenu: false, redirectHarvest: false, part: "1"}
+    this.state = {redirectMenu: false, redirectHarvest: false, slide: 0}
   }
 
-  swipeLeftHandler() {
-    if (this.state.part === "1") {
-      console.log("On Two");
-      this.setState({part: "2"});
-    } else if (this.state.part === "2") {
-      console.log("On Three")
-      this.setState({part: "3"});
-    } else {
+  swipeLeftHandler() { /** This Page contains slides to go through on mobile, increments */
+    if (this.state.slide === 2) {
       this.setState({redirectMenu: true, redirectHarvest: false});
+    } else {
+      this.setState((state) => {
+        return ({
+          slide: state.slide + 1
+        });
+      });
     }
   }
 
-  swipeRightHandler() {
-    if (this.state.part === "1") {
+  swipeRightHandler() { /** This Page contains slides to go through on mobile, decrements */
+    if (this.state.slide === 0) {
       this.setState({redirectMenu: false, redirectHarvest: true});
-    } else if (this.state.part === "2") {
-      this.setState({part: "1"});
     } else {
-      this.setState({part: "2"});
+      this.setState((state) => {
+        return ({
+          slide: state.slide - 1
+        });
+      });
     }
   }
 
-  clickHandler() {
-    if (this.state.part === "1") {
-      this.setState({part: "2"});
+  clickHandler() { /** This function switches between two states 0 and 1 for desktop */
+    if (this.state.slide === 0) {
+      this.setState((state) => {
+        return ({
+          slide: state.slide + 1
+        });
+      });
     } else {
-      this.setState({part: "1"});
+      this.setState((state) => {
+        return ({
+          slide: state.slide - 1
+        });
+      });
     }
   }
 
-  async componentDidMount() { /** If arrived through URL, fetch resources */
+  async componentDidMount() {
+    /** If arrived through URL, fetch resources */
     const { alphaCode } = this.props.match.params;
     if ((typeof alphaCode !== undefined) && !this.props.getDataStatus()){
         await this.props.setAlphaCode(alphaCode);
@@ -59,6 +78,8 @@ class HoneyHealthPage extends React.Component {
   }
 
   render() {
+    /** Note: This component holds the state of the slides, that state is
+     * passed to the content components down the hierarchy*/
     if (this.state.redirectMenu) {
       return (<Redirect to={'/app/' + this.props.getAlphaCode() + '/menu'}/>);
     } else if (this.state.redirectHarvest){
@@ -81,8 +102,8 @@ class HoneyHealthPage extends React.Component {
               bulletPoints={this.props.bulletPoints}
               honeyPhoto1={this.props.honeyPhoto1}
               honeyPhoto2={this.props.honeyPhoto2}
-              part={this.state.part}
               clickHandler={this.clickHandler}
+              slide={this.state.slide}
               isDesktop={true}
             />
 
@@ -97,7 +118,7 @@ class HoneyHealthPage extends React.Component {
               honeyPhoto1={this.props.honeyPhoto1}
               honeyPhoto2={this.props.honeyPhoto2}
               clickHandler={this.clickHandler}
-              part={this.state.part}
+              slide={this.state.slide}
               isDesktop={false}
             />
           </MediaQuery>
@@ -110,32 +131,46 @@ class HoneyHealthPage extends React.Component {
 
 /**
  * Body Section of the page, contains pictures and information about
- * Honey
+ * Honey.  This component changes dramatically in response to screen sizes.
  */
 class HoneyContent extends React.Component {
-  render() {
-    const part1 = <TextPart partId="healthPart1" description={this.props.healthDescription.slice(0, 1)} isDesktop={this.props.isDesktop}/>;
-    const part3 = <TextPart partId="healthPart3" description={this.props.healthDescription.slice(1, 2)} isDesktop={this.props.isDesktop}/>;
-    const bulletPoints = <BulletPoints bulletPoints={this.props.bulletPoints} isDesktop={this.props.isDesktop}/>;
+  constructor(props) {
+    super(props);
+    this.state = {parts: []};
+  }
 
+  setParts() { /** Generates components used for both mobile and desktop from the props passed in */
+    const part1 = <TextPart partId="healthPart1" description={this.props.healthDescription[0]} isDesktop={this.props.isDesktop}/>;
+    const part2 = <BulletPoints bulletPoints={this.props.bulletPoints} isDesktop={this.props.isDesktop}/>;
+    const part3 = <TextPart partId="healthPart3" description={this.props.healthDescription[1]} isDesktop={this.props.isDesktop}/>;
+    this.setState({parts: [part1, part2, part3]});
+  }
+
+  componentDidMount() {
+    /**Store components from props*/
+    this.setParts();
+  }
+
+  render() {
     if (this.props.isDesktop) {
       return (
         <div className="honeyContent">
           <img id="honey1" className="honeyHealthImage" src={this.props.honeyPhoto1} alt="Honey Comb Close-up"/>
           <img id="honey2" className="honeyHealthImage" src={this.props.honeyPhoto2} alt="Honey Comb held towards sun"/>
-          {this.props.part === "1" ? part1 : part3}
+          {/* This displays two different lines of text depending on the current state */}
+          {this.props.slide === 0 ? this.state.parts[0] : this.state.parts[2]}
+          {/* This button switches between state zero and one to display two different parts of text */}
           <button id="switchTextHealth" onClick={this.props.clickHandler}>
-            {this.props.part === "1" ? "Click for more info" : "Go Back"}</button>
-          {bulletPoints}
+            {this.props.slide === 0 ? "Click for more info" : "Go Back"} {/*Displays corresponding text depending on state*/}
+          </button>
+          {this.state.parts[1]}
         </div>
       )
     } else {
       return (
         <div className="honeyContent">
           <img id="honey1" className="honeyHealthImage" src={this.props.honeyPhoto1} alt="Honey Comb Close-up"/>
-          {this.props.part === "1" && part1}
-          {this.props.part === "2" && bulletPoints}
-          {this.props.part === "3" && part3}
+          {this.state.parts[this.props.slide]}
         </div>
       )
     }
@@ -164,6 +199,9 @@ class BulletPoints extends React.Component {
   }
 }
 
+/**
+ * Text box or snippet describing a honey or Upendo Honey fact
+ */
 class TextPart extends React.Component {
   render () {
     return (

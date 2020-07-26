@@ -1,20 +1,30 @@
 import React from 'react';
 import "./App.css";
+
+// Imported pages for react router
+import MenuPage from "./flows/menu";
 import LandingPage from "./landing-page";
+
 import BeekeeperPage from "./flows/beekeeper-flow/beekeeper-portrait";
 import BeekeeperMessagePage from "./flows/beekeeper-flow/beekeeper-message";
 import BeekeeperLetterPage from "./flows/beekeeper-flow/beekeeper-letter";
-import MenuPage from "./flows/menu";
-import { retrieveBeekeeper, retrieveBatchMember, retrieveBatch, retrieveForest, retrieveHoney} from "./modules/api-calls";
-import { Beekeeper, Honey, Health, Harvest, Forest /*, CarbonInformation*/} from "./content";
 
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import "./landing-page.css";
 import TanzaniaMapPage from './flows/tanzania-flow/tanzania-map';
 import TanzaniaForestPage from './flows/tanzania-flow/tanzania-forest';
+
 import HoneyTypePage from './flows/honey-flow/honey-type';
 import HoneyHarvestPage from './flows/honey-flow/honey-harvest';
 import HoneyHealthPage from './flows/honey-flow/honey-health';
+
+// Import functions to retrieve data from backend
+import { retrieveBeekeeper, retrieveBatchMember, retrieveBatch, retrieveForest, retrieveHoney} from "./modules/api-calls";
+
+// Import hardcoded content
+import { Beekeeper, Honey, Health, Harvest, Forest /*, CarbonInformation*/} from "./content";
+
+// React librairies
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+
 
 class App extends React.Component {
   constructor(props) {

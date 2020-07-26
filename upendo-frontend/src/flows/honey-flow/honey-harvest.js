@@ -1,14 +1,23 @@
 import React from 'react';
-
 import "./honey-harvest.css";
+
+// Modules
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
 import FlowProgressBar from '../../modules/progress-bar';
+import NextArrow from '../../modules/next-arrow';
+
+// React librairies
 import { Swipeable } from 'react-swipeable';
 import { Redirect } from "react-router-dom";
 import MediaQuery from 'react-responsive';
-import NextArrow from '../../modules/next-arrow';
 
+/**
+ * This page contains harvest information about the honey.
+ * Information about the harvest, logos and photos of the
+ * harvesting process are passed in from the hardcoded
+ * Content.js file.
+ */
 class HoneyHarvestPage extends React.Component {
   constructor(props) {
     super(props);
@@ -17,28 +26,30 @@ class HoneyHarvestPage extends React.Component {
     this.state = {
       redirectHoneyType: false,
       redirectHealth: false,
-      part: "1"}
+      slide: 0}
   }
 
   swipeLeftHandler() { /** This Page contains slides to go through on mobile, increments */
-    if (this.state.part === "1") {
-      console.log("On Two");
-      this.setState({part: "2"});
-    } else if (this.state.part === "2") {
-      console.log("On Three")
-      this.setState({part: "3"});
+    if (this.state.slide === 2) {
+      this.setState({redirectHealth: true, redirectHoneyType: false});
     } else {
-      this.setState({redirectHoneyType: false, redirectHealth: true});
+      this.setState((state) => {
+        return ({
+          slide: state.slide + 1
+        });
+      });
     }
   }
 
   swipeRightHandler() { /** This Page contains slides to go through on mobile, decrements */
-    if (this.state.part === "1") {
-      this.setState({redirectHoneyType: true, redirectHealth: false});
-    } else if (this.state.part === "2") {
-      this.setState({part: "1"});
+    if (this.state.slide === 0) {
+      this.setState({redirectHealth: false, redirectHoneyType: true});
     } else {
-      this.setState({part: "2"});
+      this.setState((state) => {
+        return ({
+          slide: state.slide - 1
+        });
+      });
     }
   }
 
@@ -53,6 +64,8 @@ class HoneyHarvestPage extends React.Component {
 }
 
   render() {
+    /** Note: This component holds the state of the slides, that state is
+     * passed to the content components down the hierarchy*/
     if (this.state.redirectHoneyType) {
       return (<Redirect to={'/app/' + this.props.getAlphaCode() + '/honey-type'}/>);
     } else if (this.state.redirectHealth){
@@ -71,12 +84,12 @@ class HoneyHarvestPage extends React.Component {
 
           <MediaQuery maxDeviceWidth={"600px"}>
             <HarvestContent
-              part={this.state.part}
               harvestDescription={this.props.harvestDescription}
               harvestPhoto1={this.props.harvestPhoto1}
               harvestPhoto2={this.props.harvestPhoto2}
               medal1={this.props.medal1}
               medal2={this.props.medal2}
+              slide={this.state.slide}
               isDesktop={false}
             />
           </MediaQuery>
@@ -84,12 +97,12 @@ class HoneyHarvestPage extends React.Component {
           <FlowFooter content="" footerClass="patternedFooter"/>
           <MediaQuery minDeviceWidth={"600px"}>
             <HarvestContent
-              part={this.state.part}
               harvestDescription={this.props.harvestDescription}
               harvestPhoto1={this.props.harvestPhoto1}
               harvestPhoto2={this.props.harvestPhoto2}
               medal1={this.props.medal1}
               medal2={this.props.medal2}
+              slide={this.state.slide}
               isDesktop={true}
             />
             <FlowProgressBar position="two" flow="honeyProgress"/>
@@ -110,20 +123,33 @@ class HoneyHarvestPage extends React.Component {
  * in response the screen size.
  */
 class HarvestContent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {parts: []};
+  }
+
+  setParts() { /** Generates components used for both mobile and desktop from the props passed in */
+    const part1 = <TextPart partId="part1" description={this.props.harvestDescription[0]} isDesktop={this.props.isDesktop}/>;
+    const part2 = <TextPart partId="part2" description={this.props.harvestDescription[1]} isDesktop={this.props.isDesktop}/>;
+    const part3 = <TextPart partId="part3" description={this.props.harvestDescription[2]} isDesktop={this.props.isDesktop}/>;
+    this.setState({parts: [part1, part2, part3]});
+  }
+
+  componentDidMount() {
+    /**Store components from props, only once on Mount*/
+    this.setParts();
+  }
 
   render() {
-    const part1 = <TextPart partId="part1" description={this.props.harvestDescription.slice(0, 1)} isDesktop={this.props.isDesktop}/>;
-    const part2 = <TextPart partId="part2" description={this.props.harvestDescription.slice(1, 2)} isDesktop={this.props.isDesktop}/>;
-    const part3 = <TextPart partId="part3" description={this.props.harvestDescription.slice(2, 3)} isDesktop={this.props.isDesktop}/>;
 
     if (this.props.isDesktop) {
       return (
         <div className="harvestContent">
           <img id="harvest1" className="honeyHarvestImage" src={this.props.harvestPhoto1} alt="Beekeeper on a branch about to harvest honey"/>
           <img id="harvest2" className="honeyHarvestImage" src={this.props.harvestPhoto2} alt="Beekeeper walking through Tanzanian Forest"/>
-          {part1}
-          {part2}
-          {part3}
+          {this.state.parts[0]}
+          {this.state.parts[1]}
+          {this.state.parts[2]}
           <MedalsBar medal1={this.props.medal1} medal2={this.props.medal2}/>
         </div>
       )
@@ -134,10 +160,8 @@ class HarvestContent extends React.Component {
             imageSource={this.props.harvestPhoto1}
             medal1={this.props.medal1}
             medal2={this.props.medal2}
-            medalled={this.props.part === "3" ? true : false}/>
-          {this.props.part === "1" && part1}
-          {this.props.part === "2" && part2}
-          {this.props.part === "3" && part3}
+            medalled={this.props.slide === 2 ? true : false}/>
+          {this.state.parts[this.props.slide]} {/*Displays corresponding text depending on state*/}
         </div>
       )
     }
@@ -159,7 +183,7 @@ class TextPart extends React.Component {
 }
 
 /**
- * Certifications that Upendo Honey has achieved
+ * Image which has the certifications overlapping it
  */
 class MedalledImage extends React.Component {
   render () {
@@ -174,6 +198,9 @@ class MedalledImage extends React.Component {
   }
 }
 
+/**
+ * Contains a row of certifications that Upendo has received
+ */
 class MedalsBar extends React.Component {
   render() {
     return (
@@ -185,6 +212,9 @@ class MedalsBar extends React.Component {
   }
 }
 
+/**
+ * Individual "Medal" component that contains logo of organization
+ */
 class MedalIcon extends React.Component {
   render () {
     return (

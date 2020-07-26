@@ -1,16 +1,23 @@
 import React from 'react';
+import "./beekeeper-message.css";
+// Javascript library for sending emails
 import emailjs from 'emailjs-com';
 
-import "./beekeeper-message.css";
+// Modules
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
 import FlowProgressBar from '../../modules/progress-bar';
+import NextArrow from '../../modules/next-arrow';
 
+// React librairies
 import { Swipeable } from 'react-swipeable';
 import { Redirect } from "react-router-dom";
 import MediaQuery from 'react-responsive';
-import NextArrow from '../../modules/next-arrow';
 
+/** Email message page where customers can interact
+ * with their beekeepers by sending an email directly to
+ * the partner, who will pass the message to the beekeeper
+ */
 class BeekeeperMessagePage extends React.Component {
     constructor(props) {
         super(props);
@@ -19,11 +26,11 @@ class BeekeeperMessagePage extends React.Component {
         this.state = {redirectLetter: false, redirectMenu: false};
     }
 
-    swipeLeftHandler(eventData) {
+    swipeLeftHandler(eventData) {  /** Redirect to the Next Page */
         this.setState({redirectLetter: false, redirectMenu: true})
     }
 
-    swipeRightHandler(eventData) {
+    swipeRightHandler(eventData) { /** Redirect to the Menu */
         this.setState({redirectLetter: true, redirectMenu: false})
     }
 
@@ -94,6 +101,7 @@ class MessageForm extends React.Component {
         });
     }
 
+    // Following three methods store the input to form boxes in state
     handleNameInput (e) {
         this.setState({name: e.target.value});
     }

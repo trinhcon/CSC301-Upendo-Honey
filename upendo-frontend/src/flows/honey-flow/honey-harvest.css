@@ -76,7 +76,6 @@
 }
 
 /**Desktop**/
-
 @media only screen and (min-width: 600px) {
     .honeyHarvestPage {
         display: grid;
@@ -121,34 +120,26 @@
         grid-area: harvest2;
     }
 
-    #part1 {
-        grid-area: part1;
-        text-align: center;
+    .textPartHarvest {
+        padding: 10px;
+        font-size: 14px;
         border-right: 7px solid rgb(41, 131, 14);
         border-left: 7px solid rgb(41, 131, 14);
+        text-align: center;
         align-self: center;
         height: auto;
+    }
+
+    #part1 {
+        grid-area: part1;
     }
 
     #part2 {
         grid-area: part2;
-        text-align: left;
-        border-left: 7px solid rgb(41, 131, 14);
-        align-self: center;
-        height: auto;
     }
     
     #part3 {
         grid-area: part3;
-        text-align: right;
-        align-self: center;
-        border-right: 7px solid rgb(41, 131, 14);
-        height: auto;
-    }
-
-    .textPartHarvest {
-        padding: 10px;
-        font-size: 14px;
     }
 
     .medalsBar {

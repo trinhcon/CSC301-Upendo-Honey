@@ -1,12 +1,15 @@
 import React from 'react';
-
 import "./tanzania-forest.css";
+
+// Modules
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
+import NextArrow from '../../modules/next-arrow';
+
+// React Librairies
 import {Swipeable } from 'react-swipeable';
 import {Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
-import NextArrow from '../../modules/next-arrow';
 
 // Icons for the page
 import MapIcon from '../../images/map.png';
@@ -14,6 +17,12 @@ import ElephantIcon from '../../images/elephant.png';
 import BeekeeperIcon from '../../images/Beekeeper.png';
 import FlowerIcon from '../../images/flower.png';
 
+/**
+ * Page that contains information about the forest
+ * where the honey comes from including an image of the forest
+ * size, plants, animals, and number of beekeepers passed in
+ * from the database.
+ */
 class TanzaniaForestPage extends React.Component {
   constructor(props) {
     super(props);
@@ -22,15 +31,15 @@ class TanzaniaForestPage extends React.Component {
     this.state = {redirectMenu: false, redirectMap: false}
   }
 
-  swipeLeftHandler() {
+  swipeLeftHandler() { /** Redirect to the Next Page */
     this.setState({redirectMenu: true, redirectMap: false});
   }
 
-  swipeRightHandler() {
+  swipeRightHandler() { /** Redirect to previous page */
     this.setState({redirectMenu: false, redirectMap: true});
   }
 
-  async componentDidMount() {
+  async componentDidMount() { /** If arrived through URL, fetch resources */
     const { alphaCode } = this.props.match.params;
     if ((typeof alphaCode !== undefined) && !this.props.getDataStatus()){
         await this.props.setAlphaCode(alphaCode);
@@ -100,6 +109,10 @@ class TanzaniaForestPage extends React.Component {
   }
 }
 
+/**
+ * React class that holds a forest fact with an icon image
+ * before it.
+ */
 class ForestFact extends React.Component {
 
   render() {

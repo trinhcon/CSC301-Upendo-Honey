@@ -1,15 +1,25 @@
 import React from 'react';
-
 import "./honey-type.css";
+
+// Modules
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
 import FlowProgressBar from '../../modules/progress-bar';
+import NextArrow from '../../modules/next-arrow';
+
+// Imported images
+import RecipeBook from '../../images/recipe-book.png';
+
+// React librairies
 import {Swipeable } from 'react-swipeable';
 import { Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
-import NextArrow from '../../modules/next-arrow';
-import RecipeBook from '../../images/recipe-book.png';
 
+/**
+ * Honey page which gives information about the variety of
+ * honey.  Is passed in name of honey type, image of jar
+ * and description from the database.
+ */
 class HoneyTypePage extends React.Component {
   constructor(props) {
     super(props);
@@ -18,11 +28,11 @@ class HoneyTypePage extends React.Component {
     this.state = {redirectMenu: false, redirectHarvest: false}
   }
 
-  swipeLeftHandler() {
+  swipeLeftHandler() { // Moves to the next page
     this.setState({redirectMenu: false, redirectHarvest: true});
   }
 
-  swipeRightHandler() {
+  swipeRightHandler() { // Moves to the previous page
     this.setState({redirectMenu: true, redirectHarvest: false});
   }
 
@@ -58,7 +68,8 @@ class HoneyTypePage extends React.Component {
             </p>
           </div>
 
-          <img src={this.props.jarPhoto} id="realHoneyJar" alt="Honey Jar"/> 
+          <img src={this.props.jarPhoto} id="realHoneyJar" alt="Honey Jar"/>
+
           <div id="honeyDescriptionContainer">
             <p id="honeyTypeDescription"> {this.props.honeyDescription} </p>
           </div>

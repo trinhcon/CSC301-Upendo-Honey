@@ -1,14 +1,21 @@
 import React from 'react';
-
 import "./beekeeper-portrait.css";
+
+// Modules
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
 import FlowProgressBar from '../../modules/progress-bar';
+import NextArrow from '../../modules/next-arrow';
+
+// React librairies
 import { Swipeable } from 'react-swipeable';
 import { Redirect } from "react-router-dom";
 import MediaQuery from 'react-responsive';
-import NextArrow from '../../modules/next-arrow';
 
+
+/**
+ * Beekeeper Page passed Beekeeper Photo, name and description
+ */
 class BeekeeperPage extends React.Component {
   constructor(props) {
     super(props);
@@ -18,12 +25,12 @@ class BeekeeperPage extends React.Component {
 
   }
 
-  swipeLeftHandler(eventData) {
+  swipeLeftHandler(eventData) { /** Redirect to the Next Page */
     this.setState({redirectLetter:true, redirectMenu: false});
     console.log("picu slided");
   }
 
-  swipeRightHandler(eventData) {
+  swipeRightHandler(eventData) { /** Redirect to the Menu */
     this.setState({redirectLetter: false, redirectMenu: true})
   }
 

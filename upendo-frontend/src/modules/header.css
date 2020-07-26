@@ -1,16 +1,14 @@
-/* Mobile */
+/*Both*/
 .greenStrip {
   background-color:rgb(41, 131, 14);
   z-index: 1;
   font-family: 'Bree Serif', serif;
-  font-size: 18pt;
   color: white;
   align-self: stretch;
   position: relative;
   
   margin: 0;
   padding: 0;
-  height: 60px;
   border-bottom: 15px solid rgb(231, 217, 12);
   
 }
@@ -18,15 +16,12 @@
 .greenStripMenu {
   background-color:rgb(41, 131, 14);
   z-index: 1;
-  font-family: 'Bree Serif', serif;
-  font-size: 18pt;
   color: white;
   align-self: stretch;
   position: relative;
   
   margin: 0;
   padding: 0;
-  height: 70px;
   border-bottom: 15px solid rgb(231, 217, 12);
   text-align: center;
   display: flex;
@@ -43,7 +38,6 @@
 .menuText{
   font-family: nunito, sans-serif;
   font-weight: bold;
-  font-size: 16pt;
   font-variant: small-caps;
   margin: 10px;
   padding-left: 10px;
@@ -59,9 +53,32 @@
   font-size: 16pt;
 }
 
-/* Desktop */
+/* Mobile */
+@media only screen and (max-width: 600px) {
+  .greenStrip {
+    height: 60px;
+  }
 
-@media only screen and (min-width: 800px) {
+  .greenStripMenu {
+    font-size: 18pt;
+    height: 70px;
+  }
+
+  .greenStripText {
+    font-size: 18pt;
+  }
+
+  .menuText{
+    font-size: 16pt;
+  }
+
+  .greenStripTextSmall{
+    font-size: 16pt;
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width: 600px) {
   .greenStrip{
     /*grid view*/
     grid-area: header;
@@ -69,6 +86,7 @@
   }
 
   .greenStripMenu {
+    /*grid view*/
     grid-area: header;
     height: 90px;
   }

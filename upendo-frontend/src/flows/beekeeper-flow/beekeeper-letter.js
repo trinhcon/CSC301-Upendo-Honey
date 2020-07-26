@@ -1,18 +1,20 @@
 import React from 'react';
-
 import "./beekeeper-letter.css";
+
+// Modules
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
 import FlowProgressBar from '../../modules/progress-bar';
+import NextArrow from '../../modules/next-arrow';
+
+// React librairies
 import { Swipeable } from 'react-swipeable';
 import { Redirect } from "react-router-dom";
 import MediaQuery from 'react-responsive';
-import NextArrow from '../../modules/next-arrow';
 
 
 /**
- * Beekeeper Flow passed Beekeeper Picture, Letter Picture,
- * Beekeeper Description and Translation Description
+ * Beekeeper Letter passed Letter Picture, and Translation Description
  */
 class BeekeeperLetterPage extends React.Component {
     constructor(props) {
@@ -42,7 +44,6 @@ class BeekeeperLetterPage extends React.Component {
     }
 
     render () {
-
         if (this.state.redirectPortrait) {
             return (<Redirect to={'/app/' + this.props.getAlphaCode() + '/beekeeper'}/>);
         } else if (this.state.redirectMessage) {
@@ -59,7 +60,6 @@ class BeekeeperLetterPage extends React.Component {
                     <FlowProgressBar position="two" flow="beekeeperProgress"/>
                     <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/beekeeper-message'} direction="right"/>
                     <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/beekeeper'} direction="left"/>
-
                 </MediaQuery>
                 <LetterPhoto letter={this.props.bk.letter}/>
                 <Translation translation={this.props.bk.translation}/>

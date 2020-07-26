@@ -1,15 +1,22 @@
 import React from 'react';
-
 import "./tanzania-map.css";
+
+// Modules
 import FlowHeader from '../../modules/header';
 import FlowFooter from '../../modules/footer';
+import NextArrow from '../../modules/next-arrow';
+
+// React Librairies
 import {Swipeable} from 'react-swipeable';
 import {Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
-import NextArrow from '../../modules/next-arrow';
 
 
-
+/**
+ * Page contains an interactive map that shows the
+ * location of the forest using a google map api. The page
+ * is passed a kml file from the database.
+ */
 class TanzaniaMapPage extends React.Component {
   constructor(props) {
     super(props);
@@ -18,15 +25,15 @@ class TanzaniaMapPage extends React.Component {
     this.state = {redirectMenu: false, redirectForest: false}
   }
 
-  swipeLeftHandler() {
+  swipeLeftHandler() { /** Redirect to the Next Page */
     this.setState({redirectMenu: false, redirectForest: true});
   }
 
-  swipeRightHandler() {
+  swipeRightHandler() { /** Redirect to previous menu */
     this.setState({redirectMenu: true, redirectForest: false});
   }
 
-  async componentDidMount() {
+  async componentDidMount() { /** If arrived through URL, fetch resources */
     const { alphaCode } = this.props.match.params;
     if ((typeof alphaCode !== undefined) && !this.props.getDataStatus()){
         await this.props.setAlphaCode(alphaCode);
@@ -77,7 +84,10 @@ class TanzaniaMapPage extends React.Component {
   }
 }
 
-
+/**
+ * Objects that retrieves and contains the interactive
+ * google map.
+ */
 class TanzaniaMap extends React.Component {
   constructor(props) {
     super(props);
@@ -111,7 +121,7 @@ class TanzaniaMap extends React.Component {
     this.getGoogleMap();
   }
 
-  /** If mounting, create the google map from the api*/
+  /** If mounted, create the google map from the api*/
   componentDidMount() {
     this.getGoogleMap().then((google) => {
       var map = new google.maps.Map(document.getElementById("map"), this.props.mapConfig);

@@ -1,3 +1,4 @@
+/* General formatting */
 .goldProgressBar {
     grid-area: progress;
     display: flex;
@@ -25,6 +26,7 @@
     border-top: 10px solid rgb(184, 152, 9);
 }
 
+/* Loads an image that depends on the class provided */
 .beekeeperProgress {
     content: url('../images/Beekeeper.png');
 }
@@ -41,6 +43,7 @@
     content: url('../images/honey.png');
 }
 
+/* Distinguishes between a container with an image and container withou */
 .appears {
     position: relative;
     z-index: 1;

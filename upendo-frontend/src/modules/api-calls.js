@@ -1,3 +1,9 @@
+/** Functions stored in this file make an api call
+ * to the backend to retrieve Batch member data.
+ * All have the same format of using fetch with the specified
+ * options then checking if the response is ok before loading the data.
+ * If it is not ok, it returns null.
+ */
 export async function retrieveBatchMember(code) {
     let batchMemberData = null;
     const url = "/api/v1/batch-members/";

@@ -10,6 +10,9 @@ import "./progress-bar.css";
  * the flow
  */
 class FlowProgressBar extends React.Component {
+    /** props.position tells the class which container has an icon
+     * props.flow tells the class which icon image to display
+     */
     render() {
         return (
             <div className="goldProgressBar"> 

@@ -1,10 +1,18 @@
 import React from 'react';
 import "./landing-page.css";
+
+// Import functions to retrieve data from backend
 import { retrieveBatchMember } from './modules/api-calls';
-import { Redirect } from 'react-router-dom';
+
+// Import images
 import Forest from './images/our-forest.JPG';
+
+// Imported code modules
 import FlowFooter from './modules/footer';
+
+// React librairies
 import MediaQuery from 'react-responsive';
+import { Redirect } from 'react-router-dom';
 
 /**
  * Landing Page that exists at the root of the website. Serves
@@ -25,7 +33,7 @@ class LandingPage extends React.Component {
         setAlphaCode={this.props.setAlphaCode}
         getAlphaCode={this.props.getAlphaCode}/>
         <MediaQuery minDeviceWidth="800px">
-          <FlowFooter content="This is the Content" footerClass="landingFooter"/>
+          <FlowFooter footerClass="blackFooter"/>
         </MediaQuery>
       </div>
     );
@@ -68,7 +76,7 @@ class LandingPageForm extends React.Component {
   }
 
   async handleCodeSubmission(e) { /** Triggers access to backend using entered code */
-
+    // Prevents a browser reload or refresh
     e.preventDefault();
     try {
       const batchMemberData = await retrieveBatchMember(this.state.code);
@@ -77,7 +85,7 @@ class LandingPageForm extends React.Component {
       if (batchMemberData) {
         const loadData = await this.props.getData(this.state.code, batchMemberData);
         if (loadData) {
-          /** If Code was succesful Load information into state and redirect*/
+          /** If Code was successful Load information into state and redirect*/
           await this.setState({redirect: true});
           await this.props.setAlphaCode(this.state.code);
         }
@@ -90,7 +98,7 @@ class LandingPageForm extends React.Component {
     }
   }
 
-
+  /** Method that updates state based on input value*/
   handleInput (e) {
     const input = e.target.value;
     this.setState({code: input.toUpperCase()});
