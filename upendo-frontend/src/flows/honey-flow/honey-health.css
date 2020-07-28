@@ -45,7 +45,7 @@
         border: 5px solid rgb(228, 181, 28);
     }
 
-    .listContainer {
+    .listContainerHealth {
         width: 100%;
         padding: 10px;
         border-top: 10px solid rgb(41, 131, 14);
@@ -141,7 +141,7 @@
         box-shadow: 0px 0px 5px 1px gray;
     }
 
-    .listContainer {
+    .listContainerHealth {
       grid-area: list;
       font-size: 16pt;
       justify-self: center;

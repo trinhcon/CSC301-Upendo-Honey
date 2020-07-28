@@ -1,0 +1,53 @@
+/* Both */
+.environmentForestPage {
+    height: 100vh;
+    width: 100vw;
+    font-family: nunito, sans-serif;
+}
+
+.environmentForestImage {
+    border: 5px solid rgb(228, 181, 28);
+}
+
+.environmentForestText {
+    width: 90%;
+}
+/** Mobile */
+@media only screen and (max-width: 600px) {
+    .environmentForestPage {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .environmentForestImage {
+        height: 200px;
+        width: 300px;
+    }
+}
+
+/** Desktop */
+@media only screen and (min-width: 600px) {
+    .environmentForestPage {
+        display: grid;
+        grid-template-columns: 1fr 2fr 2fr 1fr;
+        grid-template-rows: 1fr 3fr 1fr 1fr;
+        grid-template-areas:
+          "header header header header"
+          "leftArrow image text rightArrow"
+          "leftArrow progress progress rightArrow"
+          "footer footer footer footer"
+    }
+
+    .environmentForestImage {
+        grid-area: image;
+        align-self: center;
+        height: 333px;
+        width: 500px;
+    }
+
+    .environmentForestText {
+        grid-area: text;
+        align-self: center;
+    }
+}

@@ -15,12 +15,15 @@ import TanzaniaForestPage from './flows/tanzania-flow/tanzania-forest';
 import HoneyTypePage from './flows/honey-flow/honey-type';
 import HoneyHarvestPage from './flows/honey-flow/honey-harvest';
 import HoneyHealthPage from './flows/honey-flow/honey-health';
+import EnvironmentForestPage from './flows/environment-flow/environment-forest';
+import EnvironmentCarbonGraphPage from './flows/environment-flow/environment-carbon-graph';
+import EnvironmentNetCarbonPage from './flows/environment-flow/environment-net-carbon';
 
 // Import functions to retrieve data from backend
 import { retrieveBeekeeper, retrieveBatchMember, retrieveBatch, retrieveForest, retrieveHoney} from "./modules/api-calls";
 
 // Import hardcoded content
-import { Beekeeper, Honey, Health, Harvest, Forest /*, CarbonInformation*/} from "./content";
+import { Beekeeper, Honey, Health, Harvest, Forest, EnvironmentForest, CarbonGraph, NetCarbonGraph} from "./content";
 
 // React librairies
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
@@ -31,7 +34,7 @@ class App extends React.Component {
     super(props);
     console.log("A new change")
     this.state = {alphacode: 'PUREJOY', batchMember: {}, beekeeper: {}, honey: {}, forest: {}, dataStatus: false};
-    this.testFrontEnd = true; /* True retrieves data locally instead of from backend*/
+    this.testFrontEnd = false; /* True retrieves data locally instead of from backend*/
     this.getData = this.getData.bind(this);
     this.getAlphaCode = this.getAlphaCode.bind(this);
     this.setAlphaCode = this.setAlphaCode.bind(this);
@@ -39,20 +42,23 @@ class App extends React.Component {
     this.retrieveAppData = this.retrieveAppData.bind(this);
   }
 
+  // Checks if app already has retrieved data from backend
   getDataStatus(){
     return this.state.dataStatus;
   }
 
+  // Retrieve currently stored alphacode
   getAlphaCode(){
     return this.state.alphacode;
   }
 
+  // Sets the alpha code, asynchronous
   async setAlphaCode(code){
     console.log("Setting Alpha code");
     console.log(code);
     await this.setState({alphacode: code});
     console.log(this.state);
-    console.log("done");
+    console.log("Done");
   }
 
   /**
@@ -67,12 +73,15 @@ class App extends React.Component {
     console.log("retrieving app data");
     console.log(this.state);
     try {
+      // Retrieve batchmember using the current alphacode stored in state
       const batchMemberData = await retrieveBatchMember(this.state.alphacode);
       console.log(batchMemberData);
       console.log(this.state);
 
+      // If it exists, load all the associated data associated with the batchmember
       if (batchMemberData) {
         const loadData = await this.getData(this.state.alphacode, batchMemberData);
+        // Batchmember retrieval successful, but unable to load the rest of the data
         if (!loadData && (this.state.alphacode !== "PUREJOY")) {
          await this.setAlphaCode("PUREJOY");
          await this.retrieveAppData();
@@ -80,10 +89,12 @@ class App extends React.Component {
           console.log(this.state);
           console.log("PUREJOY batchMember exists, but not beekeeper data");
         }
+        // App has successfully stored data, datastatus is true
         if (loadData) {
           await this.setState({dataStatus: true});
         }
       } else if (this.state.alphacode !== "PUREJOY") {
+        // If code was incorrect default to PUREJOY, should always exist
         console.log("batchMemberData does not exist, attempting PUREJOY");
         await this.setAlphaCode("PUREJOY");
         await this.retrieveAppData(); 
@@ -117,6 +128,7 @@ class App extends React.Component {
       retrieveHoney("/api/v1/honey/" + batchData.honey  + '/')]
       )
     console.log("Data from getData at Promise.all: \n", data);
+    // If data exists, store into the state of App
     if (data) {
       const beekeeperData = data[0];
       const forestData = data[1];
@@ -146,29 +158,83 @@ class App extends React.Component {
           <Route path = "/app/:alphaCode/menu" render = {(props) => (
             <MenuPage
               {...props}
-              beekeeperFirstPage={"/app/" + this.getAlphaCode() + "/beekeeper"}
-              environmentFirstPage={"/app/" + this.getAlphaCode() + "/menu"}
-              honeyFirstPage={"/app/" + this.getAlphaCode() + "/honey-type"}
-              tanzaniaFirstPage={"/app/" + this.getAlphaCode() + "/tanzania-map"}
-              retailerLink={this.state.batchMember.external_url}
-              retailerLogo={this.state.batchMember.logo}
+              /** App functions that retrieve data*/
               getAlphaCode={this.getAlphaCode}
               setAlphaCode={this.setAlphaCode}
               retrieveAppData={this.retrieveAppData}
               getDataStatus={this.getDataStatus}
-
+              /** Content Passed in */
+              retailerLink={this.state.batchMember.external_url}
+              retailerLogo={this.state.batchMember.logo}
+              /** URLs to other pages */
+              beekeeperFirstPage={"/app/" + this.getAlphaCode() + "/beekeeper"}
+              environmentFirstPage={"/app/" + this.getAlphaCode() + "/environment-forest"}
+              honeyFirstPage={"/app/" + this.getAlphaCode() + "/honey-type"}
+              tanzaniaFirstPage={"/app/" + this.getAlphaCode() + "/tanzania-map"}
             /> 
+            )}
+          />
+
+          <Route path= "/app/:alphacode/environment-forest" render = {(props) => (
+              <EnvironmentForestPage
+                {...props}
+                /** App functions that retrieve data*/
+                getAlphaCode={this.getAlphaCode}
+                setAlphaCode={this.setAlphaCode}
+                retrieveAppData={this.retrieveAppData}
+                getDataStatus={this.getDataStatus}
+                /** Content Passed in */
+                headerName = {EnvironmentForest.headerName}
+                forestPhoto = {EnvironmentForest.forestPhoto}
+                text = {EnvironmentForest.text}
+              />
+            )}
+          />
+
+          <Route path= "/app/:alphacode/environment-carbon-graph" render = {(props) => (
+              <EnvironmentCarbonGraphPage
+                {...props}
+                /** App functions that retrieve data*/
+                getAlphaCode={this.getAlphaCode}
+                setAlphaCode={this.setAlphaCode}
+                retrieveAppData={this.retrieveAppData}
+                getDataStatus={this.getDataStatus}
+                /** Content Passed in */
+                labels={CarbonGraph.labels}
+                headers={CarbonGraph.headers}
+                data={CarbonGraph.data}
+                text={CarbonGraph.text}
+                link="http://upendoagri.com/emissions"
+              />
+            )}
+          />
+
+          <Route path= "/app/:alphacode/environment-net-carbon" render = {(props) => (
+              <EnvironmentNetCarbonPage
+                {...props}
+                /** App functions that retrieve data*/
+                getAlphaCode={this.getAlphaCode}
+                setAlphaCode={this.setAlphaCode}
+                retrieveAppData={this.retrieveAppData}
+                getDataStatus={this.getDataStatus}
+                /* Content passed in */
+                headerName={NetCarbonGraph.headerName}
+                labels={NetCarbonGraph.labels}
+                data={NetCarbonGraph.data}
+                text={NetCarbonGraph.text}
+              />
             )}
           />
         
           <Route path= "/app/:alphacode/tanzania-map"render = {(props) => (
               <TanzaniaMapPage /** At the moment this page is static (same for alphacodes) */
                 {...props}
+                /** App functions that retrieve data*/
                 getAlphaCode={this.getAlphaCode}
                 setAlphaCode={this.setAlphaCode}
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
-
+                /* Content passed in */
                 headerName={this.testFrontEnd ? Forest.forestName : this.state.forest.title}
                 mapConfig={{
                   center: {
@@ -187,11 +253,12 @@ class App extends React.Component {
           <Route path= "/app/:alphacode/tanzania-forest" render = {(props) => (
               <TanzaniaForestPage
                 {...props}
+                /** App functions that retrieve data*/
                 getAlphaCode={this.getAlphaCode}
                 setAlphaCode={this.setAlphaCode}
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
-
+                /* Content passed in */
                 headerName = {this.testFrontEnd ? Forest.forestName : this.state.forest.title}
                 forestPhoto = {this.testFrontEnd ? Forest.forestPhoto : this.state.forest.photo}
                 area = {this.testFrontEnd ? Forest.totalArea : this.state.forest.area}
@@ -205,6 +272,7 @@ class App extends React.Component {
           <Route path= "/app/:alphacode/honey-type" render = {(props) => (
               <HoneyTypePage
                 {...props}
+                /** App functions that retrieve data*/
                 getAlphaCode={this.getAlphaCode}
                 setAlphaCode={this.setAlphaCode}
                 retrieveAppData={this.retrieveAppData}
@@ -218,8 +286,9 @@ class App extends React.Component {
           />
 
           <Route path= "/app/:alphacode/honey-harvest" render = {(props) => (
-              <HoneyHarvestPage /** At the moment this page is static (same for alphacodes) */
+              <HoneyHarvestPage
                 {...props}
+                /** App functions that retrieve data*/
                 getAlphaCode={this.getAlphaCode}
                 setAlphaCode={this.setAlphaCode}
                 retrieveAppData={this.retrieveAppData}
@@ -235,8 +304,9 @@ class App extends React.Component {
           />
 
           <Route path= "/app/:alphacode/honey-health" render = {(props) => (
-              <HoneyHealthPage /** At the moment this page is static (same for alphacodes) */
+              <HoneyHealthPage
                 {...props}
+                /** App functions that retrieve data*/
                 getAlphaCode={this.getAlphaCode}
                 setAlphaCode={this.setAlphaCode}
                 retrieveAppData={this.retrieveAppData}
@@ -255,13 +325,14 @@ class App extends React.Component {
           <Route path = "/app/:alphaCode/beekeeper-letter" render = {(props) => (
               <BeekeeperLetterPage
                 {...props}
-                bk = {this.testFrontEnd ? {letter: Beekeeper.beekeeperLetter, translation: Beekeeper.translation} :
-                {letter: this.state.beekeeper.letter_photo, translation: this.state.beekeeper.letter_text}}
+                /** App functions that retrieve data*/
                 getAlphaCode={this.getAlphaCode}
                 setAlphaCode={this.setAlphaCode}
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
-
+                /* Content passed in */
+                bk = {this.testFrontEnd ? {letter: Beekeeper.beekeeperLetter, translation: Beekeeper.translation} :
+                {letter: this.state.beekeeper.letter_photo, translation: this.state.beekeeper.letter_text}}
               />
             )}
           />
@@ -269,6 +340,7 @@ class App extends React.Component {
             render = {(props) =>
               <BeekeeperMessagePage
                 {...props}
+                /** App functions that retrieve data*/
                 getAlphaCode={this.getAlphaCode}
                 setAlphaCode={this.setAlphaCode}
                 retrieveAppData={this.retrieveAppData}
@@ -280,18 +352,22 @@ class App extends React.Component {
           <Route path = "/app/:alphaCode/beekeeper" render={(props) =>   (
             <BeekeeperPage
               {...props}
-              imageURL= {this.testFrontEnd ? Beekeeper.beekeeperPhoto : this.state.beekeeper.photo}
-              beekeeperDescription= {this.testFrontEnd ? Beekeeper.beekeeperDescription : this.state.beekeeper.bio}
-              beekeeperName={this.testFrontEnd ? Beekeeper.beekeeperName : this.state.beekeeper.name}
+              /** App functions that retrieve data*/
               getAlphaCode={this.getAlphaCode}
               setAlphaCode={this.setAlphaCode}
               retrieveAppData={this.retrieveAppData}
               getDataStatus={this.getDataStatus}
+              /* Content passed in */
+              imageURL= {this.testFrontEnd ? Beekeeper.beekeeperPhoto : this.state.beekeeper.photo}
+              beekeeperDescription= {this.testFrontEnd ? Beekeeper.beekeeperDescription : this.state.beekeeper.bio}
+              beekeeperName={this.testFrontEnd ? Beekeeper.beekeeperName : this.state.beekeeper.name}
               />
             )}
           />
           <Route path = "/" render = {() => (
-            <LandingPage getData={this.getData}
+            <LandingPage
+            /** App functions that retrieve data*/ 
+            getData={this.getData}
             getAlphaCode={this.getAlphaCode}
             setAlphaCode={this.setAlphaCode}
             getDataStatus={this.getDataStatus}

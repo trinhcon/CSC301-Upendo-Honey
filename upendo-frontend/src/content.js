@@ -1,3 +1,4 @@
+// Imported images
 import Leonard from './images/Leonard-Mahenge.jpg';
 import Letter from './images/BK 1 Letter.jpeg';
 import Jar from './images/dark-honey.jpg';
@@ -8,6 +9,12 @@ import US from './images/USDA-organic.jpg';
 import Harvest1 from './images/beekeeper-in-tree.jpg';
 import Harvest2 from './images/beekeeper-walking.jpg';
 import ForestPhoto from './images/our-forest.JPG';
+
+/**
+ * This file stores hard coded content for the app and
+ * provides local content for testing front-end appearance
+ * when test-frontend is set to true in App.js.
+ */
 
 export class Beekeeper {
     static beekeeperPhoto = Leonard;
@@ -54,6 +61,88 @@ export class Forest {
     static forestPhoto = ForestPhoto;
 }
 
-export class CarbonInformation {
+export class EnvironmentForest {
+    static headerName="Forest Honey and Climate Change";
+    static forestPhoto = ForestPhoto;
+    static text=[
+        "Our honey is carbon negative.", 
+        "By keeping native forests healthy, CO2 is removed from the atmosphere.",
+        "Buying honey from these forests means they will not be cleared.",
+        "Here we compare the emissions related to our honey with those of a locally sourced jar of honey."];
+}
 
+export class CarbonGraph {
+    static labels = ["Land Transport", "Packaging and Overheads", "Sea Freight", "Conserved Forests"];
+    static headers= ["Land Transportation", "Packaging and Overheads", "Sea Freight", "Conserved Forests"];
+
+    /** members of "tanzanian" and "domestic" objects below should NOT be changd
+     * they are specific to the implementation of chart.js
+     * IF MODIFIED, you must pass each member manually to chart.js
+    */
+    static data = [
+        {
+            label: "Tanzanian Honey",
+            data:  [903, 661, 342, -4267],
+            backgroundColor: "rgba(255, 206, 86, 0.2)",
+            borderColor: "rgba(255, 206, 86, 1)",
+            borderWidth: 2
+        },
+
+        {
+            label: "Domestic Honey",
+            data:  [451, 661, 0, 0],
+            backgroundColor: "rgba(75, 192, 192, 0.2)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 2
+        }
+    ];
+
+    static part1 = [
+        "Our honey comes from deep in the forests of remote Western Tanzania.",
+        "We bring our honey from the forests to our packing facility where we prepare it for export.",
+        "A local honey company collects honey from farms or other places around their country and brings it to their packing facility."
+    ];
+    static part2 = [
+        "Glass jars, although reusable, take a lot of energy to produce (it is molten sand after all!).",
+        "In this component we have also included our company’s other carbon emissions, such as utilities.",
+        "We estimate these to be similar for a locally sourced honey."
+    ];
+    static part3 = [
+        "90% of everything people buy is, at some point, shipped by sea freight. Sea freight is a large proportion of global emissions.",
+        "However, CO2 emissions per kg of freight is much lower than by truck or rail.",
+        "Of course, honey from in-country doesn’t need any sea freight."
+    ];
+    static part4 = [
+        "By working with local communities we help reverse the devastating deforestation in some of the world’s most valuable tropical forests which store tons of carbon. Only forest honey and your decision to support our beekeepers can do that!",
+        "To find out more please click the ‘Carbon Footprint’"
+    ];
+
+    static text = [this.part1, this.part2, this.part3, this.part4];
+
+}
+
+export class NetCarbonGraph {
+    static headerName = ["Great Work!"];
+    static labels = ["Net Carbon Emissions"];
+    static data = [
+        {
+            label: "Tanzanian Honey",
+            data:  [-2361],
+            backgroundColor: "rgba(255, 206, 86, 0.2)",
+            borderColor: "rgba(255, 206, 86, 1)",
+            borderWidth: 2
+        },
+
+        {
+            label: "Domestic Honey",
+            data:  [1112],
+            backgroundColor: "rgba(75, 192, 192, 0.2)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 2
+        },
+    ];
+
+    static text=[
+        "Congratulations! You’ve got amazingly tasty, fabulously healthy, unique honey. You’ve provided a sustainable income to a Tanzanian traditional beekeeper and their family. And you’ve removed ~600kg of CO2 from the atmosphere.",
+        "All in all, not a bad day’s work!"];
 }

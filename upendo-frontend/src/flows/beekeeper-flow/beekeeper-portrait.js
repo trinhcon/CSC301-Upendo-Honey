@@ -57,7 +57,7 @@ class BeekeeperPage extends React.Component {
           className="beekeeperFlexContainer">
             <FlowHeader content="Meet your Beekeeper" headerClass="greenStrip"
             textStyle="greenStripText"/>
-            <MediaQuery minDeviceWidth="800px">
+            <MediaQuery minDeviceWidth="600px">
               <FlowProgressBar position="one" flow="beekeeperProgress"/>
               <NextArrow nextPage={'/app/' + this.props.getAlphaCode() +'/beekeeper-letter'} direction="right"/>
               <NextArrow nextPage={'/app/' + this.props.getAlphaCode() +'/menu'} direction="left"/>

@@ -184,14 +184,14 @@ class BulletPoints extends React.Component {
   
   render() {
     return (
-      <div className="listContainer">
+      <div className="listContainerHealth">
         {!this.props.isDesktop && <span>Health Benefits Include:</span>}
         <ul className="healthFactsList">
-          <li className="healthFact"> {this.props.bulletPoints.slice(0, 1)}</li>
-          <li className="healthFact"> {this.props.bulletPoints.slice(1, 2)}</li>
-          <li className="healthFact"> {this.props.bulletPoints.slice(2, 3)}</li>
-          <li className="healthFact"> {this.props.bulletPoints.slice(3, 4)}</li>
-          <li className="healthFact"> {this.props.bulletPoints.slice(4, 5)}</li>
+          <li className="healthFact"> {this.props.bulletPoints[0]}</li>
+          <li className="healthFact"> {this.props.bulletPoints[1]}</li>
+          <li className="healthFact"> {this.props.bulletPoints[2]}</li>
+          <li className="healthFact"> {this.props.bulletPoints[3]}</li>
+          <li className="healthFact"> {this.props.bulletPoints[4]}</li>
         </ul>
         {!this.props.isDesktop && <p className="textPartInstructions">Swipe Me!</p>}
       </div>
