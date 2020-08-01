@@ -29,10 +29,10 @@ class BeekeeperSerializer(serializers.ModelSerializer):
 class ForestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Forest
-        fields = ['title', 'map_kml', 'description', 'photo', 'area', 'animals', 'beekeeper_count', 'plants']
+        fields = ['title', 'map_kml', 'photo', 'area', 'animals', 'beekeeper_count', 'plants']
 
 
 class HoneySerializer(serializers.ModelSerializer):
     class Meta:
         model = Honey
-        fields = ['name', 'variety', 'jar_photo', 'harvest_photo', 'honey_description', 'harvest_description', 'health_description']
+        fields = ['name', 'variety_message', 'jar_photo', 'honey_description']
