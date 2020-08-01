@@ -12,6 +12,7 @@ import BulletPoints from '../../modules/bullet-points';
 import {Swipeable} from 'react-swipeable';
 import {Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
+import ReactGA from 'react-ga';
 
 // JS librairies
 import Chart from 'chart.js';
@@ -117,9 +118,12 @@ class EnvironmentCarbonGraphPage extends React.Component {
           this.state.slideNumber === 3 &&
           <div className="environmentMoreInfo">
             <p className="environmentMoreInfoText">{slideText[1]}</p>
-            <a href={this.props.link}>
+            <ReactGA.OutboundLink
+              eventLabel="Carbon"
+              to={this.props.link}
+              target="_blank">
               <img alt="Foot print to find out more" src={CarbonFootprint} className="environmentIcon"/>
-            </a>
+            </ReactGA.OutboundLink>
           </div>}
         </div>
 

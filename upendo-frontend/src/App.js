@@ -22,17 +22,19 @@ import EnvironmentNetCarbonPage from './flows/environment-flow/environment-net-c
 // Import functions to retrieve data from backend
 import { retrieveBeekeeper, retrieveBatchMember, retrieveBatch, retrieveForest, retrieveHoney} from "./modules/api-calls";
 
+// Import google analytics module
+import GAListener from './modules/ga-tracker';
+
 // Import hardcoded content
 import { Beekeeper, Honey, Health, Harvest, Forest, EnvironmentForest, CarbonGraph, NetCarbonGraph} from "./content";
 
 // React librairies
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
-    console.log("A new change")
+    console.log("A new change");
     this.state = {alphacode: 'PUREJOY', batchMember: {}, beekeeper: {}, honey: {}, forest: {}, dataStatus: false};
     this.testFrontEnd = false; /* True retrieves data locally instead of from backend*/
     this.getData = this.getData.bind(this);
@@ -154,24 +156,25 @@ class App extends React.Component {
        * 
        */
       <Router>
+        <GAListener trackingId="UA-174142083-1">
         <Switch>
           <Route path = "/app/:alphaCode/menu" render = {(props) => (
-            <MenuPage
-              {...props}
-              /** App functions that retrieve data*/
-              getAlphaCode={this.getAlphaCode}
-              setAlphaCode={this.setAlphaCode}
-              retrieveAppData={this.retrieveAppData}
-              getDataStatus={this.getDataStatus}
-              /** Content Passed in */
-              retailerLink={this.state.batchMember.external_url}
-              retailerLogo={this.state.batchMember.logo}
-              /** URLs to other pages */
-              beekeeperFirstPage={"/app/" + this.getAlphaCode() + "/beekeeper"}
-              environmentFirstPage={"/app/" + this.getAlphaCode() + "/environment-forest"}
-              honeyFirstPage={"/app/" + this.getAlphaCode() + "/honey-type"}
-              tanzaniaFirstPage={"/app/" + this.getAlphaCode() + "/tanzania-map"}
-            /> 
+              <MenuPage
+                {...props}
+                /** App functions that retrieve data*/
+                getAlphaCode={this.getAlphaCode}
+                setAlphaCode={this.setAlphaCode}
+                retrieveAppData={this.retrieveAppData}
+                getDataStatus={this.getDataStatus}
+                /** Content Passed in */
+                retailerLink={this.state.batchMember.external_url}
+                retailerLogo={this.state.batchMember.logo}
+                /** URLs to other pages */
+                beekeeperFirstPage={"/app/" + this.getAlphaCode() + "/beekeeper"}
+                environmentFirstPage={"/app/" + this.getAlphaCode() + "/environment-forest"}
+                honeyFirstPage={"/app/" + this.getAlphaCode() + "/honey-type"}
+                tanzaniaFirstPage={"/app/" + this.getAlphaCode() + "/tanzania-map"}
+              />
             )}
           />
 
@@ -278,7 +281,7 @@ class App extends React.Component {
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
                 /* Content passed in */
-                varietyMessage = {this.testFrontEnd ? Honey.varietyMessage : this.state.honey.variety}
+                varietyMessage = {this.testFrontEnd ? Honey.varietyMessage : this.state.honey.variety_message}
                 jarPhoto = {this.testFrontEnd ? Honey.jarPhoto : this.state.honey.jar_photo}
                 honeyDescription = {this.testFrontEnd ? Honey.honeyDescription : this.state.honey.honey_description}
               />
@@ -375,6 +378,7 @@ class App extends React.Component {
           )}
           />
         </Switch>
+        </GAListener>
       </Router>
     );
   }

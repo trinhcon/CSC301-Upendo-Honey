@@ -8,6 +8,7 @@ import NavigationIcon from '../modules/navigation-icons.js';
 
 // React librairies
 import MediaQuery from 'react-responsive';
+import ReactGA from 'react-ga';
 
 /** Menu page is the navigation main page after
  * entering in a code.  Has four different icons that
@@ -128,9 +129,12 @@ class ExtraInformationContainer extends React.Component {
       return (
         <div className="moreInfo">
           <p id="logoText">Want more information? </p>
-          <a href={this.props.retailerLink}>
+          <ReactGA.OutboundLink
+            eventLabel="Company Website"
+            to={this.props.retailerLink}
+            target="_blank">
             <img id="logo" src={this.props.retailerLogo} alt="Upendo Honey"/>
-          </a>
+          </ReactGA.OutboundLink>
         </div>
       )
     }
