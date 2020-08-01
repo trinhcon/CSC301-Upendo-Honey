@@ -1,5 +1,6 @@
 import React from 'react';
 import "./beekeeper-message.css";
+
 // Javascript library for sending emails
 import emailjs from 'emailjs-com';
 
@@ -13,6 +14,7 @@ import NextArrow from '../../modules/next-arrow';
 import { Swipeable } from 'react-swipeable';
 import { Redirect } from "react-router-dom";
 import MediaQuery from 'react-responsive';
+import ReactGA from 'react-ga';
 
 /** Email message page where customers can interact
  * with their beekeepers by sending an email directly to
@@ -98,6 +100,12 @@ class MessageForm extends React.Component {
         }, (error) => {
             console.log(error.text);
             this.setState({name: error.text})
+        });
+
+        // Track the button click in google analytics
+        ReactGA.event({
+            category: "Interaction",
+            action: "Sent Email to Beekeeper",
         });
     }
 
