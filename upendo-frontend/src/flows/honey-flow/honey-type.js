@@ -14,6 +14,7 @@ import RecipeBook from '../../images/recipe-book.png';
 import {Swipeable } from 'react-swipeable';
 import { Redirect} from "react-router-dom";
 import MediaQuery from 'react-responsive';
+import ReactGA from 'react-ga';
 
 /**
  * Honey page which gives information about the variety of
@@ -101,12 +102,16 @@ class HoneyRecipe extends React.Component {
   render() {
     return (
       <div className="recipe">
-        <a href="http://recipe.upendoagri.com">
+        <ReactGA.OutboundLink
+          eventLabel="Recipe"
+          to="http://recipe.upendoagri.com"
+          target="_blank"
+        >
           <img src={this.props.recipeIcon}
             className="recipeIcon"
             alt="recipe icon"
           />
-        </a>
+        </ReactGA.OutboundLink>
         <p className="recipeDescription">
           {this.props.recipeText} 
         </p>
