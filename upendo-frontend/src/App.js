@@ -36,7 +36,7 @@ class App extends React.Component {
     super(props);
     console.log("A new change");
     this.state = {alphacode: 'PUREJOY', batchMember: {}, beekeeper: {}, honey: {}, forest: {}, dataStatus: false};
-    this.testFrontEnd = true; /* True retrieves data locally instead of from backend*/
+    this.testFrontEnd = false; /* True retrieves data locally instead of from backend*/
     this.getData = this.getData.bind(this);
     this.getAlphaCode = this.getAlphaCode.bind(this);
     this.setAlphaCode = this.setAlphaCode.bind(this);
@@ -281,7 +281,7 @@ class App extends React.Component {
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
                 /* Content passed in */
-                varietyMessage = {this.testFrontEnd ? Honey.varietyMessage : this.state.honey.variety}
+                varietyMessage = {this.testFrontEnd ? Honey.varietyMessage : this.state.honey.variety_message}
                 jarPhoto = {this.testFrontEnd ? Honey.jarPhoto : this.state.honey.jar_photo}
                 honeyDescription = {this.testFrontEnd ? Honey.honeyDescription : this.state.honey.honey_description}
               />
