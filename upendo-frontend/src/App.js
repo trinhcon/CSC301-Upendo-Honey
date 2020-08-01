@@ -26,7 +26,7 @@ import { retrieveBeekeeper, retrieveBatchMember, retrieveBatch, retrieveForest, 
 import GAListener from './modules/ga-tracker';
 
 // Import hardcoded content
-import { Beekeeper, Honey, Health, Harvest, Forest, EnvironmentForest, CarbonGraph, NetCarbonGraph} from "./content";
+import { Beekeeper, Honey, Health, Harvest, Forest, EnvironmentForest, CarbonGraph, NetCarbonGraph, Menu, GoogleAnalytics} from "./content";
 
 // React librairies
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
@@ -34,9 +34,15 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    console.log("A new change");
-    this.state = {alphacode: 'PUREJOY', batchMember: {}, beekeeper: {}, honey: {}, forest: {}, dataStatus: false};
-    this.testFrontEnd = false; /* True retrieves data locally instead of from backend*/
+    this.state = {alphacode: 'PUREJOY',
+      /** Flow Data */
+      batchMember: {},
+      beekeeper: {},
+      honey: {},
+      forest: {},
+      dataStatus: false,
+      testFrontEnd: false};  /* True retrieves data locally instead of from backend*/
+
     this.getData = this.getData.bind(this);
     this.getAlphaCode = this.getAlphaCode.bind(this);
     this.setAlphaCode = this.setAlphaCode.bind(this);
@@ -102,6 +108,7 @@ class App extends React.Component {
         await this.retrieveAppData(); 
       } else {
         console.log("PUREJOY data does not exist");
+        this.setState({testFrontEnd: true});
       }
     } catch(error) {
       console.log(error);
@@ -156,7 +163,7 @@ class App extends React.Component {
        * 
        */
       <Router>
-        <GAListener trackingId="UA-174142083-1">
+        <GAListener trackingId={GoogleAnalytics.productionTrackingID}>
         <Switch>
           <Route path = "/app/:alphaCode/menu" render = {(props) => (
               <MenuPage
@@ -167,8 +174,8 @@ class App extends React.Component {
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
                 /** Content Passed in */
-                retailerLink={this.state.batchMember.external_url}
-                retailerLogo={this.state.batchMember.logo}
+                retailerLink={this.state.testFrontEnd ? Menu.upendoLink : this.state.batchMember.external_url}
+                retailerLogo={this.state.testFrontEnd ? Menu.upendoLogo : this.state.batchMember.logo}
                 /** URLs to other pages */
                 beekeeperFirstPage={"/app/" + this.getAlphaCode() + "/beekeeper"}
                 environmentFirstPage={"/app/" + this.getAlphaCode() + "/environment-forest"}
@@ -207,7 +214,7 @@ class App extends React.Component {
                 headers={CarbonGraph.headers}
                 data={CarbonGraph.data}
                 text={CarbonGraph.text}
-                link="http://upendoagri.com/emissions"
+                link={CarbonGraph.link}
               />
             )}
           />
@@ -238,15 +245,12 @@ class App extends React.Component {
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
                 /* Content passed in */
-                headerName={this.testFrontEnd ? Forest.forestName : this.state.forest.title}
-                mapConfig={{
-                  center: {
-                    lat: -5.530581224999935,     /** Tanzania Coordinates */
-                    lng: 31.674771946000078
-                  },
-                  zoom: 8,
-                  mapTypeId: 'satellite',
-                }}
+                headerName={this.state.testFrontEnd ? Forest.forestName : this.state.forest.title}
+                mapConfig={Forest.config}
+                mapDescription={Forest.mapDescription}
+                mapInstructions={Forest.mapInstructions}
+                APIKey={Forest.APIKey}
+                src={Forest.src}
 
                 mapKML={this.state.forest.map_kml}
               />
@@ -262,12 +266,19 @@ class App extends React.Component {
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
                 /* Content passed in */
-                headerName = {this.testFrontEnd ? Forest.forestName : this.state.forest.title}
-                forestPhoto = {this.testFrontEnd ? Forest.forestPhoto : this.state.forest.photo}
-                area = {this.testFrontEnd ? Forest.totalArea : this.state.forest.area}
-                animals = {this.testFrontEnd ? Forest.animals : this.state.forest.animals}
-                bkCount = {this.testFrontEnd ? Forest.beekeeperCount : this.state.forest.beekeeper_count}
-                plants = {this.testFrontEnd ? Forest.plants : this.state.forest.plants}
+                headerName = {this.state.testFrontEnd ? Forest.forestName : this.state.forest.title}
+                forestPhoto = {this.state.testFrontEnd ? Forest.forestPhoto : this.state.forest.photo}
+                area = {this.state.testFrontEnd ? Forest.totalArea : this.state.forest.area}
+                animals = {this.state.testFrontEnd ? Forest.animals : this.state.forest.animals}
+                bkCount = {this.state.testFrontEnd ? Forest.beekeeperCount : this.state.forest.beekeeper_count}
+                plants = {this.state.testFrontEnd ? Forest.plants : this.state.forest.plants}
+                /** Headers */
+                areaFactHeader={Forest.areaFactHeader}
+                animalFactHeader={Forest.animalFactHeader}
+                beekeeperFactHeader={Forest.beekeeperFactHeader}
+                plantFactHeader={Forest.plantFactHeader}
+                beekeeperFactText={Forest.beekeeperFactText}
+                areaUnit={Forest.areaUnit}
               />
             )}
           />
@@ -281,9 +292,12 @@ class App extends React.Component {
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
                 /* Content passed in */
-                varietyMessage = {this.testFrontEnd ? Honey.varietyMessage : this.state.honey.variety_message}
-                jarPhoto = {this.testFrontEnd ? Honey.jarPhoto : this.state.honey.jar_photo}
-                honeyDescription = {this.testFrontEnd ? Honey.honeyDescription : this.state.honey.honey_description}
+                varietyMessage = {this.state.testFrontEnd ? Honey.varietyMessage : this.state.honey.variety_message}
+                jarPhoto = {this.state.testFrontEnd ? Honey.jarPhoto : this.state.honey.jar_photo}
+                honeyDescription = {this.state.testFrontEnd ? Honey.honeyDescription : this.state.honey.honey_description}
+                headerName={Honey.headerName}
+                recipeText={Honey.recipeText}
+                recipeLink={Honey.recipeLink}
               />
             )}
           />
@@ -302,6 +316,7 @@ class App extends React.Component {
                 harvestPhoto2={Harvest.harvest2}
                 medal1={Harvest.euLogo}
                 medal2={Harvest.usLogo}
+                headerName={Harvest.headerName}
               />
             )}
           />
@@ -319,6 +334,7 @@ class App extends React.Component {
                 healthDescription = {[Health.part1, Health.part2]}
                 honeyPhoto1 = {Health.honeyHive}
                 honeyPhoto2 = {Health.honeyComb}
+                headerName={Health.headerName}
               />
             )}
           />
@@ -334,8 +350,9 @@ class App extends React.Component {
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
                 /* Content passed in */
-                bk = {this.testFrontEnd ? {letter: Beekeeper.beekeeperLetter, translation: Beekeeper.translation} :
+                bk = {this.state.testFrontEnd ? {letter: Beekeeper.beekeeperLetter, translation: Beekeeper.translation} :
                 {letter: this.state.beekeeper.letter_photo, translation: this.state.beekeeper.letter_text}}
+                headerName={Beekeeper.letterHeader}
               />
             )}
           />
@@ -348,6 +365,19 @@ class App extends React.Component {
                 setAlphaCode={this.setAlphaCode}
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
+                headerName={Beekeeper.messageHeader}
+
+                successMessage={Beekeeper.successMessage}
+                failureMessage={Beekeeper.failureMessage}
+                emailInit={Beekeeper.emailInit}
+                emailPlaceholder={Beekeeper.emailPlaceholder}
+                textInit={Beekeeper.textInit}
+                textPlaceholder={Beekeeper.textPlaceholder}
+                nameInit={Beekeeper.nameInit}
+                namePlaceholder={Beekeeper.namePlaceholder}
+                serviceID={Beekeeper.serviceID}
+                templateID={Beekeeper.templateID}
+                userID={Beekeeper.userID}
                 
               />
             }
@@ -361,9 +391,10 @@ class App extends React.Component {
               retrieveAppData={this.retrieveAppData}
               getDataStatus={this.getDataStatus}
               /* Content passed in */
-              imageURL= {this.testFrontEnd ? Beekeeper.beekeeperPhoto : this.state.beekeeper.photo}
-              beekeeperDescription= {this.testFrontEnd ? Beekeeper.beekeeperDescription : this.state.beekeeper.bio}
-              beekeeperName={this.testFrontEnd ? Beekeeper.beekeeperName : this.state.beekeeper.name}
+              imageURL= {this.state.testFrontEnd ? Beekeeper.beekeeperPhoto : this.state.beekeeper.photo}
+              beekeeperDescription= {this.state.testFrontEnd ? Beekeeper.beekeeperDescription : this.state.beekeeper.bio}
+              beekeeperName={this.state.testFrontEnd ? Beekeeper.beekeeperName : this.state.beekeeper.name}
+              headerName={Beekeeper.portraitHeader}
               />
             )}
           />

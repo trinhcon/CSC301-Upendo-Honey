@@ -111,7 +111,7 @@ class EnvironmentCarbonGraphPage extends React.Component {
         <div className="environmentCarbonGraphText">
           {// Only bullets if on slides 0-2
           this.state.slideNumber < 3 ?
-          <BulletPoints style="" bulletStyle="beeBullet" points={slideText}/> :
+          <BulletPoints bulletStyle="beeBullet" points={slideText}/> :
           <p>{slideText[0]}</p>}
 
           {// Only displays if we are on the last slide
@@ -155,7 +155,7 @@ class EnvironmentGraph extends React.Component {
     
     // Stores data for graph, labels and whether skude buttons are enabled
     this.state = {graph: null,
-      labels: [... this.props.labels],
+      labels: [...this.props.labels],
       tanzania: JSON.parse(JSON.stringify(this.props.data[0])),
       domestic: JSON.parse(JSON.stringify(this.props.data[1])),
       enablePrev: false,

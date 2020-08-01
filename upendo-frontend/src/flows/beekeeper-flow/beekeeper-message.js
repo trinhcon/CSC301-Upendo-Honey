@@ -57,7 +57,7 @@ class BeekeeperMessagePage extends React.Component {
                     onSwipedRight={this.swipeRightHandler}
                 >
                 
-                    <FlowHeader content="Send a Message to Your Beekeeper!"
+                    <FlowHeader content={this.props.headerName}
                     headerClass = 'greenStrip'
                     textStyle='greenStripTextSmall'/>
                     <MediaQuery minDeviceWidth="600px">
@@ -66,7 +66,20 @@ class BeekeeperMessagePage extends React.Component {
                         <NextArrow nextPage={"/app/" + this.props.getAlphaCode() + "/beekeeper-letter"} direction="left"/>
 
                     </MediaQuery>
-                    <MessageForm />
+                    <MessageForm
+                        successMessage={this.props.successMessage}
+                        failureMessage={this.props.failureMessage}
+                        emailInit={this.props.emailInit}
+                        emailPlaceholder={this.props.emailPlaceholder}
+                        textInit={this.props.textInit}
+                        textPlaceholder={this.props.textPlaceholder}
+                        nameInit={this.props.nameInit}
+                        namePlaceholder={this.props.namePlaceholder}
+                        serviceID={this.props.serviceID}
+                        templateID={this.props.templateID}
+                        userID={this.props.userID}
+
+                    />
                     <FlowFooter content="This is the Footer" footerClass='patternedFooter'/>
                 </Swipeable>
             );
@@ -82,7 +95,8 @@ class MessageForm extends React.Component {
     constructor(props) {
         super(props);
         /** State necessary to send the email, all properties of EmailJS */
-        this.state = {email: '', message: '', name: '', serviceID: 'sendgrid', templateID: 'test', userID: 'user_cTGmCITtt4QvUtVoNpigA'};
+        this.state = {email: this.props.emailInit, message: this.props.textInit, name: this.props.nameInit,
+             serviceID: this.props.serviceID, templateID: this.props.templateID, userID: this.props.userID};
         this.handleFormSubmission = this.handleFormSubmission.bind(this);
         this.handleEmailInput = this.handleEmailInput.bind(this);
         this.handleMessageInput = this.handleMessageInput.bind(this);
@@ -95,11 +109,11 @@ class MessageForm extends React.Component {
         .then((result) => {
             console.log(result.text);
             if (result.text === 'OK') {
-                this.setState({message: "Success! Those buzzing bees will deliver your message!"});
+                this.setState({message: this.props.successMessage});
             }
         }, (error) => {
             console.log(error.text);
-            this.setState({name: error.text})
+            this.setState({message: this.props.failureMessage})
         });
 
         // Track the button click in google analytics
@@ -129,7 +143,7 @@ class MessageForm extends React.Component {
                     <label id="messageBox">
                         <span className="inputLabel" id="messageLabel">Let them know what you think of the honey!</span>
                         <textarea value={this.state.message}
-                        name="message" id="messageForm" placeholder="Dear Beekeeper..."
+                        name="message" id="messageForm" placeholder={this.props.textPlaceholder}
                         onChange={this.handleMessageInput}/>
                         </label>
                     <label id="detailsBox"> 
@@ -139,7 +153,7 @@ class MessageForm extends React.Component {
                             <label for="email">Email:</label>
                             <br/>
                             <input type="text" value={this.state.email}
-                            name="email" id="emailForm" placeholder="Your Name"
+                            name="email" id="emailForm" placeholder={this.props.emailPlaceholder}
                             onChange={this.handleEmailInput}/>
                             <br/>
                         </div>
@@ -147,7 +161,7 @@ class MessageForm extends React.Component {
                             <label for="name">Name:</label>
                             <br/>
                             <input type="text" value={this.state.name}
-                            name="name" id="nameForm" placeholder="Your Email"
+                            name="name" id="nameForm" placeholder={this.props.namePlaceholder}
                             onChange={this.handleNameInput}/>
                             <br/>
                         </div>

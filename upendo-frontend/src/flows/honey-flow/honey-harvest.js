@@ -77,7 +77,7 @@ class HoneyHarvestPage extends React.Component {
         className="honeyHarvestPage"
         >
           <FlowHeader
-            content="Raw, Organic, Wild Honey"
+            content={this.props.headerName}
             headerClass="greenStrip"
             textStyle="greenStripText"
           />

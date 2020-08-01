@@ -62,7 +62,7 @@ class EnvironmentForestPage extends React.Component {
             
         <img className="environmentForestImage" src={this.props.forestPhoto} alt="Tanzanian Trees"/>
         <div className="environmentForestText">
-          <BulletPoints style="" bulletStyle="beeBullet" points={this.props.text}/>
+          <BulletPoints bulletStyle="beeBullet" points={this.props.text}/>
         </div>
         
         <MediaQuery minDeviceWidth="600px">

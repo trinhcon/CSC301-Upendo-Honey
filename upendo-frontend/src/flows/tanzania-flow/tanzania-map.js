@@ -60,12 +60,14 @@ class TanzaniaMapPage extends React.Component {
             textStyle="greenStripText"
           /> 
           <div id="mapTextContainer">
-            <h3 id="mapDescription">This is where your honey is from!</h3>
-            <p id="mapInstructions">Click around to explore...</p>
+            <h3 id="mapDescription"> {this.props.mapDescription} </h3>
+            <p id="mapInstructions"> {this.props.mapInstructions} </p>
           </div>
           <TanzaniaMap
             mapConfig={this.props.mapConfig}
             mapKML={this.props.mapKML}
+            APIKey={this.props.APIKey}
+            src={this.props.src}
             >
           </TanzaniaMap>
 
@@ -106,8 +108,7 @@ class TanzaniaMap extends React.Component {
         }
 
         const script = document.createElement("script");
-        const API = "AIzaSyAnxs16mCrI1dNW-I1ErjEPonHRROke9Fk";
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${API}&callback=resolveGoogleMapsPromise`;
+        script.src = this.props.src;
         script.async = true;
 
         document.body.appendChild(script);

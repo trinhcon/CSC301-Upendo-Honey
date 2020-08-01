@@ -54,7 +54,7 @@ class BeekeeperLetterPage extends React.Component {
             onSwipedRight={this.swipeRightHandler}
             className="letterPage"
             > 
-                <FlowHeader content="A Little Letter to You..." headerClass="greenStrip"
+                <FlowHeader content={this.props.headerName} headerClass="greenStrip"
             textStyle="greenStripText"/>
                 <MediaQuery minDeviceWidth="600px">
                     <FlowProgressBar position="two" flow="beekeeperProgress"/>

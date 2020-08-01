@@ -27,7 +27,6 @@ class BeekeeperPage extends React.Component {
 
   swipeLeftHandler(eventData) { /** Redirect to the Next Page */
     this.setState({redirectLetter:true, redirectMenu: false});
-    console.log("picu slided");
   }
 
   swipeRightHandler(eventData) { /** Redirect to the Menu */
@@ -55,7 +54,7 @@ class BeekeeperPage extends React.Component {
           <Swipeable onSwipedLeft={this.swipeLeftHandler}
           onSwipedRight={this.swipeRightHandler}
           className="beekeeperFlexContainer">
-            <FlowHeader content="Meet your Beekeeper" headerClass="greenStrip"
+            <FlowHeader content={this.props.headerName} headerClass="greenStrip"
             textStyle="greenStripText"/>
             <MediaQuery minDeviceWidth="600px">
               <FlowProgressBar position="one" flow="beekeeperProgress"/>

@@ -58,7 +58,7 @@ class HoneyTypePage extends React.Component {
         onSwipedRight={this.swipeRightHandler}
         className="honeyTypePage"
         >
-          <FlowHeader content="Your New Favourite Honey"
+          <FlowHeader content={this.props.headerName}
             headerClass="greenStrip"
             textStyle="greenStripText"
           />
@@ -76,7 +76,8 @@ class HoneyTypePage extends React.Component {
           </div>
 
           <HoneyRecipe
-            recipeText="Need some sweet ideas? Click on the recipe book for inspiration!"
+            recipeText={this.props.recipeText}
+            recipeLink={this.props.recipeLink}
             recipeIcon={RecipeBook}
           />
           <MediaQuery minDeviceWidth={"600px"}>
@@ -104,7 +105,7 @@ class HoneyRecipe extends React.Component {
       <div className="recipe">
         <ReactGA.OutboundLink
           eventLabel="Recipe"
-          to="http://recipe.upendoagri.com"
+          to={this.props.recipeLink}
           target="_blank"
         >
           <img src={this.props.recipeIcon}

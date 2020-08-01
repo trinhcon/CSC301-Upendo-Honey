@@ -9,6 +9,7 @@ import US from './images/USDA-organic.jpg';
 import Harvest1 from './images/beekeeper-in-tree.jpg';
 import Harvest2 from './images/beekeeper-walking.jpg';
 import ForestPhoto from './images/our-forest.JPG';
+import UpendoLogo from './images/upendo-logo.jpg';
 
 /**
  * This file stores hard coded content for the app and
@@ -16,21 +17,60 @@ import ForestPhoto from './images/our-forest.JPG';
  * when test-frontend is set to true in App.js.
  */
 
+export class GoogleAnalytics {
+    static productionTrackingID = "UA-173942974-1";
+    static devTrackingID = "UA-174142083-1";
+}
+
+export class Menu {
+    static upendoLogo = UpendoLogo;
+    static upendoLink = "http://upendoagri.com/";
+}
+
 export class Beekeeper {
+    /** Portrait and letter */
+    static letterHeader = "A Little Letter to You...";
+    static portraitHeader= "Meet your Beekeeper";
     static beekeeperPhoto = Leonard;
     static beekeeperName = "Leonard Mahenge";
     static beekeeperDescription = "Meet Leonard Mahenge, father of four and beekeeper. Leonard harvests his honey from the Mpanda Line Forest Reserve. At the end of each flowering season, Leonard and his children collect the ready honeycombs from high in the forest canopy.";
     static translation = "Dear Customer, Thank you for choosing our honey. In doing so you are helping us financially and also by giving us your feedback helps us and motivates us to work harder and smarter in beekeeping. Thank you and please welcome again.";
     static beekeeperLetter = Letter;
+
+    /** Email Message Form */
+    static messageHeader = "Send a Message to Your Beekeeper!";
+    static textInit = "";
+    static textPlaceholder = "Dear Beekeeper...";
+    static emailInit= "";
+    static emailPlaceholder = "Your Email";
+    static nameInit = "";
+    static namePlaceholder = "Your Name";
+    static sendButtonValue = "Send!";
+    static templateID = "test";                     /** ID of template used */
+    static userID = "user_cTGmCITtt4QvUtVoNpigA";   /** Id obtained from EmailJS account */
+    static serviceID = "sendgrid";                  /** ID of service used */
+    static successMessage = "Success! Those buzzing bees will deliver your message!";
+    static failureMessage = "Oh no! Something has gone horribly wrong!";
+
+
+
+
 }
 
+/** Honey Type  */
 export class Honey {
+    static headerName = "Your New Favourite Honey";
     static varietyMessage = "A yes, Dark Amber Honey. An excellent choice.";
     static jarPhoto = Jar;
     static honeyDescription ="The dark amber variety has an earthy, rich caramel flavour. As dark as the African night this honeydew honey is produced from flowers in the short rainy season from October to December";
+    static recipeText = "Need some sweet ideas? Click on the recipe book for inspiration!";
+    static recipeLink = "http://recipe.upendoagri.com";
+
 }
 
+/** Honey Health */
 export class Health {
+    static headerName = "Heavenly Healthy Honey";
     static bulletPoints = ["High in antioxidants", "Antibacterial and antifungal", "Disinfects and heals wounds", "A potent probiotic", "Sooths a sore throat"];
     static part1 = "Honey has been used for 1000s of years as both a sweet food and an important medicine.";
     static part2 = "As a certified honey organic you can be sure it is free of all pesticides and insecticides (if it’s not certified organic, chances are high the honey contains pesticides and insecticides) and also never heated or pasteurised which destroys valuable protein chains.";
@@ -39,7 +79,9 @@ export class Health {
     static honeyComb = Comb;
 }
 
+/** Honey Harvest */
 export class Harvest {
+    static headerName = "Raw, Organic, Wild Honey";
     static part1 = "This honey is wild harvested from native forests in the heart of Africa; not farmed from bees kept in painted hives year on year.";
     static part2 = "Wild bees move with the flowering season of the forest; governed by the natural rhythms of rain, fire and rejuvenation.";
     static part3 = "The honey is certified organic and as pure as nature intended.";
@@ -51,7 +93,15 @@ export class Harvest {
     static harvest2 = Harvest2;
 }
 
+/** Tanzania Forest  */
 export class Forest {
+    /** Forest Facts */
+    static areaFactHeader = "Total Area: ";
+    static animalFactHeader = "Animals: ";
+    static beekeeperFactHeader = "Beekeepers: ";
+    static plantFactHeader = "Flowering Plants: ";
+    static beekeeperFactText = " beekeepers hard at work";
+    static areaUnit = "Ha";
     static forestName = "Mpanda Forest Reserve";
     static totalArea = 720000;
     static animals = "Elephants, Chimpanzees";
@@ -59,8 +109,23 @@ export class Forest {
     static plants = "Mnondo, Acacia";
 
     static forestPhoto = ForestPhoto;
+
+    /** Google Maps API */
+    static mapDescription = "This is where your honey is from!";
+    static mapInstructions = "Click around to explore...";
+    static APIKey = "AIzaSyAnxs16mCrI1dNW-I1ErjEPonHRROke9k";
+    static src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAnxs16mCrI1dNW-I1ErjEPonHRROke9Fk&callback=resolveGoogleMapsPromise"
+    static config = {
+        center: {
+          lat: -5.530581224999935,     /** Tanzania Coordinates */
+          lng: 31.674771946000078
+        },
+        zoom: 3,
+        mapTypeId: 'satellite',
+      };
 }
 
+/** Environment Forest  */
 export class EnvironmentForest {
     static headerName="Forest Honey and Climate Change";
     static forestPhoto = ForestPhoto;
@@ -74,6 +139,8 @@ export class EnvironmentForest {
 export class CarbonGraph {
     static labels = ["Land Transport", "Packaging and Overheads", "Sea Freight", "Conserved Forests"];
     static headers= ["Land Transportation", "Packaging and Overheads", "Sea Freight", "Conserved Forests"];
+
+    static link = "http://upendoagri.com/emissions";
 
     /** members of "tanzanian" and "domestic" objects below should NOT be changd
      * they are specific to the implementation of chart.js

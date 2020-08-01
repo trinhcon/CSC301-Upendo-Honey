@@ -91,7 +91,7 @@ class HoneyHealthPage extends React.Component {
         className="honeyHealthPage"
         >
           <FlowHeader
-            content="Heavenly Healthy Honey"
+            content={this.props.headerName}
             headerClass="greenStrip"
             textStyle="greenStripText"
           />

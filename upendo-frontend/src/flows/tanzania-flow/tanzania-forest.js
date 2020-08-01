@@ -73,28 +73,28 @@ class TanzaniaForestPage extends React.Component {
           
           <ForestFact forestFactIcon={MapIcon}
             factType="areaIcon"
-            factHeader={"Total Area: "}
-            factText={this.props.area+"ha"}/>
+            factHeader={this.props.areaFactHeader}
+            factText={this.props.area + this.props.areaUnit}/>
           <ForestFact forestFactIcon={ElephantIcon} /** ADD ICON */
             factType="animalIcon"
-            factHeader={"Animals: "}
+            factHeader={this.props.animalFactHeader}
             factText={this.props.animals}/>
           <MediaQuery maxDeviceWidth={"600px"}>
             <ForestFact forestFactIcon={BeekeeperIcon} /** ADD ICON */
               factType="beekeeperIcon"
-              factHeader={"Beekeepers: "}
+              factHeader={this.props.beekeeperFactHeader}
               factText={this.props.bkCount}/>
           </MediaQuery>
           <ForestFact forestFactIcon={FlowerIcon} /** ADD ICON */
             factType="plantIcon"
-            factHeader={"Flowering Plants: "}
+            factHeader={this.props.plantFactHeader}
             factText={this.props.plants}/>
           
           <MediaQuery minDeviceWidth={"600px"}>
             <ForestFact forestFactIcon={BeekeeperIcon} /** ADD ICON */
               factType="beekeeperIcon"
-              factHeader={"Beekeepers: "}
-              factText={this.props.bkCount + " beekeepers hard at work"}/>
+              factHeader={this.props.beekeeperFactHeader}
+              factText={this.props.bkCount + this.props.beekeeperFactText}/>
             <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/menu'} direction="right"/>
             <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/tanzania-map'} direction="left"/>
           </MediaQuery>
