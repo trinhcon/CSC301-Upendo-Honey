@@ -17,6 +17,14 @@ import UpendoLogo from './images/upendo-logo.jpg';
  * when test-frontend is set to true in App.js.
  */
 
+export class Tooltips {
+    static swipeInstructions = "Swipe to move inside the flow";
+    static beekeeperFlow = "Meet your Beekeeper";
+    static environmentFlow = "Honey and Climate Change";
+    static honeyFlow = "Show me the honey!";
+    static forestFlow = "Go to the Tanzanian forest";
+}
+
 export class GoogleAnalytics {
     static productionTrackingID = "UA-173942974-1";
     static devTrackingID = "UA-174142083-1";

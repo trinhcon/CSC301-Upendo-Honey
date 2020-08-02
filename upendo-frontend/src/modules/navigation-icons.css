@@ -26,12 +26,49 @@
     align-content: center;
 }
 
+.toolTipText {
+    font-weight: bold;
+}
+
 /* Mobile */
 @media only screen and (max-width: 600px) {
     .menu{
       width: 90px;
       height: 90px;
       margin: 0px;
+    }
+
+    .continueArrow {
+        width: 50px;
+        height: 50px;
+    }
+
+    .__react_component_tooltip {
+        pointer-events: auto !important;
+    }
+
+    .mobileTooltip {
+        margin: 10px !important;
+    }
+
+    .swipeContainer {
+        position: relative;
+    }
+
+    .swipeHandStill {
+        position: relative;
+    }
+
+    .swipeHandAnimated {
+        position: relative;
+        animation-name: swipe;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+    }
+
+    @keyframes swipe {
+        0% {left: 50px;}
+        100% {left: -50px;}
     }
 }
 
