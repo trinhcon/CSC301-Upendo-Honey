@@ -123,19 +123,20 @@ class NavIconContainer extends React.Component {
                       multiline={true}
                       afterShow={this.animateTooltip}
                       afterHide={this.stopAnimatingTooltip}>
-                      <p className="toolTipText">{this.props.tooltipText}</p>
-                      <Link to={this.props.nextPage} onClick={this.handleClick}>
-                        <img
-                            className="continueArrow"
-                            src={Continue}
-                            alt="Go to flow button"/>
-                      </Link>
-                      <br/>
-                      {Tooltips.swipeInstructions}
-                      <br/>
-                      <div className="swipeContainer">
-                         <FaHandPointer className={this.state.animate ? "swipeHandAnimated" : "swipeHandStill"}/>
-                      </div>
+                        <p className="toolTipText">{this.props.tooltipText}</p>
+                        {Tooltips.swipeInstructions}
+                        <br/>
+                        <div className="swipeContainer">
+                            <FaHandPointer className={this.state.animate ? "swipeHandAnimated" : "swipeHandStill"}/>
+                        </div>
+                        <br/>
+                        <Link to={this.props.nextPage} onClick={this.handleClick}>
+                            
+                            <img
+                                className="continueArrow"
+                                src={Continue}
+                                alt="Go to flow button"/>
+                        </Link>
                     </ReactTooltip>
                 </MediaQuery>
             </div>

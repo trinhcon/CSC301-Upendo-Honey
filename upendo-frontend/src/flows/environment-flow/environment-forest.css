@@ -42,8 +42,8 @@
     .environmentForestImage {
         grid-area: image;
         align-self: center;
-        height: 333px;
-        width: 500px;
+        height: 90%;
+        width: 90%;
     }
 
     .environmentForestText {

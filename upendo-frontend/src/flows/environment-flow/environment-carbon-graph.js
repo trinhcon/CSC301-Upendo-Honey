@@ -107,6 +107,8 @@ class EnvironmentCarbonGraphPage extends React.Component {
           slideNumber={this.state.slideNumber}
           incrementSlide={this.incrementSlide}
           decrementSlide={this.decrementSlide}
+
+          graphOptions={this.props.graphOptions}
         />
         <div className="environmentCarbonGraphText">
           {// Only bullets if on slides 0-2
@@ -176,9 +178,7 @@ class EnvironmentGraph extends React.Component {
             this.state.domestic
           ]
       },
-      options: {
-        maintainAspectRatio: false,
-      }
+      options: this.props.graphOptions,
 
     });
 

@@ -50,36 +50,81 @@ class TanzaniaMapPage extends React.Component {
       return (<Redirect to={'/app/' + this.props.getAlphaCode() + '/tanzania-forest'}/>);
     } else {
       return (
-        <Swipeable onSwipedLeft={this.swipeLeftHandler}
-        onSwipedRight={this.swipeRightHandler}
-        className="mapPage"
-        >
-          <FlowHeader
-            content={this.props.headerName}
-            headerClass="greenStrip"
-            textStyle="greenStripText"
-          /> 
-          <div id="mapTextContainer">
-            <h3 id="mapDescription"> {this.props.mapDescription} </h3>
-            <p id="mapInstructions"> {this.props.mapInstructions} </p>
-          </div>
-          <TanzaniaMap
-            mapConfig={this.props.mapConfig}
-            mapKML={this.props.mapKML}
-            APIKey={this.props.APIKey}
-            src={this.props.src}
+        <div>
+          <MediaQuery maxDeviceWidth={"600px"}>
+            <div
+              className="mapPage"
             >
-          </TanzaniaMap>
+              <Swipeable 
+                onSwipedLeft={this.swipeLeftHandler}
+                onSwipedRight={this.swipeRightHandler}
+              >
+                <FlowHeader
+                  content={this.props.headerName}
+                  headerClass="greenStrip"
+                  textStyle="greenStripText"
+                />
+          
+                <div id="mapTextContainer"
+                >
+                  <h3 id="mapDescription"> {this.props.mapDescription} </h3>
+                  <p id="mapInstructions"> {this.props.mapInstructions} </p>
+                </div>
+
+              </Swipeable>
+            
+              <TanzaniaMap
+                mapConfig={this.props.mapConfig}
+                mapKML={this.props.mapKML}
+                APIKey={this.props.APIKey}
+                src={this.props.src}
+                >
+              </TanzaniaMap>
+              <Swipeable 
+              onSwipedLeft={this.swipeLeftHandler}
+              onSwipedRight={this.swipeRightHandler}
+              >
+                <FlowFooter
+                  content=""
+                  footerClass="patternedFooter"
+                />
+              </Swipeable>
+            </div>
+          </MediaQuery>
+
 
           <MediaQuery minDeviceWidth={"600px"}>
-            <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/tanzania-forest'} direction="right"/>
-            <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/menu'} direction="left"/>
+            <div
+              className="mapPage"
+            >
+              <FlowHeader
+                content={this.props.headerName}
+                headerClass="greenStrip"
+                textStyle="greenStripText"
+              />
+          
+              <div id="mapTextContainer"
+              >
+                <h3 id="mapDescription"> {this.props.mapDescription} </h3>
+                <p id="mapInstructions"> {this.props.mapInstructions} </p>
+              </div>
+              <TanzaniaMap
+                mapConfig={this.props.mapConfig}
+                mapKML={this.props.mapKML}
+                APIKey={this.props.APIKey}
+                src={this.props.src}
+                >
+              </TanzaniaMap>
+              <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/tanzania-forest'} direction="right"/>
+              <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/menu'} direction="left"/>
+
+              <FlowFooter
+              content=""
+              footerClass="patternedFooter"
+              />
+            </div>
           </MediaQuery>
-          <FlowFooter
-            content=""
-            footerClass="patternedFooter"
-          />
-        </Swipeable>
+        </div>
       );
     }
 

@@ -63,6 +63,8 @@
   }
 
   .environmentCarbonGraphText {
+    margin-top: 10%;
+    height: 30%;
     width: 95%;
   }
 
@@ -84,7 +86,7 @@
 
   @media only screen and (max-height: 700px) {
     .environmentCarbonGraphText {
-      font-size: 12pt;
+      font-size: 11pt;
     }
 
     .environmentMoreInfoText {
@@ -109,9 +111,8 @@
 
   .environmentCarbonGraphContainer {
     grid-area: graph;
-    align-self: center;
     width: 500px;
-    height: 300px;
+    height: 80%;
   }
 
   .graphButton {

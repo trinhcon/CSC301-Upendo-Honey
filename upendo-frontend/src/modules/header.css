@@ -15,7 +15,6 @@
 
 .greenStripMenu {
   background-color:rgb(41, 131, 14);
-  z-index: 1;
   color: white;
   align-self: stretch;
   position: relative;

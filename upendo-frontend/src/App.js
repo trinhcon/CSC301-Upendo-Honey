@@ -26,7 +26,7 @@ import { retrieveBeekeeper, retrieveBatchMember, retrieveBatch, retrieveForest, 
 import GAListener from './modules/ga-tracker';
 
 // Import hardcoded content
-import { Beekeeper, Honey, Health, Harvest, Forest, EnvironmentForest, CarbonGraph, NetCarbonGraph, Menu, GoogleAnalytics} from "./content";
+import { Beekeeper, Honey, Health, Harvest, Forest, EnvironmentForest, CarbonGraph, NetCarbonGraph, Menu, GoogleAnalytics, Landing} from "./content";
 
 // React librairies
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
@@ -163,7 +163,7 @@ class App extends React.Component {
        * 
        */
       <Router>
-        <GAListener trackingId={GoogleAnalytics.productionTrackingID}>
+        <GAListener trackingId={GoogleAnalytics.devTrackingID}>
         <Switch>
           <Route path = "/app/:alphaCode/menu" render = {(props) => (
               <MenuPage
@@ -176,6 +176,7 @@ class App extends React.Component {
                 /** Content Passed in */
                 retailerLink={this.state.testFrontEnd ? Menu.upendoLink : this.state.batchMember.external_url}
                 retailerLogo={this.state.testFrontEnd ? Menu.upendoLogo : this.state.batchMember.logo}
+                headerName={Menu.menuHeader}
                 /** URLs to other pages */
                 beekeeperFirstPage={"/app/" + this.getAlphaCode() + "/beekeeper"}
                 environmentFirstPage={"/app/" + this.getAlphaCode() + "/environment-forest"}
@@ -215,6 +216,9 @@ class App extends React.Component {
                 data={CarbonGraph.data}
                 text={CarbonGraph.text}
                 link={CarbonGraph.link}
+
+                graphOptions={CarbonGraph.options}
+
               />
             )}
           />
@@ -232,6 +236,8 @@ class App extends React.Component {
                 labels={NetCarbonGraph.labels}
                 data={NetCarbonGraph.data}
                 text={NetCarbonGraph.text}
+
+                graphOptions={NetCarbonGraph.options}
               />
             )}
           />
@@ -366,6 +372,7 @@ class App extends React.Component {
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
                 headerName={Beekeeper.messageHeader}
+                beekeeperName={this.state.testFrontEnd ? Beekeeper.beekeeperName : this.state.beekeeper.name}
 
                 successMessage={Beekeeper.successMessage}
                 failureMessage={Beekeeper.failureMessage}
@@ -405,6 +412,14 @@ class App extends React.Component {
             getAlphaCode={this.getAlphaCode}
             setAlphaCode={this.setAlphaCode}
             getDataStatus={this.getDataStatus}
+
+            /** Content */
+            codeBoxHeader={Landing.codeBoxHeaderText}
+            codeBoxSubHeader={Landing.codeBoxSubHeaderText}
+            codeBoxNoCodeText={Landing.codeBoxNoCodeText}
+            
+            codeInputPlaceholder={Landing.codeInputPlaceholder}
+            codeInputInvalid={Landing.codeInputInvalid}
             />
           )}
           />

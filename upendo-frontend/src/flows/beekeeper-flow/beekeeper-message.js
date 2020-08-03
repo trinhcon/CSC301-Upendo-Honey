@@ -73,6 +73,7 @@ class BeekeeperMessagePage extends React.Component {
                         emailPlaceholder={this.props.emailPlaceholder}
                         textInit={this.props.textInit}
                         textPlaceholder={this.props.textPlaceholder}
+                        beekeeperName={this.props.beekeeperName}
                         nameInit={this.props.nameInit}
                         namePlaceholder={this.props.namePlaceholder}
                         serviceID={this.props.serviceID}
@@ -146,25 +147,28 @@ class MessageForm extends React.Component {
                         name="message" id="messageForm" placeholder={this.props.textPlaceholder}
                         onChange={this.handleMessageInput}/>
                         </label>
-                    <label id="detailsBox"> 
+                    <label id="detailsBox">
                         <span className="inputLabel">Let us know how to get back to you!</span>
                         <div id="inputDetailsBox">
-                        <div id="emailBox">
-                            <label for="email">Email:</label>
-                            <br/>
-                            <input type="text" value={this.state.email}
-                            name="email" id="emailForm" placeholder={this.props.emailPlaceholder}
-                            onChange={this.handleEmailInput}/>
-                            <br/>
-                        </div>
-                        <div id="nameBox">
-                            <label for="name">Name:</label>
-                            <br/>
-                            <input type="text" value={this.state.name}
-                            name="name" id="nameForm" placeholder={this.props.namePlaceholder}
-                            onChange={this.handleNameInput}/>
-                            <br/>
-                        </div>
+                            <div id="emailBox">
+                                <label for="email">Email:</label>
+                                <br/>
+                                <input type="text" value={this.state.email}
+                                name="email" id="emailForm" placeholder={this.props.emailPlaceholder}
+                                onChange={this.handleEmailInput}/>
+                                <br/>
+                            </div>
+                            <div id="nameBox">
+                                <label for="name">Name:</label>
+                                <br/>
+                                <input type="text" value={this.state.name}
+                                name="name" id="nameForm" placeholder={this.props.namePlaceholder}
+                                onChange={this.handleNameInput}/>
+                                <br/>
+                            </div>
+                            <input type="hidden" value={this.props.beekeeperName}
+                                name="beekeeper" id="beekeeperForm"
+                            />
                         </div>
                         <input type="submit" value="Send!" id="sendButton" />
                     </label> 

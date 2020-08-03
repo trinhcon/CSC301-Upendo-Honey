@@ -33,6 +33,16 @@ export class GoogleAnalytics {
 export class Menu {
     static upendoLogo = UpendoLogo;
     static upendoLink = "http://upendoagri.com/";
+    static menuHeader = "Click an Icon to Discover More!";
+}
+
+export class Landing {
+    static codeBoxHeaderText = "Trace Your Honey ... ";
+    static codeBoxSubHeaderText = " ... right back to the forest";
+    static codeBoxNoCodeText = "No Code? No worries! Enter 'PUREJOY' to start your adventure.";
+
+    static codeInputPlaceholder = "Type Your Code Here!";
+    static codeInputInvalid = "Invalid Code";
 }
 
 export class Beekeeper {
@@ -69,7 +79,7 @@ export class Beekeeper {
 export class Honey {
     static headerName = "Your New Favourite Honey";
     static varietyMessage = "A yes, Dark Amber Honey. An excellent choice.";
-    static jarPhoto = Jar;
+    static jarPhoto =    Jar;
     static honeyDescription ="The dark amber variety has an earthy, rich caramel flavour. As dark as the African night this honeydew honey is produced from flowers in the short rainy season from October to December";
     static recipeText = "Need some sweet ideas? Click on the recipe book for inspiration!";
     static recipeLink = "http://recipe.upendoagri.com";
@@ -140,7 +150,7 @@ export class EnvironmentForest {
     static text=[
         "Our honey is carbon negative.", 
         "By keeping native forests healthy, CO2 is removed from the atmosphere.",
-        "Buying honey from these forests means they will not be cleared.",
+        "Buying honey from these forests means they will not be cleared for agriculture or firewood.",
         "Here we compare the emissions related to our honey with those of a locally sourced jar of honey."];
 }
 
@@ -172,6 +182,19 @@ export class CarbonGraph {
         }
     ];
 
+    /** Not yet used */
+    static options = {
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: "g of CO2  /  kg honey"
+            }
+          }]
+        }
+    }
+
     static part1 = [
         "Our honey comes from deep in the forests of remote Western Tanzania.",
         "We bring our honey from the forests to our packing facility where we prepare it for export.",
@@ -198,7 +221,7 @@ export class CarbonGraph {
 
 export class NetCarbonGraph {
     static headerName = ["Great Work!"];
-    static labels = ["Net Carbon Emissions"];
+    static labels = ["Net Carbon Emissions (g of CO2  /  kg honey)"];
     static data = [
         {
             label: "Tanzanian Honey",
@@ -216,8 +239,20 @@ export class NetCarbonGraph {
             borderWidth: 2
         },
     ];
+    
+    static options = {
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: "Carbon"
+            }
+          }]
+        }
+    }
 
     static text=[
-        "Congratulations! You’ve got amazingly tasty, fabulously healthy, unique honey. You’ve provided a sustainable income to a Tanzanian traditional beekeeper and their family. And you’ve removed ~600kg of CO2 from the atmosphere.",
+        "Congratulations! You’ve got amazingly tasty, fabulously healthy, unique honey. You’ve provided a sustainable income to a Tanzanian traditional beekeeper and their family. And you’ve removed ~600g of CO2 from the atmosphere just with this one jar of honey.",
         "All in all, not a bad day’s work!"];
 }

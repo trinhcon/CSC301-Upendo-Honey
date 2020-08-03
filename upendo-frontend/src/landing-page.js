@@ -29,9 +29,19 @@ class LandingPage extends React.Component {
           <img id="background" src={Forest} alt="Forest background "/>
           <div id="right"></div>
         </div>
-        <LandingPageFormBox getData={this.props.getData} 
-        setAlphaCode={this.props.setAlphaCode}
-        getAlphaCode={this.props.getAlphaCode}/>
+        <LandingPageFormBox
+          getData={this.props.getData} 
+          setAlphaCode={this.props.setAlphaCode}
+          getAlphaCode={this.props.getAlphaCode}
+
+          /** Content */
+          codeBoxHeader={this.props.codeBoxHeader}
+          codeBoxSubHeader={this.props.codeBoxSubHeader}
+          codeBoxNoCodeText={this.props.codeBoxNoCodeText}
+          
+          codeInputPlaceholder={this.props.codeInputPlaceholder}
+          codeInputInvalid={this.props.codeInputInvalid}
+        />
         <MediaQuery minDeviceWidth="800px">
           <FlowFooter footerClass="blackFooter"/>
         </MediaQuery>
@@ -49,14 +59,16 @@ class LandingPageFormBox extends React.Component {
   render() {
     return (
       <div id="landingPageBox">
-        <h2 id="codeBoxHeader">Trace Your Honey ... </h2>
-        <p id="codeBoxHeaderSub"> ... right back to the forest</p>
+        <h2 id="codeBoxHeader"> {this.props.codeBoxHeader} </h2>
+        <p id="codeBoxHeaderSub"> {this.props.codeBoxSubHeader} </p>
         <LandingPageForm getData={this.props.getData}
           getAlphaCode={this.props.getAlphaCode}
           setAlphaCode={this.props.setAlphaCode}
+          codeInputPlaceholder={this.props.codeInputPlaceholder}
+          codeInputInvalid={this.props.codeInputInvalid}
         />
         <hr></hr>
-        <p id="autoCode">No Code? No worries! Enter "PUREJOY" to start your adventure.</p>
+        <p id="autoCode"> {this.props.codeBoxNoCodeText} </p>
       </div>
     );
   }
@@ -113,7 +125,7 @@ class LandingPageForm extends React.Component {
           <form onSubmit={this.handleCodeSubmission}>
             <label for="codeSearch"> Enter Your Jar's Code: </label>
             <input type="text" value={this.state.code} onChange={this.handleInput}
-              placeholder={this.state.displayMessage ? "Invalid Code":"Type Your Code Here!"}
+              placeholder={this.state.displayMessage ? this.props.codeInputInvalid : this.props.codeInputPlaceholder}
               name="codeSearch" id="inputForm"/>
             <input type="submit" value="Go" id="submitButton"/>
           </form>

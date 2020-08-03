@@ -37,7 +37,7 @@ class MenuPage extends React.Component{
                 <FlowHeader
                 headerClass="greenStripMenu"
                 textStyle="menuText"
-                content="Click an Icon to Discover More!"/>
+                content={this.props.headerName}/>
                 <MediaQuery minDeviceWidth="600px">
                     <IconContainer button={true} 
                         nextPage={this.props.environmentFirstPage}
