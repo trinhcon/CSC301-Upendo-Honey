@@ -149,7 +149,7 @@ export class EnvironmentForest {
     static forestPhoto = ForestPhoto;
     static text=[
         "Our honey is carbon negative.", 
-        "By keeping native forests healthy, CO2 is removed from the atmosphere.",
+        "By keeping native forests healthy, CO₂ is removed from the atmosphere.",
         "Buying honey from these forests means they will not be cleared for agriculture or firewood.",
         "Here we compare the emissions related to our honey with those of a locally sourced jar of honey."];
 }
@@ -189,7 +189,7 @@ export class CarbonGraph {
           yAxes: [{
             scaleLabel: {
               display: true,
-              labelString: "g of CO2  /  kg honey"
+              labelString: "g of CO₂  /  kg honey"
             }
           }]
         }
@@ -207,7 +207,7 @@ export class CarbonGraph {
     ];
     static part3 = [
         "90% of everything people buy is, at some point, shipped by sea freight. Sea freight is a large proportion of global emissions.",
-        "However, CO2 emissions per kg of freight is much lower than by truck or rail.",
+        "However, CO₂ emissions per kg of freight is much lower than by truck or rail.",
         "Of course, honey from in-country doesn’t need any sea freight."
     ];
     static part4 = [
@@ -221,7 +221,7 @@ export class CarbonGraph {
 
 export class NetCarbonGraph {
     static headerName = ["Great Work!"];
-    static labels = ["Net Carbon Emissions (g of CO2  /  kg honey)"];
+    static labels = ["Net Carbon Emissions (g of CO₂  /  kg honey)"];
     static data = [
         {
             label: "Tanzanian Honey",
@@ -253,6 +253,6 @@ export class NetCarbonGraph {
     }
 
     static text=[
-        "Congratulations! You’ve got amazingly tasty, fabulously healthy, unique honey. You’ve provided a sustainable income to a Tanzanian traditional beekeeper and their family. And you’ve removed ~600g of CO2 from the atmosphere just with this one jar of honey.",
+        "Congratulations! You’ve got amazingly tasty, fabulously healthy, unique honey. You’ve provided a sustainable income to a Tanzanian traditional beekeeper and their family. And you’ve removed ~600g of CO₂ from the atmosphere just with this one jar of honey.",
         "All in all, not a bad day’s work!"];
 }
