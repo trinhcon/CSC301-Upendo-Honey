@@ -38,8 +38,6 @@ class BeekeeperLetterPage extends React.Component {
         if ((typeof alphaCode !== undefined) && !this.props.getDataStatus()){
             await this.props.setAlphaCode(alphaCode);
             await this.props.retrieveAppData();
-        } else {
-            console.log('DEVLOG: URL Param Matching failed');
         }
     }
 
@@ -61,8 +59,8 @@ class BeekeeperLetterPage extends React.Component {
                     <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/beekeeper-message'} direction="right"/>
                     <NextArrow nextPage={'/app/' + this.props.getAlphaCode() + '/beekeeper'} direction="left"/>
                 </MediaQuery>
-                <LetterPhoto letter={this.props.bk.letter}/>
-                <Translation translation={this.props.bk.translation}/>
+                <LetterPhoto letter={this.props.letter}/>
+                <Translation translation={this.props.translation}/>
                 <FlowFooter content="This is the Footer" footerClass="patternedFooter"/>
             </Swipeable>
             );

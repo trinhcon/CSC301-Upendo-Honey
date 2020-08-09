@@ -62,11 +62,7 @@ class App extends React.Component {
 
   // Sets the alpha code, asynchronous
   async setAlphaCode(code){
-    console.log("Setting Alpha code");
-    console.log(code);
     await this.setState({alphacode: code});
-    console.log(this.state);
-    console.log("Done");
   }
 
   /**
@@ -78,13 +74,9 @@ class App extends React.Component {
    * URL constitutes another visit)
    */
   async retrieveAppData(){
-    console.log("retrieving app data");
-    console.log(this.state);
     try {
       // Retrieve batchmember using the current alphacode stored in state
       const batchMemberData = await retrieveBatchMember(this.state.alphacode);
-      console.log(batchMemberData);
-      console.log(this.state);
 
       // If it exists, load all the associated data associated with the batchmember
       if (batchMemberData) {
@@ -94,26 +86,23 @@ class App extends React.Component {
          await this.setAlphaCode("PUREJOY");
          await this.retrieveAppData();
         } else {
-          console.log(this.state);
-          console.log("PUREJOY batchMember exists, but not beekeeper data");
+          // Purejoy exists but not beekeeper data, Curretnly, do nothing
         }
         // App has successfully stored data, datastatus is true
         if (loadData) {
           await this.setState({dataStatus: true});
         }
       } else if (this.state.alphacode !== "PUREJOY") {
-        // If code was incorrect default to PUREJOY, should always exist
-        console.log("batchMemberData does not exist, attempting PUREJOY");
+        // If code was incorrect default to PUREJOY, attempts to fecth its data
         await this.setAlphaCode("PUREJOY");
         await this.retrieveAppData(); 
       } else {
-        console.log("PUREJOY data does not exist");
+        // PUREJOY data does not exist display static data
         this.setState({testFrontEnd: true});
       }
     } catch(error) {
-      console.log(error);
       if (this.state.alphacode !== "PUREJOY") {
-        console.log("ERROR THROWN during batchMemberData, attempting PUREJOY")
+        // Attempts PUREJOY in case of error
         await this.setAlphaCode("PUREJOY");
         await this.retrieveAppData();
       }
@@ -130,19 +119,16 @@ class App extends React.Component {
   async getData(code, batchMemberData) {
     // Retrieves all the required data from the backend
     const batchData = await retrieveBatch("/api/v1/batches/" + batchMemberData.batch + '/');
-    console.log("BatchData:", batchData);
     const data = await Promise.all(
       [retrieveBeekeeper("/api/v1/beekeepers/" + batchMemberData.beekeeper),
       retrieveForest("/api/v1/forests/" + batchData.forest  + '/'),
       retrieveHoney("/api/v1/honey/" + batchData.honey  + '/')]
       )
-    console.log("Data from getData at Promise.all: \n", data);
     // If data exists, store into the state of App
     if (data) {
       const beekeeperData = data[0];
       const forestData = data[1];
       const honeyData = data[2];
-      console.log(beekeeperData);
       this.setState({alphacode: code, batchMember: batchMemberData, beekeeper: beekeeperData, honey: honeyData, forest: forestData});
       return true;
     } else {
@@ -355,10 +341,11 @@ class App extends React.Component {
                 setAlphaCode={this.setAlphaCode}
                 retrieveAppData={this.retrieveAppData}
                 getDataStatus={this.getDataStatus}
+
                 /* Content passed in */
-                bk = {this.state.testFrontEnd ? {letter: Beekeeper.beekeeperLetter, translation: Beekeeper.translation} :
-                {letter: this.state.beekeeper.letter_photo, translation: this.state.beekeeper.letter_text}}
                 headerName={Beekeeper.letterHeader}
+                letter={this.state.testFrontEnd ? Beekeeper.beekeeperLetter : this.state.beekeeper.letter_photo}
+                translation={this.state.testFrontEnd ? Beekeeper.translation : this.state.beekeeper.letter_text}
               />
             )}
           />

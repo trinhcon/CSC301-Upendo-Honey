@@ -11,7 +11,6 @@ import PropTypes from "prop-types";
 function sendPageView(location) {
   ReactGA.set({page: location.pathname});
   ReactGA.pageview(location.pathname);
-  console.log("Pageview sent: ", location.pathname);
 }
 
 function GAListener({children, trackingId, history}) {

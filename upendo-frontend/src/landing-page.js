@@ -92,7 +92,6 @@ class LandingPageForm extends React.Component {
     e.preventDefault();
     try {
       const batchMemberData = await retrieveBatchMember(this.state.code);
-      console.log(batchMemberData);
       // Check if batch member exists (need to refine checking for errors)
       if (batchMemberData) {
         const loadData = await this.props.getData(this.state.code, batchMemberData);
@@ -106,7 +105,6 @@ class LandingPageForm extends React.Component {
       await this.setState({code: '', displayMessage: true});
     } catch (error) {
       await this.setState({code:'', displayMessage: true});
-      console.log(error);
     }
   }
 

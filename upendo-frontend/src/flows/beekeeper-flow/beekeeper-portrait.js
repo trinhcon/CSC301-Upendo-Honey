@@ -36,12 +36,8 @@ class BeekeeperPage extends React.Component {
   async componentDidMount() { /** If arrived through URL, fetch resources */
     const { alphaCode } = this.props.match.params;
     if ((typeof alphaCode !== undefined) && ! this.props.getDataStatus()){
-        console.log("AlphaCode is:");
-        console.log(alphaCode);
         await this.props.setAlphaCode(alphaCode);
         await this.props.retrieveAppData();
-    } else {
-        console.log('DEVLOG: URL Param Matching failed');
     }
   }
   render() {

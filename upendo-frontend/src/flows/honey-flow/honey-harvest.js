@@ -58,8 +58,6 @@ class HoneyHarvestPage extends React.Component {
     if ((typeof alphaCode !== undefined) && !this.props.getDataStatus()){
         await this.props.setAlphaCode(alphaCode);
         await this.props.retrieveAppData();
-    } else {
-        console.log('Data Already Retrieved');
     }
 }
 

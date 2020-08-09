@@ -77,8 +77,6 @@ class EnvironmentCarbonGraphPage extends React.Component {
     if ((typeof alphaCode !== undefined) && !this.props.getDataStatus()){
         await this.props.setAlphaCode(alphaCode);
         await this.props.retrieveAppData();
-    } else {
-        console.log('Data Already Retrieved');
     }
   }
 
@@ -186,7 +184,6 @@ class EnvironmentGraph extends React.Component {
     this.graph = myChart;
     for (let i = 0; i < this.graph.data.datasets.length; i++) {
       for (let j = 1; j < this.props.labels.length; j++) {
-        console.log("Removing Data");
         this.graph.data.datasets[i].data[j] = 0;
       }
     }

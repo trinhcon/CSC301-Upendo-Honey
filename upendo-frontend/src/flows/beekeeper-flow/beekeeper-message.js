@@ -41,8 +41,6 @@ class BeekeeperMessagePage extends React.Component {
         if ((typeof alphaCode !== undefined) && !this.props.getDataStatus()){
             await this.props.setAlphaCode(alphaCode);
             await this.props.retrieveAppData();
-        } else {
-            console.log('DEVLOG: URL Param Matching failed');
         }
     }
 
@@ -108,12 +106,10 @@ class MessageForm extends React.Component {
         e.preventDefault();
         emailjs.sendForm(this.state.serviceID, this.state.templateID, e.target, this.state.userID)
         .then((result) => {
-            console.log(result.text);
             if (result.text === 'OK') {
                 this.setState({message: this.props.successMessage});
             }
         }, (error) => {
-            console.log(error.text);
             this.setState({message: this.props.failureMessage})
         });
 

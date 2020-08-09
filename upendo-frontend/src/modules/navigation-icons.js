@@ -81,13 +81,11 @@ class NavIconContainer extends React.Component {
     }
 
     animateTooltip(e) {
-        this.setState({animate: true});
-        console.log("shown");
+        this.setState({animate: true}); // Shows the tootltip
     }
 
     stopAnimatingTooltip(e) {
-        this.setState({animate: false});
-        console.log("hidden");
+        this.setState({animate: false});    // hides the tooltip
     }
 
     render () {
