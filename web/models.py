@@ -21,7 +21,7 @@ class Batch(CommonModel):
         verbose_name_plural = 'batches'
 
     def __str__(self):
-        return f'Batch: Forest {self.forest.title}, Honey: {self.honey_id}'
+        return f'Batch: Forest {self.forest.title}, Honey: {self.honey.name}'
 
 
 class BatchMember(CommonModel):
