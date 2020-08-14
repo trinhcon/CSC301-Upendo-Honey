@@ -127,6 +127,7 @@
     }
 
     #background {
+        position: relative;
         top: -40px;
         left: -300px;
     }
@@ -140,16 +141,16 @@
     }
 
     #codeBoxHeader {
-        font-size: 18pt;
+        font-size:3vh;
         line-height: 5px;
     }
 
     #codeBoxHeaderSub {
-        font-size: 12pt;
+        font-size: 2.5vh;
     }
 
     #autoCode {
-        font-size: 12pt;
+        font-size: 2.3vh;
     }
     
 }
