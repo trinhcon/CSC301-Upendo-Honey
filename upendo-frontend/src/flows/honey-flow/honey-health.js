@@ -69,10 +69,7 @@ class HoneyHealthPage extends React.Component {
   async componentDidMount() {
     /** If arrived through URL, fetch resources */
     const { alphaCode } = this.props.match.params;
-    if ((typeof alphaCode !== undefined) && !this.props.getDataStatus()){
-        await this.props.setAlphaCode(alphaCode);
-        await this.props.retrieveAppData();
-    }
+    await this.props.retrieveWithUrlCode(alphaCode);
   }
 
   render() {

@@ -19,12 +19,9 @@ class MenuPage extends React.Component{
      * Mobile is laid out using a 3x3 grid
      * Desktop is laid out using CSS Grid */
 
-    async componentDidMount() {
+    async componentDidMount() { /** If Arrived through url fetch resources */
         const { alphaCode } = this.props.match.params;
-        if ((typeof alphaCode !== undefined) && ! this.props.getDataStatus()){
-            await this.props.setAlphaCode(alphaCode);
-            await this.props.retrieveAppData();
-        }
+        await this.props.retrieveWithUrlCode(alphaCode);
     }
 
     render () {

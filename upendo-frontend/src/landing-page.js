@@ -33,7 +33,7 @@ class LandingPage extends React.Component {
           getData={this.props.getData} 
           setAlphaCode={this.props.setAlphaCode}
           getAlphaCode={this.props.getAlphaCode}
-
+          
           /** Content */
           codeBoxHeader={this.props.codeBoxHeader}
           codeBoxSubHeader={this.props.codeBoxSubHeader}
@@ -62,8 +62,8 @@ class LandingPageFormBox extends React.Component {
         <h2 id="codeBoxHeader"> {this.props.codeBoxHeader} </h2>
         <p id="codeBoxHeaderSub"> {this.props.codeBoxSubHeader} </p>
         <LandingPageForm getData={this.props.getData}
-          getAlphaCode={this.props.getAlphaCode}
           setAlphaCode={this.props.setAlphaCode}
+          getAlphaCode={this.props.getAlphaCode}
           codeInputPlaceholder={this.props.codeInputPlaceholder}
           codeInputInvalid={this.props.codeInputInvalid}
         />
@@ -92,7 +92,7 @@ class LandingPageForm extends React.Component {
     e.preventDefault();
     try {
       const batchMemberData = await retrieveBatchMember(this.state.code);
-      // Check if batch member exists (need to refine checking for errors)
+      // Check if batch member exists
       if (batchMemberData) {
         const loadData = await this.props.getData(this.state.code, batchMemberData);
         if (loadData) {
@@ -104,6 +104,7 @@ class LandingPageForm extends React.Component {
       /** On Failure, print invalid code in text box */
       await this.setState({code: '', displayMessage: true});
     } catch (error) {
+      // On error currently displays invalid code.
       await this.setState({code:'', displayMessage: true});
     }
   }

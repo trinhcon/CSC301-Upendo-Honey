@@ -11,6 +11,14 @@ import Harvest2 from './images/beekeeper-walking.jpg';
 import ForestPhoto from './images/our-forest.JPG';
 import UpendoLogo from './images/upendo-logo.jpg';
 
+
+export class Notifications {
+    static incorrectCode = "Incorrect Code";
+    static error = "Unable to Retrieve Data";
+    static getDataFailure = "Unable to Retrieve Data";
+    static defaultMessage = "Defaulted to PUREJOY";
+}
+
 /**
  * This file stores hard coded content for the app and
  * provides local content for testing front-end appearance

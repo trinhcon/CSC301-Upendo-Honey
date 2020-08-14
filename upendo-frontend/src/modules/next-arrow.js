@@ -13,9 +13,9 @@ class NextArrow extends React.Component {
     /* props.nextPage determines where the page links to */
     render () {
         return (
-            <div class={"arrowContainer " + this.props.direction}>
+            <div className={"arrowContainer " + this.props.direction}>
                 <Link to={this.props.nextPage}>
-                  <img class={"arrowImg"}
+                  <img className={"arrowImg"}
                    src={this.props.direction === "left" ? Left : Right} alt="Next button"/>
                 </Link>
             </div>
