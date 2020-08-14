@@ -21,7 +21,7 @@
         align-items: center;
     }
     .environmentForestImage {
-        height: 200px;
+        height: 250px;
         width: 300px;
     }
 }
@@ -42,8 +42,8 @@
     .environmentForestImage {
         grid-area: image;
         align-self: center;
-        height: 90%;
         width: 90%;
+        height: auto;
     }
 
     .environmentForestText {
