@@ -1,6 +1,6 @@
 import React from 'react';
 import "./App.css";
-import "react-notifications/lib/notifications.css" // For the notification on every page
+import "react-notifications/lib/notifications.css"; // For the notification on every page
 
 // Imported pages for react router
 import MenuPage from "./flows/menu";
@@ -413,7 +413,6 @@ class App extends React.Component {
             getData={this.getData}
             getAlphaCode={this.getAlphaCode}
             setAlphaCode={this.setAlphaCode}
-            getAlphaCode={this.getAlphaCode}
             /** Content */
             codeBoxHeader={Landing.codeBoxHeaderText}
             codeBoxSubHeader={Landing.codeBoxSubHeaderText}

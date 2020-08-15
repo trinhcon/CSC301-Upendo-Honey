@@ -126,7 +126,7 @@ class ExtraInformationContainer extends React.Component {
             eventLabel="Company Website"
             to={this.props.retailerLink}
             target="_blank">
-            <img id="logo" src={this.props.retailerLogo} alt="Upendo Honey"/>
+            <img id="logo" src={this.props.retailerLogo} alt="Company Logo"/>
           </ReactGA.OutboundLink>
         </div>
       )

@@ -119,7 +119,7 @@ class EnvironmentCarbonGraphPage extends React.Component {
               eventLabel="Carbon"
               to={this.props.link}
               target="_blank">
-              <img alt="Foot print to find out more" src={CarbonFootprint} className="environmentIcon"/>
+              <img alt="Footprint to find out more" src={CarbonFootprint} className="environmentIcon"/>
             </ReactGA.OutboundLink>
           </div>}
         </div>

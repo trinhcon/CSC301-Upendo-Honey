@@ -105,7 +105,7 @@ class HoneyRecipe extends React.Component {
         >
           <img src={this.props.recipeIcon}
             className="recipeIcon"
-            alt="recipe icon"
+            alt="Recipe icon"
           />
         </ReactGA.OutboundLink>
         <p className="recipeDescription">

@@ -184,7 +184,7 @@ class MedalledImage extends React.Component {
   render () {
     return (
       <div className="medalledImage">
-        <img className="honeyHarvestImage" alt="Beekeeper walking across" src={this.props.imageSource}/>
+        <img className="honeyHarvestImage" alt="Beekeeper walking through Tanzanian Forest" src={this.props.imageSource}/>
         {this.props.medalled &&
           <MedalsBar medal1={this.props.medal1} medal2={this.props.medal2} />
         }

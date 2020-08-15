@@ -63,7 +63,7 @@ class TanzaniaForestPage extends React.Component {
 
           <img src={this.props.forestPhoto}
             className="forestImage"
-            alt="Forest in Tanzania"
+            alt="Forest reserve where your honey came from"
           />
           
           <ForestFact forestFactIcon={MapIcon}

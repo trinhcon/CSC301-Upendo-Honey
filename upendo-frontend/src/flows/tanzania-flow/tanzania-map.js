@@ -156,14 +156,11 @@ class TanzaniaMap extends React.Component {
     }
     return this.googleMapsPromise;
   }
-
-  /** Triggers function which imports the API and returns the Promise */
-  componentWillMount() {
+  
+  async componentDidMount() {
+    /** Prior to creating the map, load api and return promise */
     this.getGoogleMap();
-  }
-
-  /** If mounted, create the google map from the api*/
-  componentDidMount() {
+    /** If mounted, create the google map from the api*/
     this.getGoogleMap().then((google) => {
       var map = new google.maps.Map(document.getElementById("map"), this.props.mapConfig);
       
