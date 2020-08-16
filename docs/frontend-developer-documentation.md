@@ -53,7 +53,7 @@ on a commandline interface of your choice:
 
 Our Project frontend code is organized as follows:
 
-* src 
+* upendo-frontend/src 
 
   This file contains all content that is displayed on the webpage, but not all
   project metadata. It contains the `App.js/App.css` file and landing page
@@ -91,18 +91,18 @@ Our Project frontend code is organized as follows:
   * images (all image assets)
   * modules (code reused commonly among most if not all pages)
   * scripts (script assets, currently only contains kml sample file)
-* README.md
+* upendo-frontend/README.md
 
   Installation instructions, requirements and testing/deployment procedure
 
-* public
+* upendo-frontend/public
 
   Contains public files viewable by the user, currently only significant file
   is the `bee-bullet.png` as the favicon.
 
-* build (project build)
-* package.json (project data)
-* node_modules (node project files, for dependencies)
+* upendo-frontend/build (project build)
+* upendo-frontend/package.json (project data)
+* upendo-frontend/node_modules (node project files, for dependencies)
 * web (backend django integration files)
 
 ### 3.2 Content Organization
@@ -120,8 +120,7 @@ added our application code and backend django code on top of it. This means
 that standard dependencies required by react (e.g. `react-dom`) are neccessary
 to build the project. Aside from that, below are other dependencies and
 third-party software that is used in the project. Most slides contain some
-sort of unique component, third-party service or structure that can be
-read in section 3 (project dependencies).
+sort of unique component, third-party service or structure.
 
 
 
@@ -131,12 +130,12 @@ read in section 3 (project dependencies).
 `import ... from "react-router-dom";`
 
 This is a common library to use and is what handles frontend URL routing. It
-will handle and parse all URLs prefixed with `/app/:alphacode/`. The app
+will handle and parse all URLs prefixed with `/app/:alphaCode/`. The app
 simply designates that it is the application  interface part of the program
 (instead of it's APIs, or administrative interface). The base URL is also
 directed to the main landing page.
 
-The `:alphacode` corresponds to the alphanumeric code that is entered by the
+The `:alphaCode` corresponds to the alphanumeric code that is entered by the
 user. This allows the application to fetch data that matches the URL that was
 used from the backend through its REST APIs. This feature allows a link to
 our site to be embedded in a QR code. In addition, users that share a URL
@@ -161,6 +160,26 @@ the user to the REST APIs developed by the backend.
 
 ### 4.2 Google Analytics
 
+[React Google Analytics (React GA) Library](https://github.com/react-ga/react-ga)
+[React GA Discussion on React Router Page View Implementation](https://github.com/react-ga/react-ga/issues/122)
+`import ReactGA from "react-ga";`;
+
+This library was used to handle page and event tracking in the website.  Please note that
+the usage of the Google API requires a Tracking ID obtained by creating a google
+analytics account.
+
+Currently the ID can be configured between a developer and production ID
+within `App.js` which passes the ID to a module `ga-tracker.js` that initializes `ReactGA`and uses history
+to setup the page tracking in React Router (Note: the developer and production ID are located in the `content.js`
+file as static data). Unfortunately the implementation of the page
+tracking feature was not well documented, but it has been discussed extensively in
+Github issues.  The link to the implementation used is [here](https://github.com/react-ga/react-ga/issues/122#issuecomment-500497186).
+
+Event tracking is relatively straightforward and is implemented within the pages that the event
+occurs.  Once the `ReactGA` module has been initialized one can create an event with a category,
+action and label. More details can be found on the github for React GA linked above.
+The encoding for the events used in this project is located in the Business Requirement
+Document (BRD) and can be provided by owners of this project, Upendo Honey.
 
 ---
 
@@ -294,3 +313,85 @@ in specific screen sizes. Only those elements will exist in the DOM, when the
 screen is in the specified range.
 
 ---
+
+### 4.8 Tooltips
+[npm documentation](https://www.npmjs.com/package/react-tooltip)
+`import ReactTooltip from 'react-tooltip';`
+
+This library can be configured to generate tooltips on both desktop and mobile
+using the options described in the npm documentation.  This is currently implemented
+in `navigation-icons.js`.  Tooltips can be used by initializing the component
+`<ReactTooltip></ReactTooltip>` anywhere in the file and will be positioned
+depending on the component it acts as a tooltip for.
+
+When applying a tooltip to a component add the attribute `data-tip` and `data-for=<Tooltip name>`
+on the component, and match it with `id=<Tooltip name>` on the React tooltip component. Note that
+the `data-` prefix indicates only applying the feature to the specific component's tooltip, and
+not for all the tooltips on the page.  This is particularly useful when configuring a specific tooltip's
+behaviour and styling.
+
+In terms of styling, content can be added inside of the tooltip component and styled as
+normal elements in React with css.  To style the tooltip component itself, specify a classname
+on the React module.
+
+---
+
+### 4.9 Notifications
+[npm documentation](https://www.npmjs.com/package/react-notifications)
+`import {NotificationContainer, NotificationManager} from 'react-notifications';`
+`import "react-notifications/lib/notifications.css"; `
+
+This provides a pre-styled notification that can be configured with a message, style, time
+and callback function.  `NotificationContainer` is the element that has the notification in it,
+and in our application is located separately from the `NotificationManager`.  According to documentation
+there should only be one `NotificationContainer` in the entire application (ours is located in `App.js`)
+furthermore in order to include the styling the CSS import above must be included in the same file.
+
+`NotificationManager` allows you to generate different types of notifications as well as specify
+the interactivity, the usage is straightforward and more information can be found in the documentation.
+In our application, the configuration is done in `notification.js` in our modules folder.
+
+---
+
+### 4.10 React Icons
+
+[npm documentation](https://www.npmjs.com/package/react-icons)
+`import { <Icon Name> } from 'react-icons/<Icon Library>';`
+
+Provides access to a variety of common icons, only used in this project to provide the
+pointer hand for swiping instructions in `navigation-icons.js`.  Please see the documentation for the list
+of available icons.  The `<Icon Name>` can be used as a normal React Component, just remember
+to important directly from the icon library rather than `react-icons` to prevent
+downloading the entire package.
+
+---
+
+## 5. Potential Improvements
+
+This section will detail some code improvements that the development team has
+considered but has not had time to implement.  Additional features considered that developers
+and the company considered will not be listed here, but are instead detailed in the BRD which
+can be obtained from the owners of this project.
+
+### 5.1 BulletPoint Standardization
+
+Currently the bullet points in the environment flow are implemented using `bullet-points.js` in
+the modules folder. This was done in order to allow for a variable number of bullet points.
+However, prior to this, bullet points in the honey health page (`honey-health.js`) were implemented
+directly within the page.  A potential improvement to the consistency would be to change the
+implementation of bullets in `honey-health.js` to include the module created for the environment flow.
+
+### 5.2 Google Maps Loading
+
+This is a small inconsistency located on the `tanzania-map.js` page in which when accessed directly
+through a url, the kml file of the reserve is not loaded in to the map.  Navigating to the page
+once the data has been retrieved earlier does not seem to have this problem. This may have to
+do with the organization of the `componentDidMount()` methods each of the React components on
+this page but more can be done to investigate the cause of this issue.
+
+### 5.3 Landing Page Error Handling
+
+Rather than handle errors in `landing-page.js` by displaying INVALID CODE, it may be better to
+use a notification or some other method of communicating a database retrieval error.  Currently,
+all caught errors and invalid code entries (resulting in failed retrieval) will result in the same
+response from the landing page form component.
