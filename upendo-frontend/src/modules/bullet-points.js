@@ -4,8 +4,8 @@ import "./bullet-points.css";
 class BulletPoints extends React.Component {
 
     createBullets(points, style) {
-        let items = points.map((point) => (
-            <li className={style}>{point}</li>
+        let items = points.map((point, index) => (
+            <li className={style} key={index}>{point}</li>
         ));
         return items;
     }
