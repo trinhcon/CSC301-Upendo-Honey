@@ -121,7 +121,7 @@ class App extends React.Component {
         ReactGA.event({
           category: "Defaulting",
           action: "Entered incorrect code in URL",
-          label: "Incorrect Code: " + this.getAlphaCode()
+          label: this.getAlphaCode()
         });
         //Attempts to fetch its data
         await this.setAlphaCode("PUREJOY");
